@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<title>En-boarding · Book a Session</title>
+<style>
+/* Same CSS as other pages (sidebar, header, etc.) */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: #545454;
+  margin-left: 80px;
+  line-height: 1.6;
+  background: #fff;
+}
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 80px;
+  height: 100vh;
+  background: #333333;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 0;
+  z-index: 10;
+}
+.logo {
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+.logo span {
+  width: 18px;
+  height: 2px;
+  background: #333;
+}
+.socials {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.socials a {
+  line-height: 0;
+}
+.socials img {
+  width: 20px;
+  filter: invert(1);
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+.socials img:hover {
+  opacity: 1;
+}
+.menu {
+  position: fixed;
+  left: -260px;
+  top: 0;
+  width: 260px;
+  height: 100vh;
+  background: #f5f5f5;
+  transition: 0.3s;
+  z-index: 9;
+}
+.menu.active {
+  left: 80px;
+}
+.menu a {
+  display: block;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+  text-decoration: none;
+  color: #333;
+  font-family: 'Archivo';
+}
+header {
+  padding: 20px 5% 20px 10%;
+  display: flex;
+  justify-content: flex-end;
+}
+.btn {
+  background: #333333;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s;
+}
+.btn:hover {
+  background: #555;
+}
+.booking-container {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+.booking-container h1 {
+  font-family: 'Archivo';
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+.booking-container .subhead {
+  color: #666;
+  margin-bottom: 30px;
+}
+.form-group {
+  margin-bottom: 25px;
+}
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #333;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+.checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 20px 0;
+}
+.checkbox-group input {
+  width: auto;
+  margin-top: 3px;
+}
+.checkbox-group label {
+  font-weight: normal;
+  font-size: 0.9rem;
+  color: #666;
+}
+.form-actions {
+  margin-top: 30px;
+}
+.form-actions button {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.form-actions button:hover {
+  background: #555;
+}
+.back-link {
+  display: inline-block;
+  margin: 30px 0;
+  color: #333;
+  text-decoration: none;
+  border-bottom: 1px solid #ccc;
+}
+.back-link:hover {
+  border-bottom-color: #333;
+}
+footer {
+  background: #f7f7f7;
+  margin-top: 80px;
+}
+.footer-content {
+  max-width: 1100px;
+  margin: auto;
+  padding: 60px 10%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.footer-bottom {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #eee;
+}
+@media (max-width:700px){
+  body { margin-left: 0; }
+  .sidebar { width: 60px; }
+  .menu.active { left: 60px; }
+}
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="logo" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+  </div>
+  <div class="socials">
+    <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn"></a>
+    <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
+    <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/spotify.svg" alt="Spotify"></a>
+  </div>
+</div>
+
+<div class="menu" id="menu">
+  <a href="index.html#concept">Home</a>
+  <a href="index.html#problem">Problem</a>
+  <a href="index.html#process">Process</a>
+  <a href="index.html#services">Services</a>
+  <a href="index.html#meetup">Meetup</a>
+  <a href="blog.html">Blog</a>
+  <a href="index.html#about">About</a>
+</div>
+
+<header>
+  <a class="btn" href="booking.html">Get clarity on your idea</a>
+</header>
+
+<main class="booking-container">
+  <a href="index.html" class="back-link">← Back to home</a>
+  <h1>Book a session</h1>
+  <div class="subhead">Choose your service and we'll get back to you within 24h to confirm your slot.</div>
+
+  <form id="bookingForm" action="#" method="POST">
+    <div class="form-group">
+      <label for="name">Full name *</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email address *</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+      <label for="service">Service *</label>
+      <select id="service" name="service" required>
+        <option value="discovery">Discovery Session – €99</option>
+        <option value="idea">Idea Structuring – €179</option>
+        <option value="project">Project Structuring – €599</option>
+        <option value="strategy">Strategy – €1599</option>
+        <option value="meetup">Free Wednesday Meetup</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="message">Tell us about your idea (optional)</label>
+      <textarea id="message" name="message" placeholder="What's your current challenge? We'll use this to prepare for your session."></textarea>
+    </div>
+    <div class="checkbox-group">
+      <input type="checkbox" id="consent" name="consent" required>
+      <label for="consent">I agree to the <a href="privacy.html" target="_blank">Privacy Policy</a> and consent to being contacted regarding this booking.*</label>
+    </div>
+    <div class="form-actions">
+      <button type="submit">Request booking →</button>
+    </div>
+  </form>
+  <p style="font-size:0.8rem; color:#888; margin-top:20px;">* Required fields. After submitting, you'll receive a confirmation email with payment details and a link to schedule your session.</p>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <div>
+      <h3>En-boarding</h3>
+      <p>Onboarding for entrepreneurs.</p>
+      <p style="font-size:0.9rem;">Berlin, Germany</p>
+    </div>
+    <div>
+      <p><strong>Email</strong></p>
+      <p>hello@enboarding.com</p>
+      <p style="margin-top:10px;">
+        <a href="impressum.html" style="color:#333; text-decoration:underline;">Impressum</a> | 
+        <a href="terms.html" style="color:#333; text-decoration:underline;">Terms</a> | 
+        <a href="privacy.html" style="color:#333; text-decoration:underline;">Privacy</a>
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 En-boarding. All rights reserved.</p>
+  </div>
+</footer>
+
+<div id="cookieConsent" style="position:fixed; bottom:0; left:0; right:0; background:#333; color:#fff; padding:15px; text-align:center; z-index:1000; display:none;">
+  <p style="margin:0;">We use cookies to enhance your experience. By continuing, you agree to our <a href="privacy.html" style="color:#fff; text-decoration:underline;">Privacy Policy</a>. <button id="acceptCookies" style="background:#fff; color:#333; border:none; padding:5px 15px; margin-left:10px; border-radius:20px;">Accept</button></p>
+</div>
+
+<script>
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("active");
+}
+// Cookie consent
+if(!localStorage.getItem('cookieConsent')) document.getElementById('cookieConsent').style.display = 'block';
+document.getElementById('acceptCookies').addEventListener('click', function(){
+  localStorage.setItem('cookieConsent', 'true');
+  document.getElementById('cookieConsent').style.display = 'none';
+});
+
+// Pre-select service from URL parameter (e.g., ?service=idea)
+const urlParams = new URLSearchParams(window.location.search);
+const serviceParam = urlParams.get('service');
+if (serviceParam) {
+  const serviceSelect = document.getElementById('service');
+  const optionMap = {
+    'discovery': 'discovery',
+    'idea': 'idea',
+    'project': 'project',
+    'strategy': 'strategy',
+    'meetup': 'meetup'
+  };
+  if (optionMap[serviceParam]) {
+    serviceSelect.value = optionMap[serviceParam];
+  }
+}
+
+// Handle form submission (simulate email capture)
+document.getElementById('bookingForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  // In production, send data to a backend or use a service like Formspree.
+  // For now, simulate a success message and clear form.
+  const formData = new FormData(this);
+  const data = Object.fromEntries(formData.entries());
+  console.log('Booking request:', data);
+  
+  // Show a success message
+  alert('Thank you! We’ll email you within 24h to confirm your session.');
+  this.reset();
+});
+</script>
+
+</body>
+</html>

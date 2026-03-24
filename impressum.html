@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<title>En-boarding · Impressum</title>
+<style>
+/* Same CSS as other pages (sidebar, header, etc.) */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: #545454;
+  margin-left: 80px;
+  line-height: 1.6;
+  background: #fff;
+}
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 80px;
+  height: 100vh;
+  background: #333333;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 0;
+  z-index: 10;
+}
+.logo {
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+.logo span {
+  width: 18px;
+  height: 2px;
+  background: #333;
+}
+.socials {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.socials a {
+  line-height: 0;
+}
+.socials img {
+  width: 20px;
+  filter: invert(1);
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+.socials img:hover {
+  opacity: 1;
+}
+.menu {
+  position: fixed;
+  left: -260px;
+  top: 0;
+  width: 260px;
+  height: 100vh;
+  background: #f5f5f5;
+  transition: 0.3s;
+  z-index: 9;
+}
+.menu.active {
+  left: 80px;
+}
+.menu a {
+  display: block;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+  text-decoration: none;
+  color: #333;
+  font-family: 'Archivo';
+}
+header {
+  padding: 20px 5% 20px 10%;
+  display: flex;
+  justify-content: flex-end;
+}
+.btn {
+  background: #333333;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s;
+}
+.btn:hover {
+  background: #555;
+}
+.legal-container {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+.legal-container h1 {
+  font-family: 'Archivo';
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+.legal-container h2 {
+  font-family: 'Archivo';
+  font-size: 1.5rem;
+  color: #333;
+  margin: 30px 0 15px;
+}
+.legal-container p, .legal-container address {
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+.back-link {
+  display: inline-block;
+  margin: 30px 0;
+  color: #333;
+  text-decoration: none;
+  border-bottom: 1px solid #ccc;
+}
+.back-link:hover {
+  border-bottom-color: #333;
+}
+footer {
+  background: #f7f7f7;
+  margin-top: 80px;
+}
+.footer-content {
+  max-width: 1100px;
+  margin: auto;
+  padding: 60px 10%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.footer-bottom {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #eee;
+}
+@media (max-width:700px){
+  body { margin-left: 0; }
+  .sidebar { width: 60px; }
+  .menu.active { left: 60px; }
+}
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="logo" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+  </div>
+  <div class="socials">
+    <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn"></a>
+    <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
+    <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/spotify.svg" alt="Spotify"></a>
+  </div>
+</div>
+
+<div class="menu" id="menu">
+  <a href="index.html#concept">Home</a>
+  <a href="index.html#problem">Problem</a>
+  <a href="index.html#process">Process</a>
+  <a href="index.html#services">Services</a>
+  <a href="index.html#meetup">Meetup</a>
+  <a href="blog.html">Blog</a>
+  <a href="index.html#about">About</a>
+</div>
+
+<header>
+  <a class="btn" href="booking.html">Get clarity on your idea</a>
+</header>
+
+<main class="legal-container">
+  <a href="index.html" class="back-link">← Back to home</a>
+  <h1>Impressum</h1>
+  <p><strong>Angaben gemäß § 5 TMG</strong></p>
+  <address>
+    En-boarding<br>
+    Maximilian Weber<br>
+    Musterstraße 123<br>
+    10115 Berlin<br>
+    Deutschland
+  </address>
+  <p><strong>Kontakt</strong><br>
+    Telefon: +49 (0) 30 12345678<br>
+    E-Mail: hello@enboarding.com
+  </p>
+  <p><strong>Umsatzsteuer-ID</strong><br>
+    Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: DE123456789
+  </p>
+  <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</strong><br>
+    Maximilian Weber<br>
+    Musterstraße 123<br>
+    10115 Berlin
+  </p>
+  <p><strong>EU-Streitschlichtung</strong><br>
+    Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>.<br>
+    Unsere E-Mail-Adresse finden Sie oben im Impressum.
+  </p>
+  <p><strong>Verbraucherstreitbeilegung/Universalschlichtungsstelle</strong><br>
+    Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+  </p>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <div>
+      <h3>En-boarding</h3>
+      <p>Onboarding for entrepreneurs.</p>
+      <p style="font-size:0.9rem;">Berlin, Germany</p>
+    </div>
+    <div>
+      <p><strong>Email</strong></p>
+      <p>hello@enboarding.com</p>
+      <p style="margin-top:10px;">
+        <a href="impressum.html" style="color:#333; text-decoration:underline;">Impressum</a> | 
+        <a href="terms.html" style="color:#333; text-decoration:underline;">Terms</a> | 
+        <a href="privacy.html" style="color:#333; text-decoration:underline;">Privacy</a>
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 En-boarding. All rights reserved.</p>
+  </div>
+</footer>
+
+<div id="cookieConsent" style="position:fixed; bottom:0; left:0; right:0; background:#333; color:#fff; padding:15px; text-align:center; z-index:1000; display:none;">
+  <p style="margin:0;">We use cookies to enhance your experience. By continuing, you agree to our <a href="privacy.html" style="color:#fff; text-decoration:underline;">Privacy Policy</a>. <button id="acceptCookies" style="background:#fff; color:#333; border:none; padding:5px 15px; margin-left:10px; border-radius:20px;">Accept</button></p>
+</div>
+
+<script>
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("active");
+}
+if(!localStorage.getItem('cookieConsent')) document.getElementById('cookieConsent').style.display = 'block';
+document.getElementById('acceptCookies').addEventListener('click', function(){
+  localStorage.setItem('cookieConsent', 'true');
+  document.getElementById('cookieConsent').style.display = 'none';
+});
+</script>
+
+</body>
+</html>

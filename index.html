@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<title>En-boarding</title>
+<style>
+/* CSS unchanged – same as previous final version */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: #545454;
+  margin-left: 80px;
+  line-height: 1.6;
+  background: #fff;
+}
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 80px;
+  height: 100vh;
+  background: #333333;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 0;
+  z-index: 10;
+}
+.logo {
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+.logo span {
+  width: 18px;
+  height: 2px;
+  background: #333;
+}
+.socials {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.socials a {
+  line-height: 0;
+}
+.socials img {
+  width: 20px;
+  filter: invert(1);
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+.socials img:hover {
+  opacity: 1;
+}
+.menu {
+  position: fixed;
+  left: -260px;
+  top: 0;
+  width: 260px;
+  height: 100vh;
+  background: #f5f5f5;
+  transition: 0.3s;
+  z-index: 9;
+}
+.menu.active {
+  left: 80px;
+}
+.menu a {
+  display: block;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+  text-decoration: none;
+  color: #333;
+  font-family: 'Archivo';
+}
+header {
+  padding: 20px 5% 20px 10%;
+  display: flex;
+  justify-content: flex-end;
+}
+.btn {
+  background: #333333;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s;
+}
+.btn:hover {
+  background: #555;
+}
+.btn-small {
+  background: #333333;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 30px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.9rem;
+  margin-top: 15px;
+  transition: background 0.2s;
+}
+.btn-small:hover {
+  background: #555;
+}
+section {
+  padding: 80px 10%;
+  max-width: 1100px;
+  margin: auto;
+}
+section + section {
+  border-top: 1px solid #eee;
+}
+h1, h2, h3 {
+  font-family: 'Archivo';
+  color: #333333;
+}
+.hero-split {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.hero-split > div {
+  flex: 1;
+  min-width: 280px;
+}
+.comparison-card {
+  background: #f9f9f9;
+  border-radius: 20px;
+  padding: 30px 20px;
+  text-align: center;
+  flex: 1;
+}
+.comparison-card h3 {
+  margin: 10px 0;
+}
+.comparison-card ul {
+  text-align: left;
+  list-style-type: none;
+  padding: 0;
+}
+.comparison-card li {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.image-placeholder-small {
+  width: 60px;
+  height: 60px;
+  background: #eee;
+  border: 2px dashed #aaa;
+  border-radius: 12px;
+  margin: 0 auto 15px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 0.8rem;
+}
+.pain-headline {
+  color: #888;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+}
+.problem-grid {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+.problem-item {
+  text-align: center;
+  max-width: 200px;
+}
+.problem-item .image-placeholder-small {
+  margin-bottom: 15px;
+}
+.process-stages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  margin: 60px 0 40px;
+}
+.stage {
+  background: #f9f9f9;
+  border-radius: 20px;
+  padding: 25px 20px;
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.stage-top {
+  margin-top: 0;
+}
+.stage-bottom {
+  margin-top: 40px;
+}
+.icon-circle {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #333;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+.stage-bottom .icon-circle {
+  margin-top: 15px;
+  margin-bottom: 0;
+  order: 2;
+}
+.stage h3 {
+  font-size: 1.2rem;
+  margin: 0 0 15px;
+  color: #333;
+}
+.stage ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+}
+.stage li {
+  margin-bottom: 8px;
+}
+.stage-bottom {
+  display: flex;
+  flex-direction: column;
+}
+.stage-bottom h3 {
+  order: 1;
+}
+.stage-bottom ul {
+  order: 2;
+}
+.stage-bottom .icon-circle {
+  order: 3;
+}
+@media (max-width: 900px) {
+  .process-stages {
+    gap: 20px;
+  }
+  .stage {
+    width: 160px;
+  }
+}
+@media (max-width: 700px) {
+  .process-stages {
+    flex-direction: column;
+    align-items: center;
+  }
+  .stage {
+    width: 280px;
+    margin-top: 0 !important;
+  }
+  .stage-bottom {
+    margin-top: 0;
+  }
+  .stage-bottom .icon-circle {
+    order: 0;
+  }
+}
+.transform-grid {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin: 40px 0;
+}
+.transform-col {
+  flex: 1;
+  min-width: 250px;
+  background: #f9f9f9;
+  padding: 30px;
+  border-radius: 20px;
+}
+.transform-col.before {
+  border: 1px solid #eee;
+}
+.transform-col.after {
+  background: #333;
+  color: white;
+}
+.transform-col.after h3 {
+  color: white;
+}
+.transform-col ul {
+  list-style: none;
+  padding: 0;
+}
+.transform-col li {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.testimonial {
+  background: #f9f9f9;
+  border-radius: 20px;
+  padding: 40px;
+  margin: 40px 0;
+  font-style: italic;
+  position: relative;
+}
+.testimonial::before {
+  content: "“";
+  font-size: 4rem;
+  color: #ccc;
+  position: absolute;
+  top: -10px;
+  left: 20px;
+}
+.testimonial p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+.testimonial-author {
+  font-weight: 600;
+  color: #333;
+}
+.testimonial-role {
+  color: #888;
+  font-size: 0.9rem;
+}
+.pricing {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 30px;
+}
+.price-card {
+  border: 1px solid #eee;
+  border-radius: 20px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.price-card .purpose {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #888;
+  margin-bottom: 5px;
+}
+.price-card h3 {
+  margin: 5px 0 15px;
+}
+.price-card ul {
+  padding-left: 18px;
+  flex-grow: 1;
+}
+.popular {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: #333;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.scarcity-badge {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: #d9534f;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.price-strikethrough {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 0.9rem;
+  margin-right: 5px;
+}
+.pilot-price {
+  font-weight: 600;
+  color: #2c7a4d;
+}
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 40px;
+}
+.faq-item {
+  background: #f9f9f9;
+  border-radius: 20px;
+  padding: 25px;
+}
+.faq-item h4 {
+  margin: 0 0 10px;
+  color: #333;
+}
+.faq-item p {
+  margin: 0;
+  color: #666;
+}
+.blog-post {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+}
+.blog-meta {
+  font-size: 0.9rem;
+  color: #888;
+  margin: 5px 0 10px;
+}
+.read-more {
+  color: #333;
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid #ccc;
+}
+.read-more:hover {
+  border-bottom-color: #333;
+}
+.meetup-card {
+  background: #f9f9f9;
+  border-radius: 20px;
+  padding: 30px;
+}
+.meetup-details {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+.meetup-detail {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+footer {
+  background: #f7f7f7;
+}
+.footer-content {
+  max-width: 1100px;
+  margin: auto;
+  padding: 60px 10%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.footer-bottom {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #eee;
+}
+@media (max-width:700px){
+  body { margin-left: 0; }
+  .sidebar { width: 60px; }
+  .menu.active { left: 60px; }
+  .faq-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="logo" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+  </div>
+  <div class="socials">
+    <a href="https://www.linkedin.com/in/bouchra-d-35462b197/" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn"></a>
+    <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
+    <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/spotify.svg" alt="Spotify"></a>
+  </div>
+</div>
+
+<div class="menu" id="menu">
+  <a href="#concept">Home</a>
+  <a href="#problem">Problem</a>
+  <a href="#diagnostic">Diagnostic</a>
+  <a href="#process">Process</a>
+  <a href="#services">Services</a>
+  <a href="#webinar">Webinar</a>
+  <a href="blog.html">Blog</a>
+  <a href="#about">About</a>
+</div>
+
+<header>
+  <a class="btn" href="apply.html">Join Waitlist →</a>
+</header>
+
+<!-- HERO SECTION -->
+<section id="concept">
+  <div class="hero-split">
+    <div>
+      <p class="pain-headline">You have an idea but no clear next step</p>
+      <h1 style="font-size: 2.8rem; line-height: 1.2;">Stop Onboarding.<br>Start En‑boarding.</h1>
+      <p style="font-size: 1.2rem; color: #666;">Employees get structure. Founders get chaos. En‑boarding gives you the same head start — but for your startup.</p>
+      <a href="apply.html" class="btn" style="margin-top: 20px;">Join Waitlist →</a>
+    </div>
+    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+      <div class="comparison-card">
+        <div class="image-placeholder-small" style="font-size: 2rem; border: none; background: transparent;">🧑‍💻</div>
+        <h3>Traditional founder</h3>
+        <ul>
+          <li>❌ No roadmap</li>
+          <li>❌ Unclear next steps</li>
+          <li>❌ Isolated</li>
+        </ul>
+      </div>
+      <div class="comparison-card">
+        <div class="image-placeholder-small" style="font-size: 2rem; border: none; background: transparent;">🚀</div>
+        <h3>En‑boarded founder</h3>
+        <ul>
+          <li>✅ Clear 5‑step process</li>
+          <li>✅ Actionable tasks</li>
+          <li>✅ Weekly peer support</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM SECTION -->
+<section id="problem">
+  <h2>The founder’s reality</h2>
+  <div class="problem-grid">
+    <div class="problem-item">
+      <div class="image-placeholder-small" style="font-size: 2rem; border: none; background: transparent;">📋</div>
+      <h3>No structure</h3>
+      <p>You piece together advice from blogs, podcasts, and mentors.</p>
+    </div>
+    <div class="problem-item">
+      <div class="image-placeholder-small" style="font-size: 2rem; border: none; background: transparent;">🌀</div>
+      <h3>Overwhelm</h3>
+      <p>Everything is urgent – strategy, marketing, product, sales.</p>
+    </div>
+    <div class="problem-item">
+      <div class="image-placeholder-small" style="font-size: 2rem; border: none; background: transparent;">💔</div>
+      <h3>Loneliness</h3>
+      <p>No team, no sounding board, no one to celebrate small wins.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DIAGNOSTIC SECTION -->
+<section id="diagnostic">
+  <div style="background: #f9f9f9; border-radius: 20px; padding: 40px; text-align: center;">
+    <span style="background: #333; color: white; padding: 4px 12px; border-radius: 30px; font-size: 0.8rem; display: inline-block; margin-bottom: 15px;">Free Tool</span>
+    <h2 style="font-family: 'Archivo'; font-size: 1.8rem; margin-bottom: 15px;">Find Your Structure Gap</h2>
+    <p style="font-size: 1.1rem; margin-bottom: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">
+      Answer 8 quick questions and get a personalized recommendation on which En‑boarding stage fits your current situation.
+    </p>
+    <a href="diagnostic.html" class="btn" style="margin-top: 10px;">Take the Diagnostic →</a>
+  </div>
+</section>
+
+<!-- PROCESS SECTION -->
+<section id="process">
+  <h2>What happens when you start En‑boarding</h2>
+  <div class="process-stages">
+    <div class="stage stage-top">
+      <div class="icon-circle">💡</div>
+      <h3>Idea</h3>
+      <ul><li>Unclear direction</li><li>Too many ideas</li><li>No structure</li><li>Feeling stuck</li></ul>
+    </div>
+    <div class="stage stage-bottom">
+      <h3>Clarity</h3>
+      <ul><li>Define the problem</li><li>Understand the user</li><li>Focus on what matters</li></ul>
+      <div class="icon-circle">🔍</div>
+    </div>
+    <div class="stage stage-top">
+      <div class="icon-circle">🧩</div>
+      <h3>Structure</h3>
+      <ul><li>Clear concept</li><li>Value proposition</li><li>Simple explanation</li></ul>
+    </div>
+    <div class="stage stage-bottom">
+      <h3>Action</h3>
+      <ul><li>Next steps defined</li><li>Priorities set</li><li>Start execution</li></ul>
+      <div class="icon-circle">⚙️</div>
+    </div>
+    <div class="stage stage-top">
+      <div class="icon-circle">🚀</div>
+      <h3>Project</h3>
+      <ul><li>Structured workflow</li><li>Clear roadmap</li><li>Ready to grow</li></ul>
+    </div>
+  </div>
+  <div style="text-align: center; margin-top: 40px;">
+    <a href="apply.html" class="btn" style="font-size: 1.2rem; padding: 16px 36px;">Apply for Free Pilot →</a>
+    <p style="color: #888; margin-top: 10px;">Get a free 30‑minute strategy audit as part of our pilot phase.</p>
+  </div>
+</section>
+
+<!-- BEFORE/AFTER -->
+<section>
+  <h2>Before and after En‑boarding</h2>
+  <div class="transform-grid">
+    <div class="transform-col before">
+      <h3>Before</h3>
+      <ul><li>❌ I have an idea but no clarity</li><li>❌ I don't know where to start</li><li>❌ Everything feels messy</li></ul>
+    </div>
+    <div class="transform-col after">
+      <h3>After</h3>
+      <ul><li>✅ Clear business structure</li><li>✅ Defined next steps</li><li>✅ Confidence to move forward</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<div style="max-width:1100px; margin:auto; padding:0 10%;">
+  <div class="testimonial">
+    <p>"En‑boarding turned my vague EdTech idea into a concrete roadmap. In 4 weeks I had my first pilot customer and a clear funding plan."</p>
+    <div class="testimonial-author">— Anna Kowalski</div>
+    <div class="testimonial-role">Founder of Learnly, ex-Google PM</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <h2>The Mandatory Path</h2>
+  <div class="pricing">
+    <div class="price-card">
+      <div class="purpose">Eliminate the Overthinking Tax</div>
+      <h3>Clarity Sprint</h3>
+      <p><span class="price-strikethrough">€99</span> <span class="pilot-price">Pilot Phase – free</span></p>
+      <ul>
+        <li>30‑min diagnostic audit</li>
+        <li>3‑step immediate action plan</li>
+        <li><strong>Outcome:</strong> End of circular ideation – save 20+ hours/month</li>
+      </ul>
+      <a href="apply.html" class="btn-small">Apply for Free Pilot →</a>
+    </div>
+    <div class="price-card">
+      <div class="purpose">From vague concept to validated offer</div>
+      <h3>Concept to Offer</h3>
+      <p><span class="price-strikethrough">€179</span> <span class="pilot-price">Pilot Phase – free</span></p>
+      <ul>
+        <li>Value Proposition Canvas</li>
+        <li>Customer Avatar</li>
+        <li><strong>List of 10 potential early customers</strong></li>
+      </ul>
+      <a href="apply.html" class="btn-small">Apply for Free Pilot →</a>
+    </div>
+    <div class="price-card">
+      <div class="purpose">From solo chaos to controlled execution</div>
+      <span class="scarcity-badge">2 slots remaining</span>
+      <h3>Execution System</h3>
+      <p><span class="price-strikethrough">€599</span> <span class="pilot-price">Pilot Phase – free</span></p>
+      <ul>
+        <li>Custom 6‑week roadmap</li>
+        <li>Professional project board (Notion/Trello) with prioritized tasks</li>
+        <li><strong>Outcome:</strong> You no longer “find” time – you manage a system</li>
+      </ul>
+      <a href="apply.html" class="btn-small">Apply for Free Pilot →</a>
+    </div>
+    <div class="price-card">
+      <div class="purpose">Investor readiness & fractional COO support</div>
+      <h3>Growth Engine</h3>
+      <p><span class="price-strikethrough">€1599</span> <span class="pilot-price">Pilot Phase – free</span></p>
+      <ul>
+        <li><strong>40‑page strategy playbook</strong> tailored to your business</li>
+        <li>Go‑to‑market plan, KPI dashboard, investor pitch deck review</li>
+        <li><strong>Timeline:</strong> 2 weeks diagnostics → custom strategy deck → bi‑weekly calls for 3 months</li>
+      </ul>
+      <a href="apply.html" class="btn-small">Apply for Free Pilot →</a>
+    </div>
+  </div>
+  <p style="text-align: center; font-size: 0.8rem; color: #888; margin-top: 20px;"><em>Market research pricing shown for future commercial offering. Pilot participants receive all services free in exchange for feedback.</em></p>
+</section>
+
+<!-- FAQ -->
+<section>
+  <h2>Frequently asked questions</h2>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <h4>How is this different from coaching?</h4>
+      <p>Coaching is open‑ended and exploratory. En‑boarding is a structured, milestone‑driven process with concrete deliverables. You get a roadmap, not just motivation. Think of it as an onboarding program for your startup.</p>
+    </div>
+    <div class="faq-item">
+      <h4>What if I'm not ready to pay?</h4>
+      <p>Join the free weekly meetup first – it's a low‑pressure way to see if it's for you. Or apply for the free pilot.</p>
+    </div>
+    <div class="faq-item">
+      <h4>How long does it take?</h4>
+      <p>Each session is 90 minutes. The full process can be completed in 2‑4 weeks, but you go at your own pace.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Do I need a team?</h4>
+      <p>No, this is designed for solo founders and early‑stage entrepreneurs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WEBINAR SECTION -->
+<section id="webinar">
+  <h2>Next Event: Founder Webinar</h2>
+  <div class="meetup-card">
+    <p style="font-size: 1.1rem;">Join us for a free 90‑minute webinar: <strong>"From Idea to Action: How to Break Your Founder’s Paralysis"</strong></p>
+    <div class="meetup-details">
+      <div class="meetup-detail">
+        <span style="font-size:1.2rem;">📅</span>
+        <span>July 5, 2026 · 18:00 CET</span>
+      </div>
+      <div class="meetup-detail">
+        <span style="font-size:1.2rem;">🎥</span>
+        <span>Online (Zoom)</span>
+      </div>
+    </div>
+    <a href="apply.html" class="btn">Register for Free →</a>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <h2>Blog</h2>
+  <div class="blog-post">
+    <h3>Why founders stay stuck (and how to get unstuck)</h3>
+    <div class="blog-meta">📅 March 10, 2026 · 4 min read</div>
+    <p>Without a clear process, even brilliant ideas stall. Learn the three most common traps and how en‑boarding helps you avoid them.</p>
+    <a href="blog.html" class="read-more">Read more →</a>
+  </div>
+  <div class="blog-post">
+    <h3>Idea vs. Business: the structure gap</h3>
+    <div class="blog-meta">📅 March 3, 2026 · 3 min read</div>
+    <p>An idea is a starting point; a business is a system. Discover the key elements that turn a concept into a venture.</p>
+    <a href="blog.html" class="read-more">Read more →</a>
+  </div>
+</section>
+
+<!-- ABOUT (your version) -->
+<section id="about">
+  <h2>About</h2>
+  <div style="display: flex; gap: 30px; flex-wrap: wrap; align-items: center;">
+    <div style="flex: 1;">
+      <p><strong>Bouchra Driouach</strong> – Founder & Strategy Consultant</p>
+      <p>Master’s Degree in Entrepreneurship and Project Management (ZAB recognized). With several years of international experience in marketing, business development, and partner management (including MOBOTIX AG and DD Holding), I specialize in bridging the “Structure Gap” for early-stage founders.</p>
+      <p>En-boarding was born from the need to give founders the same head start that employees get in a company — a structured onboarding for your startup journey.</p>
+    </div>
+    <div style="flex: 0 0 100px; text-align: center;">
+      <img 
+        src="your-image.jpg" 
+        alt="Bouchra Driouach"
+        style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;"
+      >
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER (simplified) -->
+<footer>
+  <div class="footer-content">
+    <div>
+      <h3>En-boarding</h3>
+      <p>Onboarding for entrepreneurs.</p>
+      <p style="font-size:0.9rem;">Berlin, Germany</p>
+    </div>
+    <div>
+      <p><strong>Email</strong></p>
+      <p>bouchra.emp@gmail.com</p>
+      <p style="margin-top:10px;">
+        <a href="impressum.html" style="color:#333; text-decoration:underline;">Impressum</a> | 
+        <a href="terms.html" style="color:#333; text-decoration:underline;">Terms</a> | 
+        <a href="privacy.html" style="color:#333; text-decoration:underline;">Privacy</a>
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 En-boarding. All rights reserved.</p>
+    <p style="font-size:0.8rem; margin-top:10px;">This is a market research project. No commercial services are currently offered.</p>
+  </div>
+</footer>
+
+<!-- COOKIE CONSENT (light background) -->
+<div id="cookieConsent" style="position:fixed; bottom:0; left:0; right:0; background:#f0f0f0; color:#333; padding:15px; text-align:center; z-index:1000; display:none; border-top:1px solid #ddd;">
+  <p style="margin:0;">We use cookies to enhance your experience. By continuing, you agree to our <a href="privacy.html" style="color:#333; text-decoration:underline;">Privacy Policy</a>. <button id="acceptCookies" style="background:#333; color:#fff; border:none; padding:5px 15px; margin-left:10px; border-radius:20px; cursor:pointer;">Accept</button></p>
+</div>
+
+<script>
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("active");
+}
+if(!localStorage.getItem('cookieConsent')) document.getElementById('cookieConsent').style.display = 'block';
+document.getElementById('acceptCookies').addEventListener('click', function(){
+  localStorage.setItem('cookieConsent', 'true');
+  document.getElementById('cookieConsent').style.display = 'none';
+});
+</script>
+
+</body>
+</html>

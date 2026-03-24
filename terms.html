@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<title>En-boarding · Terms of Service</title>
+<style>
+/* Same CSS as legal pages (unchanged) */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: #545454;
+  margin-left: 80px;
+  line-height: 1.6;
+  background: #fff;
+}
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 80px;
+  height: 100vh;
+  background: #333333;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 0;
+  z-index: 10;
+}
+.logo {
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+.logo span {
+  width: 18px;
+  height: 2px;
+  background: #333;
+}
+.socials {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.socials a {
+  line-height: 0;
+}
+.socials img {
+  width: 20px;
+  filter: invert(1);
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+.socials img:hover {
+  opacity: 1;
+}
+.menu {
+  position: fixed;
+  left: -260px;
+  top: 0;
+  width: 260px;
+  height: 100vh;
+  background: #f5f5f5;
+  transition: 0.3s;
+  z-index: 9;
+}
+.menu.active {
+  left: 80px;
+}
+.menu a {
+  display: block;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+  text-decoration: none;
+  color: #333;
+  font-family: 'Archivo';
+}
+header {
+  padding: 20px 5% 20px 10%;
+  display: flex;
+  justify-content: flex-end;
+}
+.btn {
+  background: #333333;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s;
+}
+.btn:hover {
+  background: #555;
+}
+.legal-container {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+.legal-container h1 {
+  font-family: 'Archivo';
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+.legal-container h2 {
+  font-family: 'Archivo';
+  font-size: 1.5rem;
+  color: #333;
+  margin: 30px 0 15px;
+}
+.legal-container p, .legal-container ul {
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+.legal-container ul {
+  padding-left: 20px;
+}
+.back-link {
+  display: inline-block;
+  margin: 30px 0;
+  color: #333;
+  text-decoration: none;
+  border-bottom: 1px solid #ccc;
+}
+.back-link:hover {
+  border-bottom-color: #333;
+}
+footer {
+  background: #f7f7f7;
+  margin-top: 80px;
+}
+.footer-content {
+  max-width: 1100px;
+  margin: auto;
+  padding: 60px 10%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.footer-bottom {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #eee;
+}
+@media (max-width:700px){
+  body { margin-left: 0; }
+  .sidebar { width: 60px; }
+  .menu.active { left: 60px; }
+}
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="logo" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+  </div>
+  <div class="socials">
+    <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn"></a>
+    <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
+    <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/spotify.svg" alt="Spotify"></a>
+  </div>
+</div>
+
+<div class="menu" id="menu">
+  <a href="index.html#concept">Home</a>
+  <a href="index.html#problem">Problem</a>
+  <a href="index.html#process">Process</a>
+  <a href="index.html#services">Services</a>
+  <a href="index.html#meetup">Meetup</a>
+  <a href="blog.html">Blog</a>
+  <a href="index.html#about">About</a>
+</div>
+
+<header>
+  <a class="btn" href="booking.html">Get clarity on your idea</a>
+</header>
+
+<main class="legal-container">
+  <a href="index.html" class="back-link">← Back to home</a>
+  <h1>Terms of Service</h1>
+  <p>Last updated: March 24, 2026</p>
+  
+  <h2>1. Acceptance of Terms</h2>
+  <p>By accessing or using the En-boarding website and services (collectively, the "Services"), you agree to be bound by these Terms of Service. If you do not agree, please do not use our Services.</p>
+  
+  <h2>2. Services</h2>
+  <p>En-boarding offers entrepreneurship onboarding services including, but not limited to, discovery sessions, idea structuring, project structuring, and strategy consulting. Descriptions of services and pricing are available on our website and are subject to change.</p>
+  
+  <h2>3. Booking and Payment</h2>
+  <ul>
+    <li>Bookings are made through our website or by direct communication.</li>
+    <li>Payment is due at the time of booking unless otherwise agreed.</li>
+    <li>All prices are listed in Euros (€) and exclude applicable taxes unless stated.</li>
+    <li>We accept payment via Stripe, PayPal, or bank transfer as indicated at checkout.</li>
+  </ul>
+  
+  <h2>4. Cancellation and Refund Policy</h2>
+  <ul>
+    <li><strong>Discovery Sessions & Idea Structuring:</strong> Full refund if cancelled at least 48 hours before the scheduled session. Cancellations within 48 hours may be rescheduled but not refunded.</li>
+    <li><strong>Project Structuring & Strategy Packages:</strong> 50% refund if cancelled within 14 days of purchase and before any work has commenced. No refunds after work has begun or deliverables have been provided.</li>
+    <li>To cancel or reschedule, contact us at hello@enboarding.com.</li>
+  </ul>
+  
+  <h2>5. Intellectual Property</h2>
+  <p>All content provided through the Services (including templates, frameworks, and materials) remain the intellectual property of En-boarding. You receive a non-exclusive, non-transferable license to use the deliverables for your own business purposes. You may not resell or distribute our proprietary materials without written consent.</p>
+  
+  <h2>6. User Conduct</h2>
+  <p>You agree not to misuse the Services, including but not limited to:</p>
+  <ul>
+    <li>Attempting to gain unauthorized access to our systems.</li>
+    <li>Harassing or abusing our staff or other users.</li>
+    <li>Using the Services for illegal purposes.</li>
+  </ul>
+  
+  <h2>7. Limitation of Liability</h2>
+  <p>To the fullest extent permitted by law, En-boarding shall not be liable for any indirect, incidental, or consequential damages arising from your use of the Services. Our total liability shall not exceed the amount you paid for the applicable service.</p>
+  
+  <h2>8. No Guarantee of Results</h2>
+  <p>We provide guidance and structure, but we do not guarantee any specific business outcomes. Your success depends on your own execution and market conditions.</p>
+  
+  <h2>9. Privacy</h2>
+  <p>Your use of the Services is also governed by our <a href="privacy.html">Privacy Policy</a>. By using our Services, you consent to the collection and use of your information as described therein.</p>
+  
+  <h2>10. Changes to Terms</h2>
+  <p>We may modify these Terms at any time. Continued use of the Services after changes constitutes acceptance of the updated Terms.</p>
+  
+  <h2>11. Governing Law</h2>
+  <p>These Terms shall be governed by the laws of Germany, without regard to conflict of law principles. Any disputes shall be resolved exclusively in the courts of Berlin, Germany.</p>
+  
+  <h2>12. Contact Us</h2>
+  <p>For questions about these Terms, please contact us at hello@enboarding.com.</p>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <div>
+      <h3>En-boarding</h3>
+      <p>Onboarding for entrepreneurs.</p>
+      <p style="font-size:0.9rem;">Berlin, Germany</p>
+    </div>
+    <div>
+      <p><strong>Email</strong></p>
+      <p>hello@enboarding.com</p>
+      <p style="margin-top:10px;">
+        <a href="impressum.html" style="color:#333; text-decoration:underline;">Impressum</a> | 
+        <a href="terms.html" style="color:#333; text-decoration:underline;">Terms</a> | 
+        <a href="privacy.html" style="color:#333; text-decoration:underline;">Privacy</a>
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 En-boarding. All rights reserved.</p>
+  </div>
+</footer>
+
+<div id="cookieConsent" style="position:fixed; bottom:0; left:0; right:0; background:#333; color:#fff; padding:15px; text-align:center; z-index:1000; display:none;">
+  <p style="margin:0;">We use cookies to enhance your experience. By continuing, you agree to our <a href="privacy.html" style="color:#fff; text-decoration:underline;">Privacy Policy</a>. <button id="acceptCookies" style="background:#fff; color:#333; border:none; padding:5px 15px; margin-left:10px; border-radius:20px;">Accept</button></p>
+</div>
+
+<script>
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("active");
+}
+if(!localStorage.getItem('cookieConsent')) document.getElementById('cookieConsent').style.display = 'block';
+document.getElementById('acceptCookies').addEventListener('click', function(){
+  localStorage.setItem('cookieConsent', 'true');
+  document.getElementById('cookieConsent').style.display = 'none';
+});
+</script>
+
+</body>
+</html>

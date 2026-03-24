@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<title>En-boarding · Privacy Policy</title>
+<style>
+/* Same CSS as impressum.html (unchanged) */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: #545454;
+  margin-left: 80px;
+  line-height: 1.6;
+  background: #fff;
+}
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 80px;
+  height: 100vh;
+  background: #333333;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 0;
+  z-index: 10;
+}
+.logo {
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+.logo span {
+  width: 18px;
+  height: 2px;
+  background: #333;
+}
+.socials {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.socials a {
+  line-height: 0;
+}
+.socials img {
+  width: 20px;
+  filter: invert(1);
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+.socials img:hover {
+  opacity: 1;
+}
+.menu {
+  position: fixed;
+  left: -260px;
+  top: 0;
+  width: 260px;
+  height: 100vh;
+  background: #f5f5f5;
+  transition: 0.3s;
+  z-index: 9;
+}
+.menu.active {
+  left: 80px;
+}
+.menu a {
+  display: block;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+  text-decoration: none;
+  color: #333;
+  font-family: 'Archivo';
+}
+header {
+  padding: 20px 5% 20px 10%;
+  display: flex;
+  justify-content: flex-end;
+}
+.btn {
+  background: #333333;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s;
+}
+.btn:hover {
+  background: #555;
+}
+.legal-container {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+.legal-container h1 {
+  font-family: 'Archivo';
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+.legal-container h2 {
+  font-family: 'Archivo';
+  font-size: 1.5rem;
+  color: #333;
+  margin: 30px 0 15px;
+}
+.legal-container p, .legal-container ul {
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+.legal-container ul {
+  padding-left: 20px;
+}
+.back-link {
+  display: inline-block;
+  margin: 30px 0;
+  color: #333;
+  text-decoration: none;
+  border-bottom: 1px solid #ccc;
+}
+.back-link:hover {
+  border-bottom-color: #333;
+}
+footer {
+  background: #f7f7f7;
+  margin-top: 80px;
+}
+.footer-content {
+  max-width: 1100px;
+  margin: auto;
+  padding: 60px 10%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.footer-bottom {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #eee;
+}
+@media (max-width:700px){
+  body { margin-left: 0; }
+  .sidebar { width: 60px; }
+  .menu.active { left: 60px; }
+}
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="logo" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+  </div>
+  <div class="socials">
+    <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn"></a>
+    <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
+    <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/spotify.svg" alt="Spotify"></a>
+  </div>
+</div>
+
+<div class="menu" id="menu">
+  <a href="index.html#concept">Home</a>
+  <a href="index.html#problem">Problem</a>
+  <a href="index.html#process">Process</a>
+  <a href="index.html#services">Services</a>
+  <a href="index.html#meetup">Meetup</a>
+  <a href="blog.html">Blog</a>
+  <a href="index.html#about">About</a>
+</div>
+
+<header>
+  <a class="btn" href="booking.html">Get clarity on your idea</a>
+</header>
+
+<main class="legal-container">
+  <a href="index.html" class="back-link">← Back to home</a>
+  <h1>Privacy Policy</h1>
+  <p>Last updated: March 24, 2026</p>
+  
+  <h2>1. Introduction</h2>
+  <p>En-boarding ("we," "our," "us") respects your privacy and is committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you visit our website or use our services.</p>
+  
+  <h2>2. Data Controller</h2>
+  <p>Maximilian Weber<br>Musterstraße 123, 10115 Berlin, Germany<br>Email: hello@enboarding.com</p>
+  
+  <h2>3. Data We Collect</h2>
+  <p>We may collect the following categories of personal data:</p>
+  <ul>
+    <li><strong>Identity Data:</strong> Name, company name, job title.</li>
+    <li><strong>Contact Data:</strong> Email address, phone number, billing address.</li>
+    <li><strong>Technical Data:</strong> IP address, browser type, device information, cookies.</li>
+    <li><strong>Usage Data:</strong> How you interact with our website and services.</li>
+    <li><strong>Marketing and Communications Data:</strong> Your preferences in receiving marketing from us.</li>
+  </ul>
+  
+  <h2>4. How We Collect Your Data</h2>
+  <ul>
+    <li><strong>Direct interactions:</strong> When you fill in forms, book a session, or contact us via email.</li>
+    <li><strong>Automated technologies:</strong> Through cookies and similar technologies when you browse our site.</li>
+    <li><strong>Third parties:</strong> Analytics providers (e.g., Google Analytics) and payment processors.</li>
+  </ul>
+  
+  <h2>5. How We Use Your Data</h2>
+  <p>We use your personal data for the following purposes:</p>
+  <ul>
+    <li>To provide our services (e.g., booking sessions, delivering strategy documents).</li>
+    <li>To manage payments and invoices.</li>
+    <li>To communicate with you about your inquiries or bookings.</li>
+    <li>To improve our website and services.</li>
+    <li>To comply with legal obligations.</li>
+  </ul>
+  
+  <h2>6. Legal Basis for Processing</h2>
+  <p>We process your personal data based on:</p>
+  <ul>
+    <li><strong>Performance of a contract:</strong> To fulfill our service obligations.</li>
+    <li><strong>Legitimate interests:</strong> To improve our services and manage our business.</li>
+    <li><strong>Consent:</strong> Where you have given explicit consent (e.g., for marketing emails).</li>
+    <li><strong>Legal compliance:</strong> Where required by law.</li>
+  </ul>
+  
+  <h2>7. Cookies</h2>
+  <p>Our website uses cookies to enhance user experience. You can manage your cookie preferences through your browser settings. Essential cookies are necessary for the website to function; analytics cookies help us understand how visitors interact with the site. By continuing to use our site, you consent to our use of cookies unless you have disabled them.</p>
+  
+  <h2>8. Data Sharing</h2>
+  <p>We do not sell or rent your personal data. We may share data with:</p>
+  <ul>
+    <li>Service providers (e.g., payment processors, email service providers) who assist in delivering our services.</li>
+    <li>Legal authorities if required by law.</li>
+  </ul>
+  
+  <h2>9. Data Retention</h2>
+  <p>We retain your personal data only as long as necessary to fulfill the purposes for which it was collected, including for legal, accounting, or reporting requirements. Typically, we retain client data for 7 years after the last interaction.</p>
+  
+  <h2>10. Your Rights</h2>
+  <p>Under GDPR, you have the following rights:</p>
+  <ul>
+    <li><strong>Right to access:</strong> Request a copy of your data.</li>
+    <li><strong>Right to rectification:</strong> Correct inaccurate data.</li>
+    <li><strong>Right to erasure:</strong> Request deletion of your data (subject to legal obligations).</li>
+    <li><strong>Right to restrict processing:</strong> Limit how we use your data.</li>
+    <li><strong>Right to data portability:</strong> Receive your data in a structured format.</li>
+    <li><strong>Right to object:</strong> Object to processing based on legitimate interests.</li>
+    <li><strong>Right to withdraw consent:</strong> Withdraw consent for marketing at any time.</li>
+  </ul>
+  <p>To exercise these rights, contact us at hello@enboarding.com. You also have the right to lodge a complaint with a supervisory authority.</p>
+  
+  <h2>11. Security</h2>
+  <p>We implement appropriate technical and organizational measures to protect your data against unauthorized access, loss, or alteration.</p>
+  
+  <h2>12. Changes to This Policy</h2>
+  <p>We may update this privacy policy from time to time. Any changes will be posted on this page with an updated revision date.</p>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <div>
+      <h3>En-boarding</h3>
+      <p>Onboarding for entrepreneurs.</p>
+      <p style="font-size:0.9rem;">Berlin, Germany</p>
+    </div>
+    <div>
+      <p><strong>Email</strong></p>
+      <p>hello@enboarding.com</p>
+      <p style="margin-top:10px;">
+        <a href="impressum.html" style="color:#333; text-decoration:underline;">Impressum</a> | 
+        <a href="terms.html" style="color:#333; text-decoration:underline;">Terms</a> | 
+        <a href="privacy.html" style="color:#333; text-decoration:underline;">Privacy</a>
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 En-boarding. All rights reserved.</p>
+  </div>
+</footer>
+
+<div id="cookieConsent" style="position:fixed; bottom:0; left:0; right:0; background:#333; color:#fff; padding:15px; text-align:center; z-index:1000; display:none;">
+  <p style="margin:0;">We use cookies to enhance your experience. By continuing, you agree to our <a href="privacy.html" style="color:#fff; text-decoration:underline;">Privacy Policy</a>. <button id="acceptCookies" style="background:#fff; color:#333; border:none; padding:5px 15px; margin-left:10px; border-radius:20px;">Accept</button></p>
+</div>
+
+<script>
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("active");
+}
+if(!localStorage.getItem('cookieConsent')) document.getElementById('cookieConsent').style.display = 'block';
+document.getElementById('acceptCookies').addEventListener('click', function(){
+  localStorage.setItem('cookieConsent', 'true');
+  document.getElementById('cookieConsent').style.display = 'none';
+});
+</script>
+
+</body>
+</html>

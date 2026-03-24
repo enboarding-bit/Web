@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<title>En-boarding · Case Study: From Vague Idea to First Customer in 14 Days</title>
+<style>
+/* CSS same as previous blog articles (unchanged) */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: #545454;
+  margin-left: 80px;
+  line-height: 1.6;
+  background: #fff;
+}
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 80px;
+  height: 100vh;
+  background: #333333;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 0;
+  z-index: 10;
+}
+.logo {
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+.logo span {
+  width: 18px;
+  height: 2px;
+  background: #333;
+}
+.socials {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.socials a {
+  line-height: 0;
+}
+.socials img {
+  width: 20px;
+  filter: invert(1);
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+.socials img:hover {
+  opacity: 1;
+}
+.menu {
+  position: fixed;
+  left: -260px;
+  top: 0;
+  width: 260px;
+  height: 100vh;
+  background: #f5f5f5;
+  transition: 0.3s;
+  z-index: 9;
+}
+.menu.active {
+  left: 80px;
+}
+.menu a {
+  display: block;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+  text-decoration: none;
+  color: #333;
+  font-family: 'Archivo';
+}
+header {
+  padding: 20px 5% 20px 10%;
+  display: flex;
+  justify-content: flex-end;
+}
+.btn {
+  background: #333333;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s;
+}
+.btn:hover {
+  background: #555;
+}
+.article-container {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+.article-meta {
+  color: #888;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+.article-title {
+  font-family: 'Archivo';
+  font-size: 2.5rem;
+  line-height: 1.2;
+  color: #333;
+  margin: 0 0 20px;
+}
+.article-tldr {
+  background: #f9f9f9;
+  border-left: 4px solid #333;
+  padding: 20px 25px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #333;
+  margin: 30px 0;
+  border-radius: 0 12px 12px 0;
+}
+.article-content h2 {
+  font-family: 'Archivo';
+  font-size: 1.8rem;
+  color: #333;
+  margin: 40px 0 20px;
+}
+.article-content p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+.article-content ul {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  padding-left: 20px;
+}
+.article-content li {
+  margin-bottom: 10px;
+}
+.diagram {
+  background: #f0f0f0;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 30px 0;
+  text-align: center;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+.diagram pre {
+  margin: 0;
+  white-space: pre-wrap;
+}
+.related-articles {
+  margin: 40px 0 30px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 20px;
+}
+.related-articles h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+.related-articles ul {
+  list-style: none;
+  padding: 0;
+}
+.related-articles li {
+  margin-bottom: 10px;
+}
+.related-articles a {
+  color: #333;
+  text-decoration: none;
+  border-bottom: 1px solid #ccc;
+}
+.related-articles a:hover {
+  border-bottom-color: #333;
+}
+.article-nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 0 20px;
+  gap: 20px;
+}
+.article-nav a {
+  color: #333;
+  text-decoration: none;
+  border-bottom: 1px solid #ccc;
+}
+.article-nav a:hover {
+  border-bottom-color: #333;
+}
+.back-link {
+  display: inline-block;
+  margin: 30px 0;
+  color: #333;
+  text-decoration: none;
+  border-bottom: 1px solid #ccc;
+}
+.back-link:hover {
+  border-bottom-color: #333;
+}
+.article-cta {
+  margin: 50px 0 30px;
+  text-align: center;
+}
+footer {
+  background: #f7f7f7;
+  margin-top: 80px;
+}
+.footer-content {
+  max-width: 1100px;
+  margin: auto;
+  padding: 60px 10%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.footer-bottom {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #eee;
+}
+@media (max-width:700px){
+  body { margin-left: 0; }
+  .sidebar { width: 60px; }
+  .menu.active { left: 60px; }
+  .article-title { font-size: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="logo" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+  </div>
+  <div class="socials">
+    <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn"></a>
+    <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
+    <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/spotify.svg" alt="Spotify"></a>
+  </div>
+</div>
+
+<div class="menu" id="menu">
+  <a href="index.html#concept">Home</a>
+  <a href="index.html#problem">Problem</a>
+  <a href="index.html#process">Process</a>
+  <a href="index.html#services">Services</a>
+  <a href="index.html#meetup">Meetup</a>
+  <a href="blog.html">Blog</a>
+  <a href="index.html#about">About</a>
+</div>
+
+<header>
+  <a class="btn" href="booking.html">Get clarity on your idea</a>
+</header>
+
+<main class="article-container">
+  <a href="blog.html" class="back-link">← Back to all articles</a>
+  
+  <div class="article-meta">March 16, 2026 · 5 min read</div>
+  <h1 class="article-title">Case Study: From "Vague Idea" to "First Customer" in 14 Days</h1>
+  
+  <div class="article-tldr">
+    <strong>TL;DR:</strong> Real progress isn't about "hustle"—it's about the sequence of operations.
+  </div>
+  
+  <div class="article-content">
+    <p>Meet <strong>Anna K.</strong>, a former product manager who wanted to build a B2B SaaS for freelance consultants to manage project finances. She spent 6 months "researching." She had a 40-page business plan but zero customers. She was stuck in the "Research Loop."</p>
+    
+    <h2>The En‑boarding Intervention:</h2>
+    
+    <ul>
+      <li><strong>Day 1:</strong> We cut the 40-page plan down to a 1-page "Action Canvas."</li>
+      <li><strong>Day 3:</strong> We identified the one feature that actually solved a pain point (automated invoice reconciliation).</li>
+      <li><strong>Day 7:</strong> We built a "smoke test" landing page and shared it in 3 consultant Facebook groups.</li>
+      <li><strong>Day 14:</strong> She got her first "Yes" from a real human—a consultant who pre‑paid €49 for early access.</li>
+    </ul>
+
+    <!-- Visual Diagram: 14-Day Timeline -->
+    <div class="diagram">
+      <strong>14‑Day Timeline to First Customer</strong><br><br>
+      <pre style="font-family: monospace; background: none; padding: 0;">
+Day 1 ──► 1‑page Action Canvas (distill idea)
+  │
+Day 3 ──► Identify core pain point (invoice reconciliation)
+  │
+Day 7 ──► Smoke test landing page + community posts
+  │
+Day 14 ─► First paying customer (€49 pre‑order)
+      </pre>
+      <p style="font-size:0.9rem;">No coding required. No 40‑page business plan.</p>
+    </div>
+    
+    <p>The Lesson: Structure doesn't slow you down; it acts as a shortcut. It stops you from building things nobody wants.</p>
+    
+    <p><em>Since then, Anna has grown to 37 beta users and is preparing for a full launch. She credits the structured process for cutting her time‑to‑market by months.</em></p>
+  </div>
+
+  <!-- Related Articles -->
+  <div class="related-articles">
+    <h3>📖 Related articles</h3>
+    <ul>
+      <li><a href="idea-vs-business.html">Idea vs. Business: The 5 Missing Links</a></li>
+      <li><a href="analysis-paralysis.html">The "Analysis Paralysis" Tax</a></li>
+      <li><a href="monday-morning-test.html">The "Monday Morning" Test</a></li>
+    </ul>
+  </div>
+
+  <!-- Previous / Next Navigation -->
+  <div class="article-nav">
+    <span>← Previous: <a href="onboard-yourself.html">Stop Onboarding Employees</a></span>
+    <span>Next: <a href="blog.html">Back to Blog →</a></span>
+  </div>
+
+  <div class="article-cta">
+    <a href="booking.html?service=project" class="btn">Start your En‑boarding →</a>
+    <p style="margin-top: 10px; font-size: 0.9rem;">Get your own 14‑day roadmap.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <div>
+      <h3>En-boarding</h3>
+      <p>Onboarding for entrepreneurs.</p>
+      <p style="font-size:0.9rem;">Berlin, Germany</p>
+    </div>
+    <div>
+      <p><strong>Email</strong></p>
+      <p>hello@enboarding.com</p>
+      <p style="margin-top:10px;">
+        <a href="impressum.html" style="color:#333; text-decoration:underline;">Impressum</a> | 
+        <a href="terms.html" style="color:#333; text-decoration:underline;">Terms</a> | 
+        <a href="privacy.html" style="color:#333; text-decoration:underline;">Privacy</a>
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 En-boarding. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Cookie Consent Banner -->
+<div id="cookieConsent" style="position:fixed; bottom:0; left:0; right:0; background:#333; color:#fff; padding:15px; text-align:center; z-index:1000; display:none;">
+  <p style="margin:0;">We use cookies to enhance your experience. By continuing, you agree to our <a href="privacy.html" style="color:#fff; text-decoration:underline;">Privacy Policy</a>. <button id="acceptCookies" style="background:#fff; color:#333; border:none; padding:5px 15px; margin-left:10px; border-radius:20px;">Accept</button></p>
+</div>
+
+<script>
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("active");
+}
+// Cookie consent
+if(!localStorage.getItem('cookieConsent')) document.getElementById('cookieConsent').style.display = 'block';
+document.getElementById('acceptCookies').addEventListener('click', function(){
+  localStorage.setItem('cookieConsent', 'true');
+  document.getElementById('cookieConsent').style.display = 'none';
+});
+</script>
+
+</body>
+</html>
