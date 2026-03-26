@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<title>En-boarding · Entrepreneur Operating System Quiz</title>
+<style>
+/* same CSS as before, unchanged */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: #545454;
+  margin-left: 80px;
+  line-height: 1.6;
+  background: #fff;
+}
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 80px;
+  height: 100vh;
+  background: #333333;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 0;
+  z-index: 10;
+}
+.logo {
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+.logo span {
+  width: 18px;
+  height: 2px;
+  background: #333;
+}
+.socials {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.socials a {
+  line-height: 0;
+}
+.socials img {
+  width: 20px;
+  filter: invert(1);
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+.socials img:hover {
+  opacity: 1;
+}
+.menu {
+  position: fixed;
+  left: -260px;
+  top: 0;
+  width: 260px;
+  height: 100vh;
+  background: #f5f5f5;
+  transition: 0.3s;
+  z-index: 9;
+}
+.menu.active {
+  left: 80px;
+}
+.menu a {
+  display: block;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+  text-decoration: none;
+  color: #333;
+  font-family: 'Archivo';
+}
+header {
+  padding: 20px 5% 20px 10%;
+  display: flex;
+  justify-content: flex-end;
+}
+.btn {
+  background: #333333;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s;
+}
+.btn:hover {
+  background: #555;
+}
+.quiz-container {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+.quiz-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.quiz-header h1 {
+  font-family: 'Archivo';
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 5px;
+}
+.quiz-header p {
+  color: #666;
+  font-size: 0.9rem;
+}
+.progress {
+  margin: 20px 0;
+  height: 4px;
+  background: #eee;
+  border-radius: 2px;
+}
+.progress-bar {
+  width: 0%;
+  height: 100%;
+  background: #333;
+  transition: width 0.3s;
+}
+.question-card {
+  background: #f9f9f9;
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+.question-card h3 {
+  font-family: 'Archivo';
+  font-size: 1.3rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #333;
+}
+.likert {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 25px 0 10px;
+  flex-wrap: wrap;
+}
+.likert-option {
+  text-align: center;
+  flex: 1;
+  min-width: 50px;
+}
+.likert-option label {
+  display: block;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  color: #666;
+}
+.likert-option input {
+  margin: 0;
+  transform: scale(1.2);
+}
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.nav-buttons button {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+.nav-buttons button:hover {
+  background: #555;
+}
+.nav-buttons button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+.result-container {
+  background: #f9f9f9;
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  display: none;
+}
+.result-container h2 {
+  margin-top: 0;
+}
+.archetype-badge {
+  display: inline-block;
+  background: #333;
+  color: white;
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+.core-problem {
+  background: #fff;
+  border-left: 4px solid #333;
+  padding: 20px;
+  margin: 20px 0;
+  text-align: left;
+  font-weight: 500;
+  color: #333;
+}
+.teaser-text {
+  background: #fff;
+  border-left: 4px solid #ccc;
+  padding: 20px;
+  margin: 20px 0;
+  text-align: left;
+  font-style: italic;
+  color: #666;
+}
+.email-form {
+  margin-top: 30px;
+  text-align: left;
+  border-top: 1px solid #eee;
+  padding-top: 30px;
+}
+.email-form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+.email-form button {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.back-link {
+  display: inline-block;
+  margin: 30px 0;
+  color: #333;
+  text-decoration: none;
+  border-bottom: 1px solid #ccc;
+}
+.back-link:hover {
+  border-bottom-color: #333;
+}
+footer {
+  background: #f7f7f7;
+  margin-top: 80px;
+}
+.footer-content {
+  max-width: 1100px;
+  margin: auto;
+  padding: 60px 10%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.footer-bottom {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #eee;
+}
+@media (max-width:700px){
+  body { margin-left: 0; }
+  .sidebar { width: 60px; }
+  .menu.active { left: 60px; }
+}
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="logo" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+  </div>
+  <div class="socials">
+    <a href="https://www.linkedin.com/in/bouchra-d-35462b197/" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn"></a>
+    <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
+    <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/spotify.svg" alt="Spotify"></a>
+  </div>
+</div>
+
+<div class="menu" id="menu">
+  <a href="index.html#concept">Home</a>
+  <a href="index.html#problem">Problem</a>
+  <a href="index.html#quiz">Quiz</a>
+  <a href="index.html#process">Process</a>
+  <a href="index.html#services">Services</a>
+  <a href="index.html#webinar">Webinar</a>
+  <a href="blog.html">Blog</a>
+  <a href="index.html#about">About</a>
+</div>
+
+<header>
+  <a class="btn" href="apply.html">Join Waitlist →</a>
+</header>
+
+<main class="quiz-container">
+  <a href="index.html" class="back-link">← Back to home</a>
+  <div class="quiz-header">
+    <h1>Entrepreneur Operating System Quiz</h1>
+    <p>How you move, decide, and persist — in your own words</p>
+  </div>
+  <div class="progress">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+  <div id="questionContainer"></div>
+  <div class="nav-buttons">
+    <button id="prevBtn" disabled>← Back</button>
+    <button id="nextBtn">Next →</button>
+  </div>
+  <div id="resultContainer" class="result-container"></div>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <div>
+      <h3>En-boarding</h3>
+      <p>Onboarding for entrepreneurs.</p>
+      <p style="font-size:0.9rem;">Berlin, Germany</p>
+    </div>
+    <div>
+      <p><strong>Email</strong></p>
+      <p>bouchra.emp@gmail.com</p>
+      <p style="margin-top:10px;">
+        <a href="impressum.html" style="color:#333; text-decoration:underline;">Impressum</a> | 
+        <a href="terms.html" style="color:#333; text-decoration:underline;">Terms</a> | 
+        <a href="privacy.html" style="color:#333; text-decoration:underline;">Privacy</a>
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 En-boarding. All rights reserved.</p>
+    <p style="font-size:0.8rem; margin-top:10px;">This is a market research project. No commercial services are currently offered.</p>
+  </div>
+</footer>
+
+<div id="cookieConsent" style="position:fixed; bottom:0; left:0; right:0; background:#f0f0f0; color:#333; padding:15px; text-align:center; z-index:1000; display:none; border-top:1px solid #ddd;">
+  <p style="margin:0;">We use cookies to enhance your experience. By continuing, you agree to our <a href="privacy.html" style="color:#333; text-decoration:underline;">Privacy Policy</a>. <button id="acceptCookies" style="background:#333; color:#fff; border:none; padding:5px 15px; margin-left:10px; border-radius:20px; cursor:pointer;">Accept</button></p>
+</div>
+
+<script>
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("active");
+}
+if(!localStorage.getItem('cookieConsent')) document.getElementById('cookieConsent').style.display = 'block';
+document.getElementById('acceptCookies').addEventListener('click', function(){
+  localStorage.setItem('cookieConsent', 'true');
+  document.getElementById('cookieConsent').style.display = 'none';
+});
+
+// Quiz questions (40 items) exactly as provided
+const questions = [
+  "I start working on ideas before I fully understand how they will work",
+  "I prefer predictable income over uncertain opportunities",
+  "I often think about how something could grow in the future",
+  "When things stop working, I tend to step back and lose momentum",
+  "I finish projects even when they become difficult or boring",
+  "I come up with more ideas than I actually build",
+  "I question rules that don’t make sense to me",
+  "I act quickly when I see a chance to move forward",
+  "I avoid situations where I might lose money, time, or stability",
+  "I keep working even when results are slow",
+  "I usually focus on what needs to be done right now",
+  "I turn ideas into something concrete or usable",
+  "When things get uncertain, I slow down or wait",
+  "I push harder when things aren’t working",
+  "I want my work to lead to visible results",
+  "I prefer working alone most of the time",
+  "I take action without waiting for full clarity",
+  "I think long-term before making decisions",
+  "I stop putting effort when progress feels too slow",
+  "I enjoy building systems or processes that work",
+  "I get energy from interacting with people",
+  "I follow through until something is complete",
+  "I challenge how things are usually done",
+  "I focus on improving my skills over time",
+  "I avoid putting myself in uncertain situations",
+  "I act fast rather than waiting for the perfect moment",
+  "I care about having freedom over how I work",
+  "I share my work or ideas publicly",
+  "When pressure increases, my reactions become stronger and less controlled",
+  "I think about scaling or expanding what I’m doing",
+  "I prefer structure and clear processes",
+  "I delay decisions until I feel ready",
+  "I focus on efficiency and avoiding wasted effort",
+  "I lose interest when something takes too long",
+  "I trust myself to handle unclear situations",
+  "I work toward meaningful or impactful outcomes",
+  "I put myself in situations where I might fail",
+  "I need time alone to recover after intense work or interaction",
+  "I look for the fastest way to move forward",
+  "I stay consistent even without immediate results"
+];
+
+// Indices for dimensions (0-based)
+const dimensionMap = {
+  momentum: [0,7,16,25,38], // 1,8,17,26,39
+  edge: [1,8,34,36],        // 2,9,35,37
+  scope: [2,17,29,10],      // 3,18,30,11
+  drive: [4,9,18,39],       // 5,10,19,40
+  execution: [11,21],       // 12,22
+  ideation: [5,0],          // 6,1
+  reaction_avoid: [3,12],   // 4,13
+  reaction_compensate: [13,28], // 14,29
+  reaction_surrender: [18], // 19
+  motivation_mastery: [23], // 24
+  motivation_results: [14], // 15
+  motivation_freedom: [26], // 27
+  motivation_impact: [35],  // 36
+  control_challenger: [6,22], // 7,23
+  control_evaluator: [30,32], // 31,33
+  control_operator: [19],   // 20
+  presence_private: [15,37], // 16,38
+  presence_public: [20,27]   // 21,28
+};
+
+const reverseItems = [1,8,10,24,31,33]; // indices 1,8,10,24,31,33 (0-based: 2,9,11,25,32,34)
+
+let currentIndex = 0;
+let answers = new Array(questions.length).fill(null);
+
+function renderQuestion() {
+  const container = document.getElementById('questionContainer');
+  const q = questions[currentIndex];
+  const selected = answers[currentIndex];
+  container.innerHTML = `
+    <div class="question-card">
+      <h3>${q}</h3>
+      <div class="likert">
+        <div class="likert-option"><input type="radio" name="rating" value="1" id="r1" ${selected === 1 ? 'checked' : ''}><label for="r1">1<br>Strongly disagree</label></div>
+        <div class="likert-option"><input type="radio" name="rating" value="2" id="r2" ${selected === 2 ? 'checked' : ''}><label for="r2">2<br>Disagree</label></div>
+        <div class="likert-option"><input type="radio" name="rating" value="3" id="r3" ${selected === 3 ? 'checked' : ''}><label for="r3">3<br>Neutral</label></div>
+        <div class="likert-option"><input type="radio" name="rating" value="4" id="r4" ${selected === 4 ? 'checked' : ''}><label for="r4">4<br>Agree</label></div>
+        <div class="likert-option"><input type="radio" name="rating" value="5" id="r5" ${selected === 5 ? 'checked' : ''}><label for="r5">5<br>Strongly agree</label></div>
+      </div>
+    </div>
+  `;
+  updateProgress();
+  updateButtons();
+}
+
+function updateProgress() {
+  const percent = ((currentIndex + 1) / questions.length) * 100;
+  document.getElementById('progressBar').style.width = `${percent}%`;
+}
+
+function updateButtons() {
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  prevBtn.disabled = currentIndex === 0;
+  if (currentIndex === questions.length - 1) {
+    nextBtn.textContent = 'See Results →';
+  } else {
+    nextBtn.textContent = 'Next →';
+  }
+}
+
+function saveCurrentAnswer() {
+  const selected = document.querySelector('input[name="rating"]:checked');
+  if (selected) {
+    answers[currentIndex] = parseInt(selected.value);
+    return true;
+  }
+  return false;
+}
+
+function next() {
+  if (!saveCurrentAnswer()) {
+    alert('Please select a rating (1–5) before continuing.');
+    return;
+  }
+  if (currentIndex < questions.length - 1) {
+    currentIndex++;
+    renderQuestion();
+  } else {
+    computeResults();
+  }
+}
+
+function prev() {
+  if (currentIndex > 0) {
+    saveCurrentAnswer();
+    currentIndex--;
+    renderQuestion();
+  }
+}
+
+function average(indices) {
+  let sum = 0, count = 0;
+  indices.forEach(i => {
+    let val = answers[i];
+    if (val !== null) {
+      if (reverseItems.includes(i)) val = 6 - val;
+      sum += val;
+      count++;
+    }
+  });
+  return count ? sum / count : 0;
+}
+
+function computeResults() {
+  saveCurrentAnswer();
+
+  const momentum = average(dimensionMap.momentum);
+  const edge = average(dimensionMap.edge);
+  const scope = average(dimensionMap.scope);
+  const drive = average(dimensionMap.drive);
+  const execution = average(dimensionMap.execution);
+  const ideation = average(dimensionMap.ideation);
+  const reactionAvoid = average(dimensionMap.reaction_avoid);
+  const reactionCompensate = average(dimensionMap.reaction_compensate);
+  const reactionSurrender = average(dimensionMap.reaction_surrender);
+  const motivationMastery = average(dimensionMap.motivation_mastery);
+  const motivationResults = average(dimensionMap.motivation_results);
+  const motivationFreedom = average(dimensionMap.motivation_freedom);
+  const motivationImpact = average(dimensionMap.motivation_impact);
+  const controlChallenger = average(dimensionMap.control_challenger);
+  const controlEvaluator = average(dimensionMap.control_evaluator);
+  const controlOperator = average(dimensionMap.control_operator);
+  const presencePrivate = average(dimensionMap.presence_private);
+  const presencePublic = average(dimensionMap.presence_public);
+
+  // Determine highest motivation
+  const motivations = [
+    { name: "mastery", score: motivationMastery },
+    { name: "results", score: motivationResults },
+    { name: "freedom", score: motivationFreedom },
+    { name: "impact", score: motivationImpact }
+  ];
+  motivations.sort((a,b) => b.score - a.score);
+  const primaryMotivation = motivations[0].name;
+
+  // Determine stress pattern
+  const stressPatterns = [
+    { name: "avoid", score: reactionAvoid },
+    { name: "compensate", score: reactionCompensate },
+    { name: "surrender", score: reactionSurrender }
+  ];
+  stressPatterns.sort((a,b) => b.score - a.score);
+  const stressPattern = stressPatterns[0].name;
+
+  // Determine control style
+  const controls = [
+    { name: "challenger", score: controlChallenger },
+    { name: "evaluator", score: controlEvaluator },
+    { name: "operator", score: controlOperator }
+  ];
+  controls.sort((a,b) => b.score - a.score);
+  const controlStyle = controls[0].name;
+
+  // Determine presence
+  const presence = presencePublic > presencePrivate ? "public" : "private";
+
+  // ----- NEW ARCHETYPE MAPPING -----
+  let archetype = "";
+  let coreProblem = "";
+
+  // Use a set of rules based on dimension scores
+  const highMomentum = momentum >= 3.5;
+  const lowMomentum = momentum < 3;
+  const highIdeation = ideation >= 3.5;
+  const lowExecution = execution < 3;
+  const highExecution = execution >= 3.5;
+  const highDrive = drive >= 3.5;
+  const lowDrive = drive < 3;
+  const highEdge = edge >= 3.5;
+  const lowEdge = edge < 3;
+  const highScope = scope >= 3.5;
+  const highFreedom = motivationFreedom >= 3.5;
+  const highMeaning = motivationImpact >= 3.5;
+  const highControlEvaluator = controlEvaluator >= 3.5;
+  const highControlChallenger = controlChallenger >= 3.5;
+  const highControlOperator = controlOperator >= 3.5;
+  const highEfficiency = average([dimensionMap.control_evaluator[1]]) >= 3.5; // Q33 efficiency
+  const stressCompensate = stressPattern === "compensate";
+
+  if (lowMomentum && highControlEvaluator && highEfficiency) {
+    archetype = "The Overthinker";
+    coreProblem = "You stay stuck in thinking, planning, or refining instead of actually starting.";
+  } else if (highIdeation && lowExecution && highMomentum) {
+    archetype = "The Starter";
+    coreProblem = "You get excited by ideas and beginnings, but struggle to turn them into something real.";
+  } else if (highFreedom && (controlStyle === "challenger" || controlStyle === "drifter") && lowDrive) {
+    archetype = "The Drifter";
+    coreProblem = "You want freedom and control, but avoid committing long enough to build something stable.";
+  } else if (lowEdge && highControlEvaluator) {
+    archetype = "The Safe Player";
+    coreProblem = "You want to start, but fear of losing stability keeps you from taking real action.";
+  } else if (highDrive && highExecution && lowScope && (highMomentum || stressCompensate)) {
+    archetype = "The Busy Worker";
+    coreProblem = "You're always doing something (or have tried repeatedly), but it never translates into a real business—now you're exhausted or cynical about effort.";
+  } else if (highMomentum && stressCompensate && !highExecution) {
+    archetype = "The Spinner";
+    coreProblem = "You keep trying different things, but nothing sticks long enough to grow.";
+  } else if (highExecution && lowScope && lowIdeation && highControlOperator) {
+    archetype = "The Lost Executor";
+    coreProblem = "You're willing to work, but you don't know what direction to commit to.";
+  } else if (highMeaning && highIdeation && lowExecution) {
+    archetype = "The Idealist";
+    coreProblem = "You want something meaningful, but struggle to make it practical or financially sustainable.";
+  } else {
+    // Fallback (should not happen often)
+    archetype = "The Balanced Founder";
+    coreProblem = "Your patterns are balanced; you have strengths in multiple areas but may need clarity on where to focus next.";
+  }
+
+  // Build emotional paragraph (based on earlier structure, still informative)
+  let paragraph = "";
+
+  if (momentum >= 3.5) {
+    paragraph += "You move through opportunities in a way that reflects how you deal with uncertainty, not just how capable you are. When something feels worth pursuing, you don’t wait for perfect clarity—you lean into action, sometimes before everything is figured out. That gives you an edge, because you’re able to create movement where others hesitate, but it also means you rely heavily on instinct and momentum to carry things forward.\n\n";
+  } else {
+    paragraph += "You don’t rush into things without clarity. You prefer to understand the landscape before you commit, which makes you deliberate and thoughtful. But sometimes that caution can slow you down, especially when an opportunity requires speed over certainty.\n\n";
+  }
+
+  if (primaryMotivation === "results") {
+    paragraph += "What drives you sits underneath that. You're focused on tangible outcomes—results you can measure, progress you can see. You want to know that your effort is leading somewhere concrete. That makes you effective at delivering, but it can also make it harder to stay engaged when results aren't immediate.\n\n";
+  } else if (primaryMotivation === "mastery") {
+    paragraph += "What drives you sits underneath that. You're pulled by growth and improvement—the desire to become better at what you do. Progress matters to you, but it's often about your own development as much as external outcomes. That keeps you learning, though sometimes at the expense of finishing what you start.\n\n";
+  } else if (primaryMotivation === "freedom") {
+    paragraph += "What drives you sits underneath that. Autonomy matters deeply to you—you need space to work in your own way. You're not easily motivated by rigid structures or external demands. That gives you independence, but it also means you have to intentionally build systems that keep you on track.\n\n";
+  } else {
+    paragraph += "What drives you sits underneath that. You're pulled by meaning—you want your work to matter. When what you're doing aligns with something larger than yourself, you're unstoppable. When it doesn't, it's hard to stay engaged. That combination shapes the kind of decisions you make and what you're willing to push through.\n\n";
+  }
+
+  if (drive >= 3.5) {
+    paragraph += "You're capable of following through, and you do—even when things get slow or difficult. Consistency is one of your strengths, and you're able to stay the course when others might drop out. The challenge isn't starting—it's making sure you're pointed in the right direction before you invest.\n\n";
+  } else {
+    paragraph += "You're capable of following through, but your consistency depends on how aligned you feel with what you're doing. When things slow down or become repetitive, your energy can shift. The challenge isn't starting—it's sustaining focus when the initial momentum fades or when results don't come quickly.\n\n";
+  }
+
+  if (stressPattern === "compensate") {
+    paragraph += "Pressure reveals the real pattern. When things get uncertain or difficult, your response isn't neutral—you push harder, sometimes aggressively, to regain control. That reaction can make you intense and effective in the right conditions, but it also risks burnout or overcorrection when things don't go as planned.\n\n";
+  } else if (stressPattern === "avoid") {
+    paragraph += "Pressure reveals the real pattern. When things get uncertain or difficult, your natural tendency is to step back, slow down, or wait for clarity. That protects you from rushing into mistakes, but it can also delay action when a quicker response would serve you better.\n\n";
+  } else {
+    paragraph += "Pressure reveals the real pattern. When things get uncertain or difficult, your response can shift toward disengagement—you may lose momentum or interest when progress stalls. In the right conditions, that means you conserve energy for what truly matters. In the wrong ones, it pulls you off track before you've given something a real chance.\n\n";
+  }
+
+  if (controlStyle === "operator") {
+    paragraph += "There's also a clear way you structure yourself. You work well within systems and processes—you value clarity and consistency. That makes you reliable, especially when things are organized, but you may need to intentionally create space for flexibility and creativity.\n\n";
+  } else if (controlStyle === "challenger") {
+    paragraph += "There's also a clear way you structure yourself. You don't naturally operate inside rigid systems unless they make sense to you. You prefer either building your own way of doing things or adapting quickly instead of following something fixed. That gives you flexibility, but it also means stability has to be created intentionally, not relied on.\n\n";
+  } else {
+    paragraph += "There's also a clear way you structure yourself. You tend to analyze before committing—you want things to make sense. That means you're thoughtful and deliberate, but it can also lead to overthinking or hesitation when a quick decision would be better.\n\n";
+  }
+
+  paragraph += "At your best, you're someone who can move, adapt, and create real progress without waiting for permission or certainty. When things don't work, it's rarely because you lack ability—it's because your direction, energy, or reaction pattern starts working against you instead of for you.";
+
+  // Show result with archetype, core problem, teaser paragraph, and email form
+  const container = document.getElementById('resultContainer');
+  container.innerHTML = `
+    <div class="archetype-badge">${archetype}</div>
+    <div class="core-problem"><strong>Core problem:</strong> ${coreProblem}</div>
+    <div class="teaser-text">
+      ${paragraph.substring(0, 500)}...
+    </div>
+    <div class="email-form">
+      <h3>Get your full report</h3>
+      <p>Enter your email below and we'll send you the complete personalized analysis, including your scores on key dimensions and actionable next steps.</p>
+      <input type="text" id="userName" placeholder="Your name">
+      <input type="email" id="userEmail" placeholder="Email address" required>
+      <button id="sendReportBtn">Send Full Report →</button>
+    </div>
+  `;
+  container.style.display = 'block';
+  document.getElementById('questionContainer').style.display = 'none';
+  document.querySelector('.nav-buttons').style.display = 'none';
+
+  // Send report via email (mock – replace with actual endpoint)
+  document.getElementById('sendReportBtn').addEventListener('click', function() {
+    const name = document.getElementById('userName').value;
+    const email = document.getElementById('userEmail').value;
+    if (!email) {
+      alert('Please enter your email address to receive the report.');
+      return;
+    }
+    // In production, replace with fetch to your backend
+    console.log('Sending report to', email, 'with data:', { name, archetype, coreProblem, paragraph });
+    alert(`Thank you ${name || 'Founder'}! We've sent your full report to ${email}. Please check your inbox (and spam folder) in a few minutes.`);
+  });
+}
+
+document.getElementById('nextBtn').addEventListener('click', next);
+document.getElementById('prevBtn').addEventListener('click', prev);
+
+renderQuestion();
+</script>
+</body>
+</html>
