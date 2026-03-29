@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<title>En-boarding</title>
+<title>En-boarding – Structure for founders</title>
 <style>
-/* CSS remains identical to the original version */
+/* ===== RESET & BASE (same as original) ===== */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -101,20 +101,6 @@ header {
 .btn:hover {
   background: #555;
 }
-.btn-small {
-  background: #333333;
-  color: white;
-  padding: 8px 18px;
-  border-radius: 30px;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 0.9rem;
-  margin-top: 15px;
-  transition: background 0.2s;
-}
-.btn-small:hover {
-  background: #555;
-}
 section {
   padding: 80px 10%;
   max-width: 1100px;
@@ -158,19 +144,6 @@ h1, h2, h3 {
   align-items: center;
   gap: 8px;
 }
-.image-placeholder-small {
-  width: 60px;
-  height: 60px;
-  background: #eee;
-  border: 2px dashed #aaa;
-  border-radius: 12px;
-  margin: 0 auto 15px auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #888;
-  font-size: 0.8rem;
-}
 .pain-headline {
   color: #888;
   margin-bottom: 0;
@@ -191,6 +164,19 @@ h1, h2, h3 {
 }
 .problem-item .image-placeholder-small {
   margin-bottom: 15px;
+}
+.image-placeholder-small {
+  width: 60px;
+  height: 60px;
+  background: #eee;
+  border: 2px dashed #aaa;
+  border-radius: 12px;
+  margin: 0 auto 15px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 0.8rem;
 }
 .process-stages {
   display: flex;
@@ -348,121 +334,6 @@ h1, h2, h3 {
   color: #888;
   font-size: 0.9rem;
 }
-.pricing {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-  gap: 30px;
-}
-.price-card {
-  border: 1px solid #eee;
-  border-radius: 20px;
-  padding: 25px;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-.price-card .purpose {
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #888;
-  margin-bottom: 5px;
-}
-.price-card h3 {
-  margin: 5px 0 15px;
-}
-.price-card ul {
-  padding-left: 18px;
-  flex-grow: 1;
-}
-.popular {
-  position: absolute;
-  top: -12px;
-  right: 20px;
-  background: #333;
-  color: white;
-  padding: 4px 12px;
-  border-radius: 30px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-.scarcity-badge {
-  position: absolute;
-  top: -12px;
-  right: 20px;
-  background: #d9534f;
-  color: white;
-  padding: 4px 12px;
-  border-radius: 30px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-.price-strikethrough {
-  text-decoration: line-through;
-  color: #888;
-  font-size: 0.9rem;
-  margin-right: 5px;
-}
-.pilot-price {
-  font-weight: 600;
-  color: #2c7a4d;
-}
-.faq-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-  margin-top: 40px;
-}
-.faq-item {
-  background: #f9f9f9;
-  border-radius: 20px;
-  padding: 25px;
-}
-.faq-item h4 {
-  margin: 0 0 10px;
-  color: #333;
-}
-.faq-item p {
-  margin: 0;
-  color: #666;
-}
-.blog-post {
-  border-bottom: 1px solid #eee;
-  padding-bottom: 25px;
-  margin-bottom: 25px;
-}
-.blog-meta {
-  font-size: 0.9rem;
-  color: #888;
-  margin: 5px 0 10px;
-}
-.read-more {
-  color: #333;
-  font-weight: 500;
-  text-decoration: none;
-  border-bottom: 1px solid #ccc;
-}
-.read-more:hover {
-  border-bottom-color: #333;
-}
-.meetup-card {
-  background: #f9f9f9;
-  border-radius: 20px;
-  padding: 30px;
-}
-.meetup-details {
-  display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
-  margin: 20px 0;
-}
-.meetup-detail {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
 footer {
   background: #f7f7f7;
 }
@@ -484,7 +355,6 @@ footer {
   body { margin-left: 0; }
   .sidebar { width: 60px; }
   .menu.active { left: 60px; }
-  .faq-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -503,29 +373,25 @@ footer {
 </div>
 
 <div class="menu" id="menu">
-  <a href="#concept">Home</a>
-  <a href="#problem">Problem</a>
-  <a href="#diagnostic">Diagnostic</a>
-  <a href="#process">Process</a>
-  <a href="#services">Services</a>
-  <a href="#webinar">Webinar</a>
+  <a href="index.html">Home</a>
+  <a href="free-tools.html">Free Tools</a>
   <a href="blog.html">Blog</a>
-  <a href="#about">About</a>
-  <a href="stuck.html">Get Unstuck</a>
+  <a href="about.html">About</a>
+  <a href="booking.html">Book a session →</a>
 </div>
 
 <header>
-  <a class="btn" href="apply.html">Join Waitlist →</a>
+  <a class="btn" href="booking.html">Book a free strategy session →</a>
 </header>
 
-<!-- HERO SECTION -->
+<!-- HERO SECTION (ToFU) -->
 <section id="concept">
   <div class="hero-split">
     <div>
       <p class="pain-headline">You have an idea but no clear next step</p>
       <h1 style="font-size: 2.8rem; line-height: 1.2;">Stop Onboarding.<br>Start En‑boarding.</h1>
       <p style="font-size: 1.2rem; color: #666;">Employees get structure. Founders get chaos. En‑boarding gives you the same head start — but for your startup.</p>
-      <a href="apply.html" class="btn" style="margin-top: 20px;">Join Waitlist →</a>
+      <a href="booking.html" class="btn" style="margin-top: 20px;">Book a free strategy session →</a>
     </div>
     <div style="display: flex; gap: 20px; flex-wrap: wrap;">
       <div class="comparison-card">
@@ -550,7 +416,7 @@ footer {
   </div>
 </section>
 
-<!-- PROBLEM SECTION -->
+<!-- PROBLEM SECTION (ToFU) -->
 <section id="problem">
   <h2>The founder’s reality</h2>
   <div class="problem-grid">
@@ -572,19 +438,7 @@ footer {
   </div>
 </section>
 
-<!-- DIAGNOSTIC SECTION -->
-<section id="diagnostic">
-  <div style="background: #f9f9f9; border-radius: 20px; padding: 40px; text-align: center;">
-    <span style="background: #333; color: white; padding: 4px 12px; border-radius: 30px; font-size: 0.8rem; display: inline-block; margin-bottom: 15px;">Free Tool</span>
-    <h2 style="font-family: 'Archivo'; font-size: 1.8rem; margin-bottom: 15px;">Entrepreneur Operating System Quiz</h2>
-    <p style="font-size: 1.1rem; margin-bottom: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">
-      Discover how you move, decide, and persist — and get a personalized report sent to your inbox.
-    </p>
-    <a href="eos-quiz.html" class="btn" style="margin-top: 10px;">Take the Quiz →</a>
-  </div>
-</section>
-
-<!-- PROCESS SECTION -->
+<!-- HOW IT WORKS (MoFU – but kept for education) -->
 <section id="process">
   <h2>What happens when you start En‑boarding</h2>
   <div class="process-stages">
@@ -614,13 +468,12 @@ footer {
       <ul><li>Structured workflow</li><li>Clear roadmap</li><li>Ready to grow</li></ul>
     </div>
   </div>
-  <div style="text-align: center; margin-top: 40px;">
-    <a href="apply.html" class="btn" style="font-size: 1.2rem; padding: 16px 36px;">Apply for Free Pilot →</a>
-    <p style="color: #888; margin-top: 10px;">Get a free 30‑minute strategy audit as part of our pilot phase.</p>
+  <div style="text-align: center; margin-top: 20px;">
+    <a href="booking.html" class="btn" style="font-size: 1.2rem; padding: 16px 36px;">Book a free strategy session →</a>
   </div>
 </section>
 
-<!-- BEFORE/AFTER -->
+<!-- BEFORE/AFTER (kept for clarity) -->
 <section>
   <h2>Before and after En‑boarding</h2>
   <div class="transform-grid">
@@ -635,7 +488,7 @@ footer {
   </div>
 </section>
 
-<!-- TESTIMONIAL -->
+<!-- TESTIMONIAL (social proof) -->
 <div style="max-width:1100px; margin:auto; padding:0 10%;">
   <div class="testimonial">
     <p>"En‑boarding turned my vague EdTech idea into a concrete roadmap. In 4 weeks I had my first pilot customer and a clear funding plan."</p>
@@ -644,147 +497,7 @@ footer {
   </div>
 </div>
 
-<!-- NEW CONVERSION PAGE PROMOTION -->
-<div style="max-width:1100px; margin:auto; padding:0 10%;">
-  <div style="background: #f0f0f0; border-radius: 20px; padding: 40px; text-align: center; margin-bottom: 40px;">
-    <h2 style="font-family: 'Archivo'; margin-bottom: 10px;">Where is your business stuck?</h2>
-    <p style="font-size: 1.1rem; margin-bottom: 20px;">Most founders don’t lack effort—they’re blocked by a specific constraint. Identify your pattern and get a clear path forward.</p>
-    <a href="stuck.html" class="btn" style="background: #333;">Find Your Constraint →</a>
-  </div>
-</div>
-
-<!-- SERVICES -->
-<section id="services">
-  <h2>The Mandatory Path</h2>
-  <div class="pricing">
-    <div class="price-card">
-      <div class="purpose">Eliminate the Overthinking Tax</div>
-      <h3>Clarity Sprint</h3>
-      <p><span class="price-strikethrough">€99</span> <span class="pilot-price">Pilot Phase – free</span></p>
-      <ul>
-        <li>30‑min diagnostic audit</li>
-        <li>3‑step immediate action plan</li>
-        <li><strong>Outcome:</strong> End of circular ideation – save 20+ hours/month</li>
-      </ul>
-      <a href="apply.html" class="btn-small">Apply for Free Pilot →</a>
-    </div>
-    <div class="price-card">
-      <div class="purpose">From vague concept to validated offer</div>
-      <h3>Concept to Offer</h3>
-      <p><span class="price-strikethrough">€179</span> <span class="pilot-price">Pilot Phase – free</span></p>
-      <ul>
-        <li>Value Proposition Canvas</li>
-        <li>Customer Avatar</li>
-        <li><strong>List of 10 potential early customers</strong></li>
-      </ul>
-      <a href="apply.html" class="btn-small">Apply for Free Pilot →</a>
-    </div>
-    <div class="price-card">
-      <div class="purpose">From solo chaos to controlled execution</div>
-      <span class="scarcity-badge">2 slots remaining</span>
-      <h3>Execution System</h3>
-      <p><span class="price-strikethrough">€599</span> <span class="pilot-price">Pilot Phase – free</span></p>
-      <ul>
-        <li>Custom 6‑week roadmap</li>
-        <li>Professional project board (Notion/Trello) with prioritized tasks</li>
-        <li><strong>Outcome:</strong> You no longer “find” time – you manage a system</li>
-      </ul>
-      <a href="apply.html" class="btn-small">Apply for Free Pilot →</a>
-    </div>
-    <div class="price-card">
-      <div class="purpose">Investor readiness & fractional COO support</div>
-      <h3>Growth Engine</h3>
-      <p><span class="price-strikethrough">€1599</span> <span class="pilot-price">Pilot Phase – free</span></p>
-      <ul>
-        <li><strong>40‑page strategy playbook</strong> tailored to your business</li>
-        <li>Go‑to‑market plan, KPI dashboard, investor pitch deck review</li>
-        <li><strong>Timeline:</strong> 2 weeks diagnostics → custom strategy deck → bi‑weekly calls for 3 months</li>
-      </ul>
-      <a href="apply.html" class="btn-small">Apply for Free Pilot →</a>
-    </div>
-  </div>
-  <p style="text-align: center; font-size: 0.8rem; color: #888; margin-top: 20px;"><em>Market research pricing shown for future commercial offering. Pilot participants receive all services free in exchange for feedback.</em></p>
-</section>
-
-<!-- FAQ -->
-<section>
-  <h2>Frequently asked questions</h2>
-  <div class="faq-grid">
-    <div class="faq-item">
-      <h4>How is this different from coaching?</h4>
-      <p>Coaching is open‑ended and exploratory. En‑boarding is a structured, milestone‑driven process with concrete deliverables. You get a roadmap, not just motivation. Think of it as an onboarding program for your startup.</p>
-    </div>
-    <div class="faq-item">
-      <h4>What if I'm not ready to pay?</h4>
-      <p>Join the free weekly meetup first – it's a low‑pressure way to see if it's for you. Or apply for the free pilot.</p>
-    </div>
-    <div class="faq-item">
-      <h4>How long does it take?</h4>
-      <p>Each session is 90 minutes. The full process can be completed in 2‑4 weeks, but you go at your own pace.</p>
-    </div>
-    <div class="faq-item">
-      <h4>Do I need a team?</h4>
-      <p>No, this is designed for solo founders and early‑stage entrepreneurs.</p>
-    </div>
-  </div>
-</section>
-
-<!-- WEBINAR SECTION -->
-<section id="webinar">
-  <h2>Next Event: Founder Webinar</h2>
-  <div class="meetup-card">
-    <p style="font-size: 1.1rem;">Join us for a free 90‑minute webinar: <strong>"From Idea to Action: How to Break Your Founder’s Paralysis"</strong></p>
-    <div class="meetup-details">
-      <div class="meetup-detail">
-        <span style="font-size:1.2rem;">📅</span>
-        <span>July 5, 2026 · 18:00 CET</span>
-      </div>
-      <div class="meetup-detail">
-        <span style="font-size:1.2rem;">🎥</span>
-        <span>Online (Zoom)</span>
-      </div>
-    </div>
-    <a href="apply.html" class="btn">Register for Free →</a>
-  </div>
-</section>
-
-<!-- BLOG -->
-<section id="blog">
-  <h2>Blog</h2>
-  <div class="blog-post">
-    <h3>Why founders stay stuck (and how to get unstuck)</h3>
-    <div class="blog-meta">📅 March 10, 2026 · 4 min read</div>
-    <p>Without a clear process, even brilliant ideas stall. Learn the three most common traps and how en‑boarding helps you avoid them.</p>
-    <a href="blog.html" class="read-more">Read more →</a>
-  </div>
-  <div class="blog-post">
-    <h3>Idea vs. Business: the structure gap</h3>
-    <div class="blog-meta">📅 March 3, 2026 · 3 min read</div>
-    <p>An idea is a starting point; a business is a system. Discover the key elements that turn a concept into a venture.</p>
-    <a href="blog.html" class="read-more">Read more →</a>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <h2>About</h2>
-  <div style="display: flex; gap: 30px; flex-wrap: wrap; align-items: center;">
-    <div style="flex: 1;">
-      <p><strong>Bouchra Driouach</strong> – Founder & Strategy Consultant</p>
-      <p>Master’s Degree in Entrepreneurship and Project Management (ZAB recognized). With several years of international experience in marketing, business development, and partner management (including MOBOTIX AG and DD Holding), I specialize in bridging the “Structure Gap” for early‑stage founders.</p>
-      <p>En-boarding was born from the need to give founders the same head start that employees get in a company — a structured onboarding for your startup journey.</p>
-    </div>
-    <div style="flex: 0 0 100px; text-align: center;">
-      <img 
-        src="your-image.jpg" 
-        alt="Bouchra Driouach"
-        style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;"
-      >
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
+<!-- FOOTER (simplified, no anti-conversion disclaimer) -->
 <footer>
   <div class="footer-content">
     <div>
@@ -804,11 +517,10 @@ footer {
   </div>
   <div class="footer-bottom">
     <p>© 2026 En-boarding. All rights reserved.</p>
-    <p style="font-size:0.8rem; margin-top:10px;">This is a market research project. No commercial services are currently offered.</p>
   </div>
 </footer>
 
-<!-- COOKIE CONSENT -->
+<!-- COOKIE CONSENT (unchanged) -->
 <div id="cookieConsent" style="position:fixed; bottom:0; left:0; right:0; background:#f0f0f0; color:#333; padding:15px; text-align:center; z-index:1000; display:none; border-top:1px solid #ddd;">
   <p style="margin:0;">We use cookies to enhance your experience. By continuing, you agree to our <a href="privacy.html" style="color:#333; text-decoration:underline;">Privacy Policy</a>. <button id="acceptCookies" style="background:#333; color:#fff; border:none; padding:5px 15px; margin-left:10px; border-radius:20px; cursor:pointer;">Accept</button></p>
 </div>

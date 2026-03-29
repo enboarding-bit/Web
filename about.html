@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<title>En-boarding · Book a free strategy session</title>
+<title>En-boarding · About</title>
 <style>
 /* ===== base styles (same as other pages) ===== */
 body {
@@ -101,77 +101,51 @@ header {
 .btn:hover {
   background: #555;
 }
-.booking-container {
-  max-width: 700px;
+.about-container {
+  max-width: 900px;
   margin: 60px auto;
   padding: 0 20px;
 }
-.booking-container h1 {
+.about-container h1 {
   font-family: 'Archivo';
   font-size: 2.5rem;
   color: #333;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
-.booking-container .subhead {
+.about-container .subhead {
+  font-size: 1.2rem;
   color: #666;
-  margin-bottom: 30px;
+  margin-bottom: 2rem;
   border-left: 4px solid #333;
-  padding-left: 20px;
-  font-style: italic;
+  padding-left: 1rem;
 }
-.form-group {
-  margin-bottom: 25px;
+.about-container h2 {
+  font-size: 1.6rem;
+  margin: 2rem 0 1rem 0;
 }
-.form-group label {
-  display: block;
-  font-weight: 500;
-  margin-bottom: 8px;
-  color: #333;
+.about-container p {
+  margin-bottom: 1rem;
 }
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  box-sizing: border-box;
-}
-.form-group textarea {
-  resize: vertical;
-  min-height: 100px;
-}
-.checkbox-group {
+.founder-section {
   display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin: 20px 0;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+  align-items: center;
 }
-.checkbox-group input {
-  width: auto;
-  margin-top: 3px;
+.founder-image {
+  flex: 0 0 120px;
+  text-align: center;
 }
-.checkbox-group label {
-  font-weight: normal;
-  font-size: 0.9rem;
-  color: #666;
+.founder-image img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #eee;
 }
-.form-actions {
-  margin-top: 30px;
-}
-.form-actions button {
-  background: #333;
-  color: white;
-  border: none;
-  padding: 14px 32px;
-  border-radius: 30px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.form-actions button:hover {
-  background: #555;
+.founder-bio {
+  flex: 1;
 }
 .back-link {
   display: inline-block;
@@ -205,6 +179,7 @@ footer {
   body { margin-left: 0; }
   .sidebar { width: 60px; }
   .menu.active { left: 60px; }
+  .founder-section { flex-direction: column; align-items: center; text-align: center; }
 }
 </style>
 </head>
@@ -231,40 +206,42 @@ footer {
 </div>
 
 <header>
-  <a class="btn" href="booking.html">Book a free session →</a>
+  <a class="btn" href="booking.html">Book a free strategy session →</a>
 </header>
 
-<main class="booking-container">
+<main class="about-container">
   <a href="index.html" class="back-link">← Back to home</a>
-  <h1>Book your free strategy session</h1>
+  <h1>About En‑boarding</h1>
   <div class="subhead">
-    30 minutes. No pitch. No payment. Just clarity on your next step.
+    Onboarding for entrepreneurs – because founders deserve the same head start as employees.
   </div>
 
-  <form id="bookingForm" action="#" method="POST">
-    <div class="form-group">
-      <label for="name">Full name *</label>
-      <input type="text" id="name" name="name" required>
+  <h2>Our mission</h2>
+  <p>Most founders start with an idea and a lot of energy – but no structure. They piece together advice from blogs, podcasts, and mentors, then wonder why they're stuck, overwhelmed, and isolated.</p>
+  <p>En‑boarding exists to fix that. We give founders a clear, milestone‑driven process – the same kind of structured onboarding that employees get at a company, but built for the uncertainty of a startup.</p>
+
+  <h2>What we believe</h2>
+  <p>You don't need more motivation. You need a system. Most founders don't fail because they lack ideas or effort – they fail because their behaviour blocks execution. We identify your specific constraint (clarity, direction, or leverage) and build a system around it.</p>
+
+  <div class="founder-section">
+    <div class="founder-image">
+      <img src="your-image.jpg" alt="Bouchra Driouach">
     </div>
-    <div class="form-group">
-      <label for="email">Email address *</label>
-      <input type="email" id="email" name="email" required>
+    <div class="founder-bio">
+      <h2 style="margin-top: 0;">Bouchra Driouach</h2>
+      <p><strong>Founder & Strategy Consultant</strong></p>
+      <p>Master's Degree in Entrepreneurship and Project Management (ZAB recognized). With several years of international experience in marketing, business development, and partner management (including MOBOTIX AG and DD Holding), I specialize in bridging the “Structure Gap” for early‑stage founders.</p>
+      <p>En‑boarding was born from the need to give founders the same head start that employees get in a company — a structured onboarding for your startup journey.</p>
     </div>
-    <div class="form-group">
-      <label for="message">What's your biggest challenge right now? (optional)</label>
-      <textarea id="message" name="message" placeholder="e.g., I don't know how to validate my idea, I'm stuck between two directions, I need a roadmap..."></textarea>
-    </div>
-    <div class="checkbox-group">
-      <input type="checkbox" id="consent" name="consent" required>
-      <label for="consent">I agree to the <a href="privacy.html" target="_blank">Privacy Policy</a> and consent to being contacted to schedule my free session.*</label>
-    </div>
-    <div class="form-actions">
-      <button type="submit">Request my free session →</button>
-    </div>
-  </form>
-  <p style="font-size:0.8rem; color:#888; margin-top:20px;">
-    * Required. After submitting, we'll email you within 24 hours to confirm a time that works for you.
-  </p>
+  </div>
+
+  <h2>The problem we solve</h2>
+  <p>Employees get step‑by‑step guidance. Entrepreneurs get thrown into the market and expected to figure everything out alone. That's not a fair game. En‑boarding is your structured path – from vague idea to clear execution.</p>
+
+  <div style="background: #f9f9f9; border-radius: 20px; padding: 2rem; margin: 2rem 0; text-align: center;">
+    <p style="font-size: 1.2rem; margin-bottom: 1rem;">Ready to stop guessing and start executing?</p>
+    <a href="booking.html" class="btn">Book a free strategy session →</a>
+  </div>
 </main>
 
 <footer>
@@ -302,15 +279,6 @@ if(!localStorage.getItem('cookieConsent')) document.getElementById('cookieConsen
 document.getElementById('acceptCookies').addEventListener('click', function(){
   localStorage.setItem('cookieConsent', 'true');
   document.getElementById('cookieConsent').style.display = 'none';
-});
-
-document.getElementById('bookingForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const formData = new FormData(this);
-  const data = Object.fromEntries(formData.entries());
-  console.log('Booking request:', data);
-  alert('Thank you! We’ll email you within 24 hours to schedule your free session.');
-  this.reset();
 });
 </script>
 

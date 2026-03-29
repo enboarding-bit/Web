@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<title>En-boarding · Book a free strategy session</title>
+<title>En-boarding · Free Tools for Founders</title>
 <style>
-/* ===== base styles (same as other pages) ===== */
+/* base styles – same as homepage */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -101,91 +101,72 @@ header {
 .btn:hover {
   background: #555;
 }
-.booking-container {
-  max-width: 700px;
-  margin: 60px auto;
-  padding: 0 20px;
+section {
+  padding: 60px 10%;
+  max-width: 1100px;
+  margin: auto;
 }
-.booking-container h1 {
+h1, h2, h3 {
   font-family: 'Archivo';
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 10px;
+  color: #333333;
 }
-.booking-container .subhead {
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+}
+.subhead {
+  font-size: 1.2rem;
   color: #666;
-  margin-bottom: 30px;
+  margin-bottom: 2rem;
   border-left: 4px solid #333;
-  padding-left: 20px;
-  font-style: italic;
+  padding-left: 1rem;
 }
-.form-group {
-  margin-bottom: 25px;
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
 }
-.form-group label {
-  display: block;
-  font-weight: 500;
-  margin-bottom: 8px;
-  color: #333;
+.tool-card {
+  background: #f9f9f9;
+  border-radius: 24px;
+  padding: 1.8rem;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  box-sizing: border-box;
+.tool-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.05);
 }
-.form-group textarea {
-  resize: vertical;
-  min-height: 100px;
+.tool-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
-.checkbox-group {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin: 20px 0;
+.tool-card h3 {
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem 0;
 }
-.checkbox-group input {
-  width: auto;
-  margin-top: 3px;
-}
-.checkbox-group label {
-  font-weight: normal;
-  font-size: 0.9rem;
+.tool-card p {
   color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
 }
-.form-actions {
-  margin-top: 30px;
-}
-.form-actions button {
+.tool-btn {
   background: #333;
   color: white;
   border: none;
-  padding: 14px 32px;
+  padding: 10px 24px;
   border-radius: 30px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
   transition: background 0.2s;
 }
-.form-actions button:hover {
+.tool-btn:hover {
   background: #555;
-}
-.back-link {
-  display: inline-block;
-  margin: 30px 0;
-  color: #333;
-  text-decoration: none;
-  border-bottom: 1px solid #ccc;
-}
-.back-link:hover {
-  border-bottom-color: #333;
 }
 footer {
   background: #f7f7f7;
-  margin-top: 80px;
 }
 .footer-content {
   max-width: 1100px;
@@ -205,6 +186,7 @@ footer {
   body { margin-left: 0; }
   .sidebar { width: 60px; }
   .menu.active { left: 60px; }
+  h1 { font-size: 2rem; }
 }
 </style>
 </head>
@@ -227,45 +209,41 @@ footer {
   <a href="free-tools.html">Free Tools</a>
   <a href="blog.html">Blog</a>
   <a href="about.html">About</a>
-  <a href="booking.html">Book a session →</a>
+  <a href="book.html">Book a session →</a>
 </div>
 
 <header>
-  <a class="btn" href="booking.html">Book a free session →</a>
+  <a class="btn" href="book.html">Book a free strategy session →</a>
 </header>
 
-<main class="booking-container">
-  <a href="index.html" class="back-link">← Back to home</a>
-  <h1>Book your free strategy session</h1>
+<section>
+  <h1>Free founder tools</h1>
   <div class="subhead">
-    30 minutes. No pitch. No payment. Just clarity on your next step.
+    Diagnose your business. Understand yourself. Get a clear next step.
   </div>
 
-  <form id="bookingForm" action="#" method="POST">
-    <div class="form-group">
-      <label for="name">Full name *</label>
-      <input type="text" id="name" name="name" required>
+  <div class="tools-grid">
+    <!-- Tool 1: Structural Gap -->
+    <div class="tool-card">
+      <div class="tool-icon">🏗️</div>
+      <h3>Discover your Structural Gap</h3>
+      <p>40 questions that reveal where your business is stuck – clarity, direction, leverage, or execution. Get a personalized report.</p>
+      <a href="structural-gap.html" class="tool-btn">Start the assessment →</a>
     </div>
-    <div class="form-group">
-      <label for="email">Email address *</label>
-      <input type="email" id="email" name="email" required>
+
+    <!-- Tool 2: Entrepreneurial Archetype -->
+    <div class="tool-card">
+      <div class="tool-icon">🧭</div>
+      <h3>Discover your Entrepreneurial Archetype</h3>
+      <p>Explore 9 founder patterns – Overthinker, Starter, Busy Worker, etc. Understand your natural tendencies and how to work with them.</p>
+      <a href="archetype.html" class="tool-btn">Read the archetypes →</a>
     </div>
-    <div class="form-group">
-      <label for="message">What's your biggest challenge right now? (optional)</label>
-      <textarea id="message" name="message" placeholder="e.g., I don't know how to validate my idea, I'm stuck between two directions, I need a roadmap..."></textarea>
-    </div>
-    <div class="checkbox-group">
-      <input type="checkbox" id="consent" name="consent" required>
-      <label for="consent">I agree to the <a href="privacy.html" target="_blank">Privacy Policy</a> and consent to being contacted to schedule my free session.*</label>
-    </div>
-    <div class="form-actions">
-      <button type="submit">Request my free session →</button>
-    </div>
-  </form>
-  <p style="font-size:0.8rem; color:#888; margin-top:20px;">
-    * Required. After submitting, we'll email you within 24 hours to confirm a time that works for you.
+  </div>
+
+  <p style="text-align: center; margin-top: 2rem; color: #888; font-size: 0.9rem;">
+    Both tools are free. The archetype page is informational – to get your personal archetype, <a href="book.html" style="color:#333;">book a free session</a>.
   </p>
-</main>
+</section>
 
 <footer>
   <div class="footer-content">
@@ -289,7 +267,6 @@ footer {
   </div>
 </footer>
 
-<!-- COOKIE CONSENT -->
 <div id="cookieConsent" style="position:fixed; bottom:0; left:0; right:0; background:#f0f0f0; color:#333; padding:15px; text-align:center; z-index:1000; display:none; border-top:1px solid #ddd;">
   <p style="margin:0;">We use cookies to enhance your experience. By continuing, you agree to our <a href="privacy.html" style="color:#333; text-decoration:underline;">Privacy Policy</a>. <button id="acceptCookies" style="background:#333; color:#fff; border:none; padding:5px 15px; margin-left:10px; border-radius:20px; cursor:pointer;">Accept</button></p>
 </div>
@@ -302,15 +279,6 @@ if(!localStorage.getItem('cookieConsent')) document.getElementById('cookieConsen
 document.getElementById('acceptCookies').addEventListener('click', function(){
   localStorage.setItem('cookieConsent', 'true');
   document.getElementById('cookieConsent').style.display = 'none';
-});
-
-document.getElementById('bookingForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const formData = new FormData(this);
-  const data = Object.fromEntries(formData.entries());
-  console.log('Booking request:', data);
-  alert('Thank you! We’ll email you within 24 hours to schedule your free session.');
-  this.reset();
 });
 </script>
 
