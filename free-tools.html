@@ -3,262 +3,236 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <title>En-boarding · Free Tools for Founders</title>
 <style>
-/* base styles – same as homepage */
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  color: #545454;
-  margin-left: 80px;
-  line-height: 1.6;
-  background: #fff;
+:root {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-soft: #f8f5f2;
+  --ink: #14213d;
+  --muted: #5f6572;
+  --line: rgba(20, 33, 61, 0.08);
+  --teal: #0d8b8f;
+  --teal-dark: #0a6d70;
+  --teal-soft: #d8f0ee;
+  --orange: #ff824d;
+  --orange-dark: #f26f35;
+  --white: #ffffff;
+  --shadow: 0 18px 40px rgba(17, 25, 40, 0.08);
+  --shadow-soft: 0 10px 24px rgba(17, 25, 40, 0.05);
 }
-.sidebar {
-  position: fixed;
-  left: 0;
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.main-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+  padding: 16px 5%;
+  position: sticky;
   top: 0;
-  width: 80px;
-  height: 100vh;
-  background: #333333;
+  z-index: 100;
+  background: rgba(255,255,255,0.98);
+}
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 0;
-  z-index: 10;
-}
-.logo {
-  width: 40px;
-  height: 40px;
-  background: white;
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  cursor: pointer;
-}
-.logo span {
-  width: 18px;
-  height: 2px;
-  background: #333;
-}
-.socials {
-  display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 20px;
 }
-.socials a {
-  line-height: 0;
-}
-.socials img {
-  width: 20px;
-  filter: invert(1);
-  opacity: 0.8;
-  transition: opacity 0.2s;
-}
-.socials img:hover {
-  opacity: 1;
-}
-.menu {
-  position: fixed;
-  left: -260px;
-  top: 0;
-  width: 260px;
-  height: 100vh;
-  background: #f5f5f5;
-  transition: 0.3s;
-  z-index: 9;
-}
-.menu.active {
-  left: 80px;
-}
-.menu a {
-  display: block;
-  padding: 20px;
-  border-bottom: 1px solid #ddd;
+.logo {
+  font-size: 1.3rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: var(--ink);
   text-decoration: none;
-  color: #333;
-  font-family: 'Archivo';
 }
-header {
-  padding: 20px 5% 20px 10%;
+.logo span { color: var(--teal); }
+.nav-links {
   display: flex;
-  justify-content: flex-end;
+  gap: 32px;
+  align-items: center;
+  flex-wrap: wrap;
 }
+.nav-links a {
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--teal); }
 .btn {
-  background: #333333;
+  background: var(--orange);
   color: white;
-  padding: 12px 28px;
+  padding: 10px 24px;
   border-radius: 30px;
   text-decoration: none;
-  display: inline-block;
+  font-weight: 600;
+  font-size: 0.9rem;
   transition: background 0.2s;
 }
-.btn:hover {
-  background: #555;
-}
-section {
-  padding: 60px 10%;
+.btn:hover { background: var(--orange-dark); }
+
+.container {
   max-width: 1100px;
-  margin: auto;
+  margin: 60px auto;
+  padding: 0 20px;
 }
-h1, h2, h3 {
-  font-family: 'Archivo';
-  color: #333333;
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 16px;
 }
 h1 {
   font-size: 2.8rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 16px;
+  letter-spacing: -0.03em;
 }
 .subhead {
   font-size: 1.2rem;
-  color: #666;
-  margin-bottom: 2rem;
-  border-left: 4px solid #333;
-  padding-left: 1rem;
+  color: var(--muted);
+  margin-bottom: 48px;
+  border-left: 4px solid var(--teal);
+  padding-left: 20px;
 }
 .tools-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin: 2rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  margin-bottom: 48px;
 }
 .tool-card {
-  background: #f9f9f9;
+  background: var(--surface);
+  border: 1px solid var(--line);
   border-radius: 24px;
-  padding: 1.8rem;
+  padding: 32px;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .tool-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+  box-shadow: var(--shadow);
 }
 .tool-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 48px;
+  margin-bottom: 20px;
 }
 .tool-card h3 {
-  font-size: 1.5rem;
-  margin: 0 0 0.5rem 0;
+  font-size: 1.4rem;
+  margin-bottom: 12px;
 }
 .tool-card p {
-  color: #666;
-  margin-bottom: 1.5rem;
-  line-height: 1.5;
+  color: var(--muted);
+  margin-bottom: 24px;
+  line-height: 1.6;
 }
 .tool-btn {
-  background: #333;
+  background: var(--teal);
   color: white;
-  border: none;
-  padding: 10px 24px;
+  padding: 10px 20px;
   border-radius: 30px;
-  font-size: 0.9rem;
-  cursor: pointer;
   text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
   display: inline-block;
   transition: background 0.2s;
 }
-.tool-btn:hover {
-  background: #555;
-}
+.tool-btn:hover { background: var(--teal-dark); }
+
 footer {
-  background: #f7f7f7;
+  background: var(--surface-soft);
+  margin-top: 80px;
+  padding: 60px 5% 30px;
+  border-top: 1px solid var(--line);
 }
 .footer-content {
-  max-width: 1100px;
-  margin: auto;
-  padding: 60px 10%;
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 40px;
 }
 .footer-bottom {
   text-align: center;
-  padding: 20px;
-  border-top: 1px solid #eee;
+  padding-top: 40px;
+  margin-top: 40px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.85rem;
 }
-@media (max-width:700px){
-  body { margin-left: 0; }
-  .sidebar { width: 60px; }
-  .menu.active { left: 60px; }
+@media (max-width: 768px) {
+  .header-container { flex-direction: column; }
+  .nav-links { justify-content: center; }
   h1 { font-size: 2rem; }
 }
 </style>
 </head>
 <body>
 
-<div class="sidebar">
-  <div class="logo" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
+<header class="main-header">
+  <div class="header-container">
+    <a href="LP.html" class="logo">EN-<span>BOARDING</span></a>
+    <div class="nav-links">
+      <a href="free-tools.html">Free Tools</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="booking.html" class="btn">Book a session →</a>
+    </div>
   </div>
-  <div class="socials">
-    <a href="https://www.linkedin.com/in/bouchra-d-35462b197/" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn"></a>
-    <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
-    <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/spotify.svg" alt="Spotify"></a>
-  </div>
-</div>
-
-<div class="menu" id="menu">
-  <a href="index.html">Home</a>
-  <a href="free-tools.html">Free Tools</a>
-  <a href="blog.html">Blog</a>
-  <a href="about.html">About</a>
-  <a href="book.html">Book a session →</a>
-</div>
-
-<header>
-  <a class="btn" href="book.html">Book a free strategy session →</a>
 </header>
 
-<section>
-  <h1>Free founder tools</h1>
-  <div class="subhead">
-    Diagnose your business. Understand yourself. Get a clear next step.
-  </div>
+<main class="container">
+  <div class="eyebrow">Free founder tools</div>
+  <h1>Diagnose your business. Understand yourself.</h1>
+  <div class="subhead">Get a clear next step — no cost, no catch.</div>
 
   <div class="tools-grid">
-    <!-- Tool 1: Structural Gap -->
     <div class="tool-card">
       <div class="tool-icon">🏗️</div>
       <h3>Discover your Structural Gap</h3>
       <p>40 questions that reveal where your business is stuck – clarity, direction, leverage, or execution. Get a personalized report.</p>
       <a href="structural-gap.html" class="tool-btn">Start the assessment →</a>
     </div>
-
-    <!-- Tool 2: Entrepreneurial Archetype -->
     <div class="tool-card">
       <div class="tool-icon">🧭</div>
-      <h3>Discover your Entrepreneurial Archetype</h3>
+      <h3>Entrepreneurial Archetypes</h3>
       <p>Explore 9 founder patterns – Overthinker, Starter, Busy Worker, etc. Understand your natural tendencies and how to work with them.</p>
       <a href="archetype.html" class="tool-btn">Read the archetypes →</a>
     </div>
   </div>
 
-  <p style="text-align: center; margin-top: 2rem; color: #888; font-size: 0.9rem;">
-    Both tools are free. The archetype page is informational – to get your personal archetype, <a href="book.html" style="color:#333;">book a free session</a>.
-  </p>
-</section>
+  <p style="text-align: center; color: var(--muted); font-size: 0.9rem;">Both tools are free. To get your personal archetype diagnosis, <a href="booking.html" style="color: var(--teal);">book a free session</a>.</p>
+</main>
 
 <footer>
   <div class="footer-content">
     <div>
-      <h3>En-boarding</h3>
-      <p>Onboarding for entrepreneurs.</p>
-      <p style="font-size:0.9rem;">Berlin, Germany</p>
+      <h3 style="margin-bottom: 8px;">En-boarding</h3>
+      <p style="color: var(--muted);">Onboarding for entrepreneurs.</p>
+      <p style="font-size:0.85rem; color: var(--muted); margin-top: 8px;">Berlin, Germany</p>
     </div>
     <div>
       <p><strong>Email</strong></p>
-      <p>bouchra.emp@gmail.com</p>
-      <p style="margin-top:10px;">
-        <a href="impressum.html" style="color:#333; text-decoration:underline;">Impressum</a> | 
-        <a href="terms.html" style="color:#333; text-decoration:underline;">Terms</a> | 
-        <a href="privacy.html" style="color:#333; text-decoration:underline;">Privacy</a>
+      <p style="color: var(--muted);">bouchra.emp@gmail.com</p>
+      <p style="margin-top: 12px;">
+        <a href="impressum.html" style="color: var(--teal); text-decoration: none;">Impressum</a> | 
+        <a href="terms.html" style="color: var(--teal); text-decoration: none;">Terms</a> | 
+        <a href="privacy.html" style="color: var(--teal); text-decoration: none;">Privacy</a>
       </p>
     </div>
   </div>
@@ -267,20 +241,15 @@ footer {
   </div>
 </footer>
 
-<div id="cookieConsent" style="position:fixed; bottom:0; left:0; right:0; background:#f0f0f0; color:#333; padding:15px; text-align:center; z-index:1000; display:none; border-top:1px solid #ddd;">
-  <p style="margin:0;">We use cookies to enhance your experience. By continuing, you agree to our <a href="privacy.html" style="color:#333; text-decoration:underline;">Privacy Policy</a>. <button id="acceptCookies" style="background:#333; color:#fff; border:none; padding:5px 15px; margin-left:10px; border-radius:20px; cursor:pointer;">Accept</button></p>
+<div id="cookieConsent" style="position:fixed; bottom:0; left:0; right:0; background:var(--surface-soft); padding:15px; text-align:center; z-index:1000; display:none; border-top:1px solid var(--line);">
+  <p style="margin:0;">We use cookies. <a href="privacy.html" style="color:var(--teal);">Privacy Policy</a>. <button id="acceptCookies" style="background:var(--teal); color:#fff; border:none; padding:5px 15px; margin-left:10px; border-radius:20px; cursor:pointer;">Accept</button></p>
 </div>
-
 <script>
-function toggleMenu(){
-  document.getElementById("menu").classList.toggle("active");
-}
 if(!localStorage.getItem('cookieConsent')) document.getElementById('cookieConsent').style.display = 'block';
 document.getElementById('acceptCookies').addEventListener('click', function(){
   localStorage.setItem('cookieConsent', 'true');
   document.getElementById('cookieConsent').style.display = 'none';
 });
 </script>
-
 </body>
 </html>

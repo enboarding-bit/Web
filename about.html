@@ -3,218 +3,202 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <title>En-boarding · About</title>
 <style>
-/* ===== base styles (same as other pages) ===== */
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  color: #545454;
-  margin-left: 80px;
-  line-height: 1.6;
-  background: #fff;
+:root {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-soft: #f8f5f2;
+  --ink: #14213d;
+  --muted: #5f6572;
+  --line: rgba(20, 33, 61, 0.08);
+  --teal: #0d8b8f;
+  --teal-dark: #0a6d70;
+  --teal-soft: #d8f0ee;
+  --orange: #ff824d;
+  --orange-dark: #f26f35;
+  --white: #ffffff;
+  --shadow: 0 18px 40px rgba(17, 25, 40, 0.08);
+  --shadow-soft: 0 10px 24px rgba(17, 25, 40, 0.05);
 }
-.sidebar {
-  position: fixed;
-  left: 0;
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+/* Header */
+.main-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+  padding: 16px 5%;
+  position: sticky;
   top: 0;
-  width: 80px;
-  height: 100vh;
-  background: #333333;
+  z-index: 100;
+  background: rgba(255,255,255,0.98);
+}
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 0;
-  z-index: 10;
-}
-.logo {
-  width: 40px;
-  height: 40px;
-  background: white;
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  cursor: pointer;
-}
-.logo span {
-  width: 18px;
-  height: 2px;
-  background: #333;
-}
-.socials {
-  display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 20px;
 }
-.socials a {
-  line-height: 0;
-}
-.socials img {
-  width: 20px;
-  filter: invert(1);
-  opacity: 0.8;
-  transition: opacity 0.2s;
-}
-.socials img:hover {
-  opacity: 1;
-}
-.menu {
-  position: fixed;
-  left: -260px;
-  top: 0;
-  width: 260px;
-  height: 100vh;
-  background: #f5f5f5;
-  transition: 0.3s;
-  z-index: 9;
-}
-.menu.active {
-  left: 80px;
-}
-.menu a {
-  display: block;
-  padding: 20px;
-  border-bottom: 1px solid #ddd;
+.logo {
+  font-size: 1.3rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: var(--ink);
   text-decoration: none;
-  color: #333;
-  font-family: 'Archivo';
 }
-header {
-  padding: 20px 5% 20px 10%;
+.logo span { color: var(--teal); }
+.nav-links {
   display: flex;
-  justify-content: flex-end;
+  gap: 32px;
+  align-items: center;
+  flex-wrap: wrap;
 }
+.nav-links a {
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--teal); }
 .btn {
-  background: #333333;
+  background: var(--orange);
   color: white;
-  padding: 12px 28px;
+  padding: 10px 24px;
   border-radius: 30px;
   text-decoration: none;
-  display: inline-block;
+  font-weight: 600;
+  font-size: 0.9rem;
   transition: background 0.2s;
 }
-.btn:hover {
-  background: #555;
-}
-.about-container {
+.btn:hover { background: var(--orange-dark); }
+
+/* Main Content */
+.container {
   max-width: 900px;
   margin: 60px auto;
   padding: 0 20px;
 }
-.about-container h1 {
-  font-family: 'Archivo';
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 1rem;
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 16px;
 }
-.about-container .subhead {
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  letter-spacing: -0.03em;
+}
+.subhead {
   font-size: 1.2rem;
-  color: #666;
-  margin-bottom: 2rem;
-  border-left: 4px solid #333;
-  padding-left: 1rem;
+  color: var(--muted);
+  margin-bottom: 40px;
+  border-left: 4px solid var(--teal);
+  padding-left: 20px;
 }
-.about-container h2 {
-  font-size: 1.6rem;
-  margin: 2rem 0 1rem 0;
+h2 {
+  font-size: 1.8rem;
+  margin: 40px 0 16px;
+  letter-spacing: -0.02em;
 }
-.about-container p {
-  margin-bottom: 1rem;
+p {
+  color: var(--muted);
+  margin-bottom: 20px;
+  line-height: 1.7;
 }
-.founder-section {
+.founder-card {
   display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  margin: 2rem 0;
+  gap: 32px;
+  background: var(--surface-soft);
+  border-radius: 24px;
+  padding: 32px;
+  margin: 40px 0;
   align-items: center;
+  flex-wrap: wrap;
 }
-.founder-image {
-  flex: 0 0 120px;
-  text-align: center;
-}
-.founder-image img {
-  width: 120px;
-  height: 120px;
+.founder-img {
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   object-fit: cover;
-  background: #eee;
+  background: var(--teal-soft);
 }
-.founder-bio {
-  flex: 1;
+.founder-bio { flex: 1; }
+.founder-bio h3 { font-size: 1.5rem; margin-bottom: 8px; }
+.cta-box {
+  background: var(--teal-soft);
+  border-radius: 24px;
+  padding: 40px;
+  text-align: center;
+  margin: 40px 0;
 }
-.back-link {
-  display: inline-block;
-  margin: 30px 0;
-  color: #333;
-  text-decoration: none;
-  border-bottom: 1px solid #ccc;
-}
-.back-link:hover {
-  border-bottom-color: #333;
-}
+.cta-box p { margin-bottom: 20px; font-size: 1.2rem; color: var(--ink); }
+
+/* Footer */
 footer {
-  background: #f7f7f7;
+  background: var(--surface-soft);
   margin-top: 80px;
+  padding: 60px 5% 30px;
+  border-top: 1px solid var(--line);
 }
 .footer-content {
-  max-width: 1100px;
-  margin: auto;
-  padding: 60px 10%;
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 40px;
 }
 .footer-bottom {
   text-align: center;
-  padding: 20px;
-  border-top: 1px solid #eee;
+  padding-top: 40px;
+  margin-top: 40px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.85rem;
 }
-@media (max-width:700px){
-  body { margin-left: 0; }
-  .sidebar { width: 60px; }
-  .menu.active { left: 60px; }
-  .founder-section { flex-direction: column; align-items: center; text-align: center; }
+@media (max-width: 768px) {
+  .header-container { flex-direction: column; }
+  .nav-links { justify-content: center; }
+  h1 { font-size: 2rem; }
+  .founder-card { flex-direction: column; text-align: center; }
 }
 </style>
 </head>
 <body>
 
-<div class="sidebar">
-  <div class="logo" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
+<header class="main-header">
+  <div class="header-container">
+    <a href="LP.html" class="logo">EN-<span>BOARDING</span></a>
+    <div class="nav-links">
+      <a href="free-tools.html">Free Tools</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="booking.html" class="btn">Book a session →</a>
+    </div>
   </div>
-  <div class="socials">
-    <a href="https://www.linkedin.com/in/bouchra-d-35462b197/" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn"></a>
-    <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
-    <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/spotify.svg" alt="Spotify"></a>
-  </div>
-</div>
-
-<div class="menu" id="menu">
-  <a href="index.html">Home</a>
-  <a href="free-tools.html">Free Tools</a>
-  <a href="blog.html">Blog</a>
-  <a href="about.html">About</a>
-  <a href="booking.html">Book a session →</a>
-</div>
-
-<header>
-  <a class="btn" href="booking.html">Book a free strategy session →</a>
 </header>
 
-<main class="about-container">
-  <a href="index.html" class="back-link">← Back to home</a>
-  <h1>About En‑boarding</h1>
-  <div class="subhead">
-    Onboarding for entrepreneurs – because founders deserve the same head start as employees.
-  </div>
+<main class="container">
+  <div class="eyebrow">About En-boarding</div>
+  <h1>Onboarding for entrepreneurs</h1>
+  <div class="subhead">Because founders deserve the same head start as employees.</div>
 
   <h2>Our mission</h2>
   <p>Most founders start with an idea and a lot of energy – but no structure. They piece together advice from blogs, podcasts, and mentors, then wonder why they're stuck, overwhelmed, and isolated.</p>
@@ -223,14 +207,12 @@ footer {
   <h2>What we believe</h2>
   <p>You don't need more motivation. You need a system. Most founders don't fail because they lack ideas or effort – they fail because their behaviour blocks execution. We identify your specific constraint (clarity, direction, or leverage) and build a system around it.</p>
 
-  <div class="founder-section">
-    <div class="founder-image">
-      <img src="your-image.jpg" alt="Bouchra Driouach">
-    </div>
+  <div class="founder-card">
+    <img src="https://placehold.co/400x400/e8f4f2/0d8b8f?text=Bouchra" alt="Bouchra Driouach" class="founder-img">
     <div class="founder-bio">
-      <h2 style="margin-top: 0;">Bouchra Driouach</h2>
-      <p><strong>Founder & Strategy Consultant</strong></p>
-      <p>Master's Degree in Entrepreneurship and Project Management (ZAB recognized). With several years of international experience in marketing, business development, and partner management (including MOBOTIX AG and DD Holding), I specialize in bridging the “Structure Gap” for early‑stage founders.</p>
+      <h3>Bouchra Driouach</h3>
+      <p style="font-weight: 600; color: var(--teal); margin-bottom: 12px;">Founder & Strategy Consultant</p>
+      <p>Master's Degree in Entrepreneurship and Project Management (ZAB recognized). With several years of international experience in marketing, business development, and partner management, I specialize in bridging the "Structure Gap" for early‑stage founders.</p>
       <p>En‑boarding was born from the need to give founders the same head start that employees get in a company — a structured onboarding for your startup journey.</p>
     </div>
   </div>
@@ -238,8 +220,8 @@ footer {
   <h2>The problem we solve</h2>
   <p>Employees get step‑by‑step guidance. Entrepreneurs get thrown into the market and expected to figure everything out alone. That's not a fair game. En‑boarding is your structured path – from vague idea to clear execution.</p>
 
-  <div style="background: #f9f9f9; border-radius: 20px; padding: 2rem; margin: 2rem 0; text-align: center;">
-    <p style="font-size: 1.2rem; margin-bottom: 1rem;">Ready to stop guessing and start executing?</p>
+  <div class="cta-box">
+    <p>Ready to stop guessing and start executing?</p>
     <a href="booking.html" class="btn">Book a free strategy session →</a>
   </div>
 </main>
@@ -247,17 +229,17 @@ footer {
 <footer>
   <div class="footer-content">
     <div>
-      <h3>En-boarding</h3>
-      <p>Onboarding for entrepreneurs.</p>
-      <p style="font-size:0.9rem;">Berlin, Germany</p>
+      <h3 style="margin-bottom: 8px;">En-boarding</h3>
+      <p style="color: var(--muted);">Onboarding for entrepreneurs.</p>
+      <p style="font-size:0.85rem; color: var(--muted); margin-top: 8px;">Berlin, Germany</p>
     </div>
     <div>
       <p><strong>Email</strong></p>
-      <p>bouchra.emp@gmail.com</p>
-      <p style="margin-top:10px;">
-        <a href="impressum.html" style="color:#333; text-decoration:underline;">Impressum</a> | 
-        <a href="terms.html" style="color:#333; text-decoration:underline;">Terms</a> | 
-        <a href="privacy.html" style="color:#333; text-decoration:underline;">Privacy</a>
+      <p style="color: var(--muted);">bouchra.emp@gmail.com</p>
+      <p style="margin-top: 12px;">
+        <a href="impressum.html" style="color: var(--teal); text-decoration: none;">Impressum</a> | 
+        <a href="terms.html" style="color: var(--teal); text-decoration: none;">Terms</a> | 
+        <a href="privacy.html" style="color: var(--teal); text-decoration: none;">Privacy</a>
       </p>
     </div>
   </div>
@@ -266,21 +248,15 @@ footer {
   </div>
 </footer>
 
-<!-- COOKIE CONSENT -->
-<div id="cookieConsent" style="position:fixed; bottom:0; left:0; right:0; background:#f0f0f0; color:#333; padding:15px; text-align:center; z-index:1000; display:none; border-top:1px solid #ddd;">
-  <p style="margin:0;">We use cookies to enhance your experience. By continuing, you agree to our <a href="privacy.html" style="color:#333; text-decoration:underline;">Privacy Policy</a>. <button id="acceptCookies" style="background:#333; color:#fff; border:none; padding:5px 15px; margin-left:10px; border-radius:20px; cursor:pointer;">Accept</button></p>
+<div id="cookieConsent" style="position:fixed; bottom:0; left:0; right:0; background:var(--surface-soft); padding:15px; text-align:center; z-index:1000; display:none; border-top:1px solid var(--line);">
+  <p style="margin:0;">We use cookies. <a href="privacy.html" style="color:var(--teal);">Privacy Policy</a>. <button id="acceptCookies" style="background:var(--teal); color:#fff; border:none; padding:5px 15px; margin-left:10px; border-radius:20px; cursor:pointer;">Accept</button></p>
 </div>
-
 <script>
-function toggleMenu(){
-  document.getElementById("menu").classList.toggle("active");
-}
 if(!localStorage.getItem('cookieConsent')) document.getElementById('cookieConsent').style.display = 'block';
 document.getElementById('acceptCookies').addEventListener('click', function(){
   localStorage.setItem('cookieConsent', 'true');
   document.getElementById('cookieConsent').style.display = 'none';
 });
 </script>
-
 </body>
 </html>

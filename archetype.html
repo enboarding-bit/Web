@@ -3,586 +3,320 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<title>En-boarding · Where Is Your Business Stuck?</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<title>En-boarding · Entrepreneurial Archetypes</title>
 <style>
-/* same base styles as before – unchanged */
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  color: #545454;
-  margin-left: 80px;
-  line-height: 1.6;
-  background: #fff;
+:root {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-soft: #f8f5f2;
+  --ink: #14213d;
+  --muted: #5f6572;
+  --line: rgba(20, 33, 61, 0.08);
+  --teal: #0d8b8f;
+  --teal-dark: #0a6d70;
+  --teal-soft: #d8f0ee;
+  --orange: #ff824d;
+  --orange-dark: #f26f35;
+  --white: #ffffff;
+  --shadow: 0 18px 40px rgba(17, 25, 40, 0.08);
+  --shadow-soft: 0 10px 24px rgba(17, 25, 40, 0.05);
 }
-.sidebar {
-  position: fixed;
-  left: 0;
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.main-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+  padding: 16px 5%;
+  position: sticky;
   top: 0;
-  width: 80px;
-  height: 100vh;
-  background: #333333;
+  z-index: 100;
+  background: rgba(255,255,255,0.98);
+}
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 0;
-  z-index: 10;
-}
-.logo {
-  width: 40px;
-  height: 40px;
-  background: white;
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  cursor: pointer;
-}
-.logo span {
-  width: 18px;
-  height: 2px;
-  background: #333;
-}
-.socials {
-  display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 20px;
 }
-.socials a {
-  line-height: 0;
-}
-.socials img {
-  width: 20px;
-  filter: invert(1);
-  opacity: 0.8;
-  transition: opacity 0.2s;
-}
-.socials img:hover {
-  opacity: 1;
-}
-.menu {
-  position: fixed;
-  left: -260px;
-  top: 0;
-  width: 260px;
-  height: 100vh;
-  background: #f5f5f5;
-  transition: 0.3s;
-  z-index: 9;
-}
-.menu.active {
-  left: 80px;
-}
-.menu a {
-  display: block;
-  padding: 20px;
-  border-bottom: 1px solid #ddd;
+.logo {
+  font-size: 1.3rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: var(--ink);
   text-decoration: none;
-  color: #333;
-  font-family: 'Archivo';
 }
-header {
-  padding: 20px 5% 20px 10%;
+.logo span { color: var(--teal); }
+.nav-links {
   display: flex;
-  justify-content: flex-end;
+  gap: 32px;
+  align-items: center;
+  flex-wrap: wrap;
 }
+.nav-links a {
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--teal); }
 .btn {
-  background: #333333;
+  background: var(--orange);
   color: white;
-  padding: 12px 28px;
+  padding: 10px 24px;
   border-radius: 30px;
   text-decoration: none;
-  display: inline-block;
+  font-weight: 600;
+  font-size: 0.9rem;
   transition: background 0.2s;
 }
-.btn:hover {
-  background: #555;
-}
-.btn-large {
-  font-size: 1.2rem;
-  padding: 14px 36px;
-}
+.btn:hover { background: var(--orange-dark); }
+
 .container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 60px auto;
   padding: 0 20px;
 }
-.section {
-  margin-bottom: 80px;
-}
-.section:last-child {
-  margin-bottom: 0;
-}
-h1, h2, h3 {
-  font-family: 'Archivo';
-  color: #333;
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 16px;
 }
 h1 {
   font-size: 2.8rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 16px;
+  letter-spacing: -0.03em;
 }
-h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-.hero .subhead {
+.subhead {
   font-size: 1.2rem;
-  color: #666;
-  margin-bottom: 1rem;
+  color: var(--muted);
+  margin-bottom: 48px;
+  border-left: 4px solid var(--teal);
+  padding-left: 20px;
 }
-.credibility {
-  display: flex;
-  gap: 2rem;
-  font-size: 0.9rem;
-  color: #888;
-  margin-top: 1rem;
+.section {
+  margin-bottom: 60px;
 }
-.matrix-caption {
-  text-align: center;
-  font-size: 0.9rem;
-  color: #888;
-  margin-top: 20px;
+.section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+.cluster-intro {
+  font-size: 1rem;
+  color: var(--muted);
+  margin-bottom: 24px;
+  border-left: 3px solid var(--teal);
+  padding-left: 16px;
 }
 .cluster-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin: 2rem 0;
+  gap: 24px;
 }
 .cluster-card {
-  background: #f9f9f9;
-  border-radius: 20px;
-  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 24px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.cluster-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
 }
 .cluster-card h3 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
   font-size: 1.4rem;
-}
-.cluster-intro {
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 1rem;
-  border-left: 3px solid #ccc;
-  padding-left: 0.75rem;
-}
-.type-item {
-  margin-bottom: 1.5rem;
+  color: var(--teal);
+  margin-bottom: 16px;
 }
 .type-line {
-  font-size: 0.9rem;
-  color: #555;
-  margin: 0.2rem 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin: 10px 0;
 }
 .type-line strong {
-  font-weight: 600;
-  color: #333;
+  color: var(--ink);
 }
 .extra-line {
-  font-size: 0.9rem;
-  color: #444;
-  margin: 0.3rem 0;
+  font-size: 0.95rem;
+  color: var(--ink);
+  margin: 8px 0;
+  padding-top: 8px;
+  border-top: 1px dashed var(--line);
 }
-.extra-line strong {
-  font-weight: 600;
-}
-.tension {
-  background: #f5f5f5;
-  border-radius: 20px;
-  padding: 2rem;
-  text-align: center;
-}
-.tension p {
-  font-size: 1.2rem;
-  margin: 1rem 0;
-}
-.role {
-  text-align: center;
-}
-.role-text {
-  max-width: 700px;
-  margin: 1.5rem auto;
-  font-size: 1.1rem;
-}
-.cta {
-  text-align: center;
-  background: #f9f9f9;
-  border-radius: 20px;
-  padding: 2rem;
-}
+
 footer {
-  background: #f7f7f7;
+  background: var(--surface-soft);
   margin-top: 80px;
+  padding: 60px 5% 30px;
+  border-top: 1px solid var(--line);
 }
 .footer-content {
-  max-width: 1100px;
-  margin: auto;
-  padding: 60px 10%;
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 40px;
 }
 .footer-bottom {
   text-align: center;
-  padding: 20px;
-  border-top: 1px solid #eee;
+  padding-top: 40px;
+  margin-top: 40px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.85rem;
 }
-.matrix-grid {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-.matrix-col {
-  flex: 1;
-  min-width: 150px;
-  text-align: center;
-}
-.matrix-col-header {
-  font-weight: 600;
-  margin-bottom: 20px;
-  font-size: 1rem;
-}
-.matrix-row-header {
-  font-weight: 600;
-  margin-bottom: 10px;
-  font-size: 0.9rem;
-  color: #666;
-}
-.matrix-cell {
-  background: #f0f0f0;
-  border-radius: 12px;
-  padding: 12px;
-  margin-bottom: 12px;
-  font-size: 0.9rem;
-}
-.thesis {
-  text-align: center;
-  max-width: 800px;
-  margin: 40px auto;
-}
-.breakout {
-  background: #f9f9f9;
-  border-radius: 20px;
-  padding: 2rem;
-  text-align: center;
-}
-@media (max-width:700px){
-  body { margin-left: 0; }
-  .sidebar { width: 60px; }
-  .menu.active { left: 60px; }
-  .cluster-grid { grid-template-columns: 1fr; }
+@media (max-width: 768px) {
+  .header-container { flex-direction: column; }
+  .nav-links { justify-content: center; }
   h1 { font-size: 2rem; }
+  .section h2 { font-size: 1.5rem; }
 }
 </style>
 </head>
 <body>
 
-<div class="sidebar">
-  <div class="logo" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
+<header class="main-header">
+  <div class="header-container">
+    <a href="LP.html" class="logo">EN-<span>BOARDING</span></a>
+    <div class="nav-links">
+      <a href="free-tools.html">Free Tools</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="booking.html" class="btn">Book a session →</a>
+    </div>
   </div>
-  <div class="socials">
-    <a href="https://www.linkedin.com/in/bouchra-d-35462b197/" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn"></a>
-    <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
-    <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/spotify.svg" alt="Spotify"></a>
-  </div>
-</div>
-
-<div class="menu" id="menu">
-  <a href="index.html">Home</a>
-  <a href="#matrix">Matrix</a>
-  <a href="#clusters">Archetypes</a>
-  <a href="#breakout">Pivot</a>
-  <a href="#transition">Tension</a>
-  <a href="#enboarding">En-boarding</a>
-  <a href="#offer">Offer</a>
-  <a href="#cta">Book</a>
-  <a href="blog.html">Blog</a>
-  <a href="eos-quiz.html">Quiz</a>
-  <a href="entrepreneur-types.html">Types</a>
-</div>
-
-<header>
-  <a class="btn" href="#cta">Get Unstuck →</a>
 </header>
 
 <main class="container">
+  <div class="eyebrow">Free founder tool</div>
+  <h1>Entrepreneurial Archetypes</h1>
+  <div class="subhead">Understand your natural tendencies and how to work with them.</div>
 
-  <!-- Hero Section -->
-  <section id="hero" class="section hero">
-    <h1>Where is your business stuck?</h1>
-    <div class="subhead">Employees get structured onboarding. Entrepreneurs get thrown into the market and expected to figure everything out.</div>
-    <div class="subhead" style="font-weight: 500; margin-top: 20px;">En-boarding is entrepreneurial onboarding—designed to identify your pain point and structure how you move forward.</div>
-    <div class="credibility">Entrepreneurship · Project Management · Marketing</div>
-  </section>
-
-  <!-- Thesis Statement -->
-  <div class="thesis">
-    <p style="font-size: 1.2rem; font-weight: 500;">Most founders don’t fail because of lack of strategy.</p>
-    <p style="font-size: 1.2rem; font-weight: 500;">They fail because their behavior blocks execution.</p>
-    <p style="font-size: 1.2rem; font-weight: 500;">En-boarding exists to fix that.</p>
-  </div>
-
-  <!-- Matrix -->
-  <section id="matrix" class="section">
-    <div class="matrix-grid">
-      <div class="matrix-col">
-        <div class="matrix-col-header">Clarity</div>
-        <div class="matrix-row-header">Start‑Impaired</div>
-        <div class="matrix-cell">Overthinker</div>
-        <div class="matrix-cell">Lost Executor</div>
-        <div class="matrix-cell">Starter</div>
-      </div>
-      <div class="matrix-col">
-        <div class="matrix-col-header">Direction Stability</div>
-        <div class="matrix-row-header">Finish‑Impaired</div>
-        <div class="matrix-cell">Hesitator</div>
-        <div class="matrix-cell">Switcher</div>
-        <div class="matrix-cell">Wanderer</div>
-      </div>
-      <div class="matrix-col">
-        <div class="matrix-col-header">Leverage</div>
-        <div class="matrix-row-header">Impact‑Impaired</div>
-        <div class="matrix-cell">Idealist</div>
-        <div class="matrix-cell">Busy Worker</div>
-        <div class="matrix-cell">Balanced Founder</div>
-      </div>
-    </div>
-    <div class="matrix-caption">Identify where you are. This is where your system breaks.</div>
-  </section>
-
-  <!-- Archetypes (grouped) with added Untapped Advantage, Superpower, Key Tool -->
-  <section id="clusters" class="section">
-    <!-- Clarity -->
+  <div class="section">
     <h2>Clarity</h2>
     <div class="cluster-intro">Your pain point: struggling to define or validate the right direction</div>
     <div class="cluster-grid">
       <div class="cluster-card">
         <h3>Overthinker</h3>
-        <div class="type-item">
-          <div class="type-line"><strong>Pattern:</strong> Thinking replaces doing.</div>
-          <div class="type-line"><strong>Failure:</strong> Waiting for certainty that never arrives.</div>
-          <div class="type-line"><strong>Consequence:</strong> Missed opportunities, delayed launch.</div>
-          <div class="extra-line"><strong>Untapped Advantage:</strong> You see patterns others miss.</div>
-          <div class="extra-line"><strong>Superpower:</strong> Strong analytical thinking.</div>
-          <div class="extra-line"><strong>Key Tool:</strong> Decision constraint (limit options to force action).</div>
-        </div>
+        <div class="type-line"><strong>Pattern:</strong> Thinking replaces doing.</div>
+        <div class="type-line"><strong>Failure:</strong> Waiting for certainty that never arrives.</div>
+        <div class="extra-line"><strong>Key Tool:</strong> Decision constraint (limit options to force action).</div>
       </div>
       <div class="cluster-card">
         <h3>Lost Executor</h3>
-        <div class="type-item">
-          <div class="type-line"><strong>Pattern:</strong> Waiting for the right path.</div>
-          <div class="type-line"><strong>Failure:</strong> Unused capacity because direction is unclear.</div>
-          <div class="type-line"><strong>Consequence:</strong> Energy scattered, no momentum.</div>
-          <div class="extra-line"><strong>Untapped Advantage:</strong> You execute with precision when direction is clear.</div>
-          <div class="extra-line"><strong>Superpower:</strong> Reliable execution.</div>
-          <div class="extra-line"><strong>Key Tool:</strong> Clear‑path project charter (one‑page directive).</div>
-        </div>
+        <div class="type-line"><strong>Pattern:</strong> Waiting for the right path.</div>
+        <div class="type-line"><strong>Failure:</strong> Unused capacity because direction is unclear.</div>
+        <div class="extra-line"><strong>Key Tool:</strong> Clear‑path project charter (one‑page directive).</div>
       </div>
       <div class="cluster-card">
         <h3>Starter</h3>
-        <div class="type-item">
-          <div class="type-line"><strong>Pattern:</strong> Starting without finishing.</div>
-          <div class="type-line"><strong>Failure:</strong> Loss of interest after novelty fades.</div>
-          <div class="type-line"><strong>Consequence:</strong> Many beginnings, no outcomes.</div>
-          <div class="extra-line"><strong>Untapped Advantage:</strong> You generate fresh momentum effortlessly.</div>
-          <div class="extra-line"><strong>Superpower:</strong> Creative ignition.</div>
-          <div class="extra-line"><strong>Key Tool:</strong> Idea‑to‑launch sprint (time‑boxed finish line).</div>
-        </div>
+        <div class="type-line"><strong>Pattern:</strong> Starting without finishing.</div>
+        <div class="type-line"><strong>Failure:</strong> Loss of interest after novelty fades.</div>
+        <div class="extra-line"><strong>Key Tool:</strong> Idea‑to‑launch sprint (time‑boxed finish line).</div>
       </div>
     </div>
+  </div>
 
-    <!-- Direction Stability -->
+  <div class="section">
     <h2>Direction Stability</h2>
     <div class="cluster-intro">Your pain point: struggling to stay on one direction long enough for results to compound</div>
     <div class="cluster-grid">
       <div class="cluster-card">
         <h3>Hesitator</h3>
-        <div class="type-item">
-          <div class="type-line"><strong>Pattern:</strong> Protecting safety over growth.</div>
-          <div class="type-line"><strong>Failure:</strong> Fear of loss prevents commitment.</div>
-          <div class="type-line"><strong>Consequence:</strong> Preparation without action.</div>
-          <div class="extra-line"><strong>Untapped Advantage:</strong> You protect resources and avoid major mistakes.</div>
-          <div class="extra-line"><strong>Superpower:</strong> Risk intelligence.</div>
-          <div class="extra-line"><strong>Key Tool:</strong> Controlled experiment framework (small reversible bets).</div>
-        </div>
+        <div class="type-line"><strong>Pattern:</strong> Protecting safety over growth.</div>
+        <div class="type-line"><strong>Failure:</strong> Fear of loss prevents commitment.</div>
+        <div class="extra-line"><strong>Key Tool:</strong> Controlled experiment framework (small reversible bets).</div>
       </div>
       <div class="cluster-card">
         <h3>Switcher</h3>
-        <div class="type-item">
-          <div class="type-line"><strong>Pattern:</strong> Constant switching.</div>
-          <div class="type-line"><strong>Failure:</strong> Never staying long enough for results to compound.</div>
-          <div class="type-line"><strong>Consequence:</strong> Shallow progress across many directions.</div>
-          <div class="extra-line"><strong>Untapped Advantage:</strong> You test many possibilities quickly.</div>
-          <div class="extra-line"><strong>Superpower:</strong> Versatility.</div>
-          <div class="extra-line"><strong>Key Tool:</strong> Compound experiment tracker (capture learnings, double down).</div>
-        </div>
+        <div class="type-line"><strong>Pattern:</strong> Constant switching.</div>
+        <div class="type-line"><strong>Failure:</strong> Never staying long enough for results to compound.</div>
+        <div class="extra-line"><strong>Key Tool:</strong> Compound experiment tracker.</div>
       </div>
       <div class="cluster-card">
         <h3>Wanderer</h3>
-        <div class="type-item">
-          <div class="type-line"><strong>Pattern:</strong> Avoiding commitment to keep options open.</div>
-          <div class="type-line"><strong>Failure:</strong> Flexibility without direction.</div>
-          <div class="type-line"><strong>Consequence:</strong> Nothing fully moves forward.</div>
-          <div class="extra-line"><strong>Untapped Advantage:</strong> You stay open to the best opportunities.</div>
-          <div class="extra-line"><strong>Superpower:</strong> Freedom of perspective.</div>
-          <div class="extra-line"><strong>Key Tool:</strong> Temporary constraint canvas (30‑day focus container).</div>
-        </div>
+        <div class="type-line"><strong>Pattern:</strong> Avoiding commitment to keep options open.</div>
+        <div class="type-line"><strong>Failure:</strong> Flexibility without direction.</div>
+        <div class="extra-line"><strong>Key Tool:</strong> Temporary constraint canvas (30‑day focus container).</div>
       </div>
     </div>
+  </div>
 
-    <!-- Leverage -->
+  <div class="section">
     <h2>Leverage</h2>
     <div class="cluster-intro">Your pain point: struggling to turn effort into meaningful results</div>
     <div class="cluster-grid">
       <div class="cluster-card">
         <h3>Idealist</h3>
-        <div class="type-item">
-          <div class="type-line"><strong>Pattern:</strong> Meaning without execution.</div>
-          <div class="type-line"><strong>Failure:</strong> Hesitation when things feel commercial.</div>
-          <div class="type-line"><strong>Consequence:</strong> Purpose without sustainability.</div>
-          <div class="extra-line"><strong>Untapped Advantage:</strong> You build things that genuinely matter.</div>
-          <div class="extra-line"><strong>Superpower:</strong> Deep purpose.</div>
-          <div class="extra-line"><strong>Key Tool:</strong> Value‑aligned business model canvas (commercialize without compromise).</div>
-        </div>
+        <div class="type-line"><strong>Pattern:</strong> Meaning without execution.</div>
+        <div class="type-line"><strong>Failure:</strong> Hesitation when things feel commercial.</div>
+        <div class="extra-line"><strong>Key Tool:</strong> Value‑aligned business model canvas.</div>
       </div>
       <div class="cluster-card">
         <h3>Busy Worker</h3>
-        <div class="type-item">
-          <div class="type-line"><strong>Pattern:</strong> Activity without progress.</div>
-          <div class="type-line"><strong>Failure:</strong> Effort misaligned with outcomes.</div>
-          <div class="type-line"><strong>Consequence:</strong> Exhaustion without growth.</div>
-          <div class="extra-line"><strong>Untapped Advantage:</strong> You out‑effort almost everyone.</div>
-          <div class="extra-line"><strong>Superpower:</strong> Relentless work ethic.</div>
-          <div class="extra-line"><strong>Key Tool:</strong> Strategic effort matrix (prioritize high‑leverage activities).</div>
-        </div>
+        <div class="type-line"><strong>Pattern:</strong> Activity without progress.</div>
+        <div class="type-line"><strong>Failure:</strong> Effort misaligned with outcomes.</div>
+        <div class="extra-line"><strong>Key Tool:</strong> Strategic effort matrix.</div>
       </div>
       <div class="cluster-card">
         <h3>Balanced Founder</h3>
-        <div class="type-item">
-          <div class="type-line"><strong>Pattern:</strong> Steady but incremental progress.</div>
-          <div class="type-line"><strong>Failure:</strong> Plateaus from lack of extreme leverage.</div>
-          <div class="type-line"><strong>Consequence:</strong> Scaling blocked.</div>
-          <div class="extra-line"><strong>Untapped Advantage:</strong> You combine action, adaptation, and consistency.</div>
-          <div class="extra-line"><strong>Superpower:</strong> Sustainable execution.</div>
-          <div class="extra-line"><strong>Key Tool:</strong> Scaling leverage audit (identify the one constraint).</div>
-        </div>
+        <div class="type-line"><strong>Pattern:</strong> Steady but incremental progress.</div>
+        <div class="type-line"><strong>Failure:</strong> Plateaus from lack of extreme leverage.</div>
+        <div class="extra-line"><strong>Key Tool:</strong> Scaling leverage audit.</div>
       </div>
     </div>
-  </section>
-
-  <!-- Breakout / Pivot Section (High-Impact Sales Section) -->
-  <section id="breakout" class="section breakout">
-    <h2>What happens next depends on your pattern</h2>
-    <p>If you’re an Overthinker:<br>You need to break out of analysis and start executing.</p>
-    <p>If you’re inconsistent:<br>You need to stabilize your direction.</p>
-    <p>If you’re already moving:<br>You may need to pivot toward higher‑impact actions.</p>
-    <p>Different patterns require different systems.<br>There is no generic solution.</p>
-    <a href="#cta" class="btn" style="margin-top: 20px;">Book a discovery session →</a>
-  </section>
-
-  <!-- Critical Transition -->
-  <section id="transition" class="section tension">
-    <h2>Understanding the pattern is not enough</h2>
-    <p>At this point, you probably recognize where you fit.</p>
-    <p><strong>But this is where most founders get stuck.</strong></p>
-    <p>Knowing it doesn’t fix it.<br>Clarity doesn’t remove hesitation.<br>Action doesn’t create progress.<br>Effort doesn’t guarantee results.</p>
-  </section>
-
-  <!-- En-boarding Positioning -->
-  <section id="enboarding" class="section role">
-    <h2>Why En-boarding exists</h2>
-    <div class="role-text">
-      <p>Employees are guided step by step.<br>Entrepreneurs are expected to figure everything out alone.</p>
-      <p>En-boarding is entrepreneurial onboarding.<br>Instead of leaving you to figure it out, I identify your constraint and build the structure around it.</p>
-    </div>
-  </section>
-
-  <!-- About (rewritten to connect to framework) -->
-  <section class="section role">
-    <h2>About</h2>
-    <div class="role-text">
-      <p><strong>I work on one thing: why founders don’t execute.</strong></p>
-      <p>Most people don’t lack ideas or motivation.<br>They are blocked by a specific pattern in how they operate.</p>
-      <p>This is where En-boarding comes in.</p>
-      <p>I identify your pain point, uncover the constraint behind it, and turn it into a structured system you can execute.</p>
-      <p>This is not therapy.<br>I don’t just explore behavior—I translate it into business outcomes.</p>
-      <p>With a background in entrepreneurship, project management, and marketing, I bridge the gap between how you think and how your business moves.</p>
-      <p>The goal:<br>turn insight into execution—and execution into results.</p>
-    </div>
-  </section>
-
-  <!-- Your Offer -->
-  <section id="offer" class="section role">
-    <h2>What I help you achieve</h2>
-    <div class="role-text">
-      <p><strong>I help founders who can’t start — or can’t finish — actually execute.</strong></p>
-      <p>From idea to structured execution, with a clear path to launching within 90 days.</p>
-    </div>
-  </section>
-
-  <!-- Tension + Personalization Combo (Strong Close) -->
-  <div class="section tension" style="background: #fff; border: 1px solid #eee;">
-    <p style="font-size: 1.2rem;">Knowing your type doesn’t fix your pain point.</p>
-    <p style="font-size: 1.2rem;">What matters is how you respond to it.</p>
-    <p style="font-size: 1.2rem;">And that requires a system built for you.</p>
   </div>
-
-  <!-- Final CTA -->
-  <section id="cta" class="section cta">
-    <h2>Start your En-boarding</h2>
-    <p>I help founders move from stuck patterns to execution — and launch in 90 days.</p>
-    <p>Book a discovery session and we’ll identify what’s blocking you and how to fix it.</p>
-    <a href="#" class="btn btn-large">Book a Discovery Session →</a>
-    <div style="margin-top: 1rem; font-size: 0.85rem; color: #888;">Focused, practical, and tailored to your situation.</div>
-  </section>
-
 </main>
 
-<!-- Footer -->
 <footer>
   <div class="footer-content">
     <div>
-      <h3>En-boarding</h3>
-      <p>Onboarding for entrepreneurs.</p>
-      <p style="font-size:0.9rem;">Berlin, Germany</p>
+      <h3 style="margin-bottom: 8px;">En-boarding</h3>
+      <p style="color: var(--muted);">Onboarding for entrepreneurs.</p>
+      <p style="font-size:0.85rem; color: var(--muted); margin-top: 8px;">Berlin, Germany</p>
     </div>
     <div>
       <p><strong>Email</strong></p>
-      <p>bouchra.emp@gmail.com</p>
-      <p style="margin-top:10px;">
-        <a href="impressum.html" style="color:#333; text-decoration:underline;">Impressum</a> | 
-        <a href="terms.html" style="color:#333; text-decoration:underline;">Terms</a> | 
-        <a href="privacy.html" style="color:#333; text-decoration:underline;">Privacy</a>
+      <p style="color: var(--muted);">bouchra.emp@gmail.com</p>
+      <p style="margin-top: 12px;">
+        <a href="impressum.html" style="color: var(--teal); text-decoration: none;">Impressum</a> | 
+        <a href="terms.html" style="color: var(--teal); text-decoration: none;">Terms</a> | 
+        <a href="privacy.html" style="color: var(--teal); text-decoration: none;">Privacy</a>
       </p>
     </div>
   </div>
   <div class="footer-bottom">
     <p>© 2026 En-boarding. All rights reserved.</p>
-    <p style="font-size:0.8rem; margin-top:10px;">This is a market research project. No commercial services are currently offered.</p>
   </div>
 </footer>
 
-<div id="cookieConsent" style="position:fixed; bottom:0; left:0; right:0; background:#f0f0f0; color:#333; padding:15px; text-align:center; z-index:1000; display:none; border-top:1px solid #ddd;">
-  <p style="margin:0;">We use cookies to enhance your experience. By continuing, you agree to our <a href="privacy.html" style="color:#333; text-decoration:underline;">Privacy Policy</a>. <button id="acceptCookies" style="background:#333; color:#fff; border:none; padding:5px 15px; margin-left:10px; border-radius:20px; cursor:pointer;">Accept</button></p>
+<div id="cookieConsent" style="position:fixed; bottom:0; left:0; right:0; background:var(--surface-soft); padding:15px; text-align:center; z-index:1000; display:none; border-top:1px solid var(--line);">
+  <p style="margin:0;">We use cookies. <a href="privacy.html" style="color:var(--teal);">Privacy Policy</a>. <button id="acceptCookies" style="background:var(--teal); color:#fff; border:none; padding:5px 15px; margin-left:10px; border-radius:20px; cursor:pointer;">Accept</button></p>
 </div>
-
 <script>
-function toggleMenu(){
-  document.getElementById("menu").classList.toggle("active");
-}
 if(!localStorage.getItem('cookieConsent')) document.getElementById('cookieConsent').style.display = 'block';
 document.getElementById('acceptCookies').addEventListener('click', function(){
   localStorage.setItem('cookieConsent', 'true');
   document.getElementById('cookieConsent').style.display = 'none';
 });
 </script>
-
 </body>
 </html>
