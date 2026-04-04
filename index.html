@@ -1,540 +1,809 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<title>En-boarding – Structure for founders</title>
-<style>
-/* ===== RESET & BASE (same as original) ===== */
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  color: #545454;
-  margin-left: 80px;
-  line-height: 1.6;
-  background: #fff;
-}
-.sidebar {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 80px;
-  height: 100vh;
-  background: #333333;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 25px 0;
-  z-index: 10;
-}
-.logo {
-  width: 40px;
-  height: 40px;
-  background: white;
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  cursor: pointer;
-}
-.logo span {
-  width: 18px;
-  height: 2px;
-  background: #333;
-}
-.socials {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.socials a {
-  line-height: 0;
-}
-.socials img {
-  width: 20px;
-  filter: invert(1);
-  opacity: 0.8;
-  transition: opacity 0.2s;
-}
-.socials img:hover {
-  opacity: 1;
-}
-.menu {
-  position: fixed;
-  left: -260px;
-  top: 0;
-  width: 260px;
-  height: 100vh;
-  background: #f5f5f5;
-  transition: 0.3s;
-  z-index: 9;
-}
-.menu.active {
-  left: 80px;
-}
-.menu a {
-  display: block;
-  padding: 20px;
-  border-bottom: 1px solid #ddd;
-  text-decoration: none;
-  color: #333;
-  font-family: 'Archivo';
-}
-header {
-  padding: 20px 5% 20px 10%;
-  display: flex;
-  justify-content: flex-end;
-}
-.btn {
-  background: #333333;
-  color: white;
-  padding: 12px 28px;
-  border-radius: 30px;
-  text-decoration: none;
-  display: inline-block;
-  transition: background 0.2s;
-}
-.btn:hover {
-  background: #555;
-}
-section {
-  padding: 80px 10%;
-  max-width: 1100px;
-  margin: auto;
-}
-section + section {
-  border-top: 1px solid #eee;
-}
-h1, h2, h3 {
-  font-family: 'Archivo';
-  color: #333333;
-}
-.hero-split {
-  display: flex;
-  gap: 40px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.hero-split > div {
-  flex: 1;
-  min-width: 280px;
-}
-.comparison-card {
-  background: #f9f9f9;
-  border-radius: 20px;
-  padding: 30px 20px;
-  text-align: center;
-  flex: 1;
-}
-.comparison-card h3 {
-  margin: 10px 0;
-}
-.comparison-card ul {
-  text-align: left;
-  list-style-type: none;
-  padding: 0;
-}
-.comparison-card li {
-  margin: 10px 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.pain-headline {
-  color: #888;
-  margin-bottom: 0;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 0.9rem;
-}
-.problem-grid {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 40px;
-}
-.problem-item {
-  text-align: center;
-  max-width: 200px;
-}
-.problem-item .image-placeholder-small {
-  margin-bottom: 15px;
-}
-.image-placeholder-small {
-  width: 60px;
-  height: 60px;
-  background: #eee;
-  border: 2px dashed #aaa;
-  border-radius: 12px;
-  margin: 0 auto 15px auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #888;
-  font-size: 0.8rem;
-}
-.process-stages {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 30px;
-  margin: 60px 0 40px;
-}
-.stage {
-  background: #f9f9f9;
-  border-radius: 20px;
-  padding: 25px 20px;
-  width: 180px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-.stage-top {
-  margin-top: 0;
-}
-.stage-bottom {
-  margin-top: 40px;
-}
-.icon-circle {
-  width: 60px;
-  height: 60px;
-  border: 2px solid #333;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: white;
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-  color: #333;
-}
-.stage-bottom .icon-circle {
-  margin-top: 15px;
-  margin-bottom: 0;
-  order: 2;
-}
-.stage h3 {
-  font-size: 1.2rem;
-  margin: 0 0 15px;
-  color: #333;
-}
-.stage ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-size: 0.9rem;
-  color: #666;
-  line-height: 1.5;
-}
-.stage li {
-  margin-bottom: 8px;
-}
-.stage-bottom {
-  display: flex;
-  flex-direction: column;
-}
-.stage-bottom h3 {
-  order: 1;
-}
-.stage-bottom ul {
-  order: 2;
-}
-.stage-bottom .icon-circle {
-  order: 3;
-}
-@media (max-width: 900px) {
-  .process-stages {
-    gap: 20px;
-  }
-  .stage {
-    width: 160px;
-  }
-}
-@media (max-width: 700px) {
-  .process-stages {
-    flex-direction: column;
-    align-items: center;
-  }
-  .stage {
-    width: 280px;
-    margin-top: 0 !important;
-  }
-  .stage-bottom {
-    margin-top: 0;
-  }
-  .stage-bottom .icon-circle {
-    order: 0;
-  }
-}
-.transform-grid {
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-  margin: 40px 0;
-}
-.transform-col {
-  flex: 1;
-  min-width: 250px;
-  background: #f9f9f9;
-  padding: 30px;
-  border-radius: 20px;
-}
-.transform-col.before {
-  border: 1px solid #eee;
-}
-.transform-col.after {
-  background: #333;
-  color: white;
-}
-.transform-col.after h3 {
-  color: white;
-}
-.transform-col ul {
-  list-style: none;
-  padding: 0;
-}
-.transform-col li {
-  margin: 15px 0;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.testimonial {
-  background: #f9f9f9;
-  border-radius: 20px;
-  padding: 40px;
-  margin: 40px 0;
-  font-style: italic;
-  position: relative;
-}
-.testimonial::before {
-  content: "“";
-  font-size: 4rem;
-  color: #ccc;
-  position: absolute;
-  top: -10px;
-  left: 20px;
-}
-.testimonial p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
-.testimonial-author {
-  font-weight: 600;
-  color: #333;
-}
-.testimonial-role {
-  color: #888;
-  font-size: 0.9rem;
-}
-footer {
-  background: #f7f7f7;
-}
-.footer-content {
-  max-width: 1100px;
-  margin: auto;
-  padding: 60px 10%;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 30px;
-}
-.footer-bottom {
-  text-align: center;
-  padding: 20px;
-  border-top: 1px solid #eee;
-}
-@media (max-width:700px){
-  body { margin-left: 0; }
-  .sidebar { width: 60px; }
-  .menu.active { left: 60px; }
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>En-boarding | Free Founder Strategy Session</title>
+  <meta
+    name="description"
+    content="A limited number of free strategy sessions for early-stage founders who need clarity, sharper priorities, and a practical plan they can actually execute."
+  />
+  <style>
+    :root {
+      --bg: #f3e7df;
+      --surface: #ffffff;
+      --surface-soft: #f8f5f2;
+      --ink: #14213d;
+      --muted: #5f6572;
+      --line: rgba(20, 33, 61, 0.12);
+      --teal: #0d8b8f;
+      --teal-dark: #0a6d70;
+      --teal-soft: #d8f0ee;
+      --orange: #ff824d;
+      --orange-dark: #f26f35;
+      --white: #ffffff;
+      --shadow: 0 18px 40px rgba(17, 25, 40, 0.08);
+      --shadow-soft: 0 10px 24px rgba(17, 25, 40, 0.05);
+      --radius-xl: 42px;
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --content-max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .content {
+      width: min(var(--content-max), calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: currentColor;
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 16px;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 6vw, 5.1rem);
+      max-width: 9ch;
+      color: var(--white);
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      max-width: 12ch;
+    }
+
+    h3 {
+      font-size: 1.28rem;
+    }
+
+    p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .lead {
+      font-size: 1.12rem;
+      max-width: 56ch;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 56px;
+      padding: 0 26px;
+      border-radius: 16px;
+      border: 1px solid transparent;
+      font-weight: 800;
+      font-size: 0.98rem;
+      transition: 0.2s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(180deg, #ff986c 0%, var(--orange) 100%);
+      color: var(--white);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(180deg, #ff8f60 0%, var(--orange-dark) 100%);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      border-color: rgba(255,255,255,0.18);
+      backdrop-filter: blur(6px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.14);
+    }
+
+    .btn-light {
+      background: var(--surface);
+      color: var(--ink);
+      border-color: var(--line);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-light:hover {
+      background: #f5f5f5;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      background: var(--teal);
+      overflow: hidden;
+      padding-bottom: 64px;
+    }
+
+    .hero-header-wrap {
+      padding: 16px 16px 0;
+    }
+
+    .hero-header {
+      width: 100%;
+      min-height: 82px;
+      background: var(--surface-soft);
+      border-radius: 0 0 28px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 0 28px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .brand {
+      font-size: 1.12rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .brand span {
+      color: var(--teal);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      font-size: 0.94rem;
+      font-weight: 700;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--teal);
+    }
+
+    .hero-top-btn {
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 12px;
+      font-size: 0.92rem;
+    }
+
+    .hero-main {
+      position: relative;
+      z-index: 2;
+      padding: 64px 0 0;
+    }
+
+    .hero-grid {
+      width: min(var(--content-max), calc(100% - 48px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero-copy p {
+      color: rgba(255,255,255,0.86);
+      max-width: 48ch;
+    }
+
+    .hero-proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .hero-proof span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.16);
+      color: var(--white);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .hero-note {
+      margin-top: 28px;
+      max-width: 560px;
+      color: rgba(255,255,255,0.82);
+      font-size: 0.96rem;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 580px;
+    }
+
+    .hero-visual img {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: min(100%, 540px);
+      object-fit: contain;
+      filter: drop-shadow(0 16px 28px rgba(0,0,0,0.14));
+      z-index: 2;
+    }
+
+    .hero-word {
+      position: absolute;
+      right: -18px;
+      top: 50%;
+      transform: translateY(-50%) rotate(180deg);
+      writing-mode: vertical-rl;
+      font-size: clamp(5rem, 8vw, 8rem);
+      font-weight: 900;
+      letter-spacing: -0.06em;
+      color: rgba(255,255,255,0.16);
+      z-index: 1;
+      user-select: none;
+    }
+
+    .section {
+      width: 100%;
+      padding: 84px 0;
+      background: var(--bg);
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .problem-card,
+    .value-card,
+    .about-stat {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .problem-card,
+    .value-card {
+      padding: 26px;
+    }
+
+    .problem-icon,
+    .value-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      background: var(--teal-soft);
+      color: var(--teal);
+      font-size: 1rem;
+      font-weight: 900;
+    }
+
+    .problem-card p,
+    .value-card p {
+      margin-bottom: 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .about-photo {
+      width: 100%;
+      border-radius: 28px;
+      overflow: hidden;
+      background: #eaeaea;
+      box-shadow: var(--shadow);
+    }
+
+    .about-photo img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+    }
+
+    .about-panel {
+      display: grid;
+      gap: 22px;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .about-stat {
+      padding: 18px;
+    }
+
+    .about-stat strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .about-stat span {
+      color: var(--muted);
+      font-size: 0.94rem;
+      font-weight: 600;
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .cta {
+      position: relative;
+      width: 100%;
+      background: var(--ink);
+      overflow: hidden;
+      padding: 92px 0;
+    }
+
+    .cta::before {
+      content: "";
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .cta::after {
+      content: "";
+      position: absolute;
+      bottom: -70px;
+      left: -70px;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: rgba(13,139,143,0.14);
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 2;
+      width: min(760px, calc(100% - 48px));
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .cta-inner h2 {
+      color: var(--white);
+      max-width: none;
+    }
+
+    .cta-inner p {
+      color: rgba(255,255,255,0.78);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-chip-row {
+      margin-top: 22px;
+    }
+
+    .cta-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.9);
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin: 8px 6px 0;
+    }
+
+    footer {
+      background: var(--bg);
+      padding: 28px 0 36px;
+    }
+
+    .footer-row {
+      width: min(var(--content-max), calc(100% - 48px));
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .sticky-cta {
+      display: none;
+    }
+
+    @media (max-width: 1050px) {
+      .hero-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .problem-grid,
+      .value-grid,
+      .about-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: 420px;
+      }
+
+      .hero-visual img {
+        position: relative;
+        margin: 0 auto;
+      }
+
+      .hero-word {
+        display: none;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-main {
+        padding-top: 42px;
+      }
+
+      h1 {
+        max-width: none;
+      }
+
+      .hero-header {
+        padding: 0 16px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .content,
+      .hero-grid,
+      .cta-inner,
+      .footer-row {
+        width: calc(100% - 28px);
+      }
+
+      .hero-header-wrap {
+        padding: 10px 10px 0;
+      }
+
+      .hero-header {
+        border-radius: 0 0 20px 20px;
+      }
+
+      .hero {
+        padding-bottom: 42px;
+      }
+
+      .problem-card,
+      .value-card,
+      .about-stat {
+        padding: 22px;
+      }
+
+      .sticky-cta {
+        display: block;
+        position: fixed;
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        z-index: 1200;
+      }
+
+      .sticky-cta a {
+        width: 100%;
+      }
+
+      body {
+        padding-bottom: 86px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <section class="hero" id="home">
+    <div class="hero-header-wrap">
+      <header class="hero-header">
+        <a href="index.html" class="brand">EN-<span>BOARDING</span></a>
 
-<div class="sidebar">
-  <div class="logo" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-  </div>
-  <div class="socials">
-    <a href="https://www.linkedin.com/in/bouchra-d-35462b197/" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn"></a>
-    <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
-    <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/spotify.svg" alt="Spotify"></a>
-  </div>
-</div>
+        <nav class="nav-links">
+          <a href="free-tools.html">Free Tools</a>
+          <a href="blog.html">Blog</a>
+          <a href="about.html">About</a>
+          <a href="booking.html">Book</a>
+        </nav>
 
-<div class="menu" id="menu">
-  <a href="index.html">Home</a>
-  <a href="free-tools.html">Free Tools</a>
-  <a href="blog.html">Blog</a>
-  <a href="about.html">About</a>
-  <a href="booking.html">Book a session →</a>
-</div>
-
-<header>
-  <a class="btn" href="booking.html">Book a free strategy session →</a>
-</header>
-
-<!-- HERO SECTION (ToFU) -->
-<section id="concept">
-  <div class="hero-split">
-    <div>
-      <p class="pain-headline">You have an idea but no clear next step</p>
-      <h1 style="font-size: 2.8rem; line-height: 1.2;">Stop Onboarding.<br>Start En‑boarding.</h1>
-      <p style="font-size: 1.2rem; color: #666;">Employees get structure. Founders get chaos. En‑boarding gives you the same head start — but for your startup.</p>
-      <a href="booking.html" class="btn" style="margin-top: 20px;">Book a free strategy session →</a>
+        <a href="booking.html" class="btn btn-primary hero-top-btn">Book a session →</a>
+      </header>
     </div>
-    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-      <div class="comparison-card">
-        <div class="image-placeholder-small" style="font-size: 2rem; border: none; background: transparent;">🧑‍💻</div>
-        <h3>Traditional founder</h3>
-        <ul>
-          <li>❌ No roadmap</li>
-          <li>❌ Unclear next steps</li>
-          <li>❌ Isolated</li>
-        </ul>
-      </div>
-      <div class="comparison-card">
-        <div class="image-placeholder-small" style="font-size: 2rem; border: none; background: transparent;">🚀</div>
-        <h3>En‑boarded founder</h3>
-        <ul>
-          <li>✅ Clear 5‑step process</li>
-          <li>✅ Actionable tasks</li>
-          <li>✅ Weekly peer support</li>
-        </ul>
+
+    <div class="hero-main">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow" style="color:#d8f0ee;">Limited free founder sessions</div>
+          <h1>Get clear on your startup's next move.</h1>
+          <p class="lead">
+            I'm offering a small number of free strategy sessions for early-stage founders
+            who need clarity, sharper priorities, and a practical plan they can actually execute.
+          </p>
+
+          <div class="btn-row">
+            <a href="booking.html" class="btn btn-primary">Apply for a free session</a>
+            <a href="#what-you-get" class="btn btn-secondary">See what you'll get</a>
+          </div>
+
+          <div class="hero-proof">
+            <span>30–45 minutes</span>
+            <span>Free test format</span>
+            <span>Limited spots</span>
+          </div>
+
+          <p class="hero-note">
+            This is for founders who want a useful outside perspective,
+            not generic advice or a complicated consulting pitch.
+          </p>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-word">Founder</div>
+          <img src="MeHero.png" alt="Bouchra in a founder strategy session" />
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- PROBLEM SECTION (ToFU) -->
-<section id="problem">
-  <h2>The founder’s reality</h2>
-  <div class="problem-grid">
-    <div class="problem-item">
-      <div class="image-placeholder-small" style="font-size: 2rem; border: none; background: transparent;">📋</div>
-      <h3>No structure</h3>
-      <p>You piece together advice from blogs, podcasts, and mentors.</p>
-    </div>
-    <div class="problem-item">
-      <div class="image-placeholder-small" style="font-size: 2rem; border: none; background: transparent;">🌀</div>
-      <h3>Overwhelm</h3>
-      <p>Everything is urgent – strategy, marketing, product, sales.</p>
-    </div>
-    <div class="problem-item">
-      <div class="image-placeholder-small" style="font-size: 2rem; border: none; background: transparent;">💔</div>
-      <h3>Loneliness</h3>
-      <p>No team, no sounding board, no one to celebrate small wins.</p>
-    </div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS (MoFU – but kept for education) -->
-<section id="process">
-  <h2>What happens when you start En‑boarding</h2>
-  <div class="process-stages">
-    <div class="stage stage-top">
-      <div class="icon-circle">💡</div>
-      <h3>Idea</h3>
-      <ul><li>Unclear direction</li><li>Too many ideas</li><li>No structure</li><li>Feeling stuck</li></ul>
-    </div>
-    <div class="stage stage-bottom">
-      <h3>Clarity</h3>
-      <ul><li>Define the problem</li><li>Understand the user</li><li>Focus on what matters</li></ul>
-      <div class="icon-circle">🔍</div>
-    </div>
-    <div class="stage stage-top">
-      <div class="icon-circle">🧩</div>
-      <h3>Structure</h3>
-      <ul><li>Clear concept</li><li>Value proposition</li><li>Simple explanation</li></ul>
-    </div>
-    <div class="stage stage-bottom">
-      <h3>Action</h3>
-      <ul><li>Next steps defined</li><li>Priorities set</li><li>Start execution</li></ul>
-      <div class="icon-circle">⚙️</div>
-    </div>
-    <div class="stage stage-top">
-      <div class="icon-circle">🚀</div>
-      <h3>Project</h3>
-      <ul><li>Structured workflow</li><li>Clear roadmap</li><li>Ready to grow</li></ul>
-    </div>
-  </div>
-  <div style="text-align: center; margin-top: 20px;">
-    <a href="booking.html" class="btn" style="font-size: 1.2rem; padding: 16px 36px;">Book a free strategy session →</a>
-  </div>
-</section>
-
-<!-- BEFORE/AFTER (kept for clarity) -->
-<section>
-  <h2>Before and after En‑boarding</h2>
-  <div class="transform-grid">
-    <div class="transform-col before">
-      <h3>Before</h3>
-      <ul><li>❌ I have an idea but no clarity</li><li>❌ I don't know where to start</li><li>❌ Everything feels messy</li></ul>
-    </div>
-    <div class="transform-col after">
-      <h3>After</h3>
-      <ul><li>✅ Clear business structure</li><li>✅ Defined next steps</li><li>✅ Confidence to move forward</li></ul>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIAL (social proof) -->
-<div style="max-width:1100px; margin:auto; padding:0 10%;">
-  <div class="testimonial">
-    <p>"En‑boarding turned my vague EdTech idea into a concrete roadmap. In 4 weeks I had my first pilot customer and a clear funding plan."</p>
-    <div class="testimonial-author">— Anna Kowalski</div>
-    <div class="testimonial-role">Founder of Learnly, ex-Google PM</div>
-  </div>
-</div>
-
-<!-- FOOTER (simplified, no anti-conversion disclaimer) -->
-<footer>
-  <div class="footer-content">
-    <div>
-      <h3>En-boarding</h3>
-      <p>Onboarding for entrepreneurs.</p>
-      <p style="font-size:0.9rem;">Berlin, Germany</p>
-    </div>
-    <div>
-      <p><strong>Email</strong></p>
-      <p>bouchra.emp@gmail.com</p>
-      <p style="margin-top:10px;">
-        <a href="impressum.html" style="color:#333; text-decoration:underline;">Impressum</a> | 
-        <a href="terms.html" style="color:#333; text-decoration:underline;">Terms</a> | 
-        <a href="privacy.html" style="color:#333; text-decoration:underline;">Privacy</a>
+  <section class="section" id="who-its-for">
+    <div class="content">
+      <div class="eyebrow">Who this is for</div>
+      <h2>If you're building, but still feel stuck.</h2>
+      <p class="lead">
+        This is for founders who need a clearer path, better priorities,
+        and outside perspective that helps them move instead of overthinking.
       </p>
+
+      <div class="problem-grid">
+        <article class="problem-card">
+          <div class="problem-icon">01</div>
+          <h3>You're unsure what to prioritize</h3>
+          <p>
+            You have momentum, ideas, and pressure, but not enough clarity on what matters most right now.
+          </p>
+        </article>
+
+        <article class="problem-card">
+          <div class="problem-icon">02</div>
+          <h3>You're pulled in too many directions</h3>
+          <p>
+            Product, positioning, growth, messaging, and execution are all competing for your attention.
+          </p>
+        </article>
+
+        <article class="problem-card">
+          <div class="problem-icon">03</div>
+          <h3>You want useful founder-level guidance</h3>
+          <p>
+            Not generic advice, but a clear conversation that helps you decide what to do next.
+          </p>
+        </article>
+      </div>
     </div>
+  </section>
+
+  <section class="section" id="about-me">
+    <div class="content">
+      <div class="about-grid">
+        <div class="about-photo">
+          <img src="bouchra.jpeg" alt="Bouchra Driouach" />
+        </div>
+
+        <div class="about-panel">
+          <div>
+            <div class="eyebrow">About Me</div>
+            <h2 style="max-width:14ch;">Bouchra Driouach, Startup Consultant</h2>
+            <p>
+              I work with early-stage founders who need clarity, strategic direction,
+              and practical execution.
+            </p>
+            <p>
+              These sessions are focused, direct, and built to help you move forward
+              with better priorities and a clearer plan.
+            </p>
+
+            <div class="btn-row">
+              <a href="about.html" class="btn btn-light">Learn more</a>
+            </div>
+          </div>
+
+          <div class="about-stats">
+            <div class="about-stat">
+              <strong>Early-stage focus</strong>
+              <span>Built for founders</span>
+            </div>
+            <div class="about-stat">
+              <strong>Clear direction</strong>
+              <span>Not generic advice</span>
+            </div>
+            <div class="about-stat">
+              <strong>Actionable</strong>
+              <span>Immediate next steps</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="what-you-get">
+    <div class="content">
+      <div class="eyebrow">What you get</div>
+      <h2>What founders should walk away with.</h2>
+      <p class="lead">
+        The value is in the outcome of the session.
+      </p>
+
+      <div class="value-grid">
+        <article class="value-card">
+          <div class="value-icon">A</div>
+          <h3>Clear Priorities</h3>
+          <p>
+            A better understanding of what deserves attention now,
+            and what can wait.
+          </p>
+        </article>
+
+        <article class="value-card">
+          <div class="value-icon">B</div>
+          <h3>Strategic Direction</h3>
+          <p>
+            A clearer view of where you are stuck, what decisions matter,
+            and how to move forward.
+          </p>
+        </article>
+
+        <article class="value-card">
+          <div class="value-icon">C</div>
+          <h3>Next-Step Plan</h3>
+          <p>
+            Practical next actions you can take after the session,
+            not vague inspiration.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="cta-inner">
+      <div class="eyebrow" style="color:#d8f0ee; justify-content:center;">Apply now</div>
+      <h2>Join this small founder test.</h2>
+      <p class="lead">
+        I'm currently offering a limited number of free strategy sessions
+        to early-stage founders.
+      </p>
+
+      <div class="btn-row" style="justify-content:center;">
+        <a href="booking.html" class="btn btn-primary">Book your free session →</a>
+      </div>
+
+      <div class="cta-chip-row">
+        <span class="cta-chip">30–45 minutes</span>
+        <span class="cta-chip">Limited spots</span>
+        <span class="cta-chip">Early-stage founders</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-row">
+      <div><strong>En-boarding</strong> — Strategic support for early-stage founders</div>
+      <div><a href="impressum.html" style="color: var(--muted); text-decoration: underline;">Impressum</a> | <a href="privacy.html" style="color: var(--muted); text-decoration: underline;">Privacy</a></div>
+    </div>
+  </footer>
+
+  <div class="sticky-cta">
+    <a href="booking.html" class="btn btn-primary">Book a free session →</a>
   </div>
-  <div class="footer-bottom">
-    <p>© 2026 En-boarding. All rights reserved.</p>
+
+  <div id="cookieConsent" style="position:fixed; bottom:0; left:0; right:0; background:var(--surface); padding:15px; text-align:center; z-index:1000; display:none; border-top:1px solid var(--line);">
+    <p style="margin:0;">We use cookies. <a href="privacy.html" style="color:var(--teal);">Privacy Policy</a>. <button id="acceptCookies" style="background:var(--teal); color:#fff; border:none; padding:5px 15px; margin-left:10px; border-radius:20px; cursor:pointer;">Accept</button></p>
   </div>
-</footer>
 
-<!-- COOKIE CONSENT (unchanged) -->
-<div id="cookieConsent" style="position:fixed; bottom:0; left:0; right:0; background:#f0f0f0; color:#333; padding:15px; text-align:center; z-index:1000; display:none; border-top:1px solid #ddd;">
-  <p style="margin:0;">We use cookies to enhance your experience. By continuing, you agree to our <a href="privacy.html" style="color:#333; text-decoration:underline;">Privacy Policy</a>. <button id="acceptCookies" style="background:#333; color:#fff; border:none; padding:5px 15px; margin-left:10px; border-radius:20px; cursor:pointer;">Accept</button></p>
-</div>
-
-<script>
-function toggleMenu(){
-  document.getElementById("menu").classList.toggle("active");
-}
-if(!localStorage.getItem('cookieConsent')) document.getElementById('cookieConsent').style.display = 'block';
-document.getElementById('acceptCookies').addEventListener('click', function(){
-  localStorage.setItem('cookieConsent', 'true');
-  document.getElementById('cookieConsent').style.display = 'none';
-});
-</script>
-
+  <script>
+    function checkCookieConsent() {
+      if(!localStorage.getItem('cookieConsent')) {
+        document.getElementById('cookieConsent').style.display = 'block';
+      }
+    }
+    document.getElementById('acceptCookies')?.addEventListener('click', function(){
+      localStorage.setItem('cookieConsent', 'true');
+      document.getElementById('cookieConsent').style.display = 'none';
+    });
+    checkCookieConsent();
+  </script>
 </body>
 </html>
