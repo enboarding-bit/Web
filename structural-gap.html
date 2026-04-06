@@ -3,370 +3,209 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<title>En-boarding · Entrepreneur Operating System Quiz</title>
+<title>En-boarding · Structural Gap Assessment</title>
+<meta name="description" content="Founder structuring for early-stage entrepreneurs.">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* same CSS as before, unchanged */
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  color: #545454;
-  margin-left: 80px;
-  line-height: 1.6;
-  background: #fff;
+:root{
+  --bg:#f4e7de;
+  --surface:#ffffff;
+  --surface-soft:#f8f5f2;
+  --ink:#14213d;
+  --muted:#5f6572;
+  --line:rgba(20,33,61,0.10);
+  --teal:#0d8b8f;
+  --teal-dark:#0a6d70;
+  --teal-soft:#d8f0ee;
+  --orange:#ff824d;
+  --orange-dark:#f26f35;
+  --white:#ffffff;
+  --shadow:0 18px 40px rgba(17,25,40,0.08);
+  --shadow-soft:0 10px 24px rgba(17,25,40,0.05);
+  --radius-xl:32px;
+  --radius-lg:24px;
+  --radius-md:18px;
+  --content-max:1120px;
 }
-.sidebar {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 80px;
-  height: 100vh;
-  background: #333333;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 25px 0;
-  z-index: 10;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.65;
 }
-.logo {
-  width: 40px;
-  height: 40px;
-  background: white;
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  cursor: pointer;
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,textarea,select{font:inherit}
+.container{width:min(var(--content-max),calc(100% - 32px));margin:0 auto}
+.site-header-wrap{padding:12px 12px 0}
+.site-header{
+  min-height:78px;background:rgba(248,245,242,0.95);backdrop-filter:blur(8px);
+  border-radius:0 0 24px 24px;display:flex;align-items:center;justify-content:space-between;
+  gap:20px;padding:0 22px;box-shadow:var(--shadow-soft);position:sticky;top:0;z-index:50
 }
-.logo span {
-  width: 18px;
-  height: 2px;
-  background: #333;
+.brand{font-size:1.15rem;font-weight:900;letter-spacing:-0.04em}
+.brand span{color:var(--teal)}
+.nav-links{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.nav-links a{font-size:0.95rem;font-weight:700;color:var(--ink)}
+.nav-links a:hover,.nav-links a.active{color:var(--teal)}
+.top-cta{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 18px;border-radius:14px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:54px;padding:0 24px;border-radius:16px;border:1px solid transparent;
+  font-weight:800;font-size:0.96rem;cursor:pointer;transition:.2s ease
 }
-.socials {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.btn-primary{background:linear-gradient(180deg,#ff986c 0%,var(--orange) 100%);color:#fff;box-shadow:var(--shadow-soft)}
+.btn-primary:hover{transform:translateY(-1px);background:linear-gradient(180deg,#ff8f60 0%,var(--orange-dark) 100%)}
+.btn-secondary{background:var(--surface);border-color:var(--line);color:var(--ink)}
+.btn-secondary:hover{background:#f7f7f7}
+.btn-ghost{background:transparent;border-color:rgba(255,255,255,0.18);color:#fff}
+.page-hero{
+  padding:72px 0 40px;
 }
-.socials a {
-  line-height: 0;
+.hero-panel,.content-panel{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-xl);box-shadow:var(--shadow-soft)
 }
-.socials img {
-  width: 20px;
-  filter: invert(1);
-  opacity: 0.8;
-  transition: opacity 0.2s;
+.hero-panel{padding:46px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;margin-bottom:14px;
+  font-size:.82rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)
 }
-.socials img:hover {
-  opacity: 1;
+.eyebrow::before{content:"";width:18px;height:2px;border-radius:999px;background:currentColor}
+h1,h2,h3{margin:0 0 14px;line-height:1.08;letter-spacing:-0.04em}
+h1{font-size:clamp(2.3rem,5vw,4.5rem)}
+h2{font-size:clamp(1.8rem,3vw,2.7rem)}
+h3{font-size:1.22rem}
+p{margin:0 0 16px;color:var(--muted);font-size:1.03rem}
+.lead{font-size:1.1rem;max-width:62ch}
+.section{padding:34px 0}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:26px;box-shadow:var(--shadow-soft)
 }
-.menu {
-  position: fixed;
-  left: -260px;
-  top: 0;
-  width: 260px;
-  height: 100vh;
-  background: #f5f5f5;
-  transition: 0.3s;
-  z-index: 9;
+.card:hover{transform:translateY(-1px)}
+.icon-box{
+  width:50px;height:50px;border-radius:16px;display:grid;place-items:center;
+  background:var(--teal-soft);color:var(--teal);font-weight:900;margin-bottom:16px
 }
-.menu.active {
-  left: 80px;
+.kicker-list,.meta-row{display:flex;flex-wrap:wrap;gap:10px}
+.kicker-list span,.pill{
+  display:inline-flex;align-items:center;min-height:38px;padding:0 14px;border-radius:999px;
+  background:var(--surface-soft);border:1px solid var(--line);color:var(--ink);font-size:.92rem;font-weight:700
 }
-.menu a {
-  display: block;
-  padding: 20px;
-  border-bottom: 1px solid #ddd;
-  text-decoration: none;
-  color: #333;
-  font-family: 'Archivo';
+.section-title{max-width:760px;margin-bottom:24px}
+.cta-band{
+  background:var(--ink);padding:78px 0;position:relative;overflow:hidden
 }
-header {
-  padding: 20px 5% 20px 10%;
-  display: flex;
-  justify-content: flex-end;
+.cta-band::before{content:"";position:absolute;right:-80px;top:-80px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.05)}
+.cta-band::after{content:"";position:absolute;left:-70px;bottom:-70px;width:240px;height:240px;border-radius:50%;background:rgba(13,139,143,.14)}
+.cta-inner{position:relative;z-index:1;text-align:center;width:min(760px,calc(100% - 32px));margin:0 auto}
+.cta-inner h2,.cta-inner p{color:#fff}
+.cta-inner p{color:rgba(255,255,255,.82)}
+.site-footer{padding:30px 0 38px}
+.footer-row{
+  width:min(var(--content-max),calc(100% - 32px));margin:0 auto;display:flex;justify-content:space-between;
+  gap:18px;flex-wrap:wrap;color:var(--muted);font-weight:600
 }
-.btn {
-  background: #333333;
-  color: white;
-  padding: 12px 28px;
-  border-radius: 30px;
-  text-decoration: none;
-  display: inline-block;
-  transition: background 0.2s;
+.footer-links{display:flex;gap:18px;flex-wrap:wrap}
+.footer-links a:hover{color:var(--teal)}
+.article-shell{padding:50px 0}
+.article-layout{max-width:840px;margin:0 auto}
+.back-link{display:inline-flex;align-items:center;gap:8px;color:var(--teal);font-weight:700;margin-bottom:18px}
+.article-meta{display:flex;gap:12px;flex-wrap:wrap;color:var(--teal);font-weight:700;font-size:.92rem;margin-bottom:14px}
+.article-box{padding:38px}
+.tldr,.highlight-box,.legal-note{
+  background:var(--surface-soft);border:1px solid var(--line);border-left:4px solid var(--teal);
+  border-radius:0 18px 18px 0;padding:20px 22px;margin:24px 0
 }
-.btn:hover {
-  background: #555;
+pre.diagram{
+  white-space:pre-wrap;background:var(--surface-soft);border:1px solid var(--line);border-radius:22px;
+  padding:22px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9rem;color:var(--ink);overflow-x:auto
 }
-.quiz-container {
-  max-width: 700px;
-  margin: 60px auto;
-  padding: 0 20px;
+.related-box{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:24px;margin-top:32px}
+.related-box ul{margin:0;padding-left:18px}
+.related-box li{margin:0 0 10px;color:var(--muted)}
+.related-box a{color:var(--teal);font-weight:700}
+.form-grid{display:grid;gap:18px}
+label{display:block;font-weight:700;margin-bottom:8px}
+input[type="text"],input[type="email"],textarea{
+  width:100%;padding:14px 16px;border-radius:16px;border:1px solid var(--line);background:#fff;color:var(--ink)
 }
-.quiz-header {
-  text-align: center;
-  margin-bottom: 30px;
+textarea{min-height:120px;resize:vertical}
+.note{font-size:.92rem}
+.legal-doc{padding:38px}
+.legal-doc h2{font-size:1.35rem;margin-top:26px}
+.legal-doc ul{padding-left:22px;color:var(--muted)}
+.legal-doc li{margin-bottom:8px}
+.assessment-wrap{padding:34px}
+.progress{height:8px;background:var(--surface-soft);border-radius:999px;overflow:hidden;margin:22px 0 28px}
+.progress-bar{height:100%;width:0;background:var(--teal);transition:.3s}
+.question-card{
+  background:var(--surface-soft);border:1px solid var(--line);border-radius:24px;padding:24px
 }
-.quiz-header h1 {
-  font-family: 'Archivo';
-  font-size: 2rem;
-  color: #333;
-  margin-bottom: 5px;
+.likert{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:18px}
+.likert-option{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;text-align:center}
+.likert-option input{margin-bottom:8px}
+.result-card{display:none;margin-top:22px;background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:28px}
+.score-badge{display:inline-flex;padding:8px 16px;border-radius:999px;background:var(--teal);color:#fff;font-weight:800;margin-bottom:16px}
+@media (max-width:980px){
+  .grid-2,.grid-3{grid-template-columns:1fr}
 }
-.quiz-header p {
-  color: #666;
-  font-size: 0.9rem;
+@media (max-width:820px){
+  .site-header{padding:14px 16px;align-items:flex-start}
+  .nav-links{display:none}
 }
-.progress {
-  margin: 20px 0;
-  height: 4px;
-  background: #eee;
-  border-radius: 2px;
-}
-.progress-bar {
-  width: 0%;
-  height: 100%;
-  background: #333;
-  transition: width 0.3s;
-}
-.question-card {
-  background: #f9f9f9;
-  border-radius: 20px;
-  padding: 30px;
-  margin-bottom: 30px;
-}
-.question-card h3 {
-  font-family: 'Archivo';
-  font-size: 1.3rem;
-  margin-top: 0;
-  margin-bottom: 20px;
-  color: #333;
-}
-.likert {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  margin: 25px 0 10px;
-  flex-wrap: wrap;
-}
-.likert-option {
-  text-align: center;
-  flex: 1;
-  min-width: 50px;
-}
-.likert-option label {
-  display: block;
-  font-size: 0.8rem;
-  margin-top: 5px;
-  color: #666;
-}
-.likert-option input {
-  margin: 0;
-  transform: scale(1.2);
-}
-.nav-buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-.nav-buttons button {
-  background: #333;
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 30px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: background 0.2s;
-}
-.nav-buttons button:hover {
-  background: #555;
-}
-.nav-buttons button:disabled {
-  background: #ccc;
-  cursor: not-allowed;
-}
-.result-container {
-  background: #f9f9f9;
-  border-radius: 20px;
-  padding: 40px;
-  text-align: center;
-  display: none;
-}
-.result-container h2 {
-  margin-top: 0;
-}
-.archetype-badge {
-  display: inline-block;
-  background: #333;
-  color: white;
-  padding: 6px 16px;
-  border-radius: 30px;
-  font-size: 0.9rem;
-  margin-bottom: 20px;
-}
-.core-problem {
-  background: #fff;
-  border-left: 4px solid #333;
-  padding: 20px;
-  margin: 20px 0;
-  text-align: left;
-  font-weight: 500;
-  color: #333;
-}
-.teaser-text {
-  background: #fff;
-  border-left: 4px solid #ccc;
-  padding: 20px;
-  margin: 20px 0;
-  text-align: left;
-  font-style: italic;
-  color: #666;
-}
-.email-form {
-  margin-top: 30px;
-  text-align: left;
-  border-top: 1px solid #eee;
-  padding-top: 30px;
-}
-.email-form input {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  box-sizing: border-box;
-}
-.email-form button {
-  background: #333;
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 30px;
-  cursor: pointer;
-}
-.back-link {
-  display: inline-block;
-  margin: 30px 0;
-  color: #333;
-  text-decoration: none;
-  border-bottom: 1px solid #ccc;
-}
-.back-link:hover {
-  border-bottom-color: #333;
-}
-footer {
-  background: #f7f7f7;
-  margin-top: 80px;
-}
-.footer-content {
-  max-width: 1100px;
-  margin: auto;
-  padding: 60px 10%;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 30px;
-}
-.footer-bottom {
-  text-align: center;
-  padding: 20px;
-  border-top: 1px solid #eee;
-}
-@media (max-width:700px){
-  body { margin-left: 0; }
-  .sidebar { width: 60px; }
-  .menu.active { left: 60px; }
+@media (max-width:640px){
+  .hero-panel,.article-box,.assessment-wrap,.legal-doc{padding:26px}
+  .likert{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 
-<div class="sidebar">
-  <div class="logo" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-  </div>
-  <div class="socials">
-    <a href="https://www.linkedin.com/in/bouchra-d-35462b197/" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn"></a>
-    <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
-    <a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/spotify.svg" alt="Spotify"></a>
-  </div>
+<div class="site-header-wrap">
+  <header class="site-header container">
+    <a href="index.html" class="brand">EN-<span>BOARDING</span></a>
+    <nav class="nav-links">
+      <a href="index.html" >Home</a>
+      <a href="about.html" >About</a>
+      <a href="free-tools.html" class="active">Assessments</a>
+      <a href="blog.html" >Blog</a>
+      <a href="booking.html" >Book</a>
+    </nav>
+    <a href="booking.html" class="btn btn-primary top-cta">Book your first session</a>
+  </header>
 </div>
 
-<div class="menu" id="menu">
-  <a href="index.html#concept">Home</a>
-  <a href="index.html#problem">Problem</a>
-  <a href="index.html#quiz">Quiz</a>
-  <a href="index.html#process">Process</a>
-  <a href="index.html#services">Services</a>
-  <a href="index.html#webinar">Webinar</a>
-  <a href="blog.html">Blog</a>
-  <a href="index.html#about">About</a>
-</div>
 
-<header>
-  <a class="btn" href="apply.html">Join Waitlist →</a>
-</header>
-
-<main class="quiz-container">
-  <a href="index.html" class="back-link">← Back to home</a>
-  <div class="quiz-header">
-    <h1>Entrepreneur Operating System Quiz</h1>
-    <p>How you move, decide, and persist — in your own words</p>
-  </div>
-  <div class="progress">
-    <div class="progress-bar" id="progressBar"></div>
-  </div>
-  <div id="questionContainer"></div>
-  <div class="nav-buttons">
-    <button id="prevBtn" disabled>← Back</button>
-    <button id="nextBtn">Next →</button>
-  </div>
-  <div id="resultContainer" class="result-container"></div>
-</main>
-
-<footer>
-  <div class="footer-content">
-    <div>
-      <h3>En-boarding</h3>
-      <p>Onboarding for entrepreneurs.</p>
-      <p style="font-size:0.9rem;">Berlin, Germany</p>
-    </div>
-    <div>
-      <p><strong>Email</strong></p>
-      <p>bouchra.emp@gmail.com</p>
-      <p style="margin-top:10px;">
-        <a href="impressum.html" style="color:#333; text-decoration:underline;">Impressum</a> | 
-        <a href="terms.html" style="color:#333; text-decoration:underline;">Terms</a> | 
-        <a href="privacy.html" style="color:#333; text-decoration:underline;">Privacy</a>
-      </p>
+<section class="page-hero">
+  <div class="container">
+    <div class="hero-panel">
+      <div class="eyebrow">Assessment</div>
+      <h1>Structural Gap Assessment</h1>
+      <p class="lead">40 short statements to help you identify where your current bottleneck may be.</p>
     </div>
   </div>
-  <div class="footer-bottom">
-    <p>© 2026 En-boarding. All rights reserved.</p>
-    <p style="font-size:0.8rem; margin-top:10px;">This is a market research project. No commercial services are currently offered.</p>
-  </div>
-</footer>
+</section>
 
-<div id="cookieConsent" style="position:fixed; bottom:0; left:0; right:0; background:#f0f0f0; color:#333; padding:15px; text-align:center; z-index:1000; display:none; border-top:1px solid #ddd;">
-  <p style="margin:0;">We use cookies to enhance your experience. By continuing, you agree to our <a href="privacy.html" style="color:#333; text-decoration:underline;">Privacy Policy</a>. <button id="acceptCookies" style="background:#333; color:#fff; border:none; padding:5px 15px; margin-left:10px; border-radius:20px; cursor:pointer;">Accept</button></p>
-</div>
+<section class="section">
+  <div class="container">
+    <div class="content-panel assessment-wrap">
+      <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+      <div id="questionContainer"></div>
+      <div class="meta-row" style="margin-top:18px;justify-content:space-between">
+        <button id="prevBtn" class="btn btn-secondary" disabled>Back</button>
+        <button id="nextBtn" class="btn btn-primary">Next</button>
+      </div>
+      <div id="resultContainer" class="result-card"></div>
+    </div>
+  </div>
+</section>
 
 <script>
-function toggleMenu(){
-  document.getElementById("menu").classList.toggle("active");
-}
-if(!localStorage.getItem('cookieConsent')) document.getElementById('cookieConsent').style.display = 'block';
-document.getElementById('acceptCookies').addEventListener('click', function(){
-  localStorage.setItem('cookieConsent', 'true');
-  document.getElementById('cookieConsent').style.display = 'none';
-});
-
-// Quiz questions (40 items) exactly as provided
 const questions = [
   "I start working on ideas before I fully understand how they will work",
   "I prefer predictable income over uncertain opportunities",
@@ -374,14 +213,14 @@ const questions = [
   "When things stop working, I tend to step back and lose momentum",
   "I finish projects even when they become difficult or boring",
   "I come up with more ideas than I actually build",
-  "I question rules that don’t make sense to me",
+  "I question rules that don't make sense to me",
   "I act quickly when I see a chance to move forward",
   "I avoid situations where I might lose money, time, or stability",
   "I keep working even when results are slow",
   "I usually focus on what needs to be done right now",
   "I turn ideas into something concrete or usable",
   "When things get uncertain, I slow down or wait",
-  "I push harder when things aren’t working",
+  "I push harder when things aren't working",
   "I want my work to lead to visible results",
   "I prefer working alone most of the time",
   "I take action without waiting for full clarity",
@@ -397,7 +236,7 @@ const questions = [
   "I care about having freedom over how I work",
   "I share my work or ideas publicly",
   "When pressure increases, my reactions become stronger and less controlled",
-  "I think about scaling or expanding what I’m doing",
+  "I think about scaling or expanding what I'm doing",
   "I prefer structure and clear processes",
   "I delay decisions until I feel ready",
   "I focus on efficiency and avoiding wasted effort",
@@ -409,300 +248,84 @@ const questions = [
   "I look for the fastest way to move forward",
   "I stay consistent even without immediate results"
 ];
-
-// Indices for dimensions (0-based)
-const dimensionMap = {
-  momentum: [0,7,16,25,38], // 1,8,17,26,39
-  edge: [1,8,34,36],        // 2,9,35,37
-  scope: [2,17,29,10],      // 3,18,30,11
-  drive: [4,9,18,39],       // 5,10,19,40
-  execution: [11,21],       // 12,22
-  ideation: [5,0],          // 6,1
-  reaction_avoid: [3,12],   // 4,13
-  reaction_compensate: [13,28], // 14,29
-  reaction_surrender: [18], // 19
-  motivation_mastery: [23], // 24
-  motivation_results: [14], // 15
-  motivation_freedom: [26], // 27
-  motivation_impact: [35],  // 36
-  control_challenger: [6,22], // 7,23
-  control_evaluator: [30,32], // 31,33
-  control_operator: [19],   // 20
-  presence_private: [15,37], // 16,38
-  presence_public: [20,27]   // 21,28
-};
-
-const reverseItems = [1,8,10,24,31,33]; // indices 1,8,10,24,31,33 (0-based: 2,9,11,25,32,34)
-
 let currentIndex = 0;
-let answers = new Array(questions.length).fill(null);
+const answers = new Array(questions.length).fill(null);
 
-function renderQuestion() {
-  const container = document.getElementById('questionContainer');
+function renderQuestion(){
   const q = questions[currentIndex];
   const selected = answers[currentIndex];
-  container.innerHTML = `
+  document.getElementById('questionContainer').innerHTML = `
     <div class="question-card">
-      <h3>${q}</h3>
+      <h3>${currentIndex + 1}. ${q}</h3>
       <div class="likert">
-        <div class="likert-option"><input type="radio" name="rating" value="1" id="r1" ${selected === 1 ? 'checked' : ''}><label for="r1">1<br>Strongly disagree</label></div>
-        <div class="likert-option"><input type="radio" name="rating" value="2" id="r2" ${selected === 2 ? 'checked' : ''}><label for="r2">2<br>Disagree</label></div>
-        <div class="likert-option"><input type="radio" name="rating" value="3" id="r3" ${selected === 3 ? 'checked' : ''}><label for="r3">3<br>Neutral</label></div>
-        <div class="likert-option"><input type="radio" name="rating" value="4" id="r4" ${selected === 4 ? 'checked' : ''}><label for="r4">4<br>Agree</label></div>
-        <div class="likert-option"><input type="radio" name="rating" value="5" id="r5" ${selected === 5 ? 'checked' : ''}><label for="r5">5<br>Strongly agree</label></div>
+        ${[1,2,3,4,5].map(v => `
+          <label class="likert-option">
+            <input type="radio" name="rating" value="${v}" ${selected===v?'checked':''}>
+            <div style="font-weight:800;color:var(--ink)">${v}</div>
+            <div class="note">${['Strongly disagree','Disagree','Neutral','Agree','Strongly agree'][v-1]}</div>
+          </label>
+        `).join('')}
       </div>
+    </div>`;
+  document.getElementById('progressBar').style.width = (((currentIndex+1)/questions.length)*100)+'%';
+  document.getElementById('prevBtn').disabled = currentIndex===0;
+  document.getElementById('nextBtn').textContent = currentIndex===questions.length-1 ? 'See results' : 'Next';
+}
+function saveAnswer(){
+  const checked = document.querySelector('input[name="rating"]:checked');
+  if(!checked) return false;
+  answers[currentIndex] = parseInt(checked.value,10);
+  return true;
+}
+function computeResults(){
+  const momentum = [0,7,16,25,38].reduce((s,i)=>s+(answers[i]||0),0)/5;
+  const consistency = [4,9,21,31,39].reduce((s,i)=>s+(answers[i]||0),0)/5;
+  const archetype = momentum > 3.5 ? 'Action Taker' : 'Thoughtful Planner';
+  const bottleneck = consistency > 3.4 ? 'direction and sequencing' : 'clarity and decision-making';
+  document.getElementById('resultContainer').style.display = 'block';
+  document.getElementById('resultContainer').innerHTML = `
+    <div class="score-badge">Result</div>
+    <h3>Your pattern leans toward: ${archetype}</h3>
+    <p>Your likely bottleneck is <strong style="color:var(--ink)">${bottleneck}</strong>.</p>
+    <div class="highlight-box">
+      A quick assessment cannot replace a real conversation, but it can show where to look first.
     </div>
+    <p>Bring this result into your first session and we can talk through what it means in your situation.</p>
+    <a href="booking.html" class="btn btn-primary">Book your first session</a>
   `;
-  updateProgress();
-  updateButtons();
+  document.getElementById('nextBtn').style.display='none';
+  document.getElementById('prevBtn').style.display='none';
 }
-
-function updateProgress() {
-  const percent = ((currentIndex + 1) / questions.length) * 100;
-  document.getElementById('progressBar').style.width = `${percent}%`;
-}
-
-function updateButtons() {
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  prevBtn.disabled = currentIndex === 0;
-  if (currentIndex === questions.length - 1) {
-    nextBtn.textContent = 'See Results →';
-  } else {
-    nextBtn.textContent = 'Next →';
-  }
-}
-
-function saveCurrentAnswer() {
-  const selected = document.querySelector('input[name="rating"]:checked');
-  if (selected) {
-    answers[currentIndex] = parseInt(selected.value);
-    return true;
-  }
-  return false;
-}
-
-function next() {
-  if (!saveCurrentAnswer()) {
-    alert('Please select a rating (1–5) before continuing.');
-    return;
-  }
-  if (currentIndex < questions.length - 1) {
-    currentIndex++;
-    renderQuestion();
-  } else {
-    computeResults();
-  }
-}
-
-function prev() {
-  if (currentIndex > 0) {
-    saveCurrentAnswer();
-    currentIndex--;
-    renderQuestion();
-  }
-}
-
-function average(indices) {
-  let sum = 0, count = 0;
-  indices.forEach(i => {
-    let val = answers[i];
-    if (val !== null) {
-      if (reverseItems.includes(i)) val = 6 - val;
-      sum += val;
-      count++;
-    }
-  });
-  return count ? sum / count : 0;
-}
-
-function computeResults() {
-  saveCurrentAnswer();
-
-  const momentum = average(dimensionMap.momentum);
-  const edge = average(dimensionMap.edge);
-  const scope = average(dimensionMap.scope);
-  const drive = average(dimensionMap.drive);
-  const execution = average(dimensionMap.execution);
-  const ideation = average(dimensionMap.ideation);
-  const reactionAvoid = average(dimensionMap.reaction_avoid);
-  const reactionCompensate = average(dimensionMap.reaction_compensate);
-  const reactionSurrender = average(dimensionMap.reaction_surrender);
-  const motivationMastery = average(dimensionMap.motivation_mastery);
-  const motivationResults = average(dimensionMap.motivation_results);
-  const motivationFreedom = average(dimensionMap.motivation_freedom);
-  const motivationImpact = average(dimensionMap.motivation_impact);
-  const controlChallenger = average(dimensionMap.control_challenger);
-  const controlEvaluator = average(dimensionMap.control_evaluator);
-  const controlOperator = average(dimensionMap.control_operator);
-  const presencePrivate = average(dimensionMap.presence_private);
-  const presencePublic = average(dimensionMap.presence_public);
-
-  // Determine highest motivation
-  const motivations = [
-    { name: "mastery", score: motivationMastery },
-    { name: "results", score: motivationResults },
-    { name: "freedom", score: motivationFreedom },
-    { name: "impact", score: motivationImpact }
-  ];
-  motivations.sort((a,b) => b.score - a.score);
-  const primaryMotivation = motivations[0].name;
-
-  // Determine stress pattern
-  const stressPatterns = [
-    { name: "avoid", score: reactionAvoid },
-    { name: "compensate", score: reactionCompensate },
-    { name: "surrender", score: reactionSurrender }
-  ];
-  stressPatterns.sort((a,b) => b.score - a.score);
-  const stressPattern = stressPatterns[0].name;
-
-  // Determine control style
-  const controls = [
-    { name: "challenger", score: controlChallenger },
-    { name: "evaluator", score: controlEvaluator },
-    { name: "operator", score: controlOperator }
-  ];
-  controls.sort((a,b) => b.score - a.score);
-  const controlStyle = controls[0].name;
-
-  // Determine presence
-  const presence = presencePublic > presencePrivate ? "public" : "private";
-
-  // ----- NEW ARCHETYPE MAPPING -----
-  let archetype = "";
-  let coreProblem = "";
-
-  // Use a set of rules based on dimension scores
-  const highMomentum = momentum >= 3.5;
-  const lowMomentum = momentum < 3;
-  const highIdeation = ideation >= 3.5;
-  const lowExecution = execution < 3;
-  const highExecution = execution >= 3.5;
-  const highDrive = drive >= 3.5;
-  const lowDrive = drive < 3;
-  const highEdge = edge >= 3.5;
-  const lowEdge = edge < 3;
-  const highScope = scope >= 3.5;
-  const highFreedom = motivationFreedom >= 3.5;
-  const highMeaning = motivationImpact >= 3.5;
-  const highControlEvaluator = controlEvaluator >= 3.5;
-  const highControlChallenger = controlChallenger >= 3.5;
-  const highControlOperator = controlOperator >= 3.5;
-  const highEfficiency = average([dimensionMap.control_evaluator[1]]) >= 3.5; // Q33 efficiency
-  const stressCompensate = stressPattern === "compensate";
-
-  if (lowMomentum && highControlEvaluator && highEfficiency) {
-    archetype = "The Overthinker";
-    coreProblem = "You stay stuck in thinking, planning, or refining instead of actually starting.";
-  } else if (highIdeation && lowExecution && highMomentum) {
-    archetype = "The Starter";
-    coreProblem = "You get excited by ideas and beginnings, but struggle to turn them into something real.";
-  } else if (highFreedom && (controlStyle === "challenger" || controlStyle === "drifter") && lowDrive) {
-    archetype = "The Drifter";
-    coreProblem = "You want freedom and control, but avoid committing long enough to build something stable.";
-  } else if (lowEdge && highControlEvaluator) {
-    archetype = "The Safe Player";
-    coreProblem = "You want to start, but fear of losing stability keeps you from taking real action.";
-  } else if (highDrive && highExecution && lowScope && (highMomentum || stressCompensate)) {
-    archetype = "The Busy Worker";
-    coreProblem = "You're always doing something (or have tried repeatedly), but it never translates into a real business—now you're exhausted or cynical about effort.";
-  } else if (highMomentum && stressCompensate && !highExecution) {
-    archetype = "The Spinner";
-    coreProblem = "You keep trying different things, but nothing sticks long enough to grow.";
-  } else if (highExecution && lowScope && lowIdeation && highControlOperator) {
-    archetype = "The Lost Executor";
-    coreProblem = "You're willing to work, but you don't know what direction to commit to.";
-  } else if (highMeaning && highIdeation && lowExecution) {
-    archetype = "The Idealist";
-    coreProblem = "You want something meaningful, but struggle to make it practical or financially sustainable.";
-  } else {
-    // Fallback (should not happen often)
-    archetype = "The Balanced Founder";
-    coreProblem = "Your patterns are balanced; you have strengths in multiple areas but may need clarity on where to focus next.";
-  }
-
-  // Build emotional paragraph (based on earlier structure, still informative)
-  let paragraph = "";
-
-  if (momentum >= 3.5) {
-    paragraph += "You move through opportunities in a way that reflects how you deal with uncertainty, not just how capable you are. When something feels worth pursuing, you don’t wait for perfect clarity—you lean into action, sometimes before everything is figured out. That gives you an edge, because you’re able to create movement where others hesitate, but it also means you rely heavily on instinct and momentum to carry things forward.\n\n";
-  } else {
-    paragraph += "You don’t rush into things without clarity. You prefer to understand the landscape before you commit, which makes you deliberate and thoughtful. But sometimes that caution can slow you down, especially when an opportunity requires speed over certainty.\n\n";
-  }
-
-  if (primaryMotivation === "results") {
-    paragraph += "What drives you sits underneath that. You're focused on tangible outcomes—results you can measure, progress you can see. You want to know that your effort is leading somewhere concrete. That makes you effective at delivering, but it can also make it harder to stay engaged when results aren't immediate.\n\n";
-  } else if (primaryMotivation === "mastery") {
-    paragraph += "What drives you sits underneath that. You're pulled by growth and improvement—the desire to become better at what you do. Progress matters to you, but it's often about your own development as much as external outcomes. That keeps you learning, though sometimes at the expense of finishing what you start.\n\n";
-  } else if (primaryMotivation === "freedom") {
-    paragraph += "What drives you sits underneath that. Autonomy matters deeply to you—you need space to work in your own way. You're not easily motivated by rigid structures or external demands. That gives you independence, but it also means you have to intentionally build systems that keep you on track.\n\n";
-  } else {
-    paragraph += "What drives you sits underneath that. You're pulled by meaning—you want your work to matter. When what you're doing aligns with something larger than yourself, you're unstoppable. When it doesn't, it's hard to stay engaged. That combination shapes the kind of decisions you make and what you're willing to push through.\n\n";
-  }
-
-  if (drive >= 3.5) {
-    paragraph += "You're capable of following through, and you do—even when things get slow or difficult. Consistency is one of your strengths, and you're able to stay the course when others might drop out. The challenge isn't starting—it's making sure you're pointed in the right direction before you invest.\n\n";
-  } else {
-    paragraph += "You're capable of following through, but your consistency depends on how aligned you feel with what you're doing. When things slow down or become repetitive, your energy can shift. The challenge isn't starting—it's sustaining focus when the initial momentum fades or when results don't come quickly.\n\n";
-  }
-
-  if (stressPattern === "compensate") {
-    paragraph += "Pressure reveals the real pattern. When things get uncertain or difficult, your response isn't neutral—you push harder, sometimes aggressively, to regain control. That reaction can make you intense and effective in the right conditions, but it also risks burnout or overcorrection when things don't go as planned.\n\n";
-  } else if (stressPattern === "avoid") {
-    paragraph += "Pressure reveals the real pattern. When things get uncertain or difficult, your natural tendency is to step back, slow down, or wait for clarity. That protects you from rushing into mistakes, but it can also delay action when a quicker response would serve you better.\n\n";
-  } else {
-    paragraph += "Pressure reveals the real pattern. When things get uncertain or difficult, your response can shift toward disengagement—you may lose momentum or interest when progress stalls. In the right conditions, that means you conserve energy for what truly matters. In the wrong ones, it pulls you off track before you've given something a real chance.\n\n";
-  }
-
-  if (controlStyle === "operator") {
-    paragraph += "There's also a clear way you structure yourself. You work well within systems and processes—you value clarity and consistency. That makes you reliable, especially when things are organized, but you may need to intentionally create space for flexibility and creativity.\n\n";
-  } else if (controlStyle === "challenger") {
-    paragraph += "There's also a clear way you structure yourself. You don't naturally operate inside rigid systems unless they make sense to you. You prefer either building your own way of doing things or adapting quickly instead of following something fixed. That gives you flexibility, but it also means stability has to be created intentionally, not relied on.\n\n";
-  } else {
-    paragraph += "There's also a clear way you structure yourself. You tend to analyze before committing—you want things to make sense. That means you're thoughtful and deliberate, but it can also lead to overthinking or hesitation when a quick decision would be better.\n\n";
-  }
-
-  paragraph += "At your best, you're someone who can move, adapt, and create real progress without waiting for permission or certainty. When things don't work, it's rarely because you lack ability—it's because your direction, energy, or reaction pattern starts working against you instead of for you.";
-
-  // Show result with archetype, core problem, teaser paragraph, and email form
-  const container = document.getElementById('resultContainer');
-  container.innerHTML = `
-    <div class="archetype-badge">${archetype}</div>
-    <div class="core-problem"><strong>Core problem:</strong> ${coreProblem}</div>
-    <div class="teaser-text">
-      ${paragraph.substring(0, 500)}...
-    </div>
-    <div class="email-form">
-      <h3>Get your full report</h3>
-      <p>Enter your email below and we'll send you the complete personalized analysis, including your scores on key dimensions and actionable next steps.</p>
-      <input type="text" id="userName" placeholder="Your name">
-      <input type="email" id="userEmail" placeholder="Email address" required>
-      <button id="sendReportBtn">Send Full Report →</button>
-    </div>
-  `;
-  container.style.display = 'block';
-  document.getElementById('questionContainer').style.display = 'none';
-  document.querySelector('.nav-buttons').style.display = 'none';
-
-  // Send report via email (mock – replace with actual endpoint)
-  document.getElementById('sendReportBtn').addEventListener('click', function() {
-    const name = document.getElementById('userName').value;
-    const email = document.getElementById('userEmail').value;
-    if (!email) {
-      alert('Please enter your email address to receive the report.');
-      return;
-    }
-    // In production, replace with fetch to your backend
-    console.log('Sending report to', email, 'with data:', { name, archetype, coreProblem, paragraph });
-    alert(`Thank you ${name || 'Founder'}! We've sent your full report to ${email}. Please check your inbox (and spam folder) in a few minutes.`);
-  });
-}
-
-document.getElementById('nextBtn').addEventListener('click', next);
-document.getElementById('prevBtn').addEventListener('click', prev);
-
+document.getElementById('nextBtn').addEventListener('click', ()=>{
+  if(!saveAnswer()){ alert('Please choose a rating before continuing.'); return; }
+  if(currentIndex < questions.length-1){ currentIndex++; renderQuestion(); } else { computeResults(); }
+});
+document.getElementById('prevBtn').addEventListener('click', ()=>{
+  saveAnswer();
+  if(currentIndex>0){ currentIndex--; renderQuestion(); }
+});
 renderQuestion();
 </script>
+
+
+<footer class="site-footer">
+  <div class="footer-row">
+    <div>
+      <div style="font-weight:800;color:var(--ink)">En-boarding</div>
+      <div>Onboarding for entrepreneurs.</div>
+      <div style="margin-top:8px">Annweiler am Trifels, Germany</div>
+    </div>
+    <div>
+      <div style="font-weight:800;color:var(--ink)">Contact</div>
+      <div style="margin-top:8px">enboarding@gmail.com</div>
+      <div class="footer-links" style="margin-top:10px">
+        <a href="impressum.html">Impressum</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>

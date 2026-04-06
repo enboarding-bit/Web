@@ -3,284 +3,266 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>En-boarding · Book Your First Session</title>
+<meta name="description" content="Founder structuring for early-stage entrepreneurs.">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<title>En-boarding · Book a free strategy session</title>
 <style>
-:root {
-  --bg: #ffffff;
-  --surface: #ffffff;
-  --surface-soft: #f8f5f2;
-  --ink: #14213d;
-  --muted: #5f6572;
-  --line: rgba(20, 33, 61, 0.08);
-  --teal: #0d8b8f;
-  --teal-dark: #0a6d70;
-  --teal-soft: #d8f0ee;
-  --orange: #ff824d;
-  --orange-dark: #f26f35;
-  --white: #ffffff;
-  --shadow: 0 18px 40px rgba(17, 25, 40, 0.08);
+:root{
+  --bg:#f4e7de;
+  --surface:#ffffff;
+  --surface-soft:#f8f5f2;
+  --ink:#14213d;
+  --muted:#5f6572;
+  --line:rgba(20,33,61,0.10);
+  --teal:#0d8b8f;
+  --teal-dark:#0a6d70;
+  --teal-soft:#d8f0ee;
+  --orange:#ff824d;
+  --orange-dark:#f26f35;
+  --white:#ffffff;
+  --shadow:0 18px 40px rgba(17,25,40,0.08);
+  --shadow-soft:0 10px 24px rgba(17,25,40,0.05);
+  --radius-xl:32px;
+  --radius-lg:24px;
+  --radius-md:18px;
+  --content-max:1120px;
 }
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  font-family: 'Inter', sans-serif;
-  background: var(--bg);
-  color: var(--ink);
-  line-height: 1.6;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.65;
 }
-
-.main-header {
-  background: var(--white);
-  border-bottom: 1px solid var(--line);
-  padding: 16px 5%;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(255,255,255,0.98);
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,textarea,select{font:inherit}
+.container{width:min(var(--content-max),calc(100% - 32px));margin:0 auto}
+.site-header-wrap{padding:12px 12px 0}
+.site-header{
+  min-height:78px;background:rgba(248,245,242,0.95);backdrop-filter:blur(8px);
+  border-radius:0 0 24px 24px;display:flex;align-items:center;justify-content:space-between;
+  gap:20px;padding:0 22px;box-shadow:var(--shadow-soft);position:sticky;top:0;z-index:50
 }
-.header-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
+.brand{font-size:1.15rem;font-weight:900;letter-spacing:-0.04em}
+.brand span{color:var(--teal)}
+.nav-links{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.nav-links a{font-size:0.95rem;font-weight:700;color:var(--ink)}
+.nav-links a:hover,.nav-links a.active{color:var(--teal)}
+.top-cta{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 18px;border-radius:14px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:54px;padding:0 24px;border-radius:16px;border:1px solid transparent;
+  font-weight:800;font-size:0.96rem;cursor:pointer;transition:.2s ease
 }
-.logo {
-  font-size: 1.3rem;
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  color: var(--ink);
-  text-decoration: none;
+.btn-primary{background:linear-gradient(180deg,#ff986c 0%,var(--orange) 100%);color:#fff;box-shadow:var(--shadow-soft)}
+.btn-primary:hover{transform:translateY(-1px);background:linear-gradient(180deg,#ff8f60 0%,var(--orange-dark) 100%)}
+.btn-secondary{background:var(--surface);border-color:var(--line);color:var(--ink)}
+.btn-secondary:hover{background:#f7f7f7}
+.btn-ghost{background:transparent;border-color:rgba(255,255,255,0.18);color:#fff}
+.page-hero{
+  padding:72px 0 40px;
 }
-.logo span { color: var(--teal); }
-.nav-links {
-  display: flex;
-  gap: 32px;
-  align-items: center;
-  flex-wrap: wrap;
+.hero-panel,.content-panel{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-xl);box-shadow:var(--shadow-soft)
 }
-.nav-links a {
-  text-decoration: none;
-  color: var(--ink);
-  font-weight: 500;
-  font-size: 0.95rem;
-  transition: color 0.2s;
+.hero-panel{padding:46px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;margin-bottom:14px;
+  font-size:.82rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)
 }
-.nav-links a:hover { color: var(--teal); }
-.btn {
-  background: var(--orange);
-  color: white;
-  padding: 10px 24px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: background 0.2s;
-  border: none;
-  cursor: pointer;
+.eyebrow::before{content:"";width:18px;height:2px;border-radius:999px;background:currentColor}
+h1,h2,h3{margin:0 0 14px;line-height:1.08;letter-spacing:-0.04em}
+h1{font-size:clamp(2.3rem,5vw,4.5rem)}
+h2{font-size:clamp(1.8rem,3vw,2.7rem)}
+h3{font-size:1.22rem}
+p{margin:0 0 16px;color:var(--muted);font-size:1.03rem}
+.lead{font-size:1.1rem;max-width:62ch}
+.section{padding:34px 0}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:26px;box-shadow:var(--shadow-soft)
 }
-.btn:hover { background: var(--orange-dark); }
-
-.container {
-  max-width: 700px;
-  margin: 60px auto;
-  padding: 0 20px;
+.card:hover{transform:translateY(-1px)}
+.icon-box{
+  width:50px;height:50px;border-radius:16px;display:grid;place-items:center;
+  background:var(--teal-soft);color:var(--teal);font-weight:900;margin-bottom:16px
 }
-.eyebrow {
-  display: inline-block;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--teal);
-  margin-bottom: 16px;
+.kicker-list,.meta-row{display:flex;flex-wrap:wrap;gap:10px}
+.kicker-list span,.pill{
+  display:inline-flex;align-items:center;min-height:38px;padding:0 14px;border-radius:999px;
+  background:var(--surface-soft);border:1px solid var(--line);color:var(--ink);font-size:.92rem;font-weight:700
 }
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 16px;
-  letter-spacing: -0.03em;
+.section-title{max-width:760px;margin-bottom:24px}
+.cta-band{
+  background:var(--ink);padding:78px 0;position:relative;overflow:hidden
 }
-.subhead {
-  font-size: 1.1rem;
-  color: var(--muted);
-  margin-bottom: 40px;
-  border-left: 4px solid var(--teal);
-  padding-left: 20px;
+.cta-band::before{content:"";position:absolute;right:-80px;top:-80px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.05)}
+.cta-band::after{content:"";position:absolute;left:-70px;bottom:-70px;width:240px;height:240px;border-radius:50%;background:rgba(13,139,143,.14)}
+.cta-inner{position:relative;z-index:1;text-align:center;width:min(760px,calc(100% - 32px));margin:0 auto}
+.cta-inner h2,.cta-inner p{color:#fff}
+.cta-inner p{color:rgba(255,255,255,.82)}
+.site-footer{padding:30px 0 38px}
+.footer-row{
+  width:min(var(--content-max),calc(100% - 32px));margin:0 auto;display:flex;justify-content:space-between;
+  gap:18px;flex-wrap:wrap;color:var(--muted);font-weight:600
 }
-.form-group {
-  margin-bottom: 24px;
+.footer-links{display:flex;gap:18px;flex-wrap:wrap}
+.footer-links a:hover{color:var(--teal)}
+.article-shell{padding:50px 0}
+.article-layout{max-width:840px;margin:0 auto}
+.back-link{display:inline-flex;align-items:center;gap:8px;color:var(--teal);font-weight:700;margin-bottom:18px}
+.article-meta{display:flex;gap:12px;flex-wrap:wrap;color:var(--teal);font-weight:700;font-size:.92rem;margin-bottom:14px}
+.article-box{padding:38px}
+.tldr,.highlight-box,.legal-note{
+  background:var(--surface-soft);border:1px solid var(--line);border-left:4px solid var(--teal);
+  border-radius:0 18px 18px 0;padding:20px 22px;margin:24px 0
 }
-.form-group label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: var(--ink);
+pre.diagram{
+  white-space:pre-wrap;background:var(--surface-soft);border:1px solid var(--line);border-radius:22px;
+  padding:22px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9rem;color:var(--ink);overflow-x:auto
 }
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 14px 16px;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  transition: border-color 0.2s;
+.related-box{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:24px;margin-top:32px}
+.related-box ul{margin:0;padding-left:18px}
+.related-box li{margin:0 0 10px;color:var(--muted)}
+.related-box a{color:var(--teal);font-weight:700}
+.form-grid{display:grid;gap:18px}
+label{display:block;font-weight:700;margin-bottom:8px}
+input[type="text"],input[type="email"],textarea{
+  width:100%;padding:14px 16px;border-radius:16px;border:1px solid var(--line);background:#fff;color:var(--ink)
 }
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--teal);
+textarea{min-height:120px;resize:vertical}
+.note{font-size:.92rem}
+.legal-doc{padding:38px}
+.legal-doc h2{font-size:1.35rem;margin-top:26px}
+.legal-doc ul{padding-left:22px;color:var(--muted)}
+.legal-doc li{margin-bottom:8px}
+.assessment-wrap{padding:34px}
+.progress{height:8px;background:var(--surface-soft);border-radius:999px;overflow:hidden;margin:22px 0 28px}
+.progress-bar{height:100%;width:0;background:var(--teal);transition:.3s}
+.question-card{
+  background:var(--surface-soft);border:1px solid var(--line);border-radius:24px;padding:24px
 }
-.form-group textarea {
-  resize: vertical;
-  min-height: 100px;
+.likert{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:18px}
+.likert-option{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;text-align:center}
+.likert-option input{margin-bottom:8px}
+.result-card{display:none;margin-top:22px;background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:28px}
+.score-badge{display:inline-flex;padding:8px 16px;border-radius:999px;background:var(--teal);color:#fff;font-weight:800;margin-bottom:16px}
+@media (max-width:980px){
+  .grid-2,.grid-3{grid-template-columns:1fr}
 }
-.checkbox-group {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  margin: 24px 0;
+@media (max-width:820px){
+  .site-header{padding:14px 16px;align-items:flex-start}
+  .nav-links{display:none}
 }
-.checkbox-group input {
-  width: 20px;
-  height: 20px;
-  margin-top: 2px;
-}
-.checkbox-group label {
-  font-size: 0.9rem;
-  color: var(--muted);
-}
-.checkbox-group a {
-  color: var(--teal);
-  text-decoration: none;
-}
-.form-actions {
-  margin-top: 32px;
-}
-.form-actions button {
-  width: 100%;
-  padding: 14px;
-  font-size: 1rem;
-}
-.note {
-  font-size: 0.8rem;
-  color: var(--muted);
-  margin-top: 20px;
-  text-align: center;
-}
-
-footer {
-  background: var(--surface-soft);
-  margin-top: 80px;
-  padding: 60px 5% 30px;
-  border-top: 1px solid var(--line);
-}
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 40px;
-}
-.footer-bottom {
-  text-align: center;
-  padding-top: 40px;
-  margin-top: 40px;
-  border-top: 1px solid var(--line);
-  color: var(--muted);
-  font-size: 0.85rem;
-}
-@media (max-width: 768px) {
-  .header-container { flex-direction: column; }
-  .nav-links { justify-content: center; }
-  h1 { font-size: 2rem; }
+@media (max-width:640px){
+  .hero-panel,.article-box,.assessment-wrap,.legal-doc{padding:26px}
+  .likert{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 
-<header class="main-header">
-  <div class="header-container">
-    <a href="LP.html" class="logo">EN-<span>BOARDING</span></a>
-    <div class="nav-links">
-      <a href="free-tools.html">Free Tools</a>
-      <a href="blog.html">Blog</a>
-      <a href="about.html">About</a>
-      <a href="booking.html" class="btn">Book a session →</a>
+<div class="site-header-wrap">
+  <header class="site-header container">
+    <a href="index.html" class="brand">EN-<span>BOARDING</span></a>
+    <nav class="nav-links">
+      <a href="index.html" >Home</a>
+      <a href="about.html" >About</a>
+      <a href="free-tools.html" >Assessments</a>
+      <a href="blog.html" >Blog</a>
+      <a href="booking.html" class="active">Book</a>
+    </nav>
+    <a href="booking.html" class="btn btn-primary top-cta">Book your first session</a>
+  </header>
+</div>
+
+
+<section class="page-hero">
+  <div class="container">
+    <div class="hero-panel">
+      <div class="eyebrow">Book your first session</div>
+      <h1>Let’s get clear on where you are and what comes next.</h1>
+      <p class="lead">Use this first conversation to explain your situation, ask questions, and see whether working together makes sense. The first session is free.</p>
     </div>
   </div>
-</header>
+</section>
 
-<main class="container">
-  <div class="eyebrow">Free strategy session</div>
-  <h1>Book your free session</h1>
-  <div class="subhead">30 minutes. No pitch. No payment. Just clarity on your next step.</div>
-
-  <form id="bookingForm">
-    <div class="form-group">
-      <label for="name">Full name *</label>
-      <input type="text" id="name" name="name" required>
-    </div>
-    <div class="form-group">
-      <label for="email">Email address *</label>
-      <input type="email" id="email" name="email" required>
-    </div>
-    <div class="form-group">
-      <label for="message">What's your biggest challenge right now? (optional)</label>
-      <textarea id="message" name="message" placeholder="e.g., I don't know how to validate my idea, I'm stuck between two directions, I need a roadmap..."></textarea>
-    </div>
-    <div class="checkbox-group">
-      <input type="checkbox" id="consent" name="consent" required>
-      <label for="consent">I agree to the <a href="privacy.html">Privacy Policy</a> and consent to being contacted to schedule my free session.</label>
-    </div>
-    <div class="form-actions">
-      <button type="submit" class="btn">Request my free session →</button>
-    </div>
-  </form>
-  <p class="note">* Required. After submitting, we'll email you within 24 hours to confirm a time that works for you.</p>
-</main>
-
-<footer>
-  <div class="footer-content">
-    <div>
-      <h3 style="margin-bottom: 8px;">En-boarding</h3>
-      <p style="color: var(--muted);">Onboarding for entrepreneurs.</p>
-      <p style="font-size:0.85rem; color: var(--muted); margin-top: 8px;">Berlin, Germany</p>
-    </div>
-    <div>
-      <p><strong>Email</strong></p>
-      <p style="color: var(--muted);">bouchra.emp@gmail.com</p>
-      <p style="margin-top: 12px;">
-        <a href="impressum.html" style="color: var(--teal); text-decoration: none;">Impressum</a> | 
-        <a href="terms.html" style="color: var(--teal); text-decoration: none;">Terms</a> | 
-        <a href="privacy.html" style="color: var(--teal); text-decoration: none;">Privacy</a>
-      </p>
-    </div>
+<section class="section">
+  <div class="container grid-2">
+    <article class="card">
+      <h2>What to expect</h2>
+      <div class="kicker-list" style="margin-bottom:18px">
+        <span>30–45 minutes</span><span>Founder-focused</span><span>No obligation</span>
+      </div>
+      <p>We will look at where you are currently stuck, what seems unclear, and what a more structured next step could look like.</p>
+      <p>This is not a hard sell. It is a first conversation to understand the fit.</p>
+      <div class="legal-note">
+        <strong style="color:var(--ink)">Contact:</strong><br>
+        enboarding@gmail.com<br>
+        Annweiler am Trifels, Germany
+      </div>
+    </article>
+    <article class="card">
+      <h2>Request a session</h2>
+      <form id="bookingForm" class="form-grid">
+        <div>
+          <label for="name">Full name *</label>
+          <input type="text" id="name" required>
+        </div>
+        <div>
+          <label for="email">Email address *</label>
+          <input type="email" id="email" required>
+        </div>
+        <div>
+          <label for="message">What are you currently stuck with? *</label>
+          <textarea id="message" required placeholder="For example: validating the idea, choosing a direction, prioritising what to do next, clarifying the business model..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send request</button>
+      </form>
+      <p class="note" style="margin-top:14px">Submitting opens your email app with a prefilled message to enboarding@gmail.com.</p>
+    </article>
   </div>
-  <div class="footer-bottom">
-    <p>© 2026 En-boarding. All rights reserved.</p>
+</section>
+
+<script>
+document.getElementById('bookingForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+  const subject = encodeURIComponent('First session request - ' + name);
+  const body = encodeURIComponent(
+    'Name: ' + name + '\n' +
+    'Email: ' + email + '\n\n' +
+    'Current challenge:\n' + message
+  );
+  window.location.href = 'mailto:enboarding@gmail.com?subject=' + subject + '&body=' + body;
+});
+</script>
+
+
+<footer class="site-footer">
+  <div class="footer-row">
+    <div>
+      <div style="font-weight:800;color:var(--ink)">En-boarding</div>
+      <div>Onboarding for entrepreneurs.</div>
+      <div style="margin-top:8px">Annweiler am Trifels, Germany</div>
+    </div>
+    <div>
+      <div style="font-weight:800;color:var(--ink)">Contact</div>
+      <div style="margin-top:8px">enboarding@gmail.com</div>
+      <div class="footer-links" style="margin-top:10px">
+        <a href="impressum.html">Impressum</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
   </div>
 </footer>
 
-<div id="cookieConsent" style="position:fixed; bottom:0; left:0; right:0; background:var(--surface-soft); padding:15px; text-align:center; z-index:1000; display:none; border-top:1px solid var(--line);">
-  <p style="margin:0;">We use cookies. <a href="privacy.html" style="color:var(--teal);">Privacy Policy</a>. <button id="acceptCookies" style="background:var(--teal); color:#fff; border:none; padding:5px 15px; margin-left:10px; border-radius:20px; cursor:pointer;">Accept</button></p>
-</div>
-<script>
-if(!localStorage.getItem('cookieConsent')) document.getElementById('cookieConsent').style.display = 'block';
-document.getElementById('acceptCookies').addEventListener('click', function(){
-  localStorage.setItem('cookieConsent', 'true');
-  document.getElementById('cookieConsent').style.display = 'none';
-});
-document.getElementById('bookingForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  alert('Thank you! We\'ll email you within 24 hours to schedule your free session.');
-  this.reset();
-});
-</script>
 </body>
 </html>
