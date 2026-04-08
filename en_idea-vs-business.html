@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G6E7B0ECTW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-G6E7B0ECTW');
+</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>En-boarding · Idea vs. Business: The 5 Missing Links</title>
+  <meta name="description" content="Idea vs. Business: The 5 Missing Links — En-boarding article.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+:root{
+  --bg:#ffffff;
+  --surface:#ffffff;
+  --surface-soft:#f7f7f8;
+  --ink:#1f2a37;
+  --muted:#667085;
+  --line:#e9eaec;
+  --brand:#0d8b8f;
+  --brand-dark:#0a6d70;
+  --action:#ff824d;
+  --action-dark:#f26f35;
+  --white:#ffffff;
+  --shadow:0 10px 30px rgba(0,0,0,0.05);
+  --radius-xl:28px;
+  --radius-lg:20px;
+  --radius-md:14px;
+  --max:1200px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.6;
+}
+img{display:block;max-width:100%}
+a{
+  color:var(--action);
+  text-decoration:none;
+  transition:color .2s ease, opacity .2s ease, transform .2s ease, background .2s ease;
+}
+a:hover{color:var(--action-dark)}
+.container{max-width:var(--max);margin:0 auto;padding:0 32px}
+.header{
+  background:transparent;
+  padding:20px 32px 0;
+  position:relative;
+  z-index:50;
+}
+.header-inner{
+  max-width:1280px;
+  margin:0 auto;
+  background:#fff;
+  min-height:82px;
+  border-radius:0 0 28px 28px;
+  display:grid;
+  grid-template-columns:220px 1fr 220px;
+  align-items:center;
+  padding:0 26px;
+  box-shadow:0 8px 24px rgba(0,0,0,0.04);
+  position:relative;
+  overflow:visible;
+}
+.header-inner::before,.header-inner::after{
+  content:"";
+  position:absolute;
+  top:0;
+  width:120px;
+  height:52px;
+  background:#fff;
+  z-index:1;
+}
+.header-inner::before{left:160px;border-bottom-right-radius:52px}
+.header-inner::after{right:160px;border-bottom-left-radius:52px}
+.logo-wrap,.nav-links,.header-cta{position:relative;z-index:2}
+.logo{
+  font-size:1.3rem;
+  font-weight:800;
+  color:var(--ink);
+  text-decoration:none;
+  letter-spacing:-0.02em;
+  white-space:nowrap;
+}
+.logo span{color:var(--brand)}
+.nav-links{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:34px;
+  flex-wrap:wrap;
+}
+.nav-links a{
+  color:var(--ink);
+  font-weight:600;
+  font-size:.95rem;
+  padding:4px 0;
+  position:relative;
+}
+.nav-links a.active{
+  color:var(--brand);
+}
+.nav-links a.active::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:-8px;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--brand);
+}
+.header-cta{
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  border:none;
+  cursor:pointer;
+  text-decoration:none;
+  font-weight:600;
+  font-size:.95rem;
+  line-height:1;
+  white-space:nowrap;
+  transition:opacity .2s ease, transform .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
+}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{
+  background:var(--action);
+  color:#fff;
+  padding:14px 24px;
+  border-radius:12px;
+  box-shadow:0 8px 20px rgba(255,130,77,.22);
+}
+.btn-primary:hover{background:var(--action-dark); color:#fff}
+.btn-secondary{
+  background:transparent;
+  color:var(--action);
+  border:1px solid rgba(255,130,77,.35);
+  padding:14px 22px;
+  border-radius:14px;
+}
+.btn-secondary:hover{
+  background:rgba(255,130,77,.08);
+  color:var(--action-dark);
+}
+.btn-solid{
+  background:var(--brand);
+  color:#fff;
+  padding:12px 22px;
+  border-radius:999px;
+}
+.btn-solid:hover{background:var(--brand-dark); color:#fff}
+.kicker{
+  display:inline-block;
+  font-size:.75rem;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--brand);
+}
+h1,h2,h3{
+  color:var(--ink);
+  letter-spacing:-0.03em;
+}
+h1{
+  font-size:clamp(2.5rem,5vw,4.8rem);
+  line-height:1.02;
+  font-weight:800;
+}
+h2{
+  font-size:clamp(1.9rem,3vw,2.4rem);
+  line-height:1.15;
+  font-weight:700;
+}
+h3{
+  font-size:1.24rem;
+  line-height:1.25;
+  font-weight:700;
+}
+p{
+  color:var(--muted);
+  font-size:1.02rem;
+  line-height:1.7;
+}
+.section{
+  padding:84px 0;
+}
+.section-light{
+  background:var(--surface-soft);
+}
+.section-title{
+  text-align:center;
+  margin-bottom:48px;
+}
+.section-title .kicker{margin-bottom:12px}
+.section-title h2{margin-bottom:12px}
+.section-title p{max-width:680px;margin:0 auto}
+.grid-3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:28px;
+}
+.card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:30px;
+  box-shadow:var(--shadow);
+}
+.card-icon{
+  font-size:1.05rem;
+  width:46px;
+  height:46px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:12px;
+  margin-bottom:18px;
+  background:rgba(13,139,143,.1);
+  color:var(--brand);
+  font-weight:800;
+}
+.card h3{margin-bottom:10px}
+.two-col{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:56px;
+  align-items:center;
+}
+.about-image{
+  background:#eef0f2;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.about-image img{width:100%; height:100%; object-fit:cover}
+.stats{
+  display:flex;
+  gap:18px;
+  margin-top:28px;
+}
+.stat{
+  flex:1;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:18px;
+  text-align:center;
+}
+.stat strong{
+  display:block;
+  color:var(--brand);
+  font-size:1.15rem;
+  margin-bottom:4px;
+}
+.stat span{
+  color:var(--muted);
+  font-size:.9rem;
+}
+.hero-slider{
+  position:relative;
+  width:100%;
+  height:80vh;
+  min-height:680px;
+  max-height:980px;
+  overflow:hidden;
+  margin-top:-20px;
+}
+.slides{
+  position:relative;
+  width:100%;
+  height:100%;
+}
+.slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:opacity .8s ease;
+  background-size:cover;
+  background-position:center top;
+}
+.slide.active{opacity:1}
+.slide::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,0.36) 0%, rgba(0,0,0,0.18) 34%, rgba(0,0,0,0.03) 62%, rgba(0,0,0,0) 100%),
+    linear-gradient(180deg, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0) 28%, rgba(0,0,0,0.12) 100%);
+  pointer-events:none;
+}
+.slide-1{background-image:url('images/building-my-business.webp')}
+.slide-2{background-image:url('images/starting-my-company.webp')}
+.slide-3{background-image:url('images/becoming-entrepreneur.webp')}
+.slider-caption{
+  position:absolute;
+  left:8%;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:20;
+  max-width:560px;
+  color:#fff;
+}
+.slider-caption .slider-kicker{
+  display:inline-block;
+  margin-bottom:14px;
+  font-size:.8rem;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.92);
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.18);
+  padding:8px 12px;
+  border-radius:999px;
+  backdrop-filter:blur(6px);
+}
+.slider-caption h1{
+  color:#fff;
+  margin-bottom:18px;
+  text-shadow:0 8px 22px rgba(0,0,0,.22);
+}
+.slider-caption p{
+  font-size:1.08rem;
+  line-height:1.7;
+  color:rgba(255,255,255,.94);
+  max-width:520px;
+  margin-bottom:26px;
+  text-shadow:0 4px 16px rgba(0,0,0,.20);
+}
+.slider-actions{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.slider-btn-secondary{
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.20);
+  color:#fff;
+}
+.slider-btn-secondary:hover{
+  background:rgba(255,255,255,.20);
+  color:#fff;
+}
+.arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:44px;
+  height:44px;
+  background:rgba(0,0,0,.35);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  z-index:25;
+  transition:background .2s;
+  font-size:22px;
+  color:#fff;
+  backdrop-filter:blur(4px);
+  user-select:none;
+}
+.arrow:hover{background:var(--brand)}
+.arrow-left{left:20px}
+.arrow-right{right:20px}
+.dots{
+  position:absolute;
+  bottom:24px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:10px;
+  z-index:25;
+}
+.dot{
+  width:10px;
+  height:10px;
+  background:rgba(255,255,255,.48);
+  border-radius:50%;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.dot.active{
+  background:var(--action);
+  transform:scale(1.08);
+}
+.hero-text{
+  max-width:900px;
+  margin:60px auto;
+  padding:0 32px;
+  text-align:center;
+}
+.hero-text h2{margin-bottom:18px}
+.hero-text p{font-size:1.14rem; margin-bottom:28px}
+.hero-badges{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:24px;
+}
+.hero-badges span{
+  background:var(--surface-soft);
+  padding:6px 14px;
+  border-radius:999px;
+  font-size:.82rem;
+  color:var(--muted);
+}
+.form-card{
+  max-width:760px;
+  margin:0 auto;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:34px;
+  box-shadow:var(--shadow);
+}
+.form-group{margin-bottom:22px}
+.form-group label{
+  display:block;
+  color:var(--ink);
+  font-weight:600;
+  margin-bottom:8px;
+}
+.form-group input,
+.form-group textarea{
+  width:100%;
+  padding:14px 16px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  font-family:'Inter',sans-serif;
+  font-size:1rem;
+  color:var(--ink);
+}
+.form-group input:focus,
+.form-group textarea:focus{
+  outline:none;
+  border-color:var(--brand);
+}
+.form-group textarea{min-height:120px;resize:vertical}
+.checkbox-group{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  margin:22px 0;
+}
+.checkbox-group input{width:20px; height:20px; margin-top:2px}
+.checkbox-group label{font-weight:400; margin:0; color:var(--muted)}
+.note{
+  text-align:center;
+  font-size:.9rem;
+  margin-top:16px;
+}
+.post-list{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+}
+.post-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:30px;
+  box-shadow:var(--shadow);
+}
+.post-meta{
+  color:var(--brand);
+  font-size:.88rem;
+  font-weight:700;
+  margin-bottom:12px;
+}
+.article-wrap{
+  max-width:860px;
+  margin:60px auto;
+  padding:0 32px;
+}
+.back-link{
+  display:inline-block;
+  margin-bottom:24px;
+  color:var(--action);
+  font-weight:600;
+}
+.back-link:hover{color:var(--action-dark)}
+.tldr,.soft-box{
+  background:var(--surface-soft);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:24px;
+  margin:30px 0;
+}
+.tldr strong{color:var(--brand)}
+.diagram{
+  background:var(--surface-soft);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:24px;
+  margin:30px 0;
+  overflow:auto;
+}
+pre{
+  white-space:pre-wrap;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:.9rem;
+  color:#394150;
+}
+.related-articles{
+  background:var(--surface-soft);
+  border-radius:20px;
+  padding:24px;
+  margin:36px 0;
+}
+.related-articles h3{margin-bottom:14px}
+.related-articles ul{
+  list-style:none;
+  padding:0;
+}
+.related-articles li+li{margin-top:10px}
+.article-nav{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+  margin:32px 0;
+}
+.cta{
+  background:var(--brand);
+  text-align:center;
+  padding:80px 32px;
+}
+.cta-inner{max-width:700px;margin:0 auto}
+.cta h2{color:#fff;margin-bottom:16px}
+.cta p{color:rgba(255,255,255,.86);margin-bottom:28px}
+.cta .btn-primary{
+  background:var(--action);
+}
+.cta .btn-primary:hover{
+  background:var(--action-dark);
+}
+.cta-chips{
+  margin-top:24px;
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.cta-chips span{
+  background:rgba(255,255,255,.15);
+  padding:6px 14px;
+  border-radius:999px;
+  font-size:.8rem;
+  color:#fff;
+}
+footer{
+  background:#fff;
+  padding:48px 32px;
+  border-top:1px solid var(--line);
+}
+.footer-inner{
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:24px;
+}
+.footer-links{
+  display:flex;
+  gap:24px;
+  flex-wrap:wrap;
+}
+.footer-links a{
+  color:var(--muted);
+  font-size:.86rem;
+}
+.footer-links a:hover{color:var(--action)}
+@media (max-width:1100px){
+  .header-inner{
+    grid-template-columns:1fr;
+    gap:16px;
+    padding:20px 24px;
+    border-radius:24px;
+  }
+  .header-inner::before,.header-inner::after{display:none}
+  .logo-wrap,.header-cta{justify-content:center}
+  .nav-links{gap:20px}
+  .slider-caption{left:6%; max-width:480px}
+}
+@media (max-width:900px){
+  .grid-3,.two-col{grid-template-columns:1fr}
+  .hero-slider{height:68vh; min-height:560px}
+  .slider-caption{
+    left:24px;
+    right:24px;
+    top:auto;
+    bottom:72px;
+    transform:none;
+    max-width:none;
+  }
+  .slider-caption h1{font-size:2.6rem}
+  .slider-caption p{font-size:1rem}
+  .hero-text h2{font-size:1.8rem}
+  .stats{flex-direction:column}
+}
+@media (max-width:640px){
+  .header{padding:16px 16px 0}
+  .container,.article-wrap,.hero-text,.section,footer,.cta{padding-left:20px;padding-right:20px}
+  .nav-links{gap:14px 18px}
+  .nav-links a{font-size:.9rem}
+  .btn-primary,.btn-secondary,.btn-solid{width:auto}
+  .header-cta .btn-primary{width:100%; text-align:center}
+  .hero-slider{height:60vh; min-height:480px}
+  .slider-caption{bottom:78px}
+  .slider-caption h1{font-size:2rem}
+  .slider-actions{flex-direction:column; align-items:stretch}
+  .arrow{width:40px;height:40px}
+}
+
+.post-card{display:grid;grid-template-columns:220px 1fr;gap:24px;align-items:center}
+.post-thumb{display:block;width:100%;height:150px;border-radius:18px;overflow:hidden;background:#eef0f2;border:1px solid var(--line)}
+.post-thumb img{width:100%;height:100%;object-fit:cover}
+.article-hero-image{width:100%;height:340px;border-radius:24px;overflow:hidden;background:#eef0f2;border:1px solid var(--line);box-shadow:var(--shadow);margin:0 0 28px}
+.article-hero-image img{width:100%;height:100%;object-fit:cover}
+@media (max-width:760px){
+  .post-card{grid-template-columns:1fr}
+  .post-thumb{height:210px}
+  .article-hero-image{height:240px}
+}
+
+</style>
+  
+</head>
+<body>
+<div style="position:sticky;top:0;background:#fff;border-bottom:1px solid #eee;padding:8px 20px;text-align:right;z-index:1000;">
+<span style="margin-right:8px;color:#666;">Language :</span>
+<a href="en_idea-vs-business.html" style="margin:0 6px;color:#ff824d;font-weight:700;">EN</a>
+<a href="fr_idea-vs-business.html" style="margin:0 6px;">FR</a>
+<a href="de_idea-vs-business.html" style="margin:0 6px;">DE</a>
+</div>
+
+
+
+<header class="header">
+  <div class="header-inner">
+    <div class="logo-wrap">
+      <a href="en_index.html" class="logo">EN-<span>BOARDING</span></a>
+    </div>
+    <div class="nav-links">
+      <a href="en_index.html">Home</a><a href="en_about.html">About</a><a href="en_free-tools.html">Services</a><a href="en_blog.html" class="active">Blog</a>
+    </div>
+    <div class="header-cta">
+      <a href="en_booking.html" class="btn btn-primary">Book your first session</a>
+    </div>
+  </div>
+</header>
+
+<main class="article-wrap">
+  <a href="en_blog.html" class="back-link">← Back to all articles</a>
+  <div class="post-meta">March 2, 2026 · 5 min read</div>
+  <h1 style="font-size:clamp(2.1rem,4vw,3.2rem); margin-bottom:20px;">Idea vs. Business: The 5 Missing Links</h1>
+  <div class="article-hero-image"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80" alt=""></div>
+  <div class="tldr"><strong>TL;DR:</strong> An idea is a destination. A business is the vehicle that gets there.</div>
+  
+<p>A good idea is not yet a business. There are structural links that have to exist in between:</p>
+<ul>
+  <li><strong>The specific who:</strong> not everyone, but a real person with a real pain.</li>
+  <li><strong>The value gap:</strong> what problem are you solving in concrete terms?</li>
+  <li><strong>The distribution hook:</strong> where do these people already pay attention?</li>
+  <li><strong>The unit economics:</strong> what does it cost to reach one customer compared with what they pay?</li>
+  <li><strong>The feedback loop:</strong> how do you know early when something is not working?</li>
+</ul>
+<div class="diagram"><pre>If more than two links are missing,
+you do not have a business yet.
+You have an unfinished idea.</pre></div>
+<p>Structure is what turns inspiration into something that can actually move.</p>
+        
+  <div class="related-articles">
+    <h3>Related articles</h3>
+    <ul>
+      <li><a href="en_analysis-paralysis.html">The “Analysis Paralysis” Tax</a></li><li><a href="en_solo-founder-burnout.html">Why Solo Founders Burn Out</a></li><li><a href="en_case-study-14-days.html">Case Study: From “Vague Idea” to “First Customer” in 14 Days</a></li>
+    </ul>
+  </div>
+  <div class="article-nav">
+    <span>← <a href='monday-morning-test.html'>The “Monday Morning” Test</a></span>
+    <span><a href='stop-onboarding-yourself.html'>Stop Onboarding Employees →</a></span>
+  </div>
+  <div class="soft-box" style="text-align:center;">
+    <a href="en_booking.html" class="btn btn-primary">Book your free session →</a>
+    <p style="margin-top:12px;">Start with clarity and a simple next step.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div style="font-weight:700;">En-boarding — Strategic support for early-stage founders</div>
+    <div class="footer-links">
+      <a href="en_privacy.html">Privacy</a>
+      <a href="en_terms.html">Terms</a>
+      <a href="mailto:enboarding@gmail.com">enboarding@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+
+<div id="cookieConsent" style="position:fixed; bottom:0; left:0; right:0; background:#f7f7f8; padding:12px; text-align:center; font-size:0.85rem; border-top:1px solid #e9eaec; display:none;">
+  <span>We use cookies.</span>
+  <a href="en_privacy.html" style="margin:0 12px;">Privacy policy</a>
+  <button id="acceptCookies" style="background:#ff824d; color:white; border:none; padding:6px 16px; border-radius:999px; cursor:pointer;">Accept</button>
+</div>
+<script>
+if (!localStorage.getItem('cookieConsent')) {
+  document.getElementById('cookieConsent').style.display = 'block';
+}
+document.getElementById('acceptCookies')?.addEventListener('click', function() {
+  localStorage.setItem('cookieConsent', 'true');
+  document.getElementById('cookieConsent').style.display = 'none';
+});
+</script>
+
+
+</body>
+</html>
