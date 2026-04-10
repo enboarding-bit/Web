@@ -4,30 +4,21 @@
 
   // ==================== CONFIGURATION (EDIT THIS SECTION) ====================
   const CONFIG = {
-    // Languages - add new languages here
     languages: [
       { code: 'en', label: 'EN', name: 'English' },
       { code: 'fr', label: 'FR', name: 'Français' },
       { code: 'de', label: 'DE', name: 'Deutsch' },
       { code: 'ar', label: 'AR', name: 'العربية', rtl: true }
     ],
-    
-    // Site info
     siteName: 'EN-BOARDING',
     siteUrl: 'https://en-boarding.com',
     contactEmail: 'enboarding@gmail.com',
-    
-    // Social media - add URLs when ready
     social: {
       linkedin: '',
       twitter: '',
       instagram: ''
     },
-    
-    // Google Analytics ID
     analyticsId: 'G-G6E7B0ECTW',
-    
-    // Use clean URLs? Keep false for GitHub Pages
     cleanUrls: false
   };
 
@@ -125,32 +116,23 @@
     metaDesc.setAttribute('content', pageTitle);
   }
 
-  // ==================== LANGUAGE SWITCHER ====================
-  function createLangSwitcher() {
-    const langBar = document.createElement('div');
-    langBar.id = 'lang-bar';
-    
-    const label = translations.langLabel[currentLang] || 'Language';
-    let html = `<span style="margin-right:8px;color:var(--muted);">${label} :</span> `;
-    
-    CONFIG.languages.forEach((lang, i) => {
-      const href = lang.code + '_' + baseFile + fileExt;
-      const isActive = (lang.code === currentLang);
-      html += `<a href="${href}"${isActive ? ' class="active-lang"' : ''}>${lang.label}</a>`;
-      if (i < CONFIG.languages.length - 1) html += ' | ';
-    });
-    
-    langBar.innerHTML = html;
-    document.body.insertBefore(langBar, document.body.firstChild);
-  }
-
-  // ==================== NAVIGATION ====================
+  // ==================== NAVIGATION (with dropdown language selector) ====================
   function createNavigation() {
     const container = document.getElementById('global-header');
     if (!container) return;
     
     const t = translations.nav[currentLang] || translations.nav.en;
     const lang = currentLang;
+    
+    // Build dropdown options
+    let dropdownOptions = '';
+    CONFIG.languages.forEach(l => {
+      const href = l.code + '_' + baseFile + fileExt;
+      const isActive = (l.code === currentLang);
+      dropdownOptions += `<a href="${href}"${isActive ? ' class="active-lang"' : ''}>${l.label}</a>`;
+    });
+    
+    const currentLangLabel = CONFIG.languages.find(l => l.code === currentLang)?.label || 'EN';
     
     const navHtml = `
       <div class="logo-wrap">
@@ -163,12 +145,19 @@
         <a href="${lang}_blog${fileExt}">${t.blog}</a>
       </div>
       <div class="header-cta">
+        <div class="lang-dropdown">
+          <button class="lang-dropdown-btn">${currentLangLabel} <span class="arrow">▼</span></button>
+          <div class="lang-dropdown-content">
+            ${dropdownOptions}
+          </div>
+        </div>
         <a href="${lang}_booking${fileExt}" class="btn btn-primary">${t.cta}</a>
       </div>
     `;
     
     container.innerHTML = navHtml;
     
+    // Highlight active nav link
     const pageMap = {
       'index': 'home', 'about': 'about', 
       'services': 'services', 'free-tools': 'services', 'archetype': 'services', 'structural-gap': 'services',
@@ -244,7 +233,6 @@
   // ==================== INIT ====================
   function init() {
     setMetaTags();
-    createLangSwitcher();
     createNavigation();
     createFooter();
     createCookieConsent();
