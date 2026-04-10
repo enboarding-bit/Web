@@ -94,7 +94,7 @@
     document.head.appendChild(gtagInit);
   }
 
-  // ==================== META TAGS ====================
+  // ==================== META TAGS (with Open Graph image) ====================
   function setMetaTags() {
     const pageKey = baseFile === 'index' ? 'index' : 
                     baseFile.includes('about') ? 'about' :
@@ -107,6 +107,7 @@
     const pageTitle = translations.pageTitles[pageKey]?.[currentLang] || CONFIG.siteName;
     document.title = `${CONFIG.siteName} · ${pageTitle}`;
     
+    // Meta description
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {
       metaDesc = document.createElement('meta');
@@ -114,6 +115,22 @@
       document.head.appendChild(metaDesc);
     }
     metaDesc.setAttribute('content', pageTitle);
+    
+    // Open Graph
+    const ogTitle = document.createElement('meta');
+    ogTitle.setAttribute('property', 'og:title');
+    ogTitle.content = `${CONFIG.siteName} · ${pageTitle}`;
+    document.head.appendChild(ogTitle);
+    
+    const ogUrl = document.createElement('meta');
+    ogUrl.setAttribute('property', 'og:url');
+    ogUrl.content = `${CONFIG.siteUrl}/${currentLang}_${baseFile}${fileExt}`;
+    document.head.appendChild(ogUrl);
+    
+    const ogImage = document.createElement('meta');
+    ogImage.setAttribute('property', 'og:image');
+    ogImage.content = `${CONFIG.siteUrl}/images/og-image.jpg`; // ← Add a 1200×630 image to /images/
+    document.head.appendChild(ogImage);
   }
 
   // ==================== NAVIGATION (with dropdown language selector) ====================
@@ -124,7 +141,6 @@
     const t = translations.nav[currentLang] || translations.nav.en;
     const lang = currentLang;
     
-    // Build dropdown options
     let dropdownOptions = '';
     CONFIG.languages.forEach(l => {
       const href = l.code + '_' + baseFile + fileExt;
