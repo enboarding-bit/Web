@@ -1,3 +1,6 @@
+Here is the complete `js/components.js` file. Copy this exactly and place it in your `/js/` folder.
+
+```javascript
 // /js/components.js - Central configuration for entire site
 (function() {
   'use strict';
@@ -287,3 +290,4 @@
     init();
   }
 })();
+```
