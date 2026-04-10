@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>En-boarding · الرئيسية</title>
+  <link rel="stylesheet" href="css/global.css">
+  <style>
+    /* Slider styles */
+    .hero-slider { position: relative; width: 100%; height: 80vh; min-height: 680px; max-height: 980px; overflow: hidden; margin-top: -20px; }
+    .slides { position: relative; width: 100%; height: 100%; }
+    .slide { position: absolute; inset: 0; opacity: 0; transition: opacity .8s ease; background-size: cover; background-position: center top; }
+    .slide.active { opacity: 1; }
+    .slide::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,0.36) 0%, rgba(0,0,0,0.18) 34%, rgba(0,0,0,0.03) 62%, rgba(0,0,0,0) 100%), linear-gradient(180deg, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0) 28%, rgba(0,0,0,0.12) 100%); pointer-events: none; }
+    .slide-1 { background-image: url('images/building-my-business.webp'); }
+    .slide-2 { background-image: url('images/starting-my-company.webp'); }
+    .slide-3 { background-image: url('images/becoming-entrepreneur.webp'); }
+    .slider-caption { position: absolute; right: 8%; top: 50%; transform: translateY(-50%); z-index: 20; max-width: 560px; color: #fff; text-align: right; }
+    .slider-caption .slider-kicker { display: inline-block; margin-bottom: 14px; font-size: .8rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.92); background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.18); padding: 8px 12px; border-radius: 999px; backdrop-filter: blur(6px); }
+    .slider-caption h1 { color: #fff; margin-bottom: 18px; text-shadow: 0 8px 22px rgba(0,0,0,.22); }
+    .slider-caption p { font-size: 1.08rem; color: rgba(255,255,255,.94); max-width: 520px; margin-bottom: 26px; }
+    .slider-actions { display: flex; gap: 14px; flex-wrap: wrap; justify-content: flex-end; }
+    .slider-btn-secondary { background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.20); color: #fff; }
+    .arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; background: rgba(0,0,0,.35); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 25; font-size: 22px; color: #fff; backdrop-filter: blur(4px); user-select: none; }
+    .arrow:hover { background: var(--brand); }
+    .arrow-right { left: 20px; }
+    .arrow-left { right: 20px; }
+    .dots { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 25; }
+    .dot { width: 10px; height: 10px; background: rgba(255,255,255,.48); border-radius: 50%; cursor: pointer; transition: .2s ease; }
+    .dot.active { background: var(--action); transform: scale(1.08); }
+    .hero-text { max-width: 900px; margin: 60px auto; padding: 0 32px; text-align: center; }
+    .hero-badges { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
+    .hero-badges span { background: var(--surface-soft); padding: 6px 14px; border-radius: 999px; font-size: .82rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div id="lang-bar"></div>
+  <header class="header">
+    <div class="header-inner" id="global-header"></div>
+  </header>
+
+  <main>
+    <section class="hero-slider">
+      <div class="slides">
+        <div class="slide slide-1 active"></div>
+        <div class="slide slide-2"></div>
+        <div class="slide slide-3"></div>
+      </div>
+      <div class="slider-caption">
+        <div class="slider-kicker">جلسة وضوح مجانية للأعمال</div>
+        <h1>حوّل فكرة مشروعك إلى خطة واضحة.</h1>
+        <p>ابدأ بجلسة أولى مجانية لتحصل على وضوح واتجاه وخطة بسيطة للخطوة التالية.</p>
+        <div class="slider-actions">
+          <a href="ar_booking" class="btn btn-primary">احجز جلستك المجانية ←</a>
+          <a href="#who-this-is-for" class="btn btn-secondary slider-btn-secondary">لمن هذه الجلسات</a>
+        </div>
+        <p style="margin-top:14px; font-size:0.95rem; color:rgba(255,255,255,0.92);">بدون التزام. استمر فقط إذا ساعدتك الجلسة.</p>
+      </div>
+      <div class="arrow arrow-right" onclick="prevSlide()">→</div>
+      <div class="arrow arrow-left" onclick="nextSlide()">←</div>
+      <div class="dots">
+        <div class="dot active" onclick="goToSlide(0)"></div>
+        <div class="dot" onclick="goToSlide(1)"></div>
+        <div class="dot" onclick="goToSlide(2)"></div>
+      </div>
+    </section>
+
+    <section class="hero-text">
+      <h2>بدء مشروع تجاري أمر مثير،<br>لكنه قد يكون مربكًا أيضًا.</h2>
+      <p>ابدأ بجلسة أولى مجانية لتحصل على وضوح واتجاه وخطة بسيطة للخطوة التالية.</p>
+      <a href="ar_booking" class="btn btn-solid">احجز جلستك المجانية ←</a>
+      <div class="hero-badges">
+        <span>اتجاه واضح</span><span>جلسة أولى مجانية</span><span>بدون التزام</span>
+      </div>
+    </section>
+
+    <section class="section" id="who-this-is-for">
+      <div class="container">
+        <div class="section-title">
+          <div class="kicker">لمن هذه الجلسات</div>
+          <h2>هذه الجلسات لك إذا كانت لديك فكرة ولكنك ما زلت تشعر بالتعثر.</h2>
+          <p>تريد وضوحًا وخطوة تالية بسيطة وتقليلًا للحيرة حول ما يجب فعله بعد ذلك.</p>
+        </div>
+        <div class="grid-3">
+          <div class="card"><div class="card-icon">01</div><h3>لديك فكرة مشروع لكن لا تعرف من أين تبدأ</h3><p>تريد مسارًا أوضح بدلاً من محاولة اكتشاف كل شيء بمفردك.</p></div>
+          <div class="card"><div class="card-icon">02</div><h3>تشعر بالإرهاق بسبب كثرة الخيارات</h3><p>تحتاج مساعدة في تبسيط الخطوة التالية والتركيز على ما يهم أولاً.</p></div>
+          <div class="card"><div class="card-icon">03</div><h3>تريد خطوة تالية بسيطة ومفيدة</h3><p>ليس نصائح غامضة، بل محادثة عملية تساعدك على التقدم.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light" id="how-it-works">
+      <div class="container">
+        <div class="section-title">
+          <div class="kicker">كيف تعمل</div>
+          <h2>طريقة بسيطة للحصول على الوضوح.</h2>
+          <p>ابدأ بخطوة صغيرة، احصل على اتجاه، ثم قرر ما يناسبك.</p>
+        </div>
+        <div class="grid-3">
+          <div class="card"><div class="card-icon">1</div><h3>احجز جلستك المجانية</h3><p>ابدأ بمحادثة أولى حول فكرتك ووضعك وأهدافك.</p></div>
+          <div class="card"><div class="card-icon">2</div><h3>احصل على وضوح وخطة بسيطة</h3><p>اخرج باتجاه أوضح وخطوة عملية تالية يمكنك تنفيذها.</p></div>
+          <div class="card"><div class="card-icon">3</div><h3>قرر ما إذا كنت تريد الاستمرار</h3><p>بدون ضغط. استمر فقط إذا ساعدتك الجلسة حقًا.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container two-col">
+        <div class="about-image"><img src="images/bouchra.jpg" alt="بشرى دريوش"></div>
+        <div>
+          <div class="kicker">نبذة عني</div>
+          <h2>بشرى دريوش، مستشارة الشركات الناشئة</h2>
+          <p>أعمل مع الأشخاص الذين يبدأون مشروعًا تجاريًا ويحتاجون إلى وضوح واتجاه ودعم عملي.</p>
+          <p>هذه الجلسات مركزة ومباشرة ومصممة لمساعدتك على التقدم بثقة أكبر وخطة أوضح للخطوة التالية.</p>
+          <a href="ar_about" class="btn btn-solid" style="margin-top:10px;">اعرف المزيد ←</a>
+          <div class="stats">
+            <div class="stat"><strong>وضوح</strong><span>معرفة من أين تبدأ</span></div>
+            <div class="stat"><strong>اتجاه</strong><span>التركيز على ما يهم</span></div>
+            <div class="stat"><strong>عمل</strong><span>الخروج بخطوة تالية</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="results">
+      <div class="container">
+        <div class="section-title">
+          <div class="kicker">النتائج</div>
+          <h2>ما يجب أن يخرج به الأشخاص.</h2>
+          <p>القيمة تكمن في الوضوح والاتجاه اللذين تحصل عليهما من الجلسة.</p>
+        </div>
+        <div class="grid-3">
+          <div class="card"><div class="card-icon">أ</div><h3>مزيد من الوضوح</h3><p>افهم ما يهم الآن وما يمكنه الانتظار.</p></div>
+          <div class="card"><div class="card-icon">ب</div><h3>تقليل الإرهاق</h3><p>قلل الحيرة وبسّط الخطوة التالية.</p></div>
+          <div class="card"><div class="card-icon">ج</div><h3>خطة بسيطة</h3><p>اخرج باتجاه للخطوة التالية يمكنك تنفيذه فعلاً.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="cta-inner">
+        <div class="kicker" style="color:rgba(255,255,255,.8)">احجز جلستك المجانية</div>
+        <h2>حوّل فكرة مشروعك إلى خطة واضحة.</h2>
+        <p>ابدأ بجلسة أولى مجانية. بدون التزام. استمر فقط إذا ساعدتك.</p>
+        <a href="ar_booking" class="btn btn-primary">احجز جلستك المجانية ←</a>
+        <div class="cta-chips">
+          <span>جلسة أولى مجانية</span><span>بدون التزام</span><span>خطوة تالية بسيطة</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="footer-inner" id="global-footer"></div></footer>
+  <div id="cookie-consent"></div>
+
+  <script src="js/components.js"></script>
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const totalSlides = slides.length;
+    function showSlide(index) {
+      slides.forEach(s => s.classList.remove('active'));
+      dots.forEach(d => d.classList.remove('active'));
+      currentSlide = (index + totalSlides) % totalSlides;
+      slides[currentSlide].classList.add('active');
+      dots[currentSlide].classList.add('active');
+    }
+    window.nextSlide = () => showSlide(currentSlide + 1);
+    window.prevSlide = () => showSlide(currentSlide - 1);
+    window.goToSlide = (i) => showSlide(i);
+    setInterval(() => showSlide(currentSlide + 1), 5000);
+  </script>
+</body>
+</html>

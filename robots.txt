@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /js/
+Disallow: /css/
+Sitemap: https://www.en-boarding.com/sitemap.xml

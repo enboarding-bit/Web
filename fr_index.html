@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>En-boarding · Accueil</title>
+  <link rel="stylesheet" href="css/global.css">
+  <style>
+    /* Slider styles - same as English */
+    .hero-slider { position: relative; width: 100%; height: 80vh; min-height: 680px; max-height: 980px; overflow: hidden; margin-top: -20px; }
+    .slides { position: relative; width: 100%; height: 100%; }
+    .slide { position: absolute; inset: 0; opacity: 0; transition: opacity .8s ease; background-size: cover; background-position: center top; }
+    .slide.active { opacity: 1; }
+    .slide::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,0.36) 0%, rgba(0,0,0,0.18) 34%, rgba(0,0,0,0.03) 62%, rgba(0,0,0,0) 100%), linear-gradient(180deg, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0) 28%, rgba(0,0,0,0.12) 100%); pointer-events: none; }
+    .slide-1 { background-image: url('images/building-my-business.webp'); }
+    .slide-2 { background-image: url('images/starting-my-company.webp'); }
+    .slide-3 { background-image: url('images/becoming-entrepreneur.webp'); }
+    .slider-caption { position: absolute; left: 8%; top: 50%; transform: translateY(-50%); z-index: 20; max-width: 560px; color: #fff; }
+    .slider-caption .slider-kicker { display: inline-block; margin-bottom: 14px; font-size: .8rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.92); background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.18); padding: 8px 12px; border-radius: 999px; backdrop-filter: blur(6px); }
+    .slider-caption h1 { color: #fff; margin-bottom: 18px; text-shadow: 0 8px 22px rgba(0,0,0,.22); }
+    .slider-caption p { font-size: 1.08rem; color: rgba(255,255,255,.94); max-width: 520px; margin-bottom: 26px; }
+    .slider-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .slider-btn-secondary { background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.20); color: #fff; }
+    .arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; background: rgba(0,0,0,.35); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 25; font-size: 22px; color: #fff; backdrop-filter: blur(4px); user-select: none; }
+    .arrow:hover { background: var(--brand); }
+    .arrow-left { left: 20px; }
+    .arrow-right { right: 20px; }
+    .dots { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 25; }
+    .dot { width: 10px; height: 10px; background: rgba(255,255,255,.48); border-radius: 50%; cursor: pointer; transition: .2s ease; }
+    .dot.active { background: var(--action); transform: scale(1.08); }
+    .hero-text { max-width: 900px; margin: 60px auto; padding: 0 32px; text-align: center; }
+    .hero-badges { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
+    .hero-badges span { background: var(--surface-soft); padding: 6px 14px; border-radius: 999px; font-size: .82rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div id="lang-bar"></div>
+  <header class="header">
+    <div class="header-inner" id="global-header"></div>
+  </header>
+
+  <main>
+    <section class="hero-slider">
+      <div class="slides">
+        <div class="slide slide-1 active"></div>
+        <div class="slide slide-2"></div>
+        <div class="slide slide-3"></div>
+      </div>
+      <div class="slider-caption">
+        <div class="slider-kicker">Séance gratuite de clarté business</div>
+        <h1>Transformez votre idée d'entreprise en plan clair.</h1>
+        <p>Commencez par une première séance gratuite pour obtenir de la clarté, une direction et un plan simple.</p>
+        <div class="slider-actions">
+          <a href="fr_booking" class="btn btn-primary">Réservez votre séance gratuite →</a>
+          <a href="#who-this-is-for" class="btn btn-secondary slider-btn-secondary">Voir à qui ça s'adresse</a>
+        </div>
+        <p style="margin-top:14px; font-size:0.95rem; color:rgba(255,255,255,0.92);">Sans engagement. Continuez seulement si cela vous aide.</p>
+      </div>
+      <div class="arrow arrow-left" onclick="prevSlide()">←</div>
+      <div class="arrow arrow-right" onclick="nextSlide()">→</div>
+      <div class="dots">
+        <div class="dot active" onclick="goToSlide(0)"></div>
+        <div class="dot" onclick="goToSlide(1)"></div>
+        <div class="dot" onclick="goToSlide(2)"></div>
+      </div>
+    </section>
+
+    <section class="hero-text">
+      <h2>Créer une entreprise est passionnant,<br>mais cela peut aussi être écrasant.</h2>
+      <p>Commencez par une première séance gratuite pour obtenir de la clarté, une direction et un plan simple.</p>
+      <a href="fr_booking" class="btn btn-solid">Réservez votre séance gratuite →</a>
+      <div class="hero-badges">
+        <span>Direction claire</span><span>Première séance gratuite</span><span>Sans engagement</span>
+      </div>
+    </section>
+
+    <section class="section" id="who-this-is-for">
+      <div class="container">
+        <div class="section-title">
+          <div class="kicker">À qui s'adresse ce service</div>
+          <h2>C'est pour vous si vous avez une idée mais que vous êtes bloqué.</h2>
+          <p>Vous voulez de la clarté, une prochaine étape simple et moins de confusion.</p>
+        </div>
+        <div class="grid-3">
+          <div class="card"><div class="card-icon">01</div><h3>Vous avez une idée d'entreprise mais ne savez pas par où commencer</h3><p>Vous voulez un chemin plus clair au lieu de tout comprendre seul.</p></div>
+          <div class="card"><div class="card-icon">02</div><h3>Vous vous sentez submergé par trop d'options</h3><p>Vous avez besoin d'aide pour simplifier la prochaine étape et vous concentrer sur l'essentiel.</p></div>
+          <div class="card"><div class="card-icon">03</div><h3>Vous voulez une prochaine étape simple et utile</h3><p>Pas de conseils vagues, mais une conversation pratique qui vous fait avancer.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light" id="how-it-works">
+      <div class="container">
+        <div class="section-title">
+          <div class="kicker">Comment ça marche</div>
+          <h2>Une manière simple d'obtenir de la clarté.</h2>
+          <p>Commencez petit, obtenez une direction, puis décidez ce qui a du sens pour vous.</p>
+        </div>
+        <div class="grid-3">
+          <div class="card"><div class="card-icon">1</div><h3>Réservez votre séance gratuite</h3><p>Commencez par une première conversation sur votre idée, votre situation et vos objectifs.</p></div>
+          <div class="card"><div class="card-icon">2</div><h3>Obtenez de la clarté et un plan simple</h3><p>Repartez avec une direction plus claire et une prochaine étape pratique que vous pouvez mettre en œuvre.</p></div>
+          <div class="card"><div class="card-icon">3</div><h3>Décidez si vous voulez continuer</h3><p>Sans pression. Continuez seulement si la séance vous a vraiment aidé.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container two-col">
+        <div class="about-image"><img src="images/bouchra.jpg" alt="Bouchra Driouach"></div>
+        <div>
+          <div class="kicker">À propos de moi</div>
+          <h2>Bouchra Driouach, Consultante Startup</h2>
+          <p>Je travaille avec des personnes qui lancent une entreprise et qui ont besoin de clarté, de direction et de soutien pratique.</p>
+          <p>Ces séances sont ciblées, directes et conçues pour vous aider à avancer avec plus de confiance et un plan d'action plus clair.</p>
+          <a href="fr_about" class="btn btn-solid" style="margin-top:10px;">En savoir plus →</a>
+          <div class="stats">
+            <div class="stat"><strong>Clarté</strong><span>Savoir par où commencer</span></div>
+            <div class="stat"><strong>Direction</strong><span>Se concentrer sur l'essentiel</span></div>
+            <div class="stat"><strong>Action</strong><span>Repartir avec une prochaine étape</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="results">
+      <div class="container">
+        <div class="section-title">
+          <div class="kicker">Résultats</div>
+          <h2>Ce que les gens devraient retenir.</h2>
+          <p>La valeur réside dans la clarté et la direction que vous obtenez de la séance.</p>
+        </div>
+        <div class="grid-3">
+          <div class="card"><div class="card-icon">A</div><h3>Plus de clarté</h3><p>Comprenez ce qui compte maintenant et ce qui peut attendre.</p></div>
+          <div class="card"><div class="card-icon">B</div><h3>Moins de surcharge</h3><p>Réduisez la confusion et simplifiez la prochaine étape.</p></div>
+          <div class="card"><div class="card-icon">C</div><h3>Un plan simple</h3><p>Repartez avec une direction concrète que vous pouvez réellement mettre en œuvre.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="cta-inner">
+        <div class="kicker" style="color:rgba(255,255,255,.8)">Réservez votre séance gratuite</div>
+        <h2>Transformez votre idée d'entreprise en plan clair.</h2>
+        <p>Commencez par une première séance gratuite. Sans engagement. Continuez seulement si cela vous aide.</p>
+        <a href="fr_booking" class="btn btn-primary">Réservez votre séance gratuite →</a>
+        <div class="cta-chips">
+          <span>Première séance gratuite</span><span>Sans engagement</span><span>Prochaine étape simple</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="footer-inner" id="global-footer"></div></footer>
+  <div id="cookie-consent"></div>
+
+  <script src="js/components.js"></script>
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const totalSlides = slides.length;
+    function showSlide(index) {
+      slides.forEach(s => s.classList.remove('active'));
+      dots.forEach(d => d.classList.remove('active'));
+      currentSlide = (index + totalSlides) % totalSlides;
+      slides[currentSlide].classList.add('active');
+      dots[currentSlide].classList.add('active');
+    }
+    window.nextSlide = () => showSlide(currentSlide + 1);
+    window.prevSlide = () => showSlide(currentSlide - 1);
+    window.goToSlide = (i) => showSlide(i);
+    setInterval(() => showSlide(currentSlide + 1), 5000);
+  </script>
+</body>
+</html>

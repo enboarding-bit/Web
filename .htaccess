@@ -1,0 +1,24 @@
+RewriteEngine On
+
+# Force HTTPS (uncomment if you have SSL)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# Remove .html extension
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# Redirect root to English
+RewriteRule ^$ /en_index [R=302,L]
+
+# Custom 404 page
+ErrorDocument 404 /404.html
+
+# Security: Prevent directory listing
+Options -Indexes
+
+# Cache control for static assets
+<FilesMatch "\.(css|js|webp|jpg|jpeg|png|gif|ico)$">
+  Header set Cache-Control "max-age=2592000, public"
+</FilesMatch>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>En-boarding · Réservation</title>
+  <link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+  <div id="lang-bar"></div>
+  <header class="header">
+    <div class="header-inner" id="global-header"></div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container" style="max-width:820px;">
+        <div class="section-title">
+          <div class="kicker">Première séance gratuite</div>
+          <h1 style="font-size:clamp(2.2rem,4vw,3.3rem);">Réservez votre première séance</h1>
+          <p>Commencez par une conversation ciblée pour clarifier votre situation, vos priorités et vos prochaines étapes.</p>
+        </div>
+        <div class="form-card">
+          <div class="form-group">
+            <label for="name">Nom complet *</label>
+            <input id="name" type="text">
+          </div>
+          <div class="form-group">
+            <label for="email">Adresse email *</label>
+            <input id="email" type="email">
+          </div>
+          <div class="form-group">
+            <label for="message">Quel est votre plus grand défi en ce moment ? (optionnel)</label>
+            <textarea id="message" placeholder="Ex: Je ne sais pas comment valider mon idée, je suis bloqué entre deux directions, j'ai besoin d'une feuille de route..."></textarea>
+          </div>
+          <div class="checkbox-group">
+            <input type="checkbox" id="consent">
+            <label for="consent">J'accepte la <a href="fr_privacy">Politique de confidentialité</a> et consens à être contacté pour cette séance.</label>
+          </div>
+          <a href="mailto:enboarding@gmail.com" class="btn btn-primary" style="width:100%;">Demander ma séance gratuite →</a>
+          <p class="note">Après l'envoi, vous pouvez continuer la conversation à enboarding@gmail.com.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="footer-inner" id="global-footer"></div></footer>
+  <div id="cookie-consent"></div>
+  <script src="js/components.js"></script>
+</body>
+</html>

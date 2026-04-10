@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>En-boarding · الحجز</title>
+  <link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+  <div id="lang-bar"></div>
+  <header class="header">
+    <div class="header-inner" id="global-header"></div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container" style="max-width:820px;">
+        <div class="section-title">
+          <div class="kicker">جلسة أولى مجانية</div>
+          <h1 style="font-size:clamp(2.2rem,4vw,3.3rem);">احجز جلستك الأولى</h1>
+          <p>ابدأ بمحادثة مركزة لتوضيح وضعك وأولوياتك وخطواتك التالية.</p>
+        </div>
+        <div class="form-card">
+          <div class="form-group">
+            <label for="name">الاسم الكامل *</label>
+            <input id="name" type="text">
+          </div>
+          <div class="form-group">
+            <label for="email">البريد الإلكتروني *</label>
+            <input id="email" type="email">
+          </div>
+          <div class="form-group">
+            <label for="message">ما هو أكبر تحدٍ تواجهه حاليًا؟ (اختياري)</label>
+            <textarea id="message" placeholder="مثال: لا أعرف كيف أتحقق من صحة فكرتي، أنا عالق بين اتجاهين، أحتاج إلى خارطة طريق..."></textarea>
+          </div>
+          <div class="checkbox-group">
+            <input type="checkbox" id="consent">
+            <label for="consent">أوافق على <a href="ar_privacy">سياسة الخصوصية</a> وأوافق على الاتصال بي بخصوص هذه الجلسة.</label>
+          </div>
+          <a href="mailto:enboarding@gmail.com" class="btn btn-primary" style="width:100%;">اطلب جلستي المجانية ←</a>
+          <p class="note">بعد الإرسال، يمكنك متابعة المحادثة على enboarding@gmail.com.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="footer-inner" id="global-footer"></div></footer>
+  <div id="cookie-consent"></div>
+  <script src="js/components.js"></script>
+</body>
+</html>
