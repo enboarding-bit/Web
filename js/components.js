@@ -14,51 +14,46 @@
     
     // Site info
     siteName: 'EN-BOARDING',
-    siteUrl: 'https://enboarding-bit.github.io/Web',
-    contactEmail: 'enboarding@gmail.com',  // ← change email here
+    siteUrl: 'https://enboarding-bit.github.io/Web',  // Updated for GitHub Pages
+    contactEmail: 'enboarding@gmail.com',
     
     // Social media - add URLs when ready
     social: {
-      linkedin: '',   // e.g., 'https://linkedin.com/in/yourprofile'
-      twitter: '',    // e.g., 'https://twitter.com/yourhandle'
-      instagram: ''   // e.g., 'https://instagram.com/yourbusiness'
+      linkedin: '',
+      twitter: '',
+      instagram: ''
     },
     
     // Google Analytics ID
     analyticsId: 'G-G6E7B0ECTW',
     
-    // Use clean URLs? (true = /en_about, false = /en_about.html)
-    cleanUrls: false,  // Set to true if using .htaccess rewrites
+    // Use clean URLs? Keep false for GitHub Pages
+    cleanUrls: false
   };
 
   // ==================== TRANSLATIONS ====================
   const translations = {
-    // Navigation
     nav: {
       en: { home: 'Home', about: 'About', services: 'Services', blog: 'Blog', cta: 'Book your first session' },
       fr: { home: 'Accueil', about: 'À propos', services: 'Services', blog: 'Blog', cta: 'Réservez votre première séance' },
       de: { home: 'Startseite', about: 'Über mich', services: 'Leistungen', blog: 'Blog', cta: 'Erste Session buchen' },
       ar: { home: 'الرئيسية', about: 'من أنا', services: 'الخدمات', blog: 'المدونة', cta: 'احجز جلستك الأولى' }
     },
-    // Footer
     footer: {
       en: { tagline: 'Strategic support for early-stage founders', privacy: 'Privacy', terms: 'Terms' },
       fr: { tagline: 'Accompagnement stratégique pour fondateurs en phase de démarrage', privacy: 'Confidentialité', terms: 'Conditions' },
       de: { tagline: 'Strategische Unterstützung für Gründer in der Frühphase', privacy: 'Datenschutz', terms: 'AGB' },
       ar: { tagline: 'دعم استراتيجي للمؤسسين في المراحل المبكرة', privacy: 'الخصوصية', terms: 'الشروط' }
     },
-    // Cookie consent
     cookie: {
       en: { text: 'We use cookies.', privacy: 'Privacy policy', accept: 'Accept' },
       fr: { text: 'Nous utilisons des cookies.', privacy: 'Politique de confidentialité', accept: 'Accepter' },
       de: { text: 'Wir verwenden Cookies.', privacy: 'Datenschutzerklärung', accept: 'Akzeptieren' },
       ar: { text: 'نحن نستخدم ملفات تعريف الارتباط.', privacy: 'سياسة الخصوصية', accept: 'قبول' }
     },
-    // Language label
     langLabel: {
       en: 'Language', fr: 'Langue', de: 'Sprache', ar: 'اللغة'
     },
-    // Page titles (for meta/OG)
     pageTitles: {
       'index': { en: 'Free Business Clarity Session', fr: 'Séance gratuite de clarté business', de: 'Kostenlose Business-Klarheits-Session', ar: 'جلسة وضوح مجانية للأعمال' },
       'about': { en: 'About', fr: 'À propos', de: 'Über mich', ar: 'من أنا' },
@@ -86,7 +81,6 @@
   const baseFile = currentFile.replace(/^(en|fr|de|ar)_/, '').replace('.html', '');
   const fileExt = CONFIG.cleanUrls ? '' : '.html';
   
-  // Check for RTL
   const langConfig = CONFIG.languages.find(l => l.code === currentLang);
   if (langConfig && langConfig.rtl) {
     document.documentElement.setAttribute('dir', 'rtl');
@@ -95,10 +89,7 @@
     document.documentElement.setAttribute('lang', currentLang);
   }
 
-  // Make globally available
-  window.SITE = {
-    currentLang, baseFile, fileExt, config: CONFIG, t: translations
-  };
+  window.SITE = { currentLang, baseFile, fileExt, config: CONFIG, t: translations };
 
   // ==================== INJECT ANALYTICS ====================
   if (CONFIG.analyticsId) {
@@ -112,7 +103,7 @@
     document.head.appendChild(gtagInit);
   }
 
-  // ==================== META TAGS & OPEN GRAPH ====================
+  // ==================== META TAGS ====================
   function setMetaTags() {
     const pageKey = baseFile === 'index' ? 'index' : 
                     baseFile.includes('about') ? 'about' :
@@ -125,7 +116,6 @@
     const pageTitle = translations.pageTitles[pageKey]?.[currentLang] || CONFIG.siteName;
     document.title = `${CONFIG.siteName} · ${pageTitle}`;
     
-    // Set meta description
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {
       metaDesc = document.createElement('meta');
@@ -133,22 +123,6 @@
       document.head.appendChild(metaDesc);
     }
     metaDesc.setAttribute('content', pageTitle);
-    
-    // Open Graph
-    const ogTitle = document.createElement('meta');
-    ogTitle.setAttribute('property', 'og:title');
-    ogTitle.content = `${CONFIG.siteName} · ${pageTitle}`;
-    document.head.appendChild(ogTitle);
-    
-    const ogUrl = document.createElement('meta');
-    ogUrl.setAttribute('property', 'og:url');
-    ogUrl.content = `${CONFIG.siteUrl}/${currentLang}_${baseFile}${fileExt}`;
-    document.head.appendChild(ogUrl);
-    
-    const ogImage = document.createElement('meta');
-    ogImage.setAttribute('property', 'og:image');
-    ogImage.content = `${CONFIG.siteUrl}/images/og-image.jpg`; // Add a default OG image later
-    document.head.appendChild(ogImage);
   }
 
   // ==================== LANGUAGE SWITCHER ====================
@@ -195,7 +169,6 @@
     
     container.innerHTML = navHtml;
     
-    // Highlight active
     const pageMap = {
       'index': 'home', 'about': 'about', 
       'services': 'services', 'free-tools': 'services', 'archetype': 'services', 'structural-gap': 'services',
@@ -225,14 +198,10 @@
     const lang = currentLang;
     const email = CONFIG.contactEmail;
     
-    // Email obfuscation (basic)
-    const emailParts = email.split('@');
-    
     let socialHtml = '';
     if (CONFIG.social.linkedin) {
       socialHtml += `<a href="${CONFIG.social.linkedin}" target="_blank" rel="noopener">LinkedIn</a>`;
     }
-    // Add more social icons as needed
     
     const footerHtml = `
       <div style="font-weight:700;">En-boarding — ${t.tagline}</div>
