@@ -14,7 +14,7 @@
     
     // Site info
     siteName: 'EN-BOARDING',
-    siteUrl: 'https://www.en-boarding.com',
+    siteUrl: 'https://enboarding-bit.github.io/Web',
     contactEmail: 'enboarding@gmail.com',  // ← change email here
     
     // Social media - add URLs when ready
