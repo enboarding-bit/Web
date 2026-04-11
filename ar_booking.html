@@ -3,11 +3,105 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>En-boarding · الحجز</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="css/global.css">
+  <style>
+    .form-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 40px;
+      box-shadow: var(--shadow);
+      transition: box-shadow 0.25s ease;
+    }
+    .form-card:hover {
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(169, 207, 214, 0.5);
+    }
+    .form-group {
+      margin-bottom: 28px;
+      text-align: right;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      background: var(--surface-soft);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      text-align: right;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--brand);
+      box-shadow: 0 0 0 3px var(--brand-soft);
+    }
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 32px;
+      flex-direction: row-reverse;
+    }
+    .checkbox-group input {
+      margin-top: 4px;
+      width: 18px;
+      height: 18px;
+      accent-color: var(--brand);
+    }
+    .checkbox-group label {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.5;
+      text-align: right;
+    }
+    .checkbox-group a {
+      color: var(--ink);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: var(--brand-soft-3);
+    }
+    .checkbox-group a:hover {
+      text-decoration-color: var(--brand);
+    }
+    .note {
+      text-align: center;
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .btn-primary {
+      width: 100%;
+      justify-content: center;
+      padding: 16px 28px;
+      font-size: 1.05rem;
+      border-radius: 40px;
+    }
+    @media (max-width: 640px) {
+      .form-card {
+        padding: 28px 22px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div id="lang-bar"></div>
+  <div id="lang-bar" style="display:none;"></div>
   <header class="header">
     <div class="header-inner" id="global-header"></div>
   </header>
@@ -23,11 +117,11 @@
         <div class="form-card">
           <div class="form-group">
             <label for="name">الاسم الكامل *</label>
-            <input id="name" type="text">
+            <input id="name" type="text" placeholder="اسمك الكامل">
           </div>
           <div class="form-group">
             <label for="email">البريد الإلكتروني *</label>
-            <input id="email" type="email">
+            <input id="email" type="email" placeholder="example@domain.com">
           </div>
           <div class="form-group">
             <label for="message">ما هو أكبر تحدٍ تواجهه حاليًا؟ (اختياري)</label>
@@ -35,10 +129,10 @@
           </div>
           <div class="checkbox-group">
             <input type="checkbox" id="consent">
-            <label for="consent">أوافق على <a href="ar_privacy">سياسة الخصوصية</a> وأوافق على الاتصال بي بخصوص هذه الجلسة.</label>
+            <label for="consent">أوافق على <a href="ar_privacy.html">سياسة الخصوصية</a> وأوافق على الاتصال بي بخصوص هذه الجلسة.</label>
           </div>
-          <a href="mailto:enboarding@gmail.com" class="btn btn-primary" style="width:100%;">اطلب جلستي المجانية ←</a>
-          <p class="note">بعد الإرسال، يمكنك متابعة المحادثة على enboarding@gmail.com.</p>
+          <a href="mailto:contact@en-boarding.com" class="btn btn-primary">اطلب جلستي المجانية ←</a>
+          <p class="note">بعد الإرسال، يمكنك متابعة المحادثة على contact@en-boarding.com.</p>
         </div>
       </div>
     </section>
@@ -46,6 +140,7 @@
 
   <footer><div class="footer-inner" id="global-footer"></div></footer>
   <div id="cookie-consent"></div>
+
   <script src="js/components.js"></script>
 </body>
 </html>
