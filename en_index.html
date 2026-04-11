@@ -5,75 +5,88 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="css/global.css">
-  <style>
-    /* Homepage-only slider styles */
-    .hero-slider { position: relative; width: 100%; height: 60vh; min-height: 520px; max-height: 780px; overflow: hidden; margin-top: -20px; }
-    .slides { position: relative; width: 100%; height: 100%; }
-    .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.9s ease; background-size: cover; background-position: center 30%; }
-    .slide.active { opacity: 1; }
-    .slide::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(169,207,214,0.32) 0%, rgba(169,207,214,0.12) 40%, rgba(169,207,214,0.02) 100%); pointer-events: none; }
-    .slide-1 { background-image: url('images/building-my-business.webp'); }
-    .slide-2 { background-image: url('images/starting-my-company.webp'); }
-    .slide-3 { background-image: url('images/becoming-entrepreneur.webp'); }
-    .slider-caption { position: absolute; left: 8%; top: 50%; transform: translateY(-50%); z-index: 20; max-width: 560px; color: #fff; text-shadow: 0 4px 14px rgba(0,0,0,0.08); }
-    .slider-caption .slider-kicker { display: inline-block; margin-bottom: 14px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #ffffff; background: rgba(169,207,214,0.30); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.25); padding: 8px 14px; border-radius: 40px; }
-    .slider-caption h1 { color: #fff; margin-bottom: 18px; text-shadow: 0 6px 18px rgba(0,0,0,0.12); font-weight: 700; }
-    .slider-caption p { font-size: 1.08rem; color: rgba(255,255,255,0.94); max-width: 520px; margin-bottom: 28px; }
-    .slider-actions { display: flex; gap: 14px; flex-wrap: wrap; }
-    .slider-btn-secondary { background: rgba(255,255,255,0.18); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.30); color: #fff; }
-    .arrow { display: none; }
-    .dots { display: none; }
-    .hero-text { max-width: 860px; margin: 64px auto; padding: 0 32px; text-align: center; }
-    .hero-badges { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
-    .hero-badges span { background: var(--brand-soft); padding: 8px 18px; border-radius: 40px; font-size: 0.85rem; color: var(--ink); border: 1px solid rgba(169,207,214,0.25); backdrop-filter: blur(4px); }
-  </style>
 </head>
-<body>
+<body class="homepage">
   <div id="lang-bar" style="display:none;"></div>
   <header class="header">
     <div class="header-inner" id="global-header"></div>
   </header>
 
   <main>
-    <section class="hero-slider">
-      <div class="slides">
-        <div class="slide slide-1 active"></div>
-        <div class="slide slide-2"></div>
-        <div class="slide slide-3"></div>
-      </div>
-      <div class="slider-caption">
-        <div class="slider-kicker">Free business clarity session</div>
-        <h1>Turn your business idea into a clear plan.</h1>
-        <p>Start with a free first session to get clarity, direction, and a simple next-step plan.</p>
-        <div class="slider-actions">
-          <a href="en_booking.html" class="btn btn-primary">Book your free session →</a>
-          <a href="#who-this-is-for" class="btn btn-secondary slider-btn-secondary">See what it's for</a>
+    <!-- Full-bleed Hero Section -->
+    <section class="hero-full">
+      <div class="hero-full-inner">
+        <div class="hero-full-content">
+          <div class="kicker">Free consultation</div>
+
+          <h1>
+            You have something
+            <span class="marker-word">valuable</span>
+          </h1>
+
+          <div class="hero-tags" aria-label="What valuable can mean">
+            <span>Skill</span>
+            <span>Idea</span>
+            <span>Business</span>
+          </div>
+
+          <p>
+            But it's not generating income yet. Start with a free consultation
+            to get clarity on how to turn it into revenue.
+          </p>
+
+          <div class="hero-actions">
+            <a href="en_booking.html" class="btn btn-primary">Book your free consultation →</a>
+            <a href="#problem" class="btn btn-secondary">See what it's for</a>
+          </div>
+
+          <div class="microcopy">
+            Free first session. Continue only if it makes sense for you.
+          </div>
         </div>
-        <p style="margin-top:14px; font-size:0.95rem; color:rgba(255,255,255,0.92);">No commitment. Continue only if it helps.</p>
       </div>
     </section>
 
-    <section class="hero-text">
-      <h2>Starting a business is exciting,<br>but it can also feel overwhelming.</h2>
-      <p>Start with a free first session to get clarity, direction, and a simple next-step plan.</p>
-      <a href="en_booking.html" class="btn btn-solid">Book your free session →</a>
-      <div class="hero-badges">
-        <span>Clear direction</span><span>Free first session</span><span>No commitment</span>
-      </div>
-    </section>
-
-    <section class="section" id="who-this-is-for">
-      <div class="container">
+    <!-- NEW: The real problem section -->
+    <section class="section problem-section" id="problem">
+      <div class="container" style="max-width:820px; text-align:center;">
+        
         <div class="section-title">
-          <div class="kicker">Who this is for</div>
-          <h2>This is for you if you have an idea but still feel stuck.</h2>
-          <p>You want clarity, a simple next step, and less confusion about what to do next.</p>
+          <div class="kicker">The real problem</div>
+          
+          <h2 style="font-size:clamp(2rem,3vw,2.8rem); margin-bottom:18px;">
+            You don't have a value problem.<br>
+            You have a monetization problem.
+          </h2>
+          
+          <p style="font-size:1.08rem; max-width:640px; margin:0 auto 32px;">
+            Most people don't struggle because they lack ideas or skills. 
+            They struggle because they don't know how that value turns into revenue.
+          </p>
         </div>
+
         <div class="grid-3">
-          <div class="card"><div class="card-icon">01</div><h3>You have a business idea but don't know where to start</h3><p>You want a clearer path instead of trying to figure everything out alone.</p></div>
-          <div class="card"><div class="card-icon">02</div><h3>You feel overwhelmed by too many options</h3><p>You need help simplifying the next move and focusing on what matters first.</p></div>
-          <div class="card"><div class="card-icon">03</div><h3>You want a simple and useful next step</h3><p>Not vague advice, but a practical conversation that helps you move forward.</p></div>
+          
+          <div class="card">
+            <div class="card-icon">01</div>
+            <h3>Too many ideas, no direction</h3>
+            <p>You explore different paths but don't know which one actually leads to income.</p>
+          </div>
+          
+          <div class="card">
+            <div class="card-icon">02</div>
+            <h3>No clear business model</h3>
+            <p>You have something valuable, but no structured way to turn it into revenue.</p>
+          </div>
+          
+          <div class="card">
+            <div class="card-icon">03</div>
+            <h3>Effort without results</h3>
+            <p>You're putting in time and energy, but it's not translating into income.</p>
+          </div>
+
         </div>
+
       </div>
     </section>
 
@@ -81,13 +94,25 @@
       <div class="container">
         <div class="section-title">
           <div class="kicker">How it works</div>
-          <h2>A simple way to get clarity.</h2>
-          <p>Start small, get direction, then decide what makes sense for you.</p>
+          <h2>A simple way to understand how you make money.</h2>
+          <p>Start with your situation, identify how revenue is generated, and define your next move.</p>
         </div>
         <div class="grid-3">
-          <div class="card"><div class="card-icon">1</div><h3>Book your free session</h3><p>Start with a first conversation about your idea, situation, and goals.</p></div>
-          <div class="card"><div class="card-icon">2</div><h3>Get clarity and a simple plan</h3><p>Walk away with clearer direction and a practical next step you can act on.</p></div>
-          <div class="card"><div class="card-icon">3</div><h3>Decide if you want to continue</h3><p>No pressure. Continue only if the session genuinely helps you.</p></div>
+          <div class="card">
+            <div class="card-icon">1</div>
+            <h3>Share where you're stuck</h3>
+            <p>In a free consultation, we'll understand your situation and what's holding you back.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">2</div>
+            <h3>Map your path to revenue</h3>
+            <p>Define how your idea, skills, or business can generate income in a practical way.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">3</div>
+            <h3>Walk away with a clear next step</h3>
+            <p>Continue only if you want structured support to turn that direction into action.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -97,14 +122,14 @@
         <div class="about-image"><img src="images/bouchra.jpg" alt="Bouchra Driouach" loading="lazy"></div>
         <div>
           <div class="kicker">About me</div>
-          <h2>Bouchra Driouach, Startup Consultant</h2>
-          <p>I work with people who are starting a business and need clarity, direction, and practical support.</p>
-          <p>These sessions are focused, direct, and built to help you move forward with more confidence and a clearer next-step plan.</p>
+          <h2>Bouchra Driouach, Business Consultant</h2>
+          <p>I work with individuals who have ideas, skills, or businesses but are not generating income yet.</p>
+          <p>My focus is simple: I help you understand how your business makes money and what to do next.</p>
           <a href="en_about.html" class="btn btn-solid" style="margin-top:10px;">Learn more →</a>
           <div class="stats">
-            <div class="stat"><strong>Clarity</strong><span>Know where to start</span></div>
-            <div class="stat"><strong>Direction</strong><span>Focus on what matters</span></div>
-            <div class="stat"><strong>Action</strong><span>Leave with a next step</span></div>
+            <div class="stat"><strong>Clarity</strong><span>Understand your revenue path</span></div>
+            <div class="stat"><strong>Direction</strong><span>Focus on what moves the needle</span></div>
+            <div class="stat"><strong>Action</strong><span>Leave with a concrete next step</span></div>
           </div>
         </div>
       </div>
@@ -114,25 +139,37 @@
       <div class="container">
         <div class="section-title">
           <div class="kicker">Results</div>
-          <h2>What people should walk away with.</h2>
-          <p>The value is in the clarity and direction you get from the session.</p>
+          <h2>What you walk away with.</h2>
+          <p>The value is understanding how to turn what you have into income.</p>
         </div>
         <div class="grid-3">
-          <div class="card"><div class="card-icon">A</div><h3>More clarity</h3><p>Understand what matters now and what can wait.</p></div>
-          <div class="card"><div class="card-icon">B</div><h3>Less overwhelm</h3><p>Reduce confusion and simplify the next step.</p></div>
-          <div class="card"><div class="card-icon">C</div><h3>A simple plan</h3><p>Leave with a next-step direction you can actually act on.</p></div>
+          <div class="card">
+            <div class="card-icon">A</div>
+            <h3>A clear monetization path</h3>
+            <p>Understand how your idea, skills, or business can generate revenue.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">B</div>
+            <h3>Focused priorities</h3>
+            <p>Stop wasting energy — focus on what actually leads to income.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">C</div>
+            <h3>Next steps you can act on</h3>
+            <p>Leave with practical direction you can apply immediately.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="cta">
       <div class="cta-inner">
-        <div class="kicker" style="color:rgba(50,65,72,0.80)">Book your free session</div>
-        <h2>Turn your business idea into a clear plan.</h2>
-        <p>Start with a free first session. No commitment. Continue only if it helps.</p>
-        <a href="en_booking.html" class="btn btn-primary">Book your free session →</a>
+        <div class="kicker" style="color:rgba(31,42,48,0.80)">Book your free consultation</div>
+        <h2>Start turning what you have into income today</h2>
+        <p>Start with a free consultation to understand your monetization options. Continue only if it makes sense for you.</p>
+        <a href="en_booking.html" class="btn btn-primary">Book your free consultation →</a>
         <div class="cta-chips">
-          <span>Free first session</span><span>No commitment</span><span>Simple next step</span>
+          <span>Free first session</span><span>No commitment</span><span>Clear next step</span>
         </div>
       </div>
     </section>
@@ -142,16 +179,5 @@
   <div id="cookie-consent"></div>
 
   <script src="js/components.js"></script>
-  <script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    const totalSlides = slides.length;
-    function showSlide(index) {
-      slides.forEach(s => s.classList.remove('active'));
-      currentSlide = (index + totalSlides) % totalSlides;
-      slides[currentSlide].classList.add('active');
-    }
-    setInterval(() => showSlide(currentSlide + 1), 5000);
-  </script>
 </body>
 </html>
