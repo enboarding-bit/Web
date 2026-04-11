@@ -19,6 +19,7 @@
       instagram: ''
     },
     analyticsId: 'G-G6E7B0ECTW',
+    gtmId: 'GTM-5FDK4KN2',           // ← Your Google Tag Manager ID
     cleanUrls: false
   };
 
@@ -82,6 +83,26 @@
 
   window.SITE = { currentLang, baseFile, fileExt, config: CONFIG, t: translations };
 
+  // ==================== INJECT GOOGLE TAG MANAGER ====================
+  function injectGTM() {
+    if (!CONFIG.gtmId) return;
+    
+    // GTM Script for <head>
+    const gtmScript = document.createElement('script');
+    gtmScript.textContent = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${CONFIG.gtmId}');`;
+    document.head.insertBefore(gtmScript, document.head.firstChild);
+    
+    // GTM noscript iframe (insert after <body>)
+    const noscript = document.createElement('noscript');
+    noscript.innerHTML = `<iframe src="https://www.googletagmanager.com/ns.html?id=${CONFIG.gtmId}"
+height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
+    document.body.insertBefore(noscript, document.body.firstChild);
+  }
+
   // ==================== INJECT ANALYTICS ====================
   if (CONFIG.analyticsId) {
     const gtagScript = document.createElement('script');
@@ -116,7 +137,7 @@
     metaDesc.setAttribute('content', pageTitle);
   }
 
-  // ==================== NAVIGATION (with click-based dropdown) ====================
+  // ==================== NAVIGATION (with RTL order fix for Arabic) ====================
   function createNavigation() {
     const container = document.getElementById('global-header');
     if (!container) return;
@@ -133,15 +154,28 @@
     
     const currentLangLabel = CONFIG.languages.find(l => l.code === currentLang)?.label || 'EN';
     
+    // Build nav items array in logical order (Home, About, Services, Blog)
+    const navItems = [
+      { key: 'home', href: `${lang}_index${fileExt}`, text: t.home },
+      { key: 'about', href: `${lang}_about${fileExt}`, text: t.about },
+      { key: 'services', href: `${lang}_services${fileExt}`, text: t.services },
+      { key: 'blog', href: `${lang}_blog${fileExt}`, text: t.blog }
+    ];
+    
+    // For Arabic, reverse the array so that when combined with CSS row-reverse,
+    // the visual order becomes Home, About, Services, Blog (right to left)
+    const orderedNavItems = (currentLang === 'ar') ? [...navItems].reverse() : navItems;
+    
+    const navLinksHtml = orderedNavItems.map(item => 
+      `<a href="${item.href}">${item.text}</a>`
+    ).join('');
+    
     const navHtml = `
       <div class="logo-wrap">
         <a href="${lang}_index${fileExt}" class="logo">EN-<span>BOARDING</span></a>
       </div>
       <div class="nav-links">
-        <a href="${lang}_index${fileExt}">${t.home}</a>
-        <a href="${lang}_about${fileExt}">${t.about}</a>
-        <a href="${lang}_services${fileExt}">${t.services}</a>
-        <a href="${lang}_blog${fileExt}">${t.blog}</a>
+        ${navLinksHtml}
       </div>
       <div class="header-cta">
         <div class="lang-dropdown">
@@ -177,7 +211,7 @@
       });
     }
     
-    // Highlight active nav link
+    // Highlight active nav link (works with reversed order for Arabic)
     const pageMap = {
       'index': 'home', 'about': 'about', 
       'services': 'services', 'free-tools': 'services', 'archetype': 'services', 'structural-gap': 'services',
@@ -252,6 +286,7 @@
 
   // ==================== INIT ====================
   function init() {
+    injectGTM();                // <-- GTM injected here
     setMetaTags();
     createNavigation();
     createFooter();
