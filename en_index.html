@@ -6,6 +6,41 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="css/global.css">
   <style>
+    /* ===== HEADER FIX – never disappear ===== */
+    .header {
+      position: fixed !important;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000 !important;
+      background: transparent;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    body.homepage .header {
+      position: fixed !important;
+      background: transparent;
+    }
+    .header.scrolled {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+    body.homepage .header.scrolled .logo,
+    body.homepage .header.scrolled .nav-links a,
+    body.homepage .header.scrolled .lang-dropdown-btn {
+      color: var(--ink) !important;
+      text-shadow: none;
+    }
+    body.homepage .header.scrolled .lang-dropdown-btn {
+      border-color: var(--line);
+      background: transparent;
+      backdrop-filter: none;
+    }
+
+    main {
+      padding-top: 0;
+    }
+
     /* Push hero text lower */
     .hero-full-content {
       margin-top: 120px;
@@ -25,8 +60,6 @@
     .cta {
       padding: 80px 20px;
     }
-
-    /* Results and CTA have more content? Actually they are shorter, so give extra padding to balance */
     .results-section,
     .cta {
       padding: 120px 20px;
@@ -58,7 +91,6 @@
       font-size: 1.02rem;
       line-height: 1.72;
     }
-    /* Flip card */
     .flip-card {
       width: 100%;
       max-width: 760px;
@@ -514,6 +546,89 @@
       text-decoration: none;
       font-weight: 600;
     }
+
+    /* ===== HERO SLIDER ===== */
+    .hero-slider {
+      position: relative;
+      background: none !important;
+    }
+    .slider-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center 30%;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transition: opacity 1.2s ease-in-out;
+      z-index: 0;
+    }
+    .slider-slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+    .slide-1 {
+      background-image: linear-gradient(90deg, rgba(31, 42, 48, 0.22) 0%, rgba(31, 42, 48, 0.12) 38%, rgba(31, 42, 48, 0.08) 100%),
+                        url('images/becoming-entrepreneur.webp');
+    }
+    .slide-2 {
+      background-image: linear-gradient(90deg, rgba(31, 42, 48, 0.22) 0%, rgba(31, 42, 48, 0.12) 38%, rgba(31, 42, 48, 0.08) 100%),
+                        url('images/starting-my-company.webp');
+    }
+    .slide-3 {
+      background-image: linear-gradient(90deg, rgba(31, 42, 48, 0.22) 0%, rgba(31, 42, 48, 0.12) 38%, rgba(31, 42, 48, 0.08) 100%),
+                        url('images/building-my-business.webp');
+    }
+    .hero-slider::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(169, 207, 214, 0.34) 0%, rgba(169, 207, 214, 0.12) 42%, rgba(169, 207, 214, 0.03) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .slider-progress {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.2);
+      z-index: 5;
+    }
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: var(--white);
+      transition: width 5s linear;
+    }
+    .hero-full-inner {
+      z-index: 3;
+      position: relative;
+      padding-top: 100px;
+      padding-bottom: 60px;
+    }
+    .slider-dots {
+      display: flex;
+      gap: 12px;
+      margin-top: 30px;
+      z-index: 5;
+      position: relative;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .dot.active {
+      background: var(--white);
+      transform: scale(1.2);
+    }
   </style>
 </head>
 <body class="homepage">
@@ -523,8 +638,16 @@
   </header>
 
   <main>
-    <!-- 1. Hero -->
-    <section class="hero-full">
+    <!-- HERO SLIDER -->
+    <section class="hero-full hero-slider" id="heroSlider">
+      <div class="slider-slide slide-1 active"></div>
+      <div class="slider-slide slide-2"></div>
+      <div class="slider-slide slide-3"></div>
+      
+      <div class="slider-progress">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      
       <div class="hero-full-inner">
         <div class="hero-full-content">
           <h1>Turn your business idea into a viable project</h1>
@@ -532,11 +655,16 @@
           <div class="hero-actions">
             <a href="#approach" class="btn btn-secondary">Discover my approach →</a>
           </div>
+          <div class="slider-dots">
+            <span class="dot active" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+            <span class="dot" data-slide="2"></span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 2. Approach -->
+    <!-- APPROACH SECTION -->
     <section id="approach" class="approach-section">
       <div class="approach-container">
         <div class="kicker">My approach</div>
@@ -575,7 +703,7 @@
       </div>
     </section>
 
-    <!-- 3. About -->
+    <!-- ABOUT SECTION -->
     <section id="about" class="about-section">
       <div class="container two-col">
         <div class="about-image">
@@ -593,7 +721,7 @@
           <p>
             Instead of overwhelming you with complexity, I bring structure, clarity, and practical action so you can move forward with confidence.
           </p>
-          <a href="en_about.html" class="btn btn-solid" style="margin-top: 8px;">Learn more about me →</a>
+          <a href="#" class="btn btn-solid" style="margin-top: 8px;">Learn more about me →</a>
           <div class="credibility-strip">
             <div class="credibility-item">
               <strong>Clarity</strong>
@@ -612,8 +740,8 @@
       </div>
     </section>
 
-    <!-- 4. Services -->
-    <div class="services-wrapper">
+    <!-- SERVICES SECTION -->
+    <div class="services-wrapper" id="services">
       <div class="services-section">
         <div class="services-header">
           <div class="kicker" style="margin-bottom: 10px;">How it works</div>
@@ -649,7 +777,7 @@
       </div>
     </div>
 
-    <!-- 5. Results -->
+    <!-- RESULTS SECTION -->
     <section class="results-section">
       <div class="container">
         <div class="section-title">
@@ -665,7 +793,7 @@
       </div>
     </section>
 
-    <!-- 6. CTA -->
+    <!-- CTA SECTION -->
     <section class="cta">
       <div class="cta-inner">
         <div class="kicker" style="color:rgba(31,42,48,0.80)">Book your free consultation</div>
@@ -682,6 +810,17 @@
 
   <script src="js/components.js"></script>
   <script>
+    // Header background change on scroll
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('.header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Flip card touch support
     const flipCard = document.getElementById('flipCard');
     if (flipCard) {
       let touchDevice = false;
@@ -698,6 +837,83 @@
         });
       }
     }
+
+    // Hero slider logic
+    (function() {
+      const slides = document.querySelectorAll('.slider-slide');
+      const dots = document.querySelectorAll('.dot');
+      const progressBar = document.getElementById('progressBar');
+      if (!slides.length) return;
+
+      let currentIndex = 0;
+      const totalSlides = slides.length;
+      const slideInterval = 5000;
+      let intervalId;
+
+      function goToSlide(index) {
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === index);
+        });
+        if (dots.length) {
+          dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+          });
+        }
+        if (progressBar) {
+          progressBar.style.transition = 'none';
+          progressBar.style.width = '0%';
+          progressBar.offsetHeight;
+          progressBar.style.transition = 'width 5s linear';
+          progressBar.style.width = '100%';
+        }
+      }
+
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        goToSlide(currentIndex);
+      }
+
+      function startSlider() {
+        if (intervalId) clearInterval(intervalId);
+        intervalId = setInterval(nextSlide, slideInterval);
+      }
+
+      if (dots.length) {
+        dots.forEach((dot, idx) => {
+          dot.addEventListener('click', function() {
+            currentIndex = idx;
+            goToSlide(currentIndex);
+            startSlider();
+          });
+        });
+      }
+
+      goToSlide(0);
+      startSlider();
+
+      const sliderEl = document.getElementById('heroSlider');
+      if (sliderEl) {
+        sliderEl.addEventListener('mouseenter', () => {
+          if (intervalId) clearInterval(intervalId);
+        });
+        sliderEl.addEventListener('mouseleave', () => {
+          startSlider();
+        });
+      }
+    })();
+
+    // Smooth scroll for any anchor links (fallback)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === "#" || href === "") return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
   </script>
 </body>
 </html>
