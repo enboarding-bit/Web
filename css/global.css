@@ -63,7 +63,7 @@ a:hover {
   padding: 0 32px;
 }
 
-/* ===== HEADER (transparent, blends with hero, no clipping) ===== */
+/* ===== HEADER (contained card style, no clipping) ===== */
 .header {
   background: transparent;
   padding: 18px 32px 0;
@@ -74,17 +74,17 @@ a:hover {
 .header-inner {
   max-width: 1280px;
   margin: 0 auto;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(12px);
   min-height: 82px;
-  border-radius: 0;
+  border-radius: 28px;
   display: grid;
   grid-template-columns: 220px 1fr 220px;
   align-items: center;
-  padding: 12px 26px;
-  box-shadow: none;
-  backdrop-filter: none;
-  border-bottom: 1px solid rgba(169, 207, 214, 0.18);
-  overflow: visible;  /* ← Fixes clipping */
+  padding: 8px 26px;
+  box-shadow: 0 8px 24px rgba(169, 207, 214, 0.14);
+  border: 1px solid rgba(169, 207, 214, 0.18);
+  overflow: visible;
 }
 
 .logo {
@@ -440,7 +440,7 @@ footer {
   color: var(--ink);
 }
 
-/* ===== DROPDOWN LANGUAGE SELECTOR (compact) ===== */
+/* ===== CLICK-BASED DROPDOWN LANGUAGE SELECTOR (NARROW WIDTH) ===== */
 .lang-dropdown {
   position: relative;
   display: inline-block;
@@ -452,7 +452,7 @@ footer {
   border: 1px solid var(--line);
   border-radius: 40px;
   padding: 8px 14px;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--ink);
   cursor: pointer;
@@ -467,11 +467,6 @@ footer {
   border-color: var(--brand);
 }
 
-.lang-dropdown-btn .arrow {
-  font-size: 10px;
-  margin-left: 4px;
-}
-
 .lang-dropdown-content {
   display: none;
   position: absolute;
@@ -481,16 +476,21 @@ footer {
   border: 1px solid var(--line);
   border-radius: 16px;
   box-shadow: var(--shadow);
-  min-width: 100px;
+  min-width: auto;          /* Shrinks to fit content */
+  width: max-content;       /* Ensures it doesn't wrap unnecessarily */
   z-index: 100;
   padding: 8px 0;
   margin-top: 6px;
 }
 
+.lang-dropdown-content.show {
+  display: block;
+}
+
 .lang-dropdown-content a {
   display: block;
   padding: 8px 18px;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--ink);
   text-decoration: none;
   transition: background 0.1s;
@@ -505,18 +505,14 @@ footer {
   background: var(--brand-soft-2);
 }
 
-.lang-dropdown:hover .lang-dropdown-content {
-  display: block;
-}
-
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1100px) {
   .header-inner {
     grid-template-columns: 1fr;
     gap: 12px;
     padding: 16px 24px;
-    border-radius: 0;
-    overflow: visible;  /* ← Fixes clipping */
+    border-radius: 24px;
+    overflow: visible;
   }
 
   .logo-wrap,
@@ -583,12 +579,16 @@ footer {
   text-align: right;
 }
 
+[dir="rtl"] .header-inner {
+  grid-template-columns: 220px 1fr 220px; /* Same as LTR, but content flows RTL */
+}
+
 [dir="rtl"] .nav-links {
   flex-direction: row-reverse;
 }
 
 [dir="rtl"] .header-cta {
-  justify-content: flex-start;
+  justify-content: flex-start;  /* Align to the left in RTL (which is the start of the row) */
 }
 
 [dir="rtl"] .lang-dropdown {
@@ -599,6 +599,11 @@ footer {
 [dir="rtl"] .lang-dropdown-content {
   right: auto;
   left: 0;
+  text-align: right;
+}
+
+[dir="rtl"] .lang-dropdown-content a {
+  text-align: right;
 }
 
 [dir="rtl"] .footer-inner {
