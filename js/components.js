@@ -10,7 +10,7 @@
       { code: 'de', label: 'DE', name: 'Deutsch' },
       { code: 'ar', label: 'AR', name: 'العربية', rtl: true }
     ],
-    siteName: 'EN-BOARDING',
+    siteName: 'Onboarding for Entrepreneurs',
     siteUrl: 'https://en-boarding.com',
     contactEmail: 'enboarding@gmail.com',
     social: {
@@ -27,8 +27,8 @@
     nav: {
       en: { home: 'Home', about: 'About', services: 'Services', blog: 'Blog', cta: 'Book your first session' },
       fr: { home: 'Accueil', about: 'À propos', services: 'Services', blog: 'Blog', cta: 'Réservez votre première séance' },
-      de: { home: 'Startseite', about: 'Über mich', services: 'Leistungen', blog: 'Blog', cta: 'Erste Session buchen' },
-      ar: { home: 'الرئيسية', about: 'من أنا', services: 'الخدمات', blog: 'المدونة', cta: 'احجز جلستك الأولى' }
+      de: { home: 'Startseite', about: 'Über uns', services: 'Leistungen', blog: 'Blog', cta: 'Erste Session buchen' },
+      ar: { home: 'الرئيسية', about: 'من نحن', services: 'الخدمات', blog: 'المدونة', cta: 'احجز جلستك الأولى' }
     },
     footer: {
       en: { tagline: 'Strategic support for early-stage founders', privacy: 'Privacy', terms: 'Terms' },
@@ -47,7 +47,7 @@
     },
     pageTitles: {
       'index': { en: 'Free Business Clarity Session', fr: 'Séance gratuite de clarté business', de: 'Kostenlose Business-Klarheits-Session', ar: 'جلسة وضوح مجانية للأعمال' },
-      'about': { en: 'About', fr: 'À propos', de: 'Über mich', ar: 'من أنا' },
+      'about': { en: 'About', fr: 'À propos', de: 'Über uns', ar: 'من نحن' },
       'blog': { en: 'Blog', fr: 'Blog', de: 'Blog', ar: 'المدونة' },
       'booking': { en: 'Book your first session', fr: 'Réservez votre première séance', de: 'Erste Session buchen', ar: 'احجز جلستك الأولى' },
       'services': { en: 'Services', fr: 'Services', de: 'Leistungen', ar: 'الخدمات' },
@@ -105,7 +105,7 @@
                     baseFile.includes('terms') ? 'terms' : 'index';
     
     const pageTitle = translations.pageTitles[pageKey]?.[currentLang] || CONFIG.siteName;
-    document.title = `${CONFIG.siteName} · ${pageTitle}`;
+    document.title = `${pageTitle} – ${CONFIG.siteName}`;
     
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {
@@ -116,7 +116,7 @@
     metaDesc.setAttribute('content', pageTitle);
   }
 
-  // ==================== NAVIGATION (dropdown without arrow) ====================
+  // ==================== NAVIGATION (with click-based dropdown) ====================
   function createNavigation() {
     const container = document.getElementById('global-header');
     if (!container) return;
@@ -145,8 +145,8 @@
       </div>
       <div class="header-cta">
         <div class="lang-dropdown">
-          <button class="lang-dropdown-btn">${currentLangLabel}</button>
-          <div class="lang-dropdown-content">
+          <button class="lang-dropdown-btn" id="langDropdownBtn">${currentLangLabel}</button>
+          <div class="lang-dropdown-content" id="langDropdownContent">
             ${dropdownOptions}
           </div>
         </div>
@@ -155,6 +155,27 @@
     `;
     
     container.innerHTML = navHtml;
+    
+    // --- Click-based dropdown toggle ---
+    const dropdownBtn = document.getElementById('langDropdownBtn');
+    const dropdownContent = document.getElementById('langDropdownContent');
+    
+    if (dropdownBtn && dropdownContent) {
+      dropdownBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropdownContent.classList.toggle('show');
+      });
+      
+      document.addEventListener('click', function(e) {
+        if (!dropdownBtn.contains(e.target) && !dropdownContent.contains(e.target)) {
+          dropdownContent.classList.remove('show');
+        }
+      });
+      
+      dropdownContent.addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
+    }
     
     // Highlight active nav link
     const pageMap = {
@@ -192,7 +213,7 @@
     }
     
     const footerHtml = `
-      <div style="font-weight:700;">En-boarding — ${t.tagline}</div>
+      <div style="font-weight:700;">EN-BOARDING — ${t.tagline}</div>
       <div class="footer-links">
         ${socialHtml}
         <a href="${lang}_privacy${fileExt}">${t.privacy}</a>
