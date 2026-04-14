@@ -765,6 +765,43 @@ footer {
   background: var(--brand-soft-2);
 }
 
+/* ===== SCROLLED HEADER STATE (Homepage only) ===== */
+body.homepage .header.scrolled {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  border-bottom: 1px solid rgba(169, 207, 214, 0.3);
+}
+
+body.homepage .header.scrolled .logo,
+body.homepage .header.scrolled .logo span,
+body.homepage .header.scrolled .nav-links a,
+body.homepage .header.scrolled .lang-dropdown-btn {
+  color: var(--ink) !important;
+  text-shadow: none;
+}
+
+body.homepage .header.scrolled .lang-dropdown-btn {
+  border-color: var(--line);
+  background: transparent;
+  backdrop-filter: none;
+}
+
+body.homepage .header.scrolled .lang-dropdown-btn:hover {
+  background: var(--brand-soft);
+}
+
+body.homepage .header.scrolled .nav-links a.active::after {
+  background: var(--brand);
+}
+
+body.homepage .header.scrolled .btn-primary {
+  background: var(--brand);
+  color: var(--ink);
+  box-shadow: 0 10px 22px rgba(169, 207, 214, 0.18);
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1100px) {
   .header-inner {
