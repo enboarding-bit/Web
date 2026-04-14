@@ -12,7 +12,7 @@
     ],
     siteName: 'Onboarding for Entrepreneurs',
     siteUrl: 'https://en-boarding.com',
-    contactEmail: 'enboarding@gmail.com',
+    contactEmail: 'contact@en-boarding.com',
     social: {
       linkedin: '',
       twitter: '',
@@ -23,7 +23,7 @@
     cleanUrls: false
   };
 
-  // ==================== TRANSLATIONS (with meta descriptions) ====================
+  // ==================== TRANSLATIONS ====================
   const translations = {
     nav: {
       en: { home: 'Home', about: 'About', services: 'Services', blog: 'Blog', cta: 'Book your first session' },
@@ -38,10 +38,10 @@
       ar: { tagline: 'دعم استراتيجي للمؤسسين في المراحل المبكرة', privacy: 'الخصوصية', terms: 'الشروط' }
     },
     cookie: {
-      en: { text: 'We use cookies.', privacy: 'Privacy policy', accept: 'Accept' },
-      fr: { text: 'Nous utilisons des cookies.', privacy: 'Politique de confidentialité', accept: 'Accepter' },
-      de: { text: 'Wir verwenden Cookies.', privacy: 'Datenschutzerklärung', accept: 'Akzeptieren' },
-      ar: { text: 'نحن نستخدم ملفات تعريف الارتباط.', privacy: 'سياسة الخصوصية', accept: 'قبول' }
+      en: { text: 'We use cookies to improve your experience.', privacy: 'Privacy policy', accept: 'Accept' },
+      fr: { text: 'Nous utilisons des cookies pour améliorer votre expérience.', privacy: 'Politique de confidentialité', accept: 'Accepter' },
+      de: { text: 'Wir verwenden Cookies, um Ihre Erfahrung zu verbessern.', privacy: 'Datenschutzerklärung', accept: 'Akzeptieren' },
+      ar: { text: 'نحن نستخدم ملفات تعريف الارتباط لتحسين تجربتك.', privacy: 'سياسة الخصوصية', accept: 'قبول' }
     },
     langLabel: {
       en: 'Language', fr: 'Langue', de: 'Sprache', ar: 'اللغة'
@@ -237,18 +237,11 @@
   // ==================== INJECT GOOGLE TAG MANAGER ====================
   function injectGTM() {
     if (!CONFIG.gtmId) return;
-    
     const gtmScript = document.createElement('script');
-    gtmScript.textContent = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','${CONFIG.gtmId}');`;
+    gtmScript.textContent = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${CONFIG.gtmId}');`;
     document.head.insertBefore(gtmScript, document.head.firstChild);
-    
     const noscript = document.createElement('noscript');
-    noscript.innerHTML = `<iframe src="https://www.googletagmanager.com/ns.html?id=${CONFIG.gtmId}"
-height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
+    noscript.innerHTML = `<iframe src="https://www.googletagmanager.com/ns.html?id=${CONFIG.gtmId}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
     document.body.insertBefore(noscript, document.body.firstChild);
   }
 
@@ -258,13 +251,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
     gtagScript.async = true;
     gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${CONFIG.analyticsId}`;
     document.head.appendChild(gtagScript);
-    
     const gtagInit = document.createElement('script');
     gtagInit.textContent = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${CONFIG.analyticsId}');`;
     document.head.appendChild(gtagInit);
   }
 
-  // ==================== META TAGS (with description and canonical) ====================
+  // ==================== META TAGS ====================
   function setMetaTags() {
     const pageKey = baseFile === 'index' ? 'index' : 
                     baseFile.includes('about') ? 'about' :
@@ -280,11 +272,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
                     baseFile.includes('archetype') ? 'archetype' :
                     baseFile.includes('structural-gap') ? 'structural-gap' : 'index';
     
-    // Page Title
     const pageTitle = translations.pageTitles[pageKey]?.[currentLang] || CONFIG.siteName;
     document.title = pageTitle;
     
-    // Meta Description
     const metaDescText = translations.metaDescriptions[pageKey]?.[currentLang] || 
                          translations.metaDescriptions['index'][currentLang];
     let metaDesc = document.querySelector('meta[name="description"]');
@@ -295,14 +285,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
     }
     metaDesc.setAttribute('content', metaDescText);
     
-    // Canonical URL
     let canonical = document.querySelector('link[rel="canonical"]');
     if (!canonical) {
       canonical = document.createElement('link');
       canonical.setAttribute('rel', 'canonical');
       document.head.appendChild(canonical);
     }
-    // Use the current language file as canonical
     canonical.setAttribute('href', `${CONFIG.siteUrl}/${currentLang}_${baseFile}${fileExt}`);
   }
 
@@ -314,9 +302,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
                     baseFile.includes('booking') ? 'booking' :
                     baseFile.includes('services') || baseFile.includes('free-tools') ? 'services' : 'index';
     
-    // Only inject full schema on homepage; minimal on others
     let schema = {};
-    
     if (pageKey === 'index') {
       schema = {
         "@context": "https://schema.org",
@@ -345,7 +331,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
         }
       };
     } else {
-      // Minimal WebSite schema for other pages
       schema = {
         "@context": "https://schema.org",
         "@type": "WebSite",
@@ -358,20 +343,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
         }
       };
     }
-    
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.textContent = JSON.stringify(schema);
     document.head.appendChild(script);
   }
 
-  // ==================== NAVIGATION (with RTL order fix for Arabic) ====================
+  // ==================== NAVIGATION (with in-page links on homepage) ====================
   function createNavigation() {
     const container = document.getElementById('global-header');
     if (!container) return;
     
     const t = translations.nav[currentLang] || translations.nav.en;
     const lang = currentLang;
+    const isHomepage = (baseFile === 'index');
     
     let dropdownOptions = '';
     CONFIG.languages.forEach(l => {
@@ -382,10 +367,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
     
     const currentLangLabel = CONFIG.languages.find(l => l.code === currentLang)?.label || 'EN';
     
-    const navItems = [
+    let navItems = [
       { key: 'home', href: `${lang}_index${fileExt}`, text: t.home },
-      { key: 'about', href: `${lang}_about${fileExt}`, text: t.about },
-      { key: 'services', href: `${lang}_services${fileExt}`, text: t.services },
+      { key: 'about', href: isHomepage ? '#about' : `${lang}_about${fileExt}`, text: t.about },
+      { key: 'services', href: isHomepage ? '#services' : `${lang}_services${fileExt}`, text: t.services },
       { key: 'blog', href: `${lang}_blog${fileExt}`, text: t.blog }
     ];
     
@@ -409,34 +394,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
             ${dropdownOptions}
           </div>
         </div>
-        <a href="${lang}_booking${fileExt}" class="btn btn-primary">${t.cta}</a>
       </div>
     `;
     
     container.innerHTML = navHtml;
     
-    // --- Click-based dropdown toggle ---
     const dropdownBtn = document.getElementById('langDropdownBtn');
     const dropdownContent = document.getElementById('langDropdownContent');
-    
     if (dropdownBtn && dropdownContent) {
       dropdownBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         dropdownContent.classList.toggle('show');
       });
-      
       document.addEventListener('click', function(e) {
         if (!dropdownBtn.contains(e.target) && !dropdownContent.contains(e.target)) {
           dropdownContent.classList.remove('show');
         }
       });
-      
       dropdownContent.addEventListener('click', function(e) {
         e.stopPropagation();
       });
     }
     
-    // Highlight active nav link
     const pageMap = {
       'index': 'home', 'about': 'about', 
       'services': 'services', 'free-tools': 'services', 'archetype': 'services', 'structural-gap': 'services',
@@ -444,17 +423,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
     };
     const activeKey = pageMap[baseFile] || '';
     const links = container.querySelectorAll('.nav-links a');
-    
     links.forEach(link => {
       const href = link.getAttribute('href') || '';
       link.classList.remove('active');
-      if ((activeKey === 'home' && href.includes('index')) ||
-          (activeKey === 'about' && href.includes('about')) ||
-          (activeKey === 'services' && (href.includes('services') || href.includes('free-tools'))) ||
+      if ((activeKey === 'home' && (href.includes('index') || href === '#' || href === '')) ||
+          (activeKey === 'about' && (href.includes('about') || href === '#about')) ||
+          (activeKey === 'services' && (href.includes('services') || href.includes('free-tools') || href === '#services')) ||
           (activeKey === 'blog' && (href.includes('blog') || href.includes('analysis') || href.includes('founder') || href.includes('morning') || href.includes('idea')))) {
         link.classList.add('active');
       }
     });
+    
+    if (isHomepage) {
+      const anchorLinks = container.querySelectorAll('.nav-links a[href^="#"]');
+      anchorLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          const targetEl = document.querySelector(targetId);
+          if (targetEl) {
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    }
   }
 
   // ==================== FOOTER ====================
@@ -509,10 +502,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
     });
   }
 
-  // ==================== GA4 EVENT TRACKING FOR BOOKING CLICKS ====================
+  // ==================== GA4 EVENT TRACKING ====================
   function trackBookingClicks() {
     const bookingButtons = document.querySelectorAll('a[href*="booking"]');
-    
     bookingButtons.forEach(button => {
       button.addEventListener('click', function(e) {
         if (typeof gtag !== 'undefined') {
@@ -523,16 +515,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
             'language': currentLang
           });
         }
-        // Also push to dataLayer for GTM
-        if (window.dataLayer) {
-          window.dataLayer.push({
-            'event': 'book_free_session',
-            'gtm.element': button,
-            'gtm.elementText': button.innerText.trim()
-          });
-        }
       });
     });
+  }
+
+  // ==================== HEADER SCROLL EFFECT (HOMEPAGE) ====================
+  function initHeaderScroll() {
+    // Only run on homepage
+    if (window.SITE.baseFile !== 'index') return;
+    
+    const header = document.querySelector('.header');
+    const heroSection = document.querySelector('.hero-full');
+    
+    if (!header || !heroSection) return;
+    
+    // Add smooth transition to the header background
+    header.style.transition = 'background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease';
+    
+    function checkScroll() {
+      const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+      const scrollPosition = window.scrollY;
+      
+      // Add a small offset so the header changes slightly before the hero ends
+      if (scrollPosition > heroBottom - 80) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+    
+    window.addEventListener('scroll', checkScroll);
+    window.addEventListener('resize', checkScroll); // Recalculate on resize
+    checkScroll(); // Run on load
   }
 
   // ==================== INIT ====================
@@ -544,6 +558,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
     createFooter();
     createCookieConsent();
     trackBookingClicks();
+    initHeaderScroll(); // <-- NEW: Activate scroll-aware header
   }
 
   if (document.readyState === 'loading') {
