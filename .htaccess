@@ -1,24 +1,56 @@
 RewriteEngine On
 
-# Force HTTPS (uncomment if you have SSL)
-# RewriteCond %{HTTPS} off
-# RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+# =========================================================
+# CANONICAL HOST + HTTPS
+# =========================================================
 
-# Remove .html extension
+# Force HTTPS
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://www.en-boarding.com%{REQUEST_URI} [R=301,L]
+
+# Force www
+RewriteCond %{HTTP_HOST} !^www\.en-boarding\.com$ [NC]
+RewriteRule ^ https://www.en-boarding.com%{REQUEST_URI} [R=301,L]
+
+# =========================================================
+# ROOT REDIRECT
+# =========================================================
+
+# Redirect root to English homepage
+RewriteRule ^$ /en_index [R=301,L]
+
+# =========================================================
+# CLEAN URL HANDLING
+# =========================================================
+
+# Redirect .html URLs to clean URLs
+RewriteCond %{THE_REQUEST} \s/([^.]+)\.html[\s?] [NC]
+RewriteRule ^([^.]+)\.html$ /$1 [R=301,L]
+
+# Internally rewrite clean URLs to .html files
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}\.html -f
-RewriteRule ^(.*)$ $1.html [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^([^.]+)$ $1.html [L]
 
-# Redirect root to English
-RewriteRule ^$ /en_index [R=302,L]
+# =========================================================
+# ERRORS
+# =========================================================
 
-# Custom 404 page
 ErrorDocument 404 /404.html
 
-# Security: Prevent directory listing
+# =========================================================
+# SECURITY
+# =========================================================
+
 Options -Indexes
 
-# Cache control for static assets
-<FilesMatch "\.(css|js|webp|jpg|jpeg|png|gif|ico)$">
-  Header set Cache-Control "max-age=2592000, public"
-</FilesMatch>
+# =========================================================
+# CACHING
+# =========================================================
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(css|js|webp|jpg|jpeg|png|gif|ico|svg)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+</IfModule>

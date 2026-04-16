@@ -1,57 +1,653 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="/favicon.png">
-  <link rel="stylesheet" href="css/global.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | En-boarding</title>
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="stylesheet" href="css/global.css" />
+  <style>
+    .about-page {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbfc 100%);
+    }
+
+    .about-hero {
+      padding: 140px 20px 72px;
+      text-align: center;
+      background:
+        radial-gradient(circle at top left, rgba(169, 207, 214, 0.18), transparent 30%),
+        linear-gradient(135deg, #ffffff 0%, #f3f6f9 100%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .about-hero-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .about-hero .kicker {
+      margin-bottom: 16px;
+    }
+
+    .about-hero h1 {
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.04;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, #1e2f3a 0%, #2c5f6e 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .about-hero .subhead {
+      font-size: 1.16rem;
+      color: var(--muted);
+      max-width: 720px;
+      margin: 0 auto;
+      line-height: 1.72;
+    }
+
+    .about-main {
+      padding: 72px 20px 96px;
+    }
+
+    .about-container {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: stretch;
+      margin-bottom: 32px;
+    }
+
+    .panel {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .story-panel {
+      padding: 38px 36px;
+    }
+
+    .story-panel h2 {
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .story-panel p {
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      font-size: 1.02rem;
+    }
+
+    .story-panel p:last-child {
+      margin-bottom: 0;
+    }
+
+    .story-quote {
+      margin: 24px 0;
+      padding: 18px 0 18px 22px;
+      border-left: 3px solid var(--brand);
+      color: var(--ink);
+      font-style: italic;
+      line-height: 1.75;
+      font-size: 1.03rem;
+      background: linear-gradient(90deg, rgba(169, 207, 214, 0.08), transparent);
+      border-radius: 0 16px 16px 0;
+    }
+
+    .meaning-panel {
+      padding: 34px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .meaning-block {
+      padding: 22px 22px;
+      background: var(--surface-soft);
+      border: 1px solid rgba(169, 207, 214, 0.25);
+      border-radius: 22px;
+    }
+
+    .meaning-block .eyebrow {
+      display: inline-block;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .meaning-block h3 {
+      font-size: 1.35rem;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .meaning-block p {
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0;
+      font-size: 0.98rem;
+    }
+
+    .beliefs-section {
+      margin: 26px 0 32px;
+      padding: 34px;
+      background: var(--surface-soft);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .beliefs-header {
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .beliefs-header .kicker {
+      margin-bottom: 12px;
+    }
+
+    .beliefs-header h2 {
+      font-size: clamp(2rem, 3vw, 2.7rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+
+    .beliefs-header p {
+      color: var(--muted);
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .beliefs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .belief-card {
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px 24px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .belief-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(169, 207, 214, 0.45);
+    }
+
+    .belief-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--brand-soft);
+      color: var(--ink);
+      font-size: 0.95rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .belief-card h3 {
+      font-size: 1.28rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .belief-card p {
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .founder-section {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 30px;
+      align-items: stretch;
+      margin-bottom: 30px;
+    }
+
+    .founder-photo-panel {
+      overflow: hidden;
+      min-height: 520px;
+      position: relative;
+      border-radius: 30px;
+      background:
+        linear-gradient(145deg, rgba(169, 207, 214, 0.2), rgba(255, 255, 255, 0.4)),
+        #e8edf1;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .founder-photo-panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .founder-photo-placeholder {
+      text-align: center;
+      color: #72818a;
+      padding: 24px;
+    }
+
+    .founder-photo-placeholder .icon {
+      width: 88px;
+      height: 88px;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.62);
+      font-size: 2rem;
+      font-weight: 700;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .founder-photo-placeholder p {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .founder-panel {
+      padding: 38px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .founder-panel .kicker {
+      margin-bottom: 12px;
+    }
+
+    .founder-panel h2 {
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 18px;
+    }
+
+    .founder-panel p {
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      font-size: 1rem;
+    }
+
+    .founder-panel p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .founder-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 24px 0 26px;
+    }
+
+    .founder-highlights span {
+      background: rgba(169, 207, 214, 0.14);
+      border: 1px solid rgba(169, 207, 214, 0.34);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.88rem;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    .support-note {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+
+    .support-note p {
+      margin: 0;
+      font-size: 0.96rem;
+      line-height: 1.72;
+    }
+
+    .cta-section {
+      margin-top: 10px;
+    }
+
+    .cta-panel {
+      background: linear-gradient(135deg, var(--brand) 0%, #b9dce2 100%);
+      border-radius: 30px;
+      padding: 56px 34px;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .cta-panel .kicker {
+      color: rgba(31, 42, 48, 0.78);
+      margin-bottom: 12px;
+    }
+
+    .cta-panel h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+      color: var(--ink);
+    }
+
+    .cta-panel p {
+      max-width: 660px;
+      margin: 0 auto 28px;
+      color: rgba(31, 42, 48, 0.82);
+      line-height: 1.75;
+      font-size: 1.04rem;
+    }
+
+    .cta-panel .btn-primary {
+      background: rgba(255, 255, 255, 0.94);
+      color: var(--ink);
+      box-shadow: 0 10px 24px rgba(31, 42, 48, 0.08);
+      border: 1px solid transparent;
+    }
+
+    .cta-chips {
+      margin-top: 24px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-chips span {
+      background: rgba(255, 255, 255, 0.3);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      color: var(--ink);
+    }
+
+    @media (max-width: 1024px) {
+      .intro-grid,
+      .founder-section,
+      .beliefs-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .founder-photo-panel {
+        min-height: 420px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .about-hero {
+        padding: 120px 20px 60px;
+      }
+
+      .about-main {
+        padding: 56px 20px 80px;
+      }
+
+      .story-panel,
+      .meaning-panel,
+      .beliefs-section,
+      .founder-panel,
+      .cta-panel {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .story-panel,
+      .meaning-panel,
+      .beliefs-section,
+      .founder-panel {
+        padding-top: 28px;
+        padding-bottom: 28px;
+      }
+
+      .founder-photo-panel {
+        min-height: 320px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .about-hero h1 {
+        font-size: 2.35rem;
+      }
+
+      .story-panel,
+      .meaning-panel,
+      .beliefs-section,
+      .founder-panel,
+      .cta-panel {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .belief-card,
+      .meaning-block {
+        padding: 22px 18px;
+      }
+
+      .cta-panel {
+        padding-top: 44px;
+        padding-bottom: 44px;
+      }
+    }
+  </style>
 </head>
-<body>
+<body class="about-page">
   <div id="lang-bar" style="display:none;"></div>
+
   <header class="header">
     <div class="header-inner" id="global-header"></div>
   </header>
 
   <main>
-    <section class="section">
-      <div class="container" style="max-width:900px;">
-        <div class="kicker">About En-boarding</div>
-        <h1 style="margin-bottom:18px;">Onboarding for entrepreneurs</h1>
-        <p style="font-size:1.12rem;">Because people starting a business deserve the same head start as employees.</p>
-
-        <div class="soft-box">
-          <h2 style="margin-bottom:14px;">Our mission</h2>
-          <p>Most people start with an idea and a lot of energy — but no structure. They piece together advice from blogs, podcasts, and mentors, then wonder why they still feel stuck or overwhelmed.</p>
-          <p>En-boarding exists to fix that. The goal is to give people a clearer process — the same kind of structured onboarding that employees get at a company, but adapted for the uncertainty of building something from scratch.</p>
-        </div>
-
-        <div class="soft-box">
-          <h2 style="margin-bottom:14px;">What we believe</h2>
-          <p>You do not need more motivation. You need a system. Most people do not struggle because they lack effort. They struggle because the path is unclear and their energy gets scattered.</p>
-          <p>That is why these sessions focus on clarity, direction, and a practical next step instead of generic inspiration.</p>
-        </div>
-
-        <div class="soft-box">
-          <h2 style="margin-bottom:14px;">Bouchra Driouach</h2>
-          <p><strong style="color:var(--brand);">Founder & Strategy Consultant</strong></p>
-          <p>I work with people who are starting a business and need clarity, strategic direction, and practical execution. These sessions are focused, direct, and designed to help you move forward with better priorities and a clearer plan.</p>
-        </div>
+    <section class="about-hero">
+      <div class="about-hero-inner">
+        <div class="kicker">The story behind En-boarding</div>
+        <h1>Onboarding for entrepreneurs</h1>
+        <p class="subhead">
+          Because the first steps of building a business should feel clearer, more structured,
+          and more actionable than they usually do.
+        </p>
       </div>
     </section>
 
-    <section class="cta">
-      <div class="cta-inner">
-        <div class="kicker" style="color:rgba(50,65,72,0.80)">Start here</div>
-        <h2>Ready to stop guessing and start moving?</h2>
-        <p>Start with a first session to see whether we are a good fit.</p>
-        <a href="en_booking.html" class="btn btn-primary">Book your free session →</a>
+    <section class="about-main">
+      <div class="about-container">
+        <div class="intro-grid">
+          <article class="panel story-panel">
+            <h2>The idea started with a simple contrast</h2>
+            <p>
+              The first day in a new job is usually exciting. You join a team, receive your tools,
+              understand your role, and step into a structure that already exists.
+            </p>
+            <div class="story-quote">
+              Starting an entrepreneurial journey felt completely different. There was no structure,
+              no onboarding, and no clear next step.
+            </div>
+            <p>
+              I studied Entrepreneurship and Project Management, worked in startups and larger
+              companies, and always had side projects of my own. Even with that background, turning
+              ideas into something real was not easy in the beginning.
+            </p>
+            <p>
+              Over time, with practice and experience, I became better at turning opportunities,
+              skills, and problems into viable business ideas. That shift is what led to En-boarding.
+            </p>
+          </article>
+
+          <aside class="panel meaning-panel">
+            <div class="meaning-block">
+              <span class="eyebrow">What the name means</span>
+              <h3>En-boarding</h3>
+              <p>
+                “En” stands for entrepreneur. “Boarding” reflects the moment of stepping into
+                something new with direction, support, and structure.
+              </p>
+            </div>
+
+            <div class="meaning-block">
+              <span class="eyebrow">Why it matters</span>
+              <h3>Entrepreneurship needs a better beginning</h3>
+              <p>
+                Too many people start with energy but without a path. The goal of En-boarding is to
+                make the beginning less confusing and much more intentional.
+              </p>
+            </div>
+          </aside>
+        </div>
+
+        <section class="beliefs-section">
+          <div class="beliefs-header">
+            <div class="kicker">What I believe</div>
+            <h2>Most people do not need more ideas. They need more structure.</h2>
+            <p>
+              Entrepreneurship is often presented as chaos, pressure, and constant improvisation.
+              I believe it can be approached in a clearer and more grounded way.
+            </p>
+          </div>
+
+          <div class="beliefs-grid">
+            <div class="belief-card">
+              <div class="belief-number">01</div>
+              <h3>Clarity comes first</h3>
+              <p>
+                Before strategy, tools, or execution, people need to understand what they are
+                building, for whom, and why it matters.
+              </p>
+            </div>
+
+            <div class="belief-card">
+              <div class="belief-number">02</div>
+              <h3>Complexity should be simplified</h3>
+              <p>
+                Good guidance makes things easier to act on. The role of structure is to reduce
+                noise, not add more of it.
+              </p>
+            </div>
+
+            <div class="belief-card">
+              <div class="belief-number">03</div>
+              <h3>Action creates momentum</h3>
+              <p>
+                The goal is not to stay in theory. It is to move from thinking to decisions,
+                testing, and real progress.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="founder-section">
+          <div class="founder-photo-panel panel" aria-label="Photo of Bouchra Driouach">
+            <!-- <img src="images/bouchra.jpg" alt="Bouchra Driouach" loading="lazy" /> -->
+            <div class="founder-photo-placeholder">
+              <div class="icon">B</div>
+              <p>Add your portrait here for a stronger, more personal About page.</p>
+            </div>
+          </div>
+
+          <div class="panel founder-panel">
+            <div class="kicker">Founder</div>
+            <h2>Bouchra Driouach</h2>
+            <p>
+              I work with people who want to start or shape a business and need more clarity,
+              better direction, and practical next steps.
+            </p>
+            <p>
+              My background combines academic training in entrepreneurship with hands-on experience
+              across startups, larger organisations, and personal ventures. That mix has shaped the
+              way I work: structured, practical, and focused on moving ideas forward.
+            </p>
+
+            <div class="founder-highlights">
+              <span>Entrepreneurship background</span>
+              <span>Startup & corporate experience</span>
+              <span>Practical business thinking</span>
+            </div>
+
+            <p>
+              En-boarding was created to give people the kind of beginning I wish more entrepreneurs
+              had: a clearer starting point, a stronger sense of direction, and support that makes
+              action easier.
+            </p>
+
+            <div class="support-note">
+              <p>
+                For people facing difficult circumstances, free support is also available through a
+                simple application.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="cta-section">
+          <div class="cta-panel">
+            <div class="kicker">Start here</div>
+            <h2>If this approach resonates with you, begin with a first session.</h2>
+            <p>
+              A first conversation is the easiest way to explore your situation, understand where
+              you are, and see what kind of support would make sense next.
+            </p>
+            <a href="en_booking.html" class="btn btn-primary">Book your free session →</a>
+            <div class="cta-chips">
+              <span>Free first session</span>
+              <span>No commitment</span>
+              <span>Clear next step</span>
+            </div>
+          </div>
+        </section>
       </div>
     </section>
   </main>
 
-  <footer><div class="footer-inner" id="global-footer"></div></footer>
+  <footer>
+    <div class="footer-inner" id="global-footer"></div>
+  </footer>
+
   <div id="cookie-consent"></div>
 
   <script src="js/components.js"></script>
+  <script>
+    window.addEventListener('scroll', function () {
+      const header = document.querySelector('.header');
+      if (header) {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }
+    });
+  </script>
 </body>
 </html>

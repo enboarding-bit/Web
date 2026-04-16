@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Tools – Structural Gap | en-boarding</title>
+  <meta name="description" content="Free diagnostic tools: Structural Gap Assessment and Entrepreneurial Archetypes. Understand where your business is stuck.">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="css/global.css">
+  <style>
+    :root { --white: #ffffff; --ink: #1f2a30; --muted: #5b6e7c; --line: #e2e8f0; --brand: #a9cfd6; --brand-dark: #7fb3bd; --brand-soft: #eef5f7; --shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03); --shadow-lg: 0 20px 30px -12px rgba(0, 0, 0, 0.1); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--white); color: var(--ink); line-height: 1.4; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .kicker { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.75rem; font-weight: 600; color: var(--brand-dark); margin-bottom: 12px; }
+    .section { padding: 80px 0; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 32px 28px;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(169, 207, 214, 0.6);
+    }
+
+    .card-icon {
+      font-size: 1.6rem;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 18px;
+      margin-bottom: 24px;
+      background: var(--brand-soft);
+      font-weight: 700;
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+
+    .btn-card {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 14px 24px;
+      border-radius: 12px;
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      text-align: center;
+      margin-top: 8px;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-card:hover {
+      background: var(--brand-soft);
+      border-color: var(--brand);
+      transform: translateY(-1px);
+    }
+
+    .badge-link {
+      display: inline-block;
+      background: rgba(0,0,0,0.05);
+      padding: 8px 18px;
+      border-radius: 40px;
+      margin-bottom: 32px;
+      font-size: 0.9rem;
+    }
+
+    .badge-link a {
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .free-cta {
+      background: var(--brand-soft);
+      border-radius: 32px;
+      text-align: center;
+      padding: 56px 32px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 900px) {
+      .grid-3 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div id="lang-bar" style="display:none;"></div>
+  <header class="header"><div class="header-inner" id="global-header"></div></header>
+
+  <main>
+    <section class="section" style="padding-bottom: 0;">
+      <div class="container" style="text-align: center;">
+        <div class="badge-link"><a href="en_services.html">Explore paid coaching →</a></div>
+        <div class="kicker">Free resources</div>
+        <h1 style="font-size: clamp(2rem, 6vw, 3.6rem); margin-bottom: 20px;">Diagnose your business.<br>Understand yourself.</h1>
+        <p style="font-size: 1.2rem; color: var(--muted); max-width: 700px; margin: 0 auto;">No email required. No commitment. Just clarity.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-icon">📋</div>
+            <h3>Structural Gap Assessment</h3>
+            <p>40 questions that reveal where your business is stuck — clarity, direction, leverage, or execution.</p>
+            <a href="en_structural-gap.html" class="btn-card">Start the assessment →</a>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🧠</div>
+            <h3>Entrepreneurial Archetypes</h3>
+            <p>Explore founder patterns and understand the tendencies that shape how you work.</p>
+            <a href="en_archetype.html" class="btn-card">Read the archetypes →</a>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🎧</div>
+            <h3>Free clarity session</h3>
+            <p>30 minutes, no pitch. We’ll look at your results and map your next move – even if you never buy anything.</p>
+            <a href="en_booking.html" class="btn-card">Book your free session →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-sm" style="padding-top: 0;">
+      <div class="container">
+        <div class="free-cta">
+          <div class="kicker">Already took the assessment?</div>
+          <h2 style="font-size: 1.6rem;">Let’s walk through your results</h2>
+          <p style="margin: 20px 0;">The free session is exactly that – free. No strings, just a second pair of eyes on your business.</p>
+          <a href="en_booking.html" class="btn btn-primary">Claim your free session →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="footer-inner" id="global-footer"></div></footer>
+  <div id="cookie-consent"></div>
+  <script src="js/components.js"></script>
+</body>
+</html>
