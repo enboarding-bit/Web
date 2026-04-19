@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- English homepage -->
+  <url>
+    <loc>https://www.en-boarding.com/en_index</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.en-boarding.com/en_index" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.en-boarding.com/en_index" />
+  </url>
+
+  <!-- English pages -->
+  <url>
+    <loc>https://www.en-boarding.com/en_about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.en-boarding.com/en_about" />
+  </url>
+
+  <url>
+    <loc>https://www.en-boarding.com/en_blog</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.en-boarding.com/en_blog" />
+  </url>
+
+  <url>
+    <loc>https://www.en-boarding.com/en_booking</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.en-boarding.com/en_booking" />
+  </url>
+
+  <url>
+    <loc>https://www.en-boarding.com/en_services</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.en-boarding.com/en_services" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.en-boarding.com/fr_services" />
+  </url>
+
+  <url>
+    <loc>https://www.en-boarding.com/en_free-tools</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.en-boarding.com/en_free-tools" />
+  </url>
+
+  <url>
+    <loc>https://www.en-boarding.com/en_privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.en-boarding.com/en_privacy" />
+  </url>
+
+  <url>
+    <loc>https://www.en-boarding.com/en_terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.en-boarding.com/en_terms" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.en-boarding.com/fr_terms" />
+  </url>
+
+  <url>
+    <loc>https://www.en-boarding.com/en_analysis-paralysis</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.en-boarding.com/en_analysis-paralysis" />
+  </url>
+
+  <url>
+    <loc>https://www.en-boarding.com/en_solo-founder-burnout</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.en-boarding.com/en_solo-founder-burnout" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.en-boarding.com/fr_solo-founder-burnout" />
+  </url>
+
+  <url>
+    <loc>https://www.en-boarding.com/en_monday-morning-test</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.en-boarding.com/en_monday-morning-test" />
+  </url>
+
+  <url>
+    <loc>https://www.en-boarding.com/en_idea-vs-business</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.en-boarding.com/en_idea-vs-business" />
+  </url>
+
+  <url>
+    <loc>https://www.en-boarding.com/en_archetype</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.en-boarding.com/en_archetype" />
+  </url>
+
+  <url>
+    <loc>https://www.en-boarding.com/en_structural-gap</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.en-boarding.com/en_structural-gap" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.en-boarding.com/fr_structural-gap" />
+  </url>
+
+  <!-- French pages that currently exist -->
+  <url>
+    <loc>https://www.en-boarding.com/fr_services</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.en-boarding.com/fr_services" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.en-boarding.com/en_services" />
+  </url>
+
+  <url>
+    <loc>https://www.en-boarding.com/fr_terms</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.en-boarding.com/fr_terms" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.en-boarding.com/en_terms" />
+  </url>
+
+  <url>
+    <loc>https://www.en-boarding.com/fr_solo-founder-burnout</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.en-boarding.com/fr_solo-founder-burnout" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.en-boarding.com/en_solo-founder-burnout" />
+  </url>
+
+  <url>
+    <loc>https://www.en-boarding.com/fr_structural-gap</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.en-boarding.com/fr_structural-gap" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.en-boarding.com/en_structural-gap" />
+  </url>
+
+</urlset>
