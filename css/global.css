@@ -757,7 +757,7 @@ footer {
 /* ===== HERO ===== */
 .hero-full {
   position: relative;
-  min-height: 100vh;
+  min-height: 680px;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -777,10 +777,11 @@ footer {
   position: relative;
   z-index: 2;
   width: min(1200px, calc(100% - 48px));
+  min-height: 680px;
   margin: 0 auto;
   padding: 120px 0 64px;
-  display: grid;
-  grid-template-columns: minmax(0, 620px);
+  display: flex;
+  align-items: center;
 }
 
 .hero-full-content {
@@ -918,11 +919,12 @@ footer {
   }
 
   .hero-full {
-    min-height: 100svh;
+    min-height: 560px;
     background-position: center 35%;
   }
 
   .hero-full-inner {
+    min-height: 560px;
     padding-top: 110px;
     padding-bottom: 48px;
   }
@@ -996,6 +998,14 @@ footer {
   #about,
   #services {
     scroll-margin-top: var(--header-offset-mobile);
+  }
+
+  .hero-full {
+    min-height: 520px;
+  }
+
+  .hero-full-inner {
+    min-height: 520px;
   }
 }
 
