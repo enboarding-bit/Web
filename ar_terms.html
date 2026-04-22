@@ -3,37 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>En-boarding · الشروط</title>
+  <title>الشروط | en-boarding</title>
+  <meta name="description" content="شروط الخدمة لـ en-boarding. باستخدامك لموقعنا، فإنك توافق على هذه الشروط.">
+  <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="css/global.css">
+  <style>
+    .legal-hero {
+      padding: 138px 20px 60px;
+      background: radial-gradient(circle at top right, rgba(127, 184, 196, 0.18), transparent 32%), linear-gradient(180deg, #ffffff 0%, #f6f8f9 100%);
+      border-bottom: 1px solid var(--line);
+    }
+    .legal-hero-inner { max-width: 860px; margin: 0 auto; text-align:right; }
+    .legal-hero .kicker { margin-bottom: 12px; }
+    .legal-hero h1 { margin-bottom: 12px; font-size: clamp(2.5rem, 5vw, 3.8rem); letter-spacing: -0.03em; }
+    .last-updated { color: var(--muted); font-size: 0.9rem; margin-top: 8px; }
+    .legal-content { padding: 60px 20px 100px; background: var(--white); }
+    .legal-container { max-width: 860px; margin: 0 auto; }
+    .legal-card { background: var(--white); border: 1px solid var(--line); border-radius: 28px; padding: 32px 34px; margin-bottom: 24px; box-shadow: var(--shadow); transition: box-shadow 0.2s; text-align:right; }
+    .legal-card:hover { box-shadow: var(--shadow-lg); }
+    .legal-card h2 { margin: 0 0 16px 0; font-size: 1.5rem; font-weight: 700; display: flex; align-items: center; gap: 12px; border-right: 4px solid var(--brand); padding-right: 18px; }
+    .legal-card p { margin: 0; line-height: 1.7; color: var(--muted); padding-right: 22px; }
+    @media (max-width: 768px) { .legal-hero { padding: 120px 20px 48px; } .legal-card { padding: 24px 20px; } .legal-card h2 { font-size: 1.3rem; padding-right: 12px; } .legal-card p { padding-right: 16px; } }
+  </style>
 </head>
 <body>
   <div id="lang-bar"></div>
-  <header class="header">
-    <div class="header-inner" id="global-header"></div>
-  </header>
-
+  <header class="header"><div class="header-inner" id="global-header"></div></header>
   <main>
-    <section class="section">
-      <div class="container" style="max-width:860px;">
-        <div class="kicker">قانوني</div>
-        <h1 style="font-size:clamp(2.1rem,4vw,3rem);">الشروط</h1>
-        <p>آخر تحديث: 6 أبريل 2026</p>
-        <div class="soft-box">
+    <section class="legal-hero"><div class="legal-hero-inner"><div class="kicker">قانوني</div><h1>شروط الاستخدام</h1><p class="last-updated">آخر تحديث: 6 أبريل 2026</p></div></section>
+    <section class="legal-content"><div class="legal-container">
+        <div class="legal-card">
           <h2>1. استخدام الموقع</h2>
-          <p>باستخدامك لهذا الموقع، فإنك توافق على استخدامه بشكل قانوني ومحترم.</p>
-          <h2>2. الخدمات</h2>
-          <p>تقدم En-boarding محادثات استراتيجية وأطر عمل ودعمًا لوضوح الأعمال. تُقدم أي جلسة أولى مجانية وفقًا لتقديرنا.</p>
-          <h2>3. عدم ضمان النتائج</h2>
-          <p>يمكن أن يساعد التوجيه والهيكل، ولكن لا يتم ضمان أي نتيجة تجارية محددة.</p>
-          <h2>4. الملكية الفكرية</h2>
-          <p>جميع المحتويات والأطر والمواد الأصلية على هذا الموقع تظل ملكًا لـ En-boarding ما لم يُنص على خلاف ذلك.</p>
-          <h2>5. الاتصال</h2>
-          <p>للأسئلة، راسلنا على enboarding@gmail.com.</p>
+          <p>باستخدامك لهذا الموقع، فإنك توافق على استخدامه بطريقة قانونية ومحترمة.</p>
         </div>
-      </div>
-    </section>
+        <div class="legal-card">
+          <h2>2. الخدمات</h2>
+          <p>تقدم en-boarding محادثات استراتيجية وأطر عمل ودعمًا لوضوح الأعمال. أي جلسة أولى مجانية تُقدَّم وفقًا لتقديرنا.</p>
+        </div>
+        <div class="legal-card">
+          <h2>3. عدم ضمان النتائج</h2>
+          <p>يمكن أن يساعد التوجيه والهيكل، لكن لا يتم ضمان أي نتيجة تجارية محددة.</p>
+        </div>
+        <div class="legal-card">
+          <h2>4. الملكية الفكرية</h2>
+          <p>جميع المحتويات والأطر والمواد الأصلية الموجودة على هذا الموقع تظل ملكًا لـ en-boarding ما لم يُذكر خلاف ذلك.</p>
+        </div>
+        <div class="legal-card">
+          <h2>5. التواصل</h2>
+          <p>لأي أسئلة، راسلنا على <a href="mailto:start@en-boarding.com">start@en-boarding.com</a>.</p>
+        </div>
+      </div></section>
   </main>
-
   <footer><div class="footer-inner" id="global-footer"></div></footer>
   <div id="cookie-consent"></div>
   <script src="js/components.js"></script>

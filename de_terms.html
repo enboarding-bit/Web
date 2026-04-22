@@ -3,8 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>En-boarding · AGB</title>
+  <title>Nutzungsbedingungen | en-boarding</title>
+  <meta name="description" content="Nutzungsbedingungen für die Unternehmensberatung von en-boarding.">
+  <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="css/global.css">
+  <style>
+    .legal-hero {
+      padding: 138px 20px 60px;
+      background: radial-gradient(circle at top left, rgba(127, 184, 196, 0.18), transparent 32%),
+                  linear-gradient(180deg, #ffffff 0%, #f6f8f9 100%);
+      border-bottom: 1px solid var(--line);
+    }
+    .legal-hero-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .legal-hero .kicker {
+      margin-bottom: 12px;
+    }
+    .legal-hero h1 {
+      margin-bottom: 12px;
+      font-size: clamp(2.5rem, 5vw, 3.8rem);
+      letter-spacing: -0.03em;
+    }
+    .last-updated {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 8px;
+    }
+    .legal-content {
+      padding: 60px 20px 100px;
+      background: var(--white);
+    }
+    .legal-container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .legal-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 32px 34px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+      transition: box-shadow 0.2s;
+    }
+    .legal-card:hover {
+      box-shadow: var(--shadow-lg);
+    }
+    .legal-card h2 {
+      margin: 0 0 16px 0;
+      font-size: 1.5rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-left: 4px solid var(--brand);
+      padding-left: 18px;
+    }
+    .legal-card p {
+      margin: 0;
+      line-height: 1.7;
+      color: var(--muted);
+      padding-left: 22px;
+    }
+    @media (max-width: 768px) {
+      .legal-hero { padding: 120px 20px 48px; }
+      .legal-card { padding: 24px 20px; }
+      .legal-card h2 { font-size: 1.3rem; padding-left: 12px; }
+      .legal-card p { padding-left: 16px; }
+    }
+  </style>
 </head>
 <body>
   <div id="lang-bar"></div>
@@ -13,22 +82,35 @@
   </header>
 
   <main>
-    <section class="section">
-      <div class="container" style="max-width:860px;">
+    <section class="legal-hero">
+      <div class="legal-hero-inner">
         <div class="kicker">Rechtliches</div>
-        <h1 style="font-size:clamp(2.1rem,4vw,3rem);">Allgemeine Geschäftsbedingungen</h1>
-        <p>Zuletzt aktualisiert: 6. April 2026</p>
-        <div class="soft-box">
+        <h1>Nutzungsbedingungen</h1>
+        <p class="last-updated">Zuletzt aktualisiert: 6. April 2026</p>
+      </div>
+    </section>
+
+    <section class="legal-content">
+      <div class="legal-container">
+        <div class="legal-card">
           <h2>1. Nutzung der Website</h2>
           <p>Durch die Nutzung dieser Website erklären Sie sich damit einverstanden, sie rechtmäßig und respektvoll zu nutzen.</p>
-          <h2>2. Dienstleistungen</h2>
-          <p>En-boarding bietet Strategiegespräche, Frameworks und Unterstützung bei der Business-Klarheit. Eine kostenlose erste Session wird nach unserem Ermessen angeboten.</p>
+        </div>
+        <div class="legal-card">
+          <h2>2. Leistungen</h2>
+          <p>en-boarding bietet Strategiegespräche, Frameworks und Unterstützung bei der Business-Klarheit. Eine kostenlose erste Session wird nach unserem Ermessen angeboten.</p>
+        </div>
+        <div class="legal-card">
           <h2>3. Keine Erfolgsgarantie</h2>
           <p>Anleitung und Struktur können helfen, aber ein bestimmtes Geschäftsergebnis wird nicht garantiert.</p>
+        </div>
+        <div class="legal-card">
           <h2>4. Geistiges Eigentum</h2>
-          <p>Alle Originalinhalte, Frameworks und Materialien auf dieser Website bleiben Eigentum von En-boarding, sofern nicht anders angegeben.</p>
+          <p>All original content, frameworks, and materials on this site remain the property of en-boarding unless otherwise stated.</p>
+        </div>
+        <div class="legal-card">
           <h2>5. Kontakt</h2>
-          <p>Bei Fragen schreiben Sie an enboarding@gmail.com.</p>
+          <p>For questions, email <a href="mailto:start@en-boarding.com">start@en-boarding.com</a>.</p>
         </div>
       </div>
     </section>
@@ -36,6 +118,7 @@
 
   <footer><div class="footer-inner" id="global-footer"></div></footer>
   <div id="cookie-consent"></div>
+
   <script src="js/components.js"></script>
 </body>
 </html>

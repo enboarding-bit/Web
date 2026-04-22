@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الخدمات | الدعم المناسب لتحويل فكرتك إلى دخل | en-boarding</title>
+  <meta name="description" content="استكشف مستويات الدعم في en-boarding: Silver للوضوح، Gold للتنفيذ، وDiamond لزخم أعمق. ابدأ بجلسة أولى مجانية.">
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="stylesheet" href="css/global.css" />
+  <style>
+    .services-page {
+      background: linear-gradient(180deg, #ffffff 0%, #f5f7f8 100%);
+    }
+
+    .services-hero {
+      padding: 138px 20px 78px;
+      background:
+        radial-gradient(circle at top left, rgba(127, 184, 196, 0.18), transparent 32%),
+        linear-gradient(180deg, #ffffff 0%, #f6f8f9 100%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .services-hero-inner,
+    .services-main {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .services-hero-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .services-hero-copy {
+      max-width: 760px;
+    }
+
+    .services-hero .kicker {
+      margin-bottom: 14px;
+    }
+
+    .services-hero h1 {
+      margin-bottom: 18px;
+      font-size: clamp(2.7rem, 5vw, 4.3rem);
+      line-height: 1.03;
+      letter-spacing: -0.04em;
+    }
+
+    .services-hero p {
+      font-size: 1.08rem;
+      line-height: 1.78;
+      max-width: 720px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .hero-notes {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .hero-notes span {
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--brand-soft);
+      border: 1px solid rgba(127, 184, 196, 0.28);
+      color: var(--ink);
+      font-size: 0.88rem;
+      line-height: 1.2;
+    }
+
+    .hero-side {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-side h3 {
+      margin-bottom: 14px;
+      font-size: 1.2rem;
+      line-height: 1.25;
+    }
+
+    .hero-side ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .hero-side li {
+      position: relative;
+      padding-right: 18px;
+      margin-bottom: 12px;
+      color: var(--muted);
+      line-height: 1.68;
+    }
+
+    .hero-side li:last-child {
+      margin-bottom: 0;
+    }
+
+    .hero-side li::before {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 11px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--brand);
+    }
+
+    .services-main {
+      padding: 72px 20px 96px;
+    }
+
+    .section-block {
+      margin-bottom: 34px;
+    }
+
+    .section-heading,
+    .services-intro,
+    .process-panel,
+    .fit-panel,
+    .faq-item,
+    .services-cta-panel {
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .services-intro,
+    .process-panel,
+    .fit-panel,
+    .services-cta-panel {
+      padding: 34px;
+    }
+
+    .section-heading {
+      padding: 30px 32px;
+      margin-bottom: 24px;
+    }
+
+    .section-heading .kicker {
+      margin-bottom: 10px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 12px;
+      font-size: clamp(2rem, 3vw, 2.7rem);
+      line-height: 1.08;
+    }
+
+    .section-heading p {
+      max-width: 760px;
+    }
+
+    .services-intro {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .services-intro h2 {
+      margin-bottom: 14px;
+      font-size: clamp(1.9rem, 3vw, 2.45rem);
+      line-height: 1.08;
+    }
+
+    .services-intro p {
+      margin-bottom: 14px;
+    }
+
+    .services-intro p:last-child {
+      margin-bottom: 0;
+    }
+
+    .intro-box {
+      background: var(--surface-soft);
+      border: 1px solid rgba(127, 184, 196, 0.22);
+      border-radius: 24px;
+      padding: 24px;
+    }
+
+    .intro-box h3 {
+      margin-bottom: 12px;
+      font-size: 1.16rem;
+      line-height: 1.25;
+    }
+
+    .intro-box p {
+      margin: 0 0 12px;
+      line-height: 1.7;
+    }
+
+    .intro-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .package-card {
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 32px 28px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      position: relative;
+    }
+
+    .package-card.featured {
+      border-color: rgba(127, 184, 196, 0.55);
+      box-shadow: var(--shadow-lg);
+      background: linear-gradient(180deg, rgba(127, 184, 196, 0.08), rgba(255, 255, 255, 0.98));
+    }
+
+    .package-badge {
+      display: inline-block;
+      align-self: flex-start;
+      margin-bottom: 16px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(127, 184, 196, 0.16);
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .package-card h3 {
+      font-size: 1.5rem;
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+
+    .package-subtitle {
+      color: var(--ink);
+      font-weight: 600;
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+
+    .package-summary {
+      color: var(--muted);
+      margin-bottom: 22px;
+      line-height: 1.72;
+    }
+
+    .package-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px;
+      flex: 1;
+    }
+
+    .package-list li {
+      position: relative;
+      padding-right: 18px;
+      margin-bottom: 12px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .package-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .package-list li::before {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 11px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--brand);
+    }
+
+    .package-outcome {
+      margin-top: auto;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: var(--surface-soft);
+      border: 1px solid rgba(127, 184, 196, 0.18);
+      color: var(--ink);
+      line-height: 1.62;
+      margin-bottom: 20px;
+    }
+
+    .package-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .package-actions .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .package-secondary {
+      text-align: center;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .comparison-note {
+      margin-top: 18px;
+      text-align: center;
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .process-grid,
+    .fit-grid,
+    .faq-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .process-grid {
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 22px;
+    }
+
+    .process-step,
+    .fit-card {
+      background: var(--surface-soft);
+      border: 1px solid rgba(127, 184, 196, 0.22);
+      border-radius: 22px;
+      padding: 22px 20px;
+    }
+
+    .step-number {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: var(--brand-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      margin-bottom: 14px;
+      color: var(--ink);
+    }
+
+    .process-step h3,
+    .fit-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+      line-height: 1.28;
+    }
+
+    .process-step p,
+    .fit-card p {
+      margin: 0;
+      line-height: 1.72;
+    }
+
+    .fit-grid {
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 22px;
+    }
+
+    .faq-item {
+      padding: 24px 26px;
+    }
+
+    .faq-item h3 {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+      line-height: 1.3;
+    }
+
+    .faq-item p {
+      margin: 0;
+      line-height: 1.72;
+    }
+
+    .services-cta-panel {
+      background: linear-gradient(135deg, #7fb8c4 0%, #a8d1da 100%);
+      border: 1px solid rgba(127, 184, 196, 0.35);
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      padding: 54px 34px;
+    }
+
+    .services-cta-panel .kicker {
+      margin-bottom: 12px;
+      color: rgba(24, 36, 43, 0.78);
+    }
+
+    .services-cta-panel h2 {
+      margin-bottom: 14px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.05;
+    }
+
+    .services-cta-panel p {
+      max-width: 720px;
+      margin: 0 auto 26px;
+      color: rgba(24, 36, 43, 0.84);
+      line-height: 1.78;
+    }
+
+    .services-cta-panel .btn-primary {
+      background: rgba(255, 255, 255, 0.96);
+      color: var(--ink);
+      box-shadow: 0 10px 24px rgba(24, 36, 43, 0.08);
+    }
+
+    .services-cta-panel .btn-primary:hover {
+      background: rgba(255, 255, 255, 1);
+      color: var(--ink);
+    }
+
+    .cta-chips {
+      margin-top: 22px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-chips span {
+      background: rgba(255, 255, 255, 0.34);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      color: var(--ink);
+    }
+
+    @media (max-width: 1024px) {
+      .services-hero-grid,
+      .services-intro,
+      .packages-grid,
+      .process-grid,
+      .fit-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .services-hero {
+        padding: 124px 20px 64px;
+      }
+
+      .services-main {
+        padding: 56px 20px 80px;
+      }
+
+      .section-heading,
+      .services-intro,
+      .process-panel,
+      .fit-panel,
+      .faq-item,
+      .services-cta-panel,
+      .package-card,
+      .hero-side {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .services-intro,
+      .process-panel,
+      .fit-panel,
+      .services-cta-panel {
+        padding-top: 28px;
+        padding-bottom: 28px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .services-hero h1 {
+        font-size: 2.35rem;
+      }
+
+      .section-heading,
+      .services-intro,
+      .process-panel,
+      .fit-panel,
+      .faq-item,
+      .services-cta-panel,
+      .package-card,
+      .hero-side {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .services-cta-panel {
+        padding-top: 42px;
+        padding-bottom: 42px;
+      }
+    }
+  </style>
+</head>
+<body class="services-page">
+  <div id="lang-bar" style="display:none;"></div>
+
+  <header class="header">
+    <div class="header-inner" id="global-header"></div>
+  </header>
+
+  <main>
+    <section class="services-hero">
+      <div class="services-hero-inner">
+        <div class="services-hero-grid">
+          <aside class="hero-side">
+            <h3>هذه الصفحة مناسبة لك إذا:</h3>
+            <ul>
+              <li>كنت تريد بدء مشروع لكنك لا تعرف على ماذا تركّز أولاً</li>
+              <li>كان لديك فكرة أو مهارات أو خبرة ولكن لم يتشكل لديك عرض واضح بعد</li>
+              <li>بدأت بالفعل العمل على شيء ما لكنه ما زال يبدو مشتتاً</li>
+              <li>كنت تحتاج إلى اتجاه وهيكل ودعم عملي، لا إلى مزيد من الكلام النظري</li>
+            </ul>
+          </aside>
+
+          <div class="services-hero-copy">
+            <div class="kicker">الخدمات</div>
+            <h1>لديك فكرة. والآن تحتاج إلى الدعم المناسب لتحويلها إلى دخل.</h1>
+            <p>
+              الوعد الأساسي هنا هو نفسه الموجود في الصفحة الرئيسية: مساعدتك على توضيح ما لديك،
+              وصياغته في عرض حقيقي، والتحرك نحو أول إيراداتك بأولويات أوضح وخطوات عملية.
+              هذه الصفحة فقط تشرح كيف يتم تقديم هذا الدعم.
+            </p>
+            <div class="hero-actions">
+              <a href="ar_booking.html" class="btn btn-primary">احجز جلستك المجانية ←</a>
+              <a href="#service-options" class="btn btn-secondary">شاهد خيارات الدعم</a>
+            </div>
+            <div class="hero-notes">
+              <span>الجلسة الأولى مجانية</span>
+              <span>خطوة تالية واضحة</span>
+              <span>دعم يناسب مرحلتك</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services-main">
+      <section class="section-block">
+        <div class="services-intro">
+          <aside class="intro-box">
+            <h3>ما الذي يبقى ثابتاً في كل مستويات الدعم</h3>
+            <p>ستحصل على مساعدة في توضيح ما الذي تبنيه، وما الذي يجب أن تعطيه الأولوية، وما الذي ينبغي فعله بعد ذلك.</p>
+            <p>الاختلاف ليس في الهدف. الاختلاف هو في مقدار الدعم، والكثافة، والمتابعة التي تحتاجها.</p>
+          </aside>
+
+          <div>
+            <h2>الخدمات هي نفسها التي ظهرت في الصفحة الرئيسية — لكنها هنا مشروحة بشكل أوضح.</h2>
+            <p>
+              في الصفحة الرئيسية، أنت تعرض بالفعل ثلاثة مستويات للدعم: Silver وGold وDiamond.
+              وهذا جيد. المشكلة كانت أن الزائر يضغط على الرابط ولا يصل إلى صفحة تشرح فعلياً
+              ماذا تعني هذه الخيارات له.
+            </p>
+            <p>
+              هذه الصفحة تصلح ذلك. فهي تحافظ على نفس منطق الخدمات، لكنها تجعل اختيار
+              مستوى الدعم الأنسب لوضعك الحالي أسهل بكثير.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block" id="service-options">
+        <div class="section-heading">
+          <div class="kicker">طرق العمل معاً</div>
+          <h2>ثلاثة مستويات للدعم، مبنية مباشرة على العرض الموجود في صفحتك الرئيسية.</h2>
+          <p>
+            ابدأ بـ Silver إذا كنت تحتاج إلى اتجاه. انتقل إلى Gold إذا كنت تحتاج دعماً أثناء التنفيذ.
+            واختر Diamond إذا كنت تريد توجيهاً أكثر كثافة وزخماً أسرع.
+          </p>
+        </div>
+
+        <div class="packages-grid">
+          <article class="package-card">
+            <div class="package-badge">Silver</div>
+            <h3>وضوح</h3>
+            <p class="package-subtitle">الأفضل للحصول على اتجاه واضح.</p>
+            <p class="package-summary">
+              هذه هي نقطة البداية المناسبة إذا كان لديك فكرة، أو بعض المهارات، أو مشروع في بدايته،
+              لكنك ما زلت غير متأكد مما يجب أن تبيعه، وعلى ماذا ينبغي أن تركّز، وما الحركة التالية.
+            </p>
+            <ul class="package-list">
+              <li>جلسة واحدة مكثفة</li>
+              <li>تركيزها الأساسي على الوضوح والتخطيط</li>
+              <li>تساعدك على فهم ما الذي يهم الآن فعلاً</li>
+              <li>مناسبة عندما تشعر بالتعثر أو التشتت أو عدم اليقين</li>
+            </ul>
+            <div class="package-outcome">
+              <strong>النتيجة:</strong> اتجاه واضح وخطوات تالية يمكنك تنفيذها فوراً.
+            </div>
+            <div class="package-actions">
+              <a href="ar_booking.html" class="btn btn-primary">ابدأ بـ Silver ←</a>
+              <a href="ar_booking.html" class="package-secondary">أو ابدأ أولاً بالجلسة المجانية</a>
+            </div>
+          </article>
+
+          <article class="package-card featured">
+            <div class="package-badge">Gold</div>
+            <h3>تنفيذ</h3>
+            <p class="package-subtitle">الأفضل لبناء الزخم.</p>
+            <p class="package-summary">
+              هذا الخيار مناسب للأشخاص الذين يعرفون أنهم يحتاجون إلى أكثر من مجرد محادثة واحدة.
+              أنت تريد مساعدة في اتخاذ القرارات، واختبار الأفكار، والبقاء مركزاً، والمتابعة الفعلية.
+            </p>
+            <ul class="package-list">
+              <li>جلسة واحدة كل أسبوع</li>
+              <li>مبني حول التنفيذ والاختبار</li>
+              <li>يساعدك على الحفاظ على الزخم بدلاً من العودة إلى الحيرة</li>
+              <li>مناسب عندما تحتاج إلى الاستمرارية، والمحاسبة، وقرارات أوضح</li>
+            </ul>
+            <div class="package-outcome">
+              <strong>النتيجة:</strong> تقدم متحقق، وتركيز أقوى، وزخم أكثر ثباتاً.
+            </div>
+            <div class="package-actions">
+              <a href="ar_booking.html" class="btn btn-primary">ابدأ بـ Gold ←</a>
+              <a href="ar_booking.html" class="package-secondary">استخدم الجلسة المجانية للتأكد من الملاءمة</a>
+            </div>
+          </article>
+
+          <article class="package-card">
+            <div class="package-badge">Diamond</div>
+            <h3>نتائج</h3>
+            <p class="package-subtitle">الأفضل لتنفيذ أسرع ودعم أعمق.</p>
+            <p class="package-summary">
+              هذا هو الخيار الأكثر كثافة. وهو مناسب لمن يريد نقاط تواصل أكثر،
+              وتغذية راجعة أسرع، ودعماً أقوى أثناء الانتقال من الفكرة إلى تقدم حقيقي في المشروع.
+            </p>
+            <ul class="package-list">
+              <li>جلسة تعمّق واحدة بالإضافة إلى جلستين أسبوعياً</li>
+              <li>دعم عالي المتابعة</li>
+              <li>مصمم لتنفيذ أسرع، وتغذية راجعة مستمرة، وتحسين متكرر</li>
+              <li>مناسب عندما تريد التحرك بكثافة أعلى وتأخير أقل</li>
+            </ul>
+            <div class="package-outcome">
+              <strong>النتيجة:</strong> كثافة منظمة، وتكرار أسرع، وحركة أقوى باتجاه النتائج.
+            </div>
+            <div class="package-actions">
+              <a href="ar_booking.html" class="btn btn-primary">ابدأ بـ Diamond ←</a>
+              <a href="ar_booking.html" class="package-secondary">تحقق من الملاءمة في محادثة أولى مجانية</a>
+            </div>
+          </article>
+        </div>
+
+        <p class="comparison-note">
+          لست متأكداً أي خيار يناسبك؟ هذا بالضبط سبب كون الجلسة الأولى مجانية.
+          نستخدمها لفهم وضعك وتحديد مستوى الدعم الذي يكون منطقياً فعلاً.
+        </p>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <div class="kicker">ما الذي تحصل عليه فعلياً</div>
+          <h2>ليس تحفيزاً عاماً. بل مساعدة حقيقية في قرارات المشروع التي تصنع الفرق.</h2>
+          <p>
+            الهدف هنا هو نفسه المذكور في الصفحة الرئيسية: أن تفهم كيف يمكن لفكرتك أو مهاراتك أو مشروعك
+            أن يولّد دخلاً، وأن تركز على ما يهم فعلاً، وأن تغادر ومعك خطوات عملية قابلة للتنفيذ.
+          </p>
+        </div>
+
+        <div class="process-panel">
+          <div class="process-grid">
+            <div class="process-step">
+              <div class="step-number">01</div>
+              <h3>توضيح فكرة المشروع</h3>
+              <p>نحدد ما الذي تبنيه فعلاً، وما المشكلة التي يحلها، وما الجانب الأكثر قابلية للتحول إلى فرصة حقيقية.</p>
+            </div>
+            <div class="process-step">
+              <div class="step-number">02</div>
+              <h3>صياغة العرض</h3>
+              <p>نعمل على ما يمكنك بيعه فعلياً، ولمن هو، وكيف نجعل العرض أكثر قابلية للنجاح.</p>
+            </div>
+            <div class="process-step">
+              <div class="step-number">03</div>
+              <h3>تحديد الأولويات الصحيحة</h3>
+              <p>نزيل الضوضاء ونركز على الأفعال التي تقرّبك فعلاً من تحقيق الإيرادات.</p>
+            </div>
+            <div class="process-step">
+              <div class="step-number">04</div>
+              <h3>التحرك ضمن هيكل واضح</h3>
+              <p>تغادر ومعك خطوات تالية ملموسة، وإذا احتجت، نحدد أيضاً صيغة الدعم المناسبة لمواصلة التقدم.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <div class="kicker">لمن هذا مناسب</div>
+          <h2>خيار مناسب إذا كنت تريد بناء مشروع وتحتاج إلى مساعدة حقيقية للانطلاق.</h2>
+          <p>
+            هذا يحافظ على جمهورك الواسع، لكنه يجعل من الأسهل على الشخص المناسب أن يتعرف على نفسه بسرعة.
+          </p>
+        </div>
+
+        <div class="fit-panel">
+          <div class="fit-grid">
+            <div class="fit-card">
+              <h3>لديك فكرة لكن بلا مسار واضح بعد</h3>
+              <p>تعرف أنك تريد بناء شيء ما، لكنك غير متأكد كيف تحوّله إلى مشروع قابل للتطبيق.</p>
+            </div>
+            <div class="fit-card">
+              <h3>لديك مهارات أو خبرة لكن بلا عرض واضح</h3>
+              <p>تعرف أنك تستطيع تحويل ما تعرفه إلى دخل، لكنك تحتاج إلى مساعدة في تعريف العرض والخطوة التالية.</p>
+            </div>
+            <div class="fit-card">
+              <h3>بدأت بالفعل، لكن التقدم ما زال فوضوياً</h3>
+              <p>أنت تحاول التحرك للأمام، لكن العمل ما زال مشتتاً أو بطيئاً أو صعب الترتيب من حيث الأولوية.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <div class="kicker">أسئلة متكررة</div>
+          <h2>الأسئلة التي يطرحها الناس عادة قبل الحجز.</h2>
+        </div>
+
+        <div class="faq-list">
+          <article class="faq-item">
+            <h3>هل يجب أن يكون لدي مشروع قائم بالفعل؟</h3>
+            <p>لا. هذه الخدمة مناسبة أيضاً لمن يريد أن يبدأ، أو لديه فكرة، أو يملك خبرة يريد تحويلها إلى مشروع.</p>
+          </article>
+
+          <article class="faq-item">
+            <h3>هل يجب أن أعرف مسبقاً أي مستوى خدمة أريد قبل أن أحجز؟</h3>
+            <p>لا. الجلسة الأولى المجانية موجودة لفهم وضعك وتوجيهك نحو مستوى الدعم الأنسب.</p>
+          </article>
+
+          <article class="faq-item">
+            <h3>بماذا سأخرج في النهاية؟</h3>
+            <p>بمسار أوضح لتحقيق الدخل، وأولويات أكثر حدة، وخطوات تالية يمكنك تنفيذها فعلاً.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="services-cta-panel">
+          <div class="kicker">ابدأ من هنا</div>
+          <h2>لا تحتاج إلى أن تكتشف كل شيء قبل أن تتواصل.</h2>
+          <p>
+            ابدأ بالجلسة الأولى المجانية. سننظر إلى فكرتك، ووضعك الحالي،
+            وما الذي يعيق التقدم — ثم نحدد ما إذا كان Silver أو Gold أو Diamond
+            هو الخطوة التالية المناسبة لك.
+          </p>
+          <a href="ar_booking.html" class="btn btn-primary">احجز جلستك المجانية ←</a>
+          <div class="cta-chips">
+            <span>الجلسة الأولى مجانية</span>
+            <span>بدون التزام</span>
+            <span>خطوة تالية واضحة</span>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer><div class="footer-inner" id="global-footer"></div></footer>
+  <div id="cookie-consent"></div>
+  <script src="js/components.js"></script>
+</body>
+</html>

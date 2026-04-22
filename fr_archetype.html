@@ -3,30 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>En-boarding · Archétypes entrepreneuriaux</title>
+  <title>Archétypes entrepreneuriaux | Outil gratuit | en-boarding</title>
+  <meta name="description" content="Comprenez vos tendances entrepreneuriales naturelles. Êtes-vous un profil qui suranalyse, qui démarre vite ou un fondateur équilibré ?">
+  <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="css/global.css">
+  <style>
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 1200px; margin: 0 auto; }
+    .card { background: var(--white); border: 1px solid var(--line); border-radius: 22px; padding: 30px; box-shadow: var(--shadow); transition: transform 0.2s; }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+    @media (max-width: 900px) { .grid-3 { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
-  <div id="lang-bar"></div>
-  <header class="header">
-    <div class="header-inner" id="global-header"></div>
-  </header>
+  <div id="lang-bar" style="display:none;"></div>
+  <header class="header"><div class="header-inner" id="global-header"></div></header>
 
   <main>
     <section class="section">
       <div class="container">
-        <div class="section-title">
-          <div class="kicker">Outil gratuit pour fondateurs</div>
-          <h1 style="font-size:clamp(2.2rem,4vw,3.4rem);">Archétypes entrepreneuriaux</h1>
-          <p>Comprenez vos tendances naturelles et comment travailler avec elles.</p>
-        </div>
+        <div class="section-title"><div class="kicker">Outil gratuit pour fondateurs</div><h1 style="font-size:clamp(2.2rem,4vw,3.4rem);">Archétypes entrepreneuriaux</h1><p>Comprenez vos tendances naturelles et apprenez à travailler avec elles.</p></div>
         <div class="grid-3">
-          <div class="card"><h3>Réflexif excessif</h3><p>La réflexion remplace l'action. Attendre une certitude qui n'arrive jamais.</p></div>
-          <div class="card"><h3>Démarreur</h3><p>Commencer semble facile. Finir devient plus difficile une fois la nouveauté passée.</p></div>
-          <div class="card"><h3>Occupé</h3><p>Beaucoup d'activité, mais pas toujours le bon levier.</p></div>
-          <div class="card"><h3>Hésitant</h3><p>Protéger la sécurité peut bloquer silencieusement l'élan et l'engagement.</p></div>
-          <div class="card"><h3>Changeur</h3><p>Changer trop souvent de direction empêche les résultats de s'accumuler.</p></div>
-          <div class="card"><h3>Fondateur Équilibré</h3><p>Progrès régulier, mais parfois limité par une approche trop prudente.</p></div>
+          <div class="card"><h3>Le profil qui suranalyse</h3><p>La réflexion remplace l’action. Attendre une certitude qui n’arrive jamais.</p></div>
+          <div class="card"><h3>Le démarreur</h3><p>Commencer semble facile. Terminer devient plus difficile une fois que la nouveauté s’estompe.</p></div>
+          <div class="card"><h3>Le travailleur très occupé</h3><p>Beaucoup d’activité, mais pas toujours sur le bon levier.</p></div>
+          <div class="card"><h3>L’hésitant</h3><p>Le besoin de sécurité peut bloquer discrètement l’élan et l’engagement.</p></div>
+          <div class="card"><h3>Le changeur</h3><p>Changer trop souvent de direction empêche les résultats de s’accumuler.</p></div>
+          <div class="card"><h3>Le fondateur équilibré</h3><p>Des progrès réguliers, mais parfois limités par une approche trop prudente.</p></div>
         </div>
       </div>
     </section>

@@ -3,30 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>En-boarding · النماذج الريادية</title>
+  <title>النماذج الريادية | أداة مجانية | en-boarding</title>
+  <meta name="description" content="افهم ميولك الريادية الطبيعية. هل أنت مفرط في التفكير، منطلق، أم مؤسس متوازن؟">
+  <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="css/global.css">
+  <style>
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 1200px; margin: 0 auto; }
+    .card { background: var(--white); border: 1px solid var(--line); border-radius: 22px; padding: 30px; box-shadow: var(--shadow); transition: transform 0.2s; }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+    .card h3, .card p { text-align: right; }
+    @media (max-width: 900px) { .grid-3 { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
-  <div id="lang-bar"></div>
-  <header class="header">
-    <div class="header-inner" id="global-header"></div>
-  </header>
+  <div id="lang-bar" style="display:none;"></div>
+  <header class="header"><div class="header-inner" id="global-header"></div></header>
 
   <main>
     <section class="section">
       <div class="container">
-        <div class="section-title">
-          <div class="kicker">أداة مجانية للمؤسسين</div>
-          <h1 style="font-size:clamp(2.2rem,4vw,3.4rem);">النماذج الريادية</h1>
-          <p>افهم ميولك الطبيعية وكيفية العمل معها.</p>
-        </div>
+        <div class="section-title"><div class="kicker">أداة مجانية للمؤسسين</div><h1 style="font-size:clamp(2.2rem,4vw,3.4rem);">النماذج الريادية</h1><p>افهم ميولك الطبيعية وكيفية العمل معها.</p></div>
         <div class="grid-3">
-          <div class="card"><h3>المفرط في التفكير</h3><p>التفكير يحل محل الفعل. انتظار اليقين الذي لا يأتي أبدًا.</p></div>
-          <div class="card"><h3>المنطلق</h3><p>البدء سهل. الإنهاء يصبح أصعب بمجرد أن تتلاشى الجدة.</p></div>
-          <div class="card"><h3>المشغول</h3><p>الكثير من النشاط، ولكن ليس دائمًا التأثير الصحيح.</p></div>
-          <div class="card"><h3>المتردد</h3><p>حماية الأمان يمكن أن تمنع الزخم والالتزام بهدوء.</p></div>
-          <div class="card"><h3>المغير</h3><p>تغيير الاتجاه كثيرًا يمنع تراكم النتائج.</p></div>
-          <div class="card"><h3>المؤسس المتوازن</h3><p>تقدم ثابت، ولكن أحيانًا محدود باللعب بأمان شديد.</p></div>
+          <div class="card"><h3>المفرط في التفكير</h3><p>التفكير يحل محل الفعل. انتظار يقين لا يصل أبدًا.</p></div>
+          <div class="card"><h3>المنطلق</h3><p>البدء سهل. لكن الإنهاء يصبح أصعب عندما تختفي الجِدّة.</p></div>
+          <div class="card"><h3>المشغول دائمًا</h3><p>الكثير من النشاط، لكن ليس دائمًا في الاتجاه أو التأثير الصحيح.</p></div>
+          <div class="card"><h3>المتردد</h3><p>السعي إلى الأمان قد يعرقل الزخم والالتزام بهدوء.</p></div>
+          <div class="card"><h3>المغيّر</h3><p>تغيير الاتجاه باستمرار يمنع النتائج من التراكم.</p></div>
+          <div class="card"><h3>المؤسس المتوازن</h3><p>تقدّم ثابت، لكنه أحيانًا يبقى محدودًا بسبب اللعب الآمن أكثر من اللازم.</p></div>
         </div>
       </div>
     </section>

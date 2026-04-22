@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buchen Sie Ihre kostenlose Klarheitssitzung | en-boarding</title>
+  <meta name="description" content="Buchen Sie eine kostenlose 30-minütige Klarheitssitzung. Erhalten Sie eine Richtung, wie Sie Ihre Idee, Fähigkeiten oder Ihr Business in Einnahmen verwandeln. Keine Verpflichtung.">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="css/global.css">
   <style>
@@ -12,83 +14,108 @@
       border-radius: 28px;
       padding: 40px;
       box-shadow: var(--shadow);
-      transition: box-shadow 0.25s ease;
     }
-    .form-card:hover {
-      box-shadow: var(--shadow-lg);
-      border-color: rgba(169, 207, 214, 0.5);
-    }
+
     .form-group {
       margin-bottom: 28px;
     }
+
     .form-group label {
       display: block;
       font-weight: 600;
       margin-bottom: 8px;
       color: var(--ink);
-      font-size: 0.95rem;
     }
+
     .form-group input,
     .form-group textarea {
       width: 100%;
       padding: 14px 18px;
       border: 1px solid var(--line);
       border-radius: 16px;
-      font-family: var(--font-sans);
+      font-family: inherit;
       font-size: 1rem;
       background: var(--surface-soft);
-      transition: border-color 0.2s, box-shadow 0.2s;
     }
+
     .form-group input:focus,
     .form-group textarea:focus {
       outline: none;
       border-color: var(--brand);
       box-shadow: 0 0 0 3px var(--brand-soft);
     }
+
     .form-group textarea {
       min-height: 120px;
       resize: vertical;
     }
+
     .checkbox-group {
       display: flex;
       align-items: flex-start;
       gap: 12px;
       margin-bottom: 32px;
     }
+
     .checkbox-group input {
       margin-top: 4px;
       width: 18px;
       height: 18px;
-      accent-color: var(--brand);
+      accent-color: var(--ink);
     }
+
     .checkbox-group label {
       font-size: 0.95rem;
       color: var(--muted);
       line-height: 1.5;
     }
+
     .checkbox-group a {
       color: var(--ink);
       text-decoration: underline;
-      text-underline-offset: 2px;
-      text-decoration-thickness: 1px;
-      text-decoration-color: var(--brand-soft-3);
     }
-    .checkbox-group a:hover {
-      text-decoration-color: var(--brand);
-    }
+
     .note {
       text-align: center;
       margin-top: 20px;
       color: var(--muted);
       font-size: 0.9rem;
     }
-    .btn-primary {
+
+    .booking-submit {
       width: 100%;
+      text-align: center;
       justify-content: center;
-      padding: 16px 28px;
-      font-size: 1.05rem;
-      border-radius: 40px;
+      display: inline-flex;
+      align-items: center;
+      border: none;
+      cursor: pointer;
     }
+
+    .success-message {
+      display: none;
+      margin-top: 20px;
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: #f4f8f4;
+      border: 1px solid #cfe3cf;
+      color: #234223;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .error-message {
+      display: none;
+      margin-top: 20px;
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: #fff4f4;
+      border: 1px solid #e7caca;
+      color: #7a1f1f;
+      text-align: center;
+      font-weight: 600;
+    }
+
     @media (max-width: 640px) {
       .form-card {
         padding: 28px 22px;
@@ -110,33 +137,78 @@
           <h1 style="font-size:clamp(2.2rem,4vw,3.3rem);">Buchen Sie Ihre erste Session</h1>
           <p>Beginnen Sie mit einem fokussierten Gespräch, um Ihre Situation, Prioritäten und nächsten Schritte zu klären.</p>
         </div>
+
         <div class="form-card">
-          <div class="form-group">
-            <label for="name">Vollständiger Name *</label>
-            <input id="name" type="text" placeholder="Ihr Name">
-          </div>
-          <div class="form-group">
-            <label for="email">E-Mail-Adresse *</label>
-            <input id="email" type="email" placeholder="sie@beispiel.de">
-          </div>
-          <div class="form-group">
-            <label for="message">Was ist Ihre größte Herausforderung im Moment? (optional)</label>
-            <textarea id="message" placeholder="z.B. Ich weiß nicht, wie ich meine Idee validieren soll, ich stecke zwischen zwei Richtungen fest, ich brauche einen Fahrplan..."></textarea>
-          </div>
-          <div class="checkbox-group">
-            <input type="checkbox" id="consent">
-            <label for="consent">Ich stimme der <a href="de_privacy.html">Datenschutzerklärung</a> zu und bin mit der Kontaktaufnahme für diese Session einverstanden.</label>
-          </div>
-          <a href="mailto:contact@en-boarding.com" class="btn btn-primary">Kostenlose Session anfragen →</a>
-          <p class="note">Nach dem Absenden können Sie das Gespräch unter contact@en-boarding.com fortsetzen.</p>
+          <form id="booking-form" action="https://formspree.io/f/xnjlgwva" method="POST">
+            <div class="form-group">
+              <label for="name">Vollständiger Name *</label>
+              <input id="name" name="name" type="text" placeholder="Ihr Name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">E-Mail-Adresse *</label>
+              <input id="email" name="email" type="email" placeholder="sie@beispiel.de" required>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Was ist Ihre größte Herausforderung im Moment? (optional)</label>
+              <textarea id="message" name="message" placeholder="z.B. Ich weiß nicht, wie ich meine Idee validieren soll, ich stecke zwischen zwei Richtungen fest, ich brauche einen Fahrplan..."></textarea>
+            </div>
+
+            <div class="checkbox-group">
+              <input type="checkbox" id="consent" name="consent" required>
+              <label for="consent">Ich stimme der <a href="de_privacy.html">Datenschutzerklärung</a> zu und willige ein, bezüglich dieser Session kontaktiert zu werden.</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary booking-submit">Meine kostenlose Session anfragen →</button>
+
+            <p class="note">Wir melden uns in Kürze bei Ihnen.</p>
+            <div id="success-message" class="success-message">Vielen Dank. Ihre Anfrage wurde erfolgreich gesendet.</div>
+            <div id="error-message" class="error-message">Sorry, something went wrong. Please try again.</div>
+          </form>
         </div>
       </div>
     </section>
   </main>
 
-  <footer><div class="footer-inner" id="global-footer"></div></footer>
+  <footer>
+    <div class="footer-inner" id="global-footer"></div>
+  </footer>
   <div id="cookie-consent"></div>
-
   <script src="js/components.js"></script>
+
+  <script>
+    const form = document.getElementById('booking-form');
+    const successMessage = document.getElementById('success-message');
+    const errorMessage = document.getElementById('error-message');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      successMessage.style.display = 'none';
+      errorMessage.style.display = 'none';
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: {
+            Accept: 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          form.reset();
+          successMessage.style.display = 'block';
+        } else {
+          errorMessage.style.display = 'block';
+        }
+      } catch (error) {
+        errorMessage.style.display = 'block';
+      }
+    });
+  </script>
 </body>
 </html>

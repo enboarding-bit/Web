@@ -3,23 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>En-boarding · Unternehmerische Archetypen</title>
+  <title>Unternehmerische Archetypen | Kostenloses Tool | en-boarding</title>
+  <meta name="description" content="Verstehen Sie Ihre natürlichen unternehmerischen Tendenzen. Sind Sie ein Überdenker, Starter oder Ausgeglichener Gründer?">
+  <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="css/global.css">
+  <style>
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 1200px; margin: 0 auto; }
+    .card { background: var(--white); border: 1px solid var(--line); border-radius: 22px; padding: 30px; box-shadow: var(--shadow); transition: transform 0.2s; }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+    @media (max-width: 900px) { .grid-3 { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
-  <div id="lang-bar"></div>
-  <header class="header">
-    <div class="header-inner" id="global-header"></div>
-  </header>
+  <div id="lang-bar" style="display:none;"></div>
+  <header class="header"><div class="header-inner" id="global-header"></div></header>
 
   <main>
     <section class="section">
       <div class="container">
-        <div class="section-title">
-          <div class="kicker">Kostenloses Gründer-Tool</div>
-          <h1 style="font-size:clamp(2.2rem,4vw,3.4rem);">Unternehmerische Archetypen</h1>
-          <p>Verstehen Sie Ihre natürlichen Tendenzen und wie Sie mit ihnen arbeiten können.</p>
-        </div>
+        <div class="section-title"><div class="kicker">Kostenloses Gründer-Tool</div><h1 style="font-size:clamp(2.2rem,4vw,3.4rem);">Unternehmerische Archetypen</h1><p>Verstehen Sie Ihre natürlichen Tendenzen und wie Sie mit ihnen arbeiten können.</p></div>
         <div class="grid-3">
           <div class="card"><h3>Überdenker</h3><p>Denken ersetzt Handeln. Warten auf Sicherheit, die nie kommt.</p></div>
           <div class="card"><h3>Starter</h3><p>Anfangen fühlt sich leicht an. Fertigstellen wird schwieriger, sobald die Neuheit verblasst.</p></div>

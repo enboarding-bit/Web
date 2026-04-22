@@ -3,8 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>En-boarding · Datenschutz</title>
+  <title>Datenschutzerklärung | en-boarding</title>
+  <meta name="description" content="Datenschutzerklärung von en-boarding – wie wir Ihre Daten erheben, verwenden und schützen.">
+  <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="css/global.css">
+  <style>
+    /* Same styles as terms page – reuse */
+    .legal-hero {
+      padding: 138px 20px 60px;
+      background: radial-gradient(circle at top left, rgba(127, 184, 196, 0.18), transparent 32%),
+                  linear-gradient(180deg, #ffffff 0%, #f6f8f9 100%);
+      border-bottom: 1px solid var(--line);
+    }
+    .legal-hero-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .legal-hero .kicker {
+      margin-bottom: 12px;
+    }
+    .legal-hero h1 {
+      margin-bottom: 12px;
+      font-size: clamp(2.5rem, 5vw, 3.8rem);
+      letter-spacing: -0.03em;
+    }
+    .last-updated {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 8px;
+    }
+    .legal-content {
+      padding: 60px 20px 100px;
+      background: var(--white);
+    }
+    .legal-container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .legal-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 32px 34px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+      transition: box-shadow 0.2s;
+    }
+    .legal-card:hover {
+      box-shadow: var(--shadow-lg);
+    }
+    .legal-card h2 {
+      margin: 0 0 16px 0;
+      font-size: 1.5rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-left: 4px solid var(--brand);
+      padding-left: 18px;
+    }
+    .legal-card p {
+      margin: 0;
+      line-height: 1.7;
+      color: var(--muted);
+      padding-left: 22px;
+    }
+    @media (max-width: 768px) {
+      .legal-hero { padding: 120px 20px 48px; }
+      .legal-card { padding: 24px 20px; }
+      .legal-card h2 { font-size: 1.3rem; padding-left: 12px; }
+      .legal-card p { padding-left: 16px; }
+    }
+  </style>
 </head>
 <body>
   <div id="lang-bar"></div>
@@ -13,22 +83,37 @@
   </header>
 
   <main>
-    <section class="section">
-      <div class="container" style="max-width:860px;">
+    <section class="legal-hero">
+      <div class="legal-hero-inner">
         <div class="kicker">Rechtliches</div>
-        <h1 style="font-size:clamp(2.1rem,4vw,3rem);">Datenschutzerklärung</h1>
-        <p>Zuletzt aktualisiert: 6. April 2026</p>
-        <div class="soft-box">
+        <h1>Datenschutzerklärung</h1>
+        <p class="last-updated">Zuletzt aktualisiert: 6. April 2026</p>
+      </div>
+    </section>
+
+    <section class="legal-content">
+      <div class="legal-container">
+        <div class="legal-card">
           <h2>1. Einleitung</h2>
-          <p>En-boarding respektiert Ihre Privatsphäre und verpflichtet sich, Ihre personenbezogenen Daten zu schützen. Diese Seite erklärt, wie Informationen gesammelt und verwendet werden können, wenn Sie die Website besuchen oder uns kontaktieren.</p>
+          <p>en-boarding respektiert Ihre Privatsphäre und verpflichtet sich, Ihre personenbezogenen Daten zu schützen. Diese Seite erklärt, wie Informationen gesammelt und verwendet werden können, wenn Sie die Website besuchen oder uns kontaktieren.</p>
+        </div>
+        <div class="legal-card">
           <h2>2. Kontakt</h2>
-          <p>E-Mail: enboarding@gmail.com</p>
+          <p>E-Mail: <a href="mailto:start@en-boarding.com">start@en-boarding.com</a></p>
+        </div>
+        <div class="legal-card">
           <h2>3. Erhobene Daten</h2>
           <p>Wir können Name, E-Mail-Adresse und Informationen erfassen, die Sie bei Kontaktaufnahme oder Buchung einer Session angeben.</p>
+        </div>
+        <div class="legal-card">
           <h2>4. Verwendung Ihrer Daten</h2>
           <p>Wir verwenden Ihre Informationen, um Anfragen zu beantworten, Sessions zu vereinbaren und die Website-Erfahrung zu verbessern.</p>
+        </div>
+        <div class="legal-card">
           <h2>5. Cookies</h2>
-          <p>Diese Website kann grundlegende Cookies oder lokale Speicherung verwenden, um die Benutzerfreundlichkeit zu verbessern, z.B. um Cookie-Präferenzen zu speichern.</p>
+          <p>This site may use basic cookies or local storage to improve usability, for example to remember cookie preferences.</p>
+        </div>
+        <div class="legal-card">
           <h2>6. Ihre Rechte</h2>
           <p>Sie können uns kontaktieren, um Zugang, Berichtigung oder Löschung Ihrer Daten zu beantragen, soweit anwendbar.</p>
         </div>
@@ -38,6 +123,7 @@
 
   <footer><div class="footer-inner" id="global-footer"></div></footer>
   <div id="cookie-consent"></div>
+
   <script src="js/components.js"></script>
 </body>
 </html>

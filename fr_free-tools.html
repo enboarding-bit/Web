@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outils gratuits – Lacune structurelle | en-boarding</title>
+  <meta name="description" content="Outils de diagnostic gratuits : évaluation des lacunes structurelles et archétypes entrepreneuriaux. Comprenez où votre activité est bloquée.">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="css/global.css">
+  <style>
+    :root {
+      --white: #ffffff;
+      --ink: #1f2a30;
+      --muted: #5b6e7c;
+      --line: #e2e8f0;
+      --brand: #a9cfd6;
+      --brand-dark: #7fb3bd;
+      --brand-soft: #eef5f7;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+      --shadow-lg: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--white);
+      color: var(--ink);
+      line-height: 1.4;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .kicker {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--brand-dark);
+      margin-bottom: 12px;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-hero {
+      padding-bottom: 24px;
+    }
+
+    .section-cards {
+      padding-top: 40px;
+      padding-bottom: 80px;
+    }
+
+    .section-cta {
+      padding-top: 0;
+      padding-bottom: 96px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 32px 28px;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(169, 207, 214, 0.6);
+    }
+
+    .card-icon {
+      font-size: 1rem;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 18px;
+      margin-bottom: 24px;
+      background: var(--brand-soft);
+      color: var(--ink);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+
+    .btn-card {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 14px 24px;
+      border-radius: 12px;
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      text-align: center;
+      margin-top: 8px;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-card:hover {
+      background: var(--brand-soft);
+      border-color: var(--brand);
+      transform: translateY(-1px);
+    }
+
+    .badge-link {
+      display: inline-block;
+      background: rgba(0,0,0,0.05);
+      padding: 8px 18px;
+      border-radius: 40px;
+      margin-bottom: 32px;
+      font-size: 0.9rem;
+    }
+
+    .badge-link a {
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .free-cta {
+      background: var(--brand-soft);
+      border-radius: 32px;
+      text-align: center;
+      padding: 56px 32px;
+      margin-top: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .section-cards {
+        padding-top: 24px;
+      }
+
+      .section-cta {
+        padding-bottom: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="lang-bar" style="display:none;"></div>
+  <header class="header"><div class="header-inner" id="global-header"></div></header>
+
+  <main>
+    <section class="section section-hero">
+      <div class="container" style="text-align: center;">
+        <div class="badge-link"><a href="fr_services.html">Découvrir l’accompagnement payant →</a></div>
+        <div class="kicker">Ressources gratuites</div>
+        <h1 style="font-size: clamp(2rem, 6vw, 3.6rem); margin-bottom: 20px;">Diagnostiquez votre activité.<br>Comprenez-vous mieux.</h1>
+        <p style="font-size: 1.2rem; color: var(--muted); max-width: 700px; margin: 0 auto;">Aucun e-mail requis. Aucun engagement. Juste de la clarté.</p>
+      </div>
+    </section>
+
+    <section class="section section-cards">
+      <div class="container">
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-icon">01</div>
+            <h3>Évaluation des lacunes structurelles</h3>
+            <p>40 questions qui révèlent où votre activité est bloquée — clarté, direction, levier ou exécution.</p>
+            <a href="fr_structural-gap.html" class="btn-card">Commencer l’évaluation →</a>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">02</div>
+            <h3>Archétypes entrepreneuriaux</h3>
+            <p>Explorez les profils de fondateurs et comprenez les tendances qui façonnent votre façon de travailler.</p>
+            <a href="fr_archetype.html" class="btn-card">Découvrir les archétypes →</a>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">03</div>
+            <h3>Séance de clarté gratuite</h3>
+            <p>30 minutes, sans pitch. Nous examinerons vos résultats et tracerons votre prochain mouvement — même si vous n’achetez jamais rien.</p>
+            <a href="fr_booking.html" class="btn-card">Réserver votre séance gratuite →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-cta">
+      <div class="container">
+        <div class="free-cta">
+          <div class="kicker">Vous avez déjà fait l’évaluation ?</div>
+          <h2 style="font-size: 1.6rem;">Parcourons ensemble vos résultats</h2>
+          <p style="margin: 20px 0;">La séance gratuite est exactement cela — gratuite. Sans contrepartie, simplement un second regard sur votre activité.</p>
+          <a href="fr_booking.html" class="btn btn-primary">Réclamer votre séance gratuite →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="footer-inner" id="global-footer"></div></footer>
+  <div id="cookie-consent"></div>
+  <script src="js/components.js"></script>
+</body>
+</html>

@@ -3,85 +3,225 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | en-boarding</title>
+  <meta name="description" content="Analyses et cadres pratiques pour les fondateurs en phase de démarrage qui veulent plus de clarté, de structure et de traction.">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="css/global.css">
   <style>
-    /* Blog post card styling */
+    .section {
+      padding: 84px 0;
+    }
+
     .page-header {
       text-align: center;
-      margin-bottom: 48px;
+      margin-bottom: 52px;
     }
+
     .page-header h1 {
       font-size: clamp(2.4rem, 5vw, 3.8rem);
       margin-bottom: 16px;
       letter-spacing: -0.03em;
     }
-    .post-list {
-      max-width: 860px;
+
+    .page-header p {
+      font-size: 1.18rem;
+      color: var(--muted);
+      max-width: 700px;
       margin: 0 auto;
+      line-height: 1.7;
     }
+
+    .post-list {
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      gap: 28px;
+    }
+
     .post-card {
+      display: grid;
+      grid-template-columns: minmax(260px, 320px) 1fr;
+      gap: 26px;
+      align-items: stretch;
       background: var(--white);
       border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 32px 34px;
-      margin-bottom: 24px;
+      border-radius: 24px;
+      padding: 24px;
       box-shadow: var(--shadow);
       transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      overflow: hidden;
     }
+
     .post-card:hover {
       transform: translateY(-3px);
       box-shadow: var(--shadow-lg);
       border-color: rgba(169, 207, 214, 0.5);
     }
+
+    .post-card-image {
+      display: block;
+      min-height: 220px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--surface-soft);
+      border: 1px solid var(--line);
+    }
+
+    .post-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .post-card-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
     .post-meta {
       font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 0.06em;
       color: var(--muted);
-      margin-bottom: 10px;
-    }
-    .post-card h3 {
-      font-size: 1.7rem;
       margin-bottom: 12px;
-      line-height: 1.25;
     }
+
+    .post-card h3 {
+      font-size: clamp(1.55rem, 2.4vw, 1.95rem);
+      margin-bottom: 14px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
     .post-card h3 a {
       color: var(--ink);
       text-decoration: none;
-      transition: color 0.2s;
+      transition: color 0.2s ease;
     }
+
     .post-card h3 a:hover {
-      color: var(--ink);
       text-decoration: underline;
       text-underline-offset: 4px;
       text-decoration-thickness: 2px;
       text-decoration-color: var(--brand);
     }
+
     .post-card p {
-      font-size: 1.05rem;
-      line-height: 1.65;
+      font-size: 1.04rem;
+      line-height: 1.72;
       margin-bottom: 18px;
+      color: var(--muted);
     }
+
     .read-more {
+      width: fit-content;
       font-weight: 600;
       color: var(--ink);
       text-decoration: none;
       border-bottom: 2px solid var(--brand-soft-3);
       padding-bottom: 2px;
     }
+
     .read-more:hover {
       border-bottom-color: var(--brand);
     }
-    .section {
-      padding: 84px 0;
+
+    .blog-cta-section {
+      padding: 0 0 96px;
     }
-    @media (max-width: 640px) {
+
+    .blog-cta-wrap {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .blog-cta-panel {
+      background: linear-gradient(135deg, #7fb8c4 0%, #a8d1da 100%);
+      border: 1px solid rgba(127, 184, 196, 0.35);
+      border-radius: 28px;
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+      padding: 56px 34px;
+    }
+
+    .blog-cta-panel .kicker {
+      margin-bottom: 12px;
+      color: rgba(24, 36, 43, 0.78);
+    }
+
+    .blog-cta-panel h2 {
+      margin-bottom: 14px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.06;
+      color: var(--ink);
+    }
+
+    .blog-cta-panel p {
+      max-width: 720px;
+      margin: 0 auto 26px;
+      color: rgba(24, 36, 43, 0.84);
+      line-height: 1.78;
+    }
+
+    .blog-cta-panel .btn-primary {
+      display: inline-block;
+      padding: 14px 32px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.96);
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 10px 24px rgba(24, 36, 43, 0.08);
+    }
+
+    .blog-cta-panel .cta-chips {
+      margin-top: 22px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .blog-cta-panel .cta-chips span {
+      background: rgba(255, 255, 255, 0.34);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      color: var(--ink);
+    }
+
+    @media (max-width: 900px) {
       .post-card {
-        padding: 24px 22px;
+        grid-template-columns: 1fr;
       }
-      .post-card h3 {
-        font-size: 1.4rem;
+
+      .post-card-image {
+        min-height: 240px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .section {
+        padding: 72px 0;
+      }
+
+      .post-card {
+        padding: 18px;
+        gap: 18px;
+      }
+
+      .post-card-image {
+        min-height: 210px;
+      }
+
+      .blog-cta-section {
+        padding: 0 0 80px;
+      }
+
+      .blog-cta-panel {
+        padding: 42px 22px;
       }
     }
   </style>
@@ -96,46 +236,78 @@
     <section class="section">
       <div class="container">
         <div class="page-header">
-          <div class="kicker">Insights & frameworks</div>
+          <div class="kicker">Analyses & cadres</div>
           <h1>Blog</h1>
-          <p style="font-size:1.18rem; color:var(--muted); max-width:700px; margin:0 auto;">Analyses honnêtes sur l'entrepreneuriat en phase de démarrage.</p>
+          <p>Des réflexions honnêtes sur l’entrepreneuriat en phase de démarrage, centrées sur la clarté, la structure et la prochaine action qui compte vraiment.</p>
         </div>
+
         <div class="post-list">
-          <div class="post-card">
-            <div class="post-meta">12 mars 2026 · 5 min de lecture</div>
-            <h3><a href="fr_analysis-paralysis.html">La taxe de la « paralysie d'analyse »</a></h3>
-            <p>Penser à votre startup n'est pas du travail si cela ne se transforme jamais en action. Voici comment briser le cycle.</p>
-            <a href="fr_analysis-paralysis.html" class="read-more">Lire l'article →</a>
-          </div>
-          <div class="post-card">
-            <div class="post-meta">18 mars 2026 · 4 min de lecture</div>
-            <h3><a href="fr_solo-founder-burnout.html">Pourquoi les fondateurs solo s'épuisent</a></h3>
-            <p>L'épuisement ne vient pas seulement du fait de trop travailler. Il vient souvent de ne pas savoir si ce que vous faites compte vraiment. Apprenez à vous reconnecter.</p>
-            <a href="fr_solo-founder-burnout.html" class="read-more">Lire l'article →</a>
-          </div>
-          <div class="post-card">
-            <div class="post-meta">25 mars 2026 · 4 min de lecture</div>
-            <h3><a href="fr_monday-morning-test.html">Le test du « lundi matin »</a></h3>
-            <p>Si vous devez décider quoi faire en vous asseyant, vous avez déjà perdu une partie de la journée. Corrigez votre reset du dimanche.</p>
-            <a href="fr_monday-morning-test.html" class="read-more">Lire l'article →</a>
-          </div>
-          <div class="post-card">
-            <div class="post-meta">2 mars 2026 · 5 min de lecture</div>
-            <h3><a href="fr_idea-vs-business.html">Idée vs. Business : les 5 chaînons manquants</a></h3>
-            <p>Une idée n'est pas encore un business. Il y a des chaînons structurels manquants entre les deux. Découvrez-les.</p>
-            <a href="fr_idea-vs-business.html" class="read-more">Lire l'article →</a>
-          </div>
+          <article class="post-card">
+            <a class="post-card-image" href="fr_analysis-paralysis.html" aria-label="Lire La taxe de la paralysie d’analyse">
+              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80" alt="Des personnes travaillent ensemble autour d’un bureau">
+            </a>
+            <div class="post-card-content">
+              <div class="post-meta">12 mars 2026 · 5 min de lecture</div>
+              <h3><a href="fr_analysis-paralysis.html">La taxe de la « paralysie d’analyse »</a></h3>
+              <p>Penser à votre startup n’est pas du travail si cela ne se transforme jamais en action. Voici comment casser le cycle et avancer avec structure.</p>
+              <a href="fr_analysis-paralysis.html" class="read-more">Lire l’article →</a>
+            </div>
+          </article>
+
+          <article class="post-card">
+            <a class="post-card-image" href="fr_solo-founder-burnout.html" aria-label="Lire Pourquoi les fondateurs solo s’épuisent">
+              <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=1200&q=80" alt="Une personne travaille tard sur un ordinateur portable dans une pièce sombre">
+            </a>
+            <div class="post-card-content">
+              <div class="post-meta">18 mars 2026 · 4 min de lecture</div>
+              <h3><a href="fr_solo-founder-burnout.html">Pourquoi les fondateurs solo s’épuisent</a></h3>
+              <p>L’épuisement vient souvent du fait de ne pas savoir si ce que vous faites compte vraiment. Découvrez comment reconnecter vos efforts à une direction claire.</p>
+              <a href="fr_solo-founder-burnout.html" class="read-more">Lire l’article →</a>
+            </div>
+          </article>
+
+          <article class="post-card">
+            <a class="post-card-image" href="fr_monday-morning-test.html" aria-label="Lire Le test du lundi matin">
+              <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=1200&q=80" alt="Agenda et café sur un bureau pour la planification hebdomadaire">
+            </a>
+            <div class="post-card-content">
+              <div class="post-meta">25 mars 2026 · 4 min de lecture</div>
+              <h3><a href="fr_monday-morning-test.html">Le test du « lundi matin »</a></h3>
+              <p>Si vous devez décider quoi faire au moment de vous asseoir, votre énergie commence déjà à fuir. Réparez votre reset hebdomadaire et protégez votre élan.</p>
+              <a href="fr_monday-morning-test.html" class="read-more">Lire l’article →</a>
+            </div>
+          </article>
+
+          <article class="post-card">
+            <a class="post-card-image" href="fr_idea-vs-business.html" aria-label="Lire Idée vs. business : les 5 chaînons manquants">
+              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80" alt="Réunion d’affaires avec documents et ordinateurs portables sur une table">
+            </a>
+            <div class="post-card-content">
+              <div class="post-meta">2 mars 2026 · 5 min de lecture</div>
+              <h3><a href="fr_idea-vs-business.html">Idée vs. business : les 5 chaînons manquants</a></h3>
+              <p>Une idée n’est pas encore un business. Il existe des chaînons structurels entre les deux, et les comprendre change votre manière de construire.</p>
+              <a href="fr_idea-vs-business.html" class="read-more">Lire l’article →</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="cta">
-      <div class="cta-inner">
-        <div class="kicker" style="color:rgba(31,42,48,0.80)">Obtenez une clarté pratique</div>
-        <h2>Appliquez ces idées à votre propre situation</h2>
-        <p>Réservez une séance gratuite et nous traduirons ces frameworks en votre prochaine étape.</p>
-        <a href="fr_booking.html" class="btn btn-primary">Réservez votre séance gratuite →</a>
-        <div class="cta-chips"><span>Première séance gratuite</span><span>Sans engagement</span><span>Prochaine étape claire</span></div>
+    <section class="blog-cta-section">
+      <div class="container">
+        <div class="blog-cta-wrap">
+          <div class="blog-cta-panel">
+            <div class="kicker">Obtenez une clarté concrète</div>
+            <h2>Appliquez ces idées à votre propre situation</h2>
+            <p>Réservez une séance gratuite et nous transformerons ces cadres en prochaine étape plus claire pour votre activité.</p>
+            <a href="fr_booking.html" class="btn btn-primary">Réservez votre séance gratuite →</a>
+            <div class="cta-chips">
+              <span>Première séance gratuite</span>
+              <span>Sans engagement</span>
+              <span>Prochaine étape claire</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>

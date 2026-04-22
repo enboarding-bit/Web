@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leistungen | Unterstützung, um Ihre Idee in Einnahmen zu verwandeln | en-boarding</title>
+  <meta name="description" content="Entdecken Sie die en-boarding Unterstützungsoptionen hinter dem Versprechen der Startseite: Silver für Klarheit, Gold für Umsetzung und Diamond für stärkeren Schwung. Beginnen Sie mit einer kostenlosen ersten Session." />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="stylesheet" href="css/global.css" />
+  <style>
+    .services-page {
+      background: linear-gradient(180deg, #ffffff 0%, #f5f7f8 100%);
+    }
+
+    .services-hero {
+      padding: 138px 20px 78px;
+      background:
+        radial-gradient(circle at top left, rgba(127, 184, 196, 0.18), transparent 32%),
+        linear-gradient(180deg, #ffffff 0%, #f6f8f9 100%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .services-hero-inner,
+    .services-main {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .services-hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .services-hero-copy {
+      max-width: 760px;
+    }
+
+    .services-hero .kicker {
+      margin-bottom: 14px;
+    }
+
+    .services-hero h1 {
+      margin-bottom: 18px;
+      font-size: clamp(2.7rem, 5vw, 4.3rem);
+      line-height: 1.03;
+      letter-spacing: -0.04em;
+    }
+
+    .services-hero p {
+      font-size: 1.08rem;
+      line-height: 1.78;
+      max-width: 720px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .hero-notes {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .hero-notes span {
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--brand-soft);
+      border: 1px solid rgba(127, 184, 196, 0.28);
+      color: var(--ink);
+      font-size: 0.88rem;
+      line-height: 1.2;
+    }
+
+    .hero-side {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-side h3 {
+      margin-bottom: 14px;
+      font-size: 1.2rem;
+      line-height: 1.25;
+    }
+
+    .hero-side ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .hero-side li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 12px;
+      color: var(--muted);
+      line-height: 1.68;
+    }
+
+    .hero-side li:last-child {
+      margin-bottom: 0;
+    }
+
+    .hero-side li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 11px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--brand);
+    }
+
+    .services-main {
+      padding: 72px 20px 96px;
+    }
+
+    .section-block {
+      margin-bottom: 34px;
+    }
+
+    .section-heading,
+    .services-intro,
+    .process-panel,
+    .fit-panel,
+    .faq-item,
+    .services-cta-panel {
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .services-intro,
+    .process-panel,
+    .fit-panel,
+    .services-cta-panel {
+      padding: 34px;
+    }
+
+    .section-heading {
+      padding: 30px 32px;
+      margin-bottom: 24px;
+    }
+
+    .section-heading .kicker {
+      margin-bottom: 10px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 12px;
+      font-size: clamp(2rem, 3vw, 2.7rem);
+      line-height: 1.08;
+    }
+
+    .section-heading p {
+      max-width: 760px;
+    }
+
+    .services-intro {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .services-intro h2 {
+      margin-bottom: 14px;
+      font-size: clamp(1.9rem, 3vw, 2.45rem);
+      line-height: 1.08;
+    }
+
+    .services-intro p {
+      margin-bottom: 14px;
+    }
+
+    .services-intro p:last-child {
+      margin-bottom: 0;
+    }
+
+    .intro-box {
+      background: var(--surface-soft);
+      border: 1px solid rgba(127, 184, 196, 0.22);
+      border-radius: 24px;
+      padding: 24px;
+    }
+
+    .intro-box h3 {
+      margin-bottom: 12px;
+      font-size: 1.16rem;
+      line-height: 1.25;
+    }
+
+    .intro-box p {
+      margin: 0 0 12px;
+      line-height: 1.7;
+    }
+
+    .intro-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .package-card {
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 32px 28px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      position: relative;
+    }
+
+    .package-card.featured {
+      border-color: rgba(127, 184, 196, 0.55);
+      box-shadow: var(--shadow-lg);
+      background: linear-gradient(180deg, rgba(127, 184, 196, 0.08), rgba(255, 255, 255, 0.98));
+    }
+
+    .package-badge {
+      display: inline-block;
+      align-self: flex-start;
+      margin-bottom: 16px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(127, 184, 196, 0.16);
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .package-card h3 {
+      font-size: 1.5rem;
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+
+    .package-subtitle {
+      color: var(--ink);
+      font-weight: 600;
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+
+    .package-summary {
+      color: var(--muted);
+      margin-bottom: 22px;
+      line-height: 1.72;
+    }
+
+    .package-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px;
+      flex: 1;
+    }
+
+    .package-list li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 12px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .package-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .package-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 11px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--brand);
+    }
+
+    .package-outcome {
+      margin-top: auto;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: var(--surface-soft);
+      border: 1px solid rgba(127, 184, 196, 0.18);
+      color: var(--ink);
+      line-height: 1.62;
+      margin-bottom: 20px;
+    }
+
+    .package-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .package-actions .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .package-secondary {
+      text-align: center;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .comparison-note {
+      margin-top: 18px;
+      text-align: center;
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .process-grid,
+    .fit-grid,
+    .faq-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .process-grid {
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 22px;
+    }
+
+    .process-step,
+    .fit-card {
+      background: var(--surface-soft);
+      border: 1px solid rgba(127, 184, 196, 0.22);
+      border-radius: 22px;
+      padding: 22px 20px;
+    }
+
+    .step-number {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: var(--brand-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      margin-bottom: 14px;
+      color: var(--ink);
+    }
+
+    .process-step h3,
+    .fit-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+      line-height: 1.28;
+    }
+
+    .process-step p,
+    .fit-card p {
+      margin: 0;
+      line-height: 1.72;
+    }
+
+    .fit-grid {
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 22px;
+    }
+
+    .faq-item {
+      padding: 24px 26px;
+    }
+
+    .faq-item h3 {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+      line-height: 1.3;
+    }
+
+    .faq-item p {
+      margin: 0;
+      line-height: 1.72;
+    }
+
+    .services-cta-panel {
+      background: linear-gradient(135deg, #7fb8c4 0%, #a8d1da 100%);
+      border: 1px solid rgba(127, 184, 196, 0.35);
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      padding: 54px 34px;
+    }
+
+    .services-cta-panel .kicker {
+      margin-bottom: 12px;
+      color: rgba(24, 36, 43, 0.78);
+    }
+
+    .services-cta-panel h2 {
+      margin-bottom: 14px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.05;
+    }
+
+    .services-cta-panel p {
+      max-width: 720px;
+      margin: 0 auto 26px;
+      color: rgba(24, 36, 43, 0.84);
+      line-height: 1.78;
+    }
+
+    .services-cta-panel .btn-primary {
+      background: rgba(255, 255, 255, 0.96);
+      color: var(--ink);
+      box-shadow: 0 10px 24px rgba(24, 36, 43, 0.08);
+    }
+
+    .services-cta-panel .btn-primary:hover {
+      background: rgba(255, 255, 255, 1);
+      color: var(--ink);
+    }
+
+    .cta-chips {
+      margin-top: 22px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-chips span {
+      background: rgba(255, 255, 255, 0.34);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      color: var(--ink);
+    }
+
+    @media (max-width: 1024px) {
+      .services-hero-grid,
+      .services-intro,
+      .packages-grid,
+      .process-grid,
+      .fit-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .services-hero {
+        padding: 124px 20px 64px;
+      }
+
+      .services-main {
+        padding: 56px 20px 80px;
+      }
+
+      .section-heading,
+      .services-intro,
+      .process-panel,
+      .fit-panel,
+      .faq-item,
+      .services-cta-panel,
+      .package-card,
+      .hero-side {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .services-intro,
+      .process-panel,
+      .fit-panel,
+      .services-cta-panel {
+        padding-top: 28px;
+        padding-bottom: 28px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .services-hero h1 {
+        font-size: 2.35rem;
+      }
+
+      .section-heading,
+      .services-intro,
+      .process-panel,
+      .fit-panel,
+      .faq-item,
+      .services-cta-panel,
+      .package-card,
+      .hero-side {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .services-cta-panel {
+        padding-top: 42px;
+        padding-bottom: 42px;
+      }
+    }
+  </style>
+</head>
+<body class="services-page">
+  <div id="lang-bar" style="display:none;"></div>
+
+  <header class="header">
+    <div class="header-inner" id="global-header"></div>
+  </header>
+
+  <main>
+    <section class="services-hero">
+      <div class="services-hero-inner">
+        <div class="services-hero-grid">
+          <div class="services-hero-copy">
+            <div class="kicker">Leistungen</div>
+            <h1>Sie haben eine Idee. Jetzt brauchen Sie die richtige Unterstützung, um daraus Einnahmen zu machen.</h1>
+            <p>
+              Das Versprechen der Startseite bleibt hier dasselbe: Ihnen zu helfen, zu klären, was Sie haben, es zu
+              einem echten Angebot zu formen und sich mit klareren Prioritäten und praktischen
+              nächsten Schritten auf Ihre ersten Einnahmen zuzubewegen. Diese Seite zeigt einfach, wie diese Unterstützung aussieht.
+            </p>
+            <div class="hero-actions">
+              <a href="de_booking.html" class="btn btn-primary">Kostenlose Session buchen →</a>
+              <a href="#service-options" class="btn btn-secondary">Die Unterstützungsoptionen ansehen</a>
+            </div>
+            <div class="hero-notes">
+              <span>Kostenlose erste Session</span>
+              <span>Klarer nächster Schritt</span>
+              <span>Unterstützung passend zu Ihrer Phase</span>
+            </div>
+          </div>
+
+          <aside class="hero-side">
+            <h3>Das ist für Sie, wenn:</h3>
+            <ul>
+              <li>Sie ein Business starten wollen, aber nicht wissen, worauf Sie sich zuerst konzentrieren sollen</li>
+              <li>Sie eine Idee, Fähigkeiten oder Expertise haben, aber noch kein klares Angebot</li>
+              <li>Sie bereits an etwas arbeiten, es sich aber immer noch zerstreut anfühlt</li>
+              <li>Sie Richtung, Struktur und praktische Unterstützung brauchen statt noch mehr Theorie</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="services-main">
+      <section class="section-block">
+        <div class="services-intro">
+          <div>
+            <h2>Die Leistungen sind dieselben, die bereits auf der Startseite vorgestellt werden — nur klarer erklärt.</h2>
+            <p>
+              On the homepage, you already show three support levels: Silver, Gold, and Diamond.
+              That part is good. The issue was that visitors clicked through and did not land on a
+              page that fully explained what those options actually mean for them.
+            </p>
+            <p>
+              This page fixes that. It keeps the same service logic, but makes it easier to choose
+              the level of support that fits your situation right now.
+            </p>
+          </div>
+
+          <aside class="intro-box">
+            <h3>Was über alle Unterstützungsstufen hinweg gleich bleibt</h3>
+            <p>Sie erhalten Hilfe dabei, zu klären, was Sie aufbauen, was Priorität hat und was als Nächstes zu tun ist.</p>
+            <p>Der Unterschied liegt nicht in der Mission. Der Unterschied liegt darin, wie viel Unterstützung, Intensität und Begleitung Sie brauchen.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section-block" id="service-options">
+        <div class="section-heading">
+          <div class="kicker">Möglichkeiten der Zusammenarbeit</div>
+          <h2>Drei Leistungsstufen, direkt auf Ihrem Startseiten-Angebot aufgebaut.</h2>
+          <p>
+            Start with Silver if you need direction. Move to Gold if you need support while executing.
+            Choose Diamond if you want more intensive guidance and faster momentum.
+          </p>
+        </div>
+
+        <div class="packages-grid">
+          <article class="package-card">
+            <div class="package-badge">Silver</div>
+            <h3>Clarity</h3>
+            <p class="package-subtitle">Am besten, um Richtung zu gewinnen.</p>
+            <p class="package-summary">
+              This is the right starting point if you have an idea, some skills, or an early project,
+              but you are still unsure what to sell, where to focus, or what the next move should be.
+            </p>
+            <ul class="package-list">
+              <li>Eine intensive Session</li>
+              <li>Fokussiert auf Klarheit und Planung</li>
+              <li>Hilft Ihnen zu verstehen, was jetzt wichtig ist</li>
+              <li>Gut, wenn Sie sich festgefahren, zerstreut oder unsicher fühlen</li>
+            </ul>
+            <div class="package-outcome">
+              <strong>Outcome:</strong> clear direction and next steps you can act on immediately.
+            </div>
+            <div class="package-actions">
+              <a href="de_booking.html" class="btn btn-primary">Mit Silver starten →</a>
+              <a href="de_booking.html" class="package-secondary">Oder mit der kostenlosen ersten Session beginnen</a>
+            </div>
+          </article>
+
+          <article class="package-card featured">
+            <div class="package-badge">Gold</div>
+            <h3>Execution</h3>
+            <p class="package-subtitle">Am besten, um Schwung aufzubauen.</p>
+            <p class="package-summary">
+              This is for people who already know they need more than a one-off conversation. You want
+              help making decisions, testing ideas, staying focused, and actually following through.
+            </p>
+            <ul class="package-list">
+              <li>Eine Session pro Woche</li>
+              <li>Auf Umsetzung und Tests aufgebaut</li>
+              <li>Hilft Ihnen, Schwung zu halten, statt wieder in Verwirrung zurückzufallen</li>
+              <li>Gut, wenn Sie Kontinuität, Verbindlichkeit und klarere Entscheidungen brauchen</li>
+            </ul>
+            <div class="package-outcome">
+              <strong>Outcome:</strong> validated progress, stronger focus, and more consistent momentum.
+            </div>
+            <div class="package-actions">
+              <a href="de_booking.html" class="btn btn-primary">Mit Gold starten →</a>
+              <a href="de_booking.html" class="package-secondary">Nutzen Sie die kostenlose Session, um die Passung zu prüfen</a>
+            </div>
+          </article>
+
+          <article class="package-card">
+            <div class="package-badge">Diamond</div>
+            <h3>Results</h3>
+            <p class="package-subtitle">Am besten für schnelle Umsetzung und intensivere Unterstützung.</p>
+            <p class="package-summary">
+              This is the most intensive option. It is for people who want more touchpoints, faster
+              feedback, and stronger support while moving from idea to real business progress.
+            </p>
+            <ul class="package-list">
+              <li>Ein Deep-Dive plus zwei Sessions pro Woche</li>
+              <li>Engmaschige Unterstützung</li>
+              <li>Ausgelegt auf schnellere Umsetzung, Feedback und Optimierung</li>
+              <li>Gut, wenn Sie mit mehr Intensität und weniger Verzögerung vorankommen möchten</li>
+            </ul>
+            <div class="package-outcome">
+              <strong>Outcome:</strong> structured intensity, quicker iteration, and stronger movement toward results.
+            </div>
+            <div class="package-actions">
+              <a href="de_booking.html" class="btn btn-primary">Mit Diamond starten →</a>
+              <a href="de_booking.html" class="package-secondary">Passung in einem kostenlosen Erstgespräch prüfen</a>
+            </div>
+          </article>
+        </div>
+
+        <p class="comparison-note">
+          Not sure which one fits? That is exactly why the first session is free. We use it to look at
+          your situation and decide what level of support actually makes sense.
+        </p>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <div class="kicker">Was Sie wirklich bekommen</div>
+          <h2>Keine vage Motivation. Echte Hilfe bei den Business-Entscheidungen, die wichtig sind.</h2>
+          <p>
+            The goal is the same one already stated on the homepage: understand how your idea,
+            skills, or business can generate revenue, focus on what actually matters, and leave with
+            practical next steps.
+          </p>
+        </div>
+
+        <div class="process-panel">
+          <div class="process-grid">
+            <div class="process-step">
+              <div class="step-number">01</div>
+              <h3>Die Business-Idee klären</h3>
+              <p>Wir identifizieren, was Sie wirklich aufbauen, welches Problem es löst und was das größte Potenzial hat.</p>
+            </div>
+            <div class="process-step">
+              <div class="step-number">02</div>
+              <h3>Das Angebot formen</h3>
+              <p>Wir arbeiten daran, was Sie tatsächlich verkaufen können, für wen es ist und wie das Angebot tragfähiger wird.</p>
+            </div>
+            <div class="process-step">
+              <div class="step-number">03</div>
+              <h3>Die richtigen Prioritäten setzen</h3>
+              <p>Wir durchschneiden das Rauschen und konzentrieren uns auf die Maßnahmen, die Sie wirklich näher an Einnahmen bringen.</p>
+            </div>
+            <div class="process-step">
+              <div class="step-number">04</div>
+              <h3>Mit Struktur vorankommen</h3>
+              <p>Sie gehen mit konkreten nächsten Schritten und, wenn nötig, mit dem richtigen Unterstützungsformat, um weiterzumachen.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <div class="kicker">Für wen das ist</div>
+          <h2>Eine gute Passung, wenn Sie ein Business starten wollen und echte Hilfe brauchen, um ins Tun zu kommen.</h2>
+          <p>
+            This keeps your broad audience, but makes it easier for the right people to recognise
+            themselves quickly.
+          </p>
+        </div>
+
+        <div class="fit-panel">
+          <div class="fit-grid">
+            <div class="fit-card">
+              <h3>Sie haben eine Idee, aber noch keinen klaren Weg</h3>
+              <p>Sie wissen, dass Sie etwas aufbauen wollen, sind aber unsicher, wie Sie es zu einem tragfähigen Projekt formen sollen.</p>
+            </div>
+            <div class="fit-card">
+              <h3>Sie haben Fähigkeiten oder Expertise, aber kein klares Angebot</h3>
+              <p>Sie wissen, dass Sie das, was Sie können, in Einnahmen verwandeln könnten, brauchen aber Hilfe dabei, das Angebot und den nächsten Schritt zu definieren.</p>
+            </div>
+            <div class="fit-card">
+              <h3>Sie haben begonnen, aber der Fortschritt fühlt sich noch chaotisch an</h3>
+              <p>Sie versuchen bereits voranzukommen, aber die Arbeit fühlt sich immer noch zerstreut, langsam oder schwer zu priorisieren an.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <div class="kicker">Häufig gefragt</div>
+          <h2>Fragen, die Menschen vor der Buchung meist haben.</h2>
+        </div>
+
+        <div class="faq-list">
+          <article class="faq-item">
+            <h3>Brauche ich schon ein Business?</h3>
+            <p>Nein. Das ist auch für Menschen, die starten wollen, eine Idee haben oder Expertise besitzen, die sie in ein Business verwandeln möchten.</p>
+          </article>
+
+          <article class="faq-item">
+            <h3>Muss ich vor der Buchung wissen, welche Leistungsstufe ich möchte?</h3>
+            <p>Nein. Die kostenlose erste Session dient dazu, Ihre Situation zu verstehen und Sie zur richtigen Unterstützungsstufe zu führen.</p>
+          </article>
+
+          <article class="faq-item">
+            <h3>Womit gehe ich am Ende heraus?</h3>
+            <p>Mit einem klareren Monetarisierungspfad, schärferen Prioritäten und nächsten Schritten, die Sie tatsächlich umsetzen können.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="services-cta-panel">
+          <div class="kicker">Starten Sie hier</div>
+          <h2>Sie müssen nicht erst alles herausfinden, bevor Sie sich melden.</h2>
+          <p>
+            Start with the free first session. We will look at your idea, your current situation,
+            and what is blocking progress — then decide whether Silver, Gold, or Diamond is the right
+            next step for you.
+          </p>
+          <a href="de_booking.html" class="btn btn-primary">Kostenlose Session buchen →</a>
+          <div class="cta-chips">
+            <span>Kostenlose erste Session</span>
+            <span>Keine Verpflichtung</span>
+            <span>Klarer nächster Schritt</span>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner" id="global-footer"></div>
+  </footer>
+
+  <div id="cookie-consent"></div>
+
+  <script src="js/components.js"></script>
+</body>
+</html>

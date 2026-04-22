@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | Accompagnement pour transformer votre idée en revenus | en-boarding</title>
+  <meta name="description" content="Découvrez les formules d’accompagnement en-boarding derrière la promesse de la page d’accueil : Silver pour la clarté, Gold pour l’exécution et Diamond pour plus d’élan. Commencez par une première séance gratuite." />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="stylesheet" href="css/global.css" />
+  <style>
+    .services-page { background: linear-gradient(180deg, #ffffff 0%, #f5f7f8 100%); }
+    .services-hero { padding: 138px 20px 78px; background: radial-gradient(circle at top left, rgba(127, 184, 196, 0.18), transparent 32%), linear-gradient(180deg, #ffffff 0%, #f6f8f9 100%); border-bottom: 1px solid var(--line); }
+    .services-hero-inner, .services-main { max-width: 1180px; margin: 0 auto; }
+    .services-hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 28px; align-items: start; }
+    .services-hero-copy { max-width: 760px; }
+    .services-hero .kicker { margin-bottom: 14px; }
+    .services-hero h1 { margin-bottom: 18px; font-size: clamp(2.7rem, 5vw, 4.3rem); line-height: 1.03; letter-spacing: -0.04em; }
+    .services-hero p { font-size: 1.08rem; line-height: 1.78; max-width: 720px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
+    .hero-notes { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+    .hero-notes span { padding: 8px 14px; border-radius: 999px; background: var(--brand-soft); border: 1px solid rgba(127, 184, 196, 0.28); color: var(--ink); font-size: 0.88rem; line-height: 1.2; }
+    .hero-side { background: rgba(255, 255, 255, 0.92); border: 1px solid var(--line); border-radius: 28px; padding: 28px; box-shadow: var(--shadow); }
+    .hero-side h3 { margin-bottom: 14px; font-size: 1.2rem; line-height: 1.25; }
+    .hero-side ul { list-style: none; padding: 0; margin: 0; }
+    .hero-side li { position: relative; padding-left: 18px; margin-bottom: 12px; color: var(--muted); line-height: 1.68; }
+    .hero-side li:last-child { margin-bottom: 0; }
+    .hero-side li::before { content: ""; position: absolute; left: 0; top: 11px; width: 7px; height: 7px; border-radius: 50%; background: var(--brand); }
+    .services-main { padding: 72px 20px 96px; }
+    .section-block { margin-bottom: 34px; }
+    .section-heading, .services-intro, .process-panel, .fit-panel, .faq-item, .services-cta-panel { background: rgba(255, 255, 255, 0.94); border: 1px solid var(--line); border-radius: 28px; box-shadow: var(--shadow); }
+    .services-intro, .process-panel, .fit-panel, .services-cta-panel { padding: 34px; }
+    .section-heading { padding: 30px 32px; margin-bottom: 24px; }
+    .section-heading .kicker { margin-bottom: 10px; }
+    .section-heading h2 { margin-bottom: 12px; font-size: clamp(2rem, 3vw, 2.7rem); line-height: 1.08; }
+    .section-heading p { max-width: 760px; }
+    .services-intro { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 28px; align-items: start; }
+    .services-intro h2 { margin-bottom: 14px; font-size: clamp(1.9rem, 3vw, 2.45rem); line-height: 1.08; }
+    .services-intro p { margin-bottom: 14px; }
+    .services-intro p:last-child { margin-bottom: 0; }
+    .intro-box { background: var(--surface-soft); border: 1px solid rgba(127, 184, 196, 0.22); border-radius: 24px; padding: 24px; }
+    .intro-box h3 { margin-bottom: 12px; font-size: 1.16rem; line-height: 1.25; }
+    .intro-box p { margin: 0 0 12px; line-height: 1.7; }
+    .intro-box p:last-child { margin-bottom: 0; }
+    .packages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .package-card { background: rgba(255, 255, 255, 0.96); border: 1px solid var(--line); border-radius: 28px; padding: 32px 28px; box-shadow: var(--shadow); display: flex; flex-direction: column; min-height: 100%; position: relative; }
+    .package-card.featured { border-color: rgba(127, 184, 196, 0.55); box-shadow: var(--shadow-lg); background: linear-gradient(180deg, rgba(127, 184, 196, 0.08), rgba(255, 255, 255, 0.98)); }
+    .package-badge { display: inline-block; align-self: flex-start; margin-bottom: 16px; padding: 7px 12px; border-radius: 999px; background: rgba(127, 184, 196, 0.16); color: var(--ink); font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+    .package-card h3 { font-size: 1.5rem; line-height: 1.15; margin-bottom: 8px; }
+    .package-subtitle { color: var(--ink); font-weight: 600; margin-bottom: 14px; line-height: 1.5; }
+    .package-summary { color: var(--muted); margin-bottom: 22px; line-height: 1.72; }
+    .package-list { list-style: none; padding: 0; margin: 0 0 24px; flex: 1; }
+    .package-list li { position: relative; padding-left: 18px; margin-bottom: 12px; color: var(--muted); line-height: 1.65; }
+    .package-list li:last-child { margin-bottom: 0; }
+    .package-list li::before { content: ""; position: absolute; left: 0; top: 11px; width: 7px; height: 7px; border-radius: 50%; background: var(--brand); }
+    .package-outcome { margin-top: auto; padding: 16px 18px; border-radius: 18px; background: var(--surface-soft); border: 1px solid rgba(127, 184, 196, 0.18); color: var(--ink); line-height: 1.62; margin-bottom: 20px; }
+    .package-actions { display: flex; flex-direction: column; gap: 12px; }
+    .package-actions .btn { width: 100%; justify-content: center; }
+    .package-secondary { text-align: center; color: var(--ink); font-weight: 600; }
+    .comparison-note { margin-top: 18px; text-align: center; color: var(--muted); line-height: 1.72; }
+    .process-grid, .fit-grid, .faq-list { display: grid; gap: 18px; }
+    .process-grid { grid-template-columns: repeat(4, 1fr); margin-top: 22px; }
+    .process-step, .fit-card { background: var(--surface-soft); border: 1px solid rgba(127, 184, 196, 0.22); border-radius: 22px; padding: 22px 20px; }
+    .step-number { width: 40px; height: 40px; border-radius: 14px; background: var(--brand-soft); display: flex; align-items: center; justify-content: center; font-weight: 800; margin-bottom: 14px; color: var(--ink); }
+    .process-step h3, .fit-card h3 { margin-bottom: 10px; font-size: 1.1rem; line-height: 1.28; }
+    .process-step p, .fit-card p { margin: 0; line-height: 1.72; }
+    .fit-grid { grid-template-columns: repeat(3, 1fr); margin-top: 22px; }
+    .faq-item { padding: 24px 26px; }
+    .faq-item h3 { margin-bottom: 10px; font-size: 1.1rem; line-height: 1.3; }
+    .faq-item p { margin: 0; line-height: 1.72; }
+    .services-cta-panel { background: linear-gradient(135deg, #7fb8c4 0%, #a8d1da 100%); border: 1px solid rgba(127, 184, 196, 0.35); text-align: center; box-shadow: var(--shadow-lg); padding: 54px 34px; }
+    .services-cta-panel .kicker { margin-bottom: 12px; color: rgba(24, 36, 43, 0.78); }
+    .services-cta-panel h2 { margin-bottom: 14px; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; }
+    .services-cta-panel p { max-width: 720px; margin: 0 auto 26px; color: rgba(24, 36, 43, 0.84); line-height: 1.78; }
+    .services-cta-panel .btn-primary { background: rgba(255, 255, 255, 0.96); color: var(--ink); box-shadow: 0 10px 24px rgba(24, 36, 43, 0.08); }
+    .services-cta-panel .btn-primary:hover { background: rgba(255, 255, 255, 1); color: var(--ink); }
+    .cta-chips { margin-top: 22px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .cta-chips span { background: rgba(255, 255, 255, 0.34); padding: 6px 14px; border-radius: 999px; font-size: 0.84rem; color: var(--ink); }
+    @media (max-width: 1024px) { .services-hero-grid, .services-intro, .packages-grid, .process-grid, .fit-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .services-hero { padding: 124px 20px 64px; } .services-main { padding: 56px 20px 80px; } .section-heading, .services-intro, .process-panel, .fit-panel, .faq-item, .services-cta-panel, .package-card, .hero-side { padding-left: 24px; padding-right: 24px; } .services-intro, .process-panel, .fit-panel, .services-cta-panel { padding-top: 28px; padding-bottom: 28px; } }
+    @media (max-width: 560px) { .services-hero h1 { font-size: 2.35rem; } .section-heading, .services-intro, .process-panel, .fit-panel, .faq-item, .services-cta-panel, .package-card, .hero-side { padding-left: 20px; padding-right: 20px; } .services-cta-panel { padding-top: 42px; padding-bottom: 42px; } }
+  </style>
+</head>
+<body class="services-page">
+  <div id="lang-bar" style="display:none;"></div>
+  <header class="header"><div class="header-inner" id="global-header"></div></header>
+  <main>
+    <section class="services-hero">
+      <div class="services-hero-inner">
+        <div class="services-hero-grid">
+          <div class="services-hero-copy">
+            <div class="kicker">Services</div>
+            <h1>Vous avez une idée. Il vous faut maintenant le bon accompagnement pour la transformer en revenus.</h1>
+            <p>La promesse de la page d’accueil reste la même ici : vous aider à clarifier ce que vous avez, à le transformer en une vraie offre, puis à avancer vers vos premiers revenus avec des priorités plus nettes et des prochaines étapes concrètes. Cette page montre simplement comment cet accompagnement se décline.</p>
+            <div class="hero-actions">
+              <a href="fr_booking.html" class="btn btn-primary">Réservez votre séance gratuite →</a>
+              <a href="#service-options" class="btn btn-secondary">Voir les formules d’accompagnement</a>
+            </div>
+            <div class="hero-notes">
+              <span>Première séance gratuite</span>
+              <span>Prochaine étape claire</span>
+              <span>Accompagnement adapté à votre stade</span>
+            </div>
+          </div>
+          <aside class="hero-side">
+            <h3>Cette page s’adresse à vous si :</h3>
+            <ul>
+              <li>Vous voulez lancer un business mais vous ne savez pas par quoi commencer</li>
+              <li>Vous avez une idée, des compétences ou une expertise mais pas encore d’offre claire</li>
+              <li>Vous avez déjà commencé à avancer, mais tout cela reste dispersé</li>
+              <li>Vous avez besoin de direction, de structure et d’un soutien concret plutôt que de théorie supplémentaire</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="services-main">
+      <section class="section-block">
+        <div class="services-intro">
+          <div>
+            <h2>Ce sont les mêmes services que sur la page d’accueil — simplement expliqués plus clairement.</h2>
+            <p>Sur la page d’accueil, vous présentez déjà trois niveaux d’accompagnement : Silver, Gold et Diamond. Cette logique est bonne. Le problème était surtout qu’en cliquant, les visiteurs n’arrivaient pas sur une page qui expliquait vraiment ce que ces options signifient concrètement pour eux.</p>
+            <p>Cette page corrige cela. Elle garde la même logique d’offre, mais la rend plus simple à comprendre afin de choisir le niveau d’accompagnement le plus adapté à votre situation actuelle.</p>
+          </div>
+          <aside class="intro-box">
+            <h3>Ce qui reste constant quel que soit le niveau choisi</h3>
+            <p>Vous obtenez de l’aide pour clarifier ce que vous construisez, ce que vous devez prioriser et ce qu’il faut faire ensuite.</p>
+            <p>La mission ne change pas. Ce qui change, c’est le niveau de soutien, l’intensité et le suivi dont vous avez besoin.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section-block" id="service-options">
+        <div class="section-heading">
+          <div class="kicker">Façons de travailler ensemble</div>
+          <h2>Trois niveaux de service, directement alignés avec l’offre de votre page d’accueil.</h2>
+          <p>Commencez par Silver si vous avez besoin de direction. Passez à Gold si vous avez besoin de soutien pendant l’exécution. Choisissez Diamond si vous voulez un accompagnement plus intensif et un élan plus rapide.</p>
+        </div>
+
+        <div class="packages-grid">
+          <article class="package-card">
+            <div class="package-badge">Silver</div>
+            <h3>Clarté</h3>
+            <p class="package-subtitle">Idéal pour obtenir une direction.</p>
+            <p class="package-summary">C’est le bon point de départ si vous avez une idée, des compétences ou un projet très précoce, mais que vous ne savez pas encore quoi vendre, où concentrer vos efforts, ni quelle devrait être la prochaine étape.</p>
+            <ul class="package-list">
+              <li>Une séance intensive</li>
+              <li>Axée sur la clarté et la planification</li>
+              <li>Vous aide à comprendre ce qui compte maintenant</li>
+              <li>Adaptée si vous vous sentez bloqué, dispersé ou incertain</li>
+            </ul>
+            <div class="package-outcome"><strong>Résultat :</strong> une direction claire et des prochaines étapes que vous pouvez appliquer immédiatement.</div>
+            <div class="package-actions">
+              <a href="fr_booking.html" class="btn btn-primary">Commencer avec Silver →</a>
+              <a href="fr_booking.html" class="package-secondary">Ou commencer par la première séance gratuite</a>
+            </div>
+          </article>
+
+          <article class="package-card featured">
+            <div class="package-badge">Gold</div>
+            <h3>Exécution</h3>
+            <p class="package-subtitle">Idéal pour créer de l’élan.</p>
+            <p class="package-summary">Cette formule s’adresse aux personnes qui savent déjà qu’elles ont besoin de plus qu’une conversation ponctuelle. Vous voulez de l’aide pour prendre des décisions, tester vos idées, rester concentré et vraiment aller jusqu’au bout.</p>
+            <ul class="package-list">
+              <li>Une séance par semaine</li>
+              <li>Construite autour de l’exécution et des tests</li>
+              <li>Vous aide à maintenir l’élan au lieu de retomber dans la confusion</li>
+              <li>Adaptée si vous avez besoin de continuité, de responsabilisation et de décisions plus nettes</li>
+            </ul>
+            <div class="package-outcome"><strong>Résultat :</strong> des progrès validés, un focus plus fort et un élan plus constant.</div>
+            <div class="package-actions">
+              <a href="fr_booking.html" class="btn btn-primary">Commencer avec Gold →</a>
+              <a href="fr_booking.html" class="package-secondary">Utiliser la séance gratuite pour confirmer l’adéquation</a>
+            </div>
+          </article>
+
+          <article class="package-card">
+            <div class="package-badge">Diamond</div>
+            <h3>Résultats</h3>
+            <p class="package-subtitle">Idéal pour une exécution rapide et un soutien plus profond.</p>
+            <p class="package-summary">C’est l’option la plus intensive. Elle s’adresse aux personnes qui veulent davantage de points de contact, des retours plus rapides et un soutien plus fort pour passer de l’idée à de vrais progrès business.</p>
+            <ul class="package-list">
+              <li>Une séance approfondie plus deux séances par semaine</li>
+              <li>Accompagnement à fort contact</li>
+              <li>Conçue pour une exécution plus rapide, du feedback et de l’optimisation</li>
+              <li>Adaptée si vous voulez avancer avec plus d’intensité et moins de délais</li>
+            </ul>
+            <div class="package-outcome"><strong>Résultat :</strong> une intensité structurée, des itérations plus rapides et une avancée plus solide vers les résultats.</div>
+            <div class="package-actions">
+              <a href="fr_booking.html" class="btn btn-primary">Commencer avec Diamond →</a>
+              <a href="fr_booking.html" class="package-secondary">Vérifier l’adéquation lors d’un premier échange gratuit</a>
+            </div>
+          </article>
+        </div>
+
+        <p class="comparison-note">Vous ne savez pas encore lequel choisir ? C’est exactement pour cela que la première séance est gratuite. Nous l’utilisons pour analyser votre situation et voir quel niveau d’accompagnement a vraiment du sens.</p>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <div class="kicker">Ce que vous obtenez vraiment</div>
+          <h2>Pas de motivation vague. Une vraie aide sur les décisions business qui comptent.</h2>
+          <p>L’objectif reste exactement celui annoncé sur la page d’accueil : comprendre comment votre idée, vos compétences ou votre activité peuvent générer des revenus, concentrer vos efforts sur ce qui compte réellement et repartir avec des prochaines étapes concrètes.</p>
+        </div>
+
+        <div class="process-panel">
+          <div class="process-grid">
+            <div class="process-step"><div class="step-number">01</div><h3>Clarifier l’idée business</h3><p>Nous identifions ce que vous construisez réellement, le problème que cela résout et ce qui a le plus de potentiel.</p></div>
+            <div class="process-step"><div class="step-number">02</div><h3>Structurer l’offre</h3><p>Nous travaillons sur ce que vous pouvez réellement vendre, pour qui, et comment rendre l’offre plus viable.</p></div>
+            <div class="process-step"><div class="step-number">03</div><h3>Définir les bonnes priorités</h3><p>Nous coupons à travers le bruit et nous concentrons sur les actions qui vous rapprochent réellement des revenus.</p></div>
+            <div class="process-step"><div class="step-number">04</div><h3>Avancer avec structure</h3><p>Vous repartez avec des prochaines étapes concrètes et, si nécessaire, le bon format d’accompagnement pour continuer.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <div class="kicker">Pour qui c’est fait</div>
+          <h2>Un bon fit si vous voulez lancer un business et avez besoin d’une vraie aide pour avancer.</h2>
+          <p>Cette page garde votre audience large, mais aide les bonnes personnes à se reconnaître beaucoup plus vite.</p>
+        </div>
+        <div class="fit-panel">
+          <div class="fit-grid">
+            <div class="fit-card"><h3>Vous avez une idée mais pas encore de trajectoire claire</h3><p>Vous savez que vous voulez construire quelque chose, mais vous ne savez pas encore comment le transformer en projet viable.</p></div>
+            <div class="fit-card"><h3>Vous avez des compétences ou une expertise mais pas d’offre claire</h3><p>Vous savez que vous pourriez transformer ce que vous savez en revenus, mais vous avez besoin d’aide pour définir l’offre et la prochaine étape.</p></div>
+            <div class="fit-card"><h3>Vous avez commencé, mais l’avancement reste désordonné</h3><p>Vous essayez déjà d’avancer, mais le travail reste dispersé, lent ou difficile à prioriser.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <div class="kicker">Questions fréquentes</div>
+          <h2>Les questions que les gens se posent généralement avant de réserver.</h2>
+        </div>
+        <div class="faq-list">
+          <article class="faq-item"><h3>Dois-je déjà avoir un business ?</h3><p>Non. Cette offre s’adresse aussi aux personnes qui veulent démarrer, qui ont une idée ou qui souhaitent transformer leur expertise en activité.</p></article>
+          <article class="faq-item"><h3>Dois-je savoir quel niveau de service je veux avant de réserver ?</h3><p>Non. La première séance gratuite sert justement à comprendre votre situation et à vous guider vers le niveau d’accompagnement le plus pertinent.</p></article>
+          <article class="faq-item"><h3>Avec quoi est-ce que je repars ?</h3><p>Avec une trajectoire de monétisation plus claire, des priorités plus nettes et des prochaines étapes que vous pouvez réellement mettre en action.</p></article>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="services-cta-panel">
+          <div class="kicker">Commencez ici</div>
+          <h2>Vous n’avez pas besoin d’avoir tout compris avant de nous contacter.</h2>
+          <p>Commencez par la première séance gratuite. Nous examinerons votre idée, votre situation actuelle et ce qui bloque vos progrès — puis nous verrons si Silver, Gold ou Diamond est la bonne suite pour vous.</p>
+          <a href="fr_booking.html" class="btn btn-primary">Réservez votre séance gratuite →</a>
+          <div class="cta-chips"><span>Première séance gratuite</span><span>Sans engagement</span><span>Prochaine étape claire</span></div>
+        </div>
+      </section>
+    </section>
+  </main>
+  <footer><div class="footer-inner" id="global-footer"></div></footer>
+  <div id="cookie-consent"></div>
+  <script src="js/components.js"></script>
+</body>
+</html>

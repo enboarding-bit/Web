@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Réservez votre séance de clarté gratuite | en-boarding</title>
+  <meta name="description" content="Réservez une séance de clarté gratuite de 30 minutes. Obtenez une direction pour transformer votre idée, vos compétences ou votre activité en revenus. Sans engagement.">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="css/global.css">
   <style>
@@ -12,83 +14,108 @@
       border-radius: 28px;
       padding: 40px;
       box-shadow: var(--shadow);
-      transition: box-shadow 0.25s ease;
     }
-    .form-card:hover {
-      box-shadow: var(--shadow-lg);
-      border-color: rgba(169, 207, 214, 0.5);
-    }
+
     .form-group {
       margin-bottom: 28px;
     }
+
     .form-group label {
       display: block;
       font-weight: 600;
       margin-bottom: 8px;
       color: var(--ink);
-      font-size: 0.95rem;
     }
+
     .form-group input,
     .form-group textarea {
       width: 100%;
       padding: 14px 18px;
       border: 1px solid var(--line);
       border-radius: 16px;
-      font-family: var(--font-sans);
+      font-family: inherit;
       font-size: 1rem;
       background: var(--surface-soft);
-      transition: border-color 0.2s, box-shadow 0.2s;
     }
+
     .form-group input:focus,
     .form-group textarea:focus {
       outline: none;
       border-color: var(--brand);
       box-shadow: 0 0 0 3px var(--brand-soft);
     }
+
     .form-group textarea {
       min-height: 120px;
       resize: vertical;
     }
+
     .checkbox-group {
       display: flex;
       align-items: flex-start;
       gap: 12px;
       margin-bottom: 32px;
     }
+
     .checkbox-group input {
       margin-top: 4px;
       width: 18px;
       height: 18px;
-      accent-color: var(--brand);
+      accent-color: var(--ink);
     }
+
     .checkbox-group label {
       font-size: 0.95rem;
       color: var(--muted);
       line-height: 1.5;
     }
+
     .checkbox-group a {
       color: var(--ink);
       text-decoration: underline;
-      text-underline-offset: 2px;
-      text-decoration-thickness: 1px;
-      text-decoration-color: var(--brand-soft-3);
     }
-    .checkbox-group a:hover {
-      text-decoration-color: var(--brand);
-    }
+
     .note {
       text-align: center;
       margin-top: 20px;
       color: var(--muted);
       font-size: 0.9rem;
     }
-    .btn-primary {
+
+    .booking-submit {
       width: 100%;
+      text-align: center;
       justify-content: center;
-      padding: 16px 28px;
-      font-size: 1.05rem;
-      border-radius: 40px;
+      display: inline-flex;
+      align-items: center;
+      border: none;
+      cursor: pointer;
     }
+
+    .success-message {
+      display: none;
+      margin-top: 20px;
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: #f4f8f4;
+      border: 1px solid #cfe3cf;
+      color: #234223;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .error-message {
+      display: none;
+      margin-top: 20px;
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: #fff4f4;
+      border: 1px solid #e7caca;
+      color: #7a1f1f;
+      text-align: center;
+      font-weight: 600;
+    }
+
     @media (max-width: 640px) {
       .form-card {
         padding: 28px 22px;
@@ -110,33 +137,78 @@
           <h1 style="font-size:clamp(2.2rem,4vw,3.3rem);">Réservez votre première séance</h1>
           <p>Commencez par une conversation ciblée pour clarifier votre situation, vos priorités et vos prochaines étapes.</p>
         </div>
+
         <div class="form-card">
-          <div class="form-group">
-            <label for="name">Nom complet *</label>
-            <input id="name" type="text" placeholder="Votre nom">
-          </div>
-          <div class="form-group">
-            <label for="email">Adresse email *</label>
-            <input id="email" type="email" placeholder="vous@exemple.com">
-          </div>
-          <div class="form-group">
-            <label for="message">Quel est votre plus grand défi en ce moment ? (optionnel)</label>
-            <textarea id="message" placeholder="Ex: Je ne sais pas comment valider mon idée, je suis bloqué entre deux directions, j'ai besoin d'une feuille de route..."></textarea>
-          </div>
-          <div class="checkbox-group">
-            <input type="checkbox" id="consent">
-            <label for="consent">J'accepte la <a href="fr_privacy.html">Politique de confidentialité</a> et consens à être contacté pour cette séance.</label>
-          </div>
-          <a href="mailto:contact@en-boarding.com" class="btn btn-primary">Demander ma séance gratuite →</a>
-          <p class="note">Après l'envoi, vous pouvez continuer la conversation à contact@en-boarding.com.</p>
+          <form id="booking-form" action="https://formspree.io/f/xnjlgwva" method="POST">
+            <div class="form-group">
+              <label for="name">Nom complet *</label>
+              <input id="name" name="name" type="text" placeholder="Votre nom" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Adresse e-mail *</label>
+              <input id="email" name="email" type="email" placeholder="vous@exemple.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Quel est votre plus grand défi en ce moment ? (optionnel)</label>
+              <textarea id="message" name="message" placeholder="Ex. : Je ne sais pas comment valider mon idée, je suis bloqué entre deux directions, j’ai besoin d’une feuille de route..."></textarea>
+            </div>
+
+            <div class="checkbox-group">
+              <input type="checkbox" id="consent" name="consent" required>
+              <label for="consent">J’accepte la <a href="fr_privacy.html">Politique de confidentialité</a> et je consens à être contacté à propos de cette séance.</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary booking-submit">Demander ma séance gratuite →</button>
+
+            <p class="note">Nous reviendrons vers vous rapidement.</p>
+            <div id="success-message" class="success-message">Merci. Votre demande a bien été envoyée.</div>
+            <div id="error-message" class="error-message">Désolé, une erreur s’est produite. Veuillez réessayer.</div>
+          </form>
         </div>
       </div>
     </section>
   </main>
 
-  <footer><div class="footer-inner" id="global-footer"></div></footer>
+  <footer>
+    <div class="footer-inner" id="global-footer"></div>
+  </footer>
   <div id="cookie-consent"></div>
-
   <script src="js/components.js"></script>
+
+  <script>
+    const form = document.getElementById('booking-form');
+    const successMessage = document.getElementById('success-message');
+    const errorMessage = document.getElementById('error-message');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      successMessage.style.display = 'none';
+      errorMessage.style.display = 'none';
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: {
+            Accept: 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          form.reset();
+          successMessage.style.display = 'block';
+        } else {
+          errorMessage.style.display = 'block';
+        }
+      } catch (error) {
+        errorMessage.style.display = 'block';
+      }
+    });
+  </script>
 </body>
 </html>
