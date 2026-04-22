@@ -30,7 +30,6 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
 
-    /* ONLY FIX: logo white on hero, black on scroll */
     body.homepage .header .logo,
     body.homepage .header .logo span {
       color: #ffffff !important;
@@ -68,12 +67,12 @@
     .about-section,
     .services-wrapper,
     .results-section,
-    .cta {
+    .cta-section {
       padding: 80px 20px;
     }
 
     .results-section,
-    .cta {
+    .cta-section {
       padding: 120px 20px;
     }
 
@@ -387,29 +386,85 @@
       margin: 0 auto;
     }
 
-    .cta {
-      background: var(--brand);
-      text-align: center;
+    /* ===== NEW CTA PANEL (matching services page) ===== */
+    .cta-section {
+      background: transparent;
+      padding: 80px 20px;
     }
 
-    .cta-inner {
-      max-width: 700px;
+    .cta-panel {
+      max-width: 860px;
       margin: 0 auto;
+      background: linear-gradient(135deg, #7fb8c4 0%, #a8d1da 100%);
+      border: 1px solid rgba(127, 184, 196, 0.35);
+      border-radius: 28px;
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+      padding: 54px 34px;
     }
 
-    .cta-chips {
-      margin-top: 24px;
+    .cta-panel .kicker {
+      margin-bottom: 12px;
+      color: rgba(24, 36, 43, 0.78);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+
+    .cta-panel h2 {
+      margin-bottom: 14px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.05;
+      color: var(--ink);
+    }
+
+    .cta-panel p {
+      max-width: 720px;
+      margin: 0 auto 26px;
+      color: rgba(24, 36, 43, 0.84);
+      line-height: 1.78;
+    }
+
+    .cta-panel .btn-primary {
+      background: rgba(255, 255, 255, 0.96);
+      color: var(--ink);
+      box-shadow: 0 10px 24px rgba(24, 36, 43, 0.08);
+      display: inline-block;
+      padding: 14px 32px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .cta-panel .btn-primary:hover {
+      background: rgba(255, 255, 255, 1);
+      color: var(--ink);
+    }
+
+    .cta-panel .cta-chips {
+      margin-top: 22px;
       display: flex;
       gap: 12px;
       justify-content: center;
       flex-wrap: wrap;
     }
 
-    .cta-chips span {
-      background: rgba(255,255,255,0.26);
+    .cta-panel .cta-chips span {
+      background: rgba(255, 255, 255, 0.34);
       padding: 6px 14px;
       border-radius: 999px;
-      font-size: 0.8rem;
+      font-size: 0.84rem;
+      color: var(--ink);
+    }
+
+    @media (max-width: 768px) {
+      .cta-panel {
+        padding: 42px 24px;
+      }
+      .cta-panel h2 {
+        font-size: 1.8rem;
+      }
     }
 
     .hero-slider {
@@ -643,13 +698,18 @@
       </div>
     </section>
 
-    <section class="cta">
-      <div class="cta-inner">
-        <div class="kicker" style="color:rgba(31,42,48,0.80)">Book your free consultation</div>
-        <h2>Start turning what you have into income today</h2>
-        <p>Start with a free consultation to understand your monetization options. Continue only if it makes sense for you.</p>
-        <a href="en_booking.html" class="btn-primary">Book your free consultation →</a>
-        <div class="cta-chips"><span>Free first session</span><span>No commitment</span><span>Clear next step</span></div>
+    <!-- NEW CTA SECTION matching services page -->
+    <section class="cta-section">
+      <div class="cta-panel">
+        <div class="kicker">Start here</div>
+        <h2>You do not need to figure everything out before reaching out.</h2>
+        <p>Start with the free first session. We will look at your idea, your current situation, and what is blocking progress — then decide whether Silver, Gold, or Diamond is the right next step for you.</p>
+        <a href="en_booking.html" class="btn btn-primary">Book your free session →</a>
+        <div class="cta-chips">
+          <span>Free first session</span>
+          <span>No commitment</span>
+          <span>Clear next step</span>
+        </div>
       </div>
     </section>
   </main>
