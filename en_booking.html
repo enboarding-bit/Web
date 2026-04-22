@@ -86,6 +86,34 @@
       width: 100%;
       text-align: center;
       justify-content: center;
+      display: inline-flex;
+      align-items: center;
+      border: none;
+      cursor: pointer;
+    }
+
+    .success-message {
+      display: none;
+      margin-top: 20px;
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: #f4f8f4;
+      border: 1px solid #cfe3cf;
+      color: #234223;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .error-message {
+      display: none;
+      margin-top: 20px;
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: #fff4f4;
+      border: 1px solid #e7caca;
+      color: #7a1f1f;
+      text-align: center;
+      font-weight: 600;
     }
 
     @media (max-width: 640px) {
@@ -97,7 +125,9 @@
 </head>
 <body>
   <div id="lang-bar" style="display:none;"></div>
-  <header class="header"><div class="header-inner" id="global-header"></div></header>
+  <header class="header">
+    <div class="header-inner" id="global-header"></div>
+  </header>
 
   <main>
     <section class="section">
@@ -109,35 +139,76 @@
         </div>
 
         <div class="form-card">
-          <div class="form-group">
-            <label for="name">Full name *</label>
-            <input id="name" type="text" placeholder="Your name">
-          </div>
+          <form id="booking-form" action="https://formspree.io/f/xnjlgwva" method="POST">
+            <div class="form-group">
+              <label for="name">Full name *</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required>
+            </div>
 
-          <div class="form-group">
-            <label for="email">Email address *</label>
-            <input id="email" type="email" placeholder="you@example.com">
-          </div>
+            <div class="form-group">
+              <label for="email">Email address *</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required>
+            </div>
 
-          <div class="form-group">
-            <label for="message">What is your biggest challenge right now? (optional)</label>
-            <textarea id="message" placeholder="e.g. I don't know how to validate my idea, I'm stuck between two directions, I need a roadmap..."></textarea>
-          </div>
+            <div class="form-group">
+              <label for="message">What is your biggest challenge right now? (optional)</label>
+              <textarea id="message" name="message" placeholder="e.g. I don't know how to validate my idea, I'm stuck between two directions, I need a roadmap..."></textarea>
+            </div>
 
-          <div class="checkbox-group">
-            <input type="checkbox" id="consent">
-            <label for="consent">I agree to the <a href="en_privacy.html">Privacy Policy</a> and consent to being contacted about this session.</label>
-          </div>
+            <div class="checkbox-group">
+              <input type="checkbox" id="consent" name="consent" required>
+              <label for="consent">I agree to the <a href="en_privacy.html">Privacy Policy</a> and consent to being contacted about this session.</label>
+            </div>
 
-          <a href="mailto:start@en-boarding.com" class="btn btn-primary booking-submit">Request my free session →</a>
-          <p class="note">After clicking, you can continue the conversation at start@en-boarding.com.</p>
+            <button type="submit" class="btn btn-primary booking-submit">Request my free session →</button>
+
+            <p class="note">We’ll get back to you shortly.</p>
+            <div id="success-message" class="success-message">Thank you. Your request has been sent successfully.</div>
+            <div id="error-message" class="error-message">Sorry, something went wrong. Please try again.</div>
+          </form>
         </div>
       </div>
     </section>
   </main>
 
-  <footer><div class="footer-inner" id="global-footer"></div></footer>
+  <footer>
+    <div class="footer-inner" id="global-footer"></div>
+  </footer>
   <div id="cookie-consent"></div>
   <script src="js/components.js"></script>
+
+  <script>
+    const form = document.getElementById('booking-form');
+    const successMessage = document.getElementById('success-message');
+    const errorMessage = document.getElementById('error-message');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      successMessage.style.display = 'none';
+      errorMessage.style.display = 'none';
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: {
+            Accept: 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          form.reset();
+          successMessage.style.display = 'block';
+        } else {
+          errorMessage.style.display = 'block';
+        }
+      } catch (error) {
+        errorMessage.style.display = 'block';
+      }
+    });
+  </script>
 </body>
 </html>
