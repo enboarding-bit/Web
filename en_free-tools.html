@@ -8,13 +8,68 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="css/global.css">
   <style>
-    :root { --white: #ffffff; --ink: #1f2a30; --muted: #5b6e7c; --line: #e2e8f0; --brand: #a9cfd6; --brand-dark: #7fb3bd; --brand-soft: #eef5f7; --shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03); --shadow-lg: 0 20px 30px -12px rgba(0, 0, 0, 0.1); }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: var(--white); color: var(--ink); line-height: 1.4; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-    .kicker { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.75rem; font-weight: 600; color: var(--brand-dark); margin-bottom: 12px; }
-    .section { padding: 80px 0; }
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+    :root {
+      --white: #ffffff;
+      --ink: #1f2a30;
+      --muted: #5b6e7c;
+      --line: #e2e8f0;
+      --brand: #a9cfd6;
+      --brand-dark: #7fb3bd;
+      --brand-soft: #eef5f7;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+      --shadow-lg: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--white);
+      color: var(--ink);
+      line-height: 1.4;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .kicker {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--brand-dark);
+      margin-bottom: 12px;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-hero {
+      padding-bottom: 24px;
+    }
+
+    .section-cards {
+      padding-top: 40px;
+      padding-bottom: 80px;
+    }
+
+    .section-cta {
+      padding-top: 0;
+      padding-bottom: 96px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
 
     .card {
       background: var(--white);
@@ -35,7 +90,7 @@
     }
 
     .card-icon {
-      font-size: 1.6rem;
+      font-size: 1rem;
       width: 56px;
       height: 56px;
       display: flex;
@@ -44,7 +99,9 @@
       border-radius: 18px;
       margin-bottom: 24px;
       background: var(--brand-soft);
+      color: var(--ink);
       font-weight: 700;
+      letter-spacing: 0.04em;
     }
 
     .card h3 {
@@ -100,11 +157,21 @@
       border-radius: 32px;
       text-align: center;
       padding: 56px 32px;
-      margin-top: 40px;
+      margin-top: 24px;
     }
 
     @media (max-width: 900px) {
-      .grid-3 { grid-template-columns: 1fr; }
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .section-cards {
+        padding-top: 24px;
+      }
+
+      .section-cta {
+        padding-bottom: 80px;
+      }
     }
   </style>
 </head>
@@ -113,7 +180,7 @@
   <header class="header"><div class="header-inner" id="global-header"></div></header>
 
   <main>
-    <section class="section" style="padding-bottom: 0;">
+    <section class="section section-hero">
       <div class="container" style="text-align: center;">
         <div class="badge-link"><a href="en_services.html">Explore paid coaching →</a></div>
         <div class="kicker">Free resources</div>
@@ -122,25 +189,25 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-cards">
       <div class="container">
         <div class="grid-3">
           <div class="card">
-            <div class="card-icon">📋</div>
+            <div class="card-icon">01</div>
             <h3>Structural Gap Assessment</h3>
             <p>40 questions that reveal where your business is stuck — clarity, direction, leverage, or execution.</p>
             <a href="en_structural-gap.html" class="btn-card">Start the assessment →</a>
           </div>
 
           <div class="card">
-            <div class="card-icon">🧠</div>
+            <div class="card-icon">02</div>
             <h3>Entrepreneurial Archetypes</h3>
             <p>Explore founder patterns and understand the tendencies that shape how you work.</p>
             <a href="en_archetype.html" class="btn-card">Read the archetypes →</a>
           </div>
 
           <div class="card">
-            <div class="card-icon">🎧</div>
+            <div class="card-icon">03</div>
             <h3>Free clarity session</h3>
             <p>30 minutes, no pitch. We’ll look at your results and map your next move – even if you never buy anything.</p>
             <a href="en_booking.html" class="btn-card">Book your free session →</a>
@@ -149,7 +216,7 @@
       </div>
     </section>
 
-    <section class="section-sm" style="padding-top: 0;">
+    <section class="section section-cta">
       <div class="container">
         <div class="free-cta">
           <div class="kicker">Already took the assessment?</div>

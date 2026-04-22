@@ -8,7 +8,6 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="css/global.css">
   <style>
-    /* Additional homepage styles */
     .header {
       position: fixed !important;
       top: 0;
@@ -53,16 +52,10 @@
     }
 
     .hero-full-content {
-      margin-top: 120px;
+      margin-top: 0;
+      max-width: 620px;
     }
 
-    @media (max-width: 768px) {
-      .hero-full-content {
-        margin-top: 80px;
-      }
-    }
-
-    .hero-full,
     .approach-section,
     .about-section,
     .services-wrapper,
@@ -228,16 +221,29 @@
 
     .two-col {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 360px 1fr;
       gap: 56px;
       align-items: center;
-      max-width: 1200px;
+      max-width: 1100px;
       margin: 0 auto;
     }
 
+    .about-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     .about-image img {
-      width: 100%;
-      border-radius: 24px;
+      width: 280px;
+      height: 280px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+      display: block;
+      border: 6px solid rgba(255, 255, 255, 0.95);
+      box-shadow: 0 18px 40px rgba(31, 42, 48, 0.12);
+      background: #f3f6f9;
     }
 
     .about-copy h2 {
@@ -259,6 +265,7 @@
       border-radius: 20px;
       padding: 20px 16px;
       text-align: center;
+      min-width: 160px;
     }
 
     .services-wrapper {
@@ -386,7 +393,6 @@
       margin: 0 auto;
     }
 
-    /* ===== NEW CTA PANEL (matching services page) ===== */
     .cta-section {
       background: transparent;
       padding: 80px 20px;
@@ -462,14 +468,20 @@
       .cta-panel {
         padding: 42px 24px;
       }
+
       .cta-panel h2 {
         font-size: 1.8rem;
       }
     }
 
+    .hero-full {
+      padding: 0 !important;
+    }
+
     .hero-slider {
       position: relative;
       background: none !important;
+      min-height: 680px;
     }
 
     .slider-slide {
@@ -528,14 +540,33 @@
     .hero-full-inner {
       z-index: 3;
       position: relative;
-      padding-top: 100px;
-      padding-bottom: 60px;
+      min-height: 680px;
+      width: min(1200px, calc(100% - 48px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      padding-top: 120px;
+      padding-bottom: 64px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 28px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .hero-actions .btn-primary {
+      border-radius: 999px;
+      padding: 14px 28px;
     }
 
     .slider-dots {
       display: flex;
       gap: 12px;
-      margin-top: 30px;
+      margin-top: 0;
       z-index: 5;
       position: relative;
     }
@@ -567,6 +598,13 @@
     @media (max-width: 900px) {
       .two-col {
         grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+      }
+
+      .about-copy {
+        max-width: 760px;
+        margin: 0 auto;
       }
 
       .credibility-strip {
@@ -576,11 +614,37 @@
       .grid-3 {
         grid-template-columns: 1fr;
       }
+
+      .hero-slider {
+        min-height: 560px;
+      }
+
+      .hero-full-inner {
+        min-height: 560px;
+        padding-top: 110px;
+        padding-bottom: 48px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-slider {
+        min-height: 520px;
+      }
+
+      .hero-full-inner {
+        min-height: 520px;
+      }
+
+      .about-image img {
+        width: 220px;
+        height: 220px;
+      }
     }
   </style>
 </head>
 <body class="homepage">
   <div id="lang-bar" style="display:none;"></div>
+
   <header class="header">
     <div class="header-inner" id="global-header"></div>
   </header>
@@ -589,11 +653,19 @@
     <section class="hero-full hero-slider" id="heroSlider">
       <div class="slider-slide slide-1 active"></div>
       <div class="slider-slide slide-3"></div>
-      <div class="slider-progress"><div class="progress-bar" id="progressBar"></div></div>
+      <div class="slider-progress">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+
       <div class="hero-full-inner">
         <div class="hero-full-content">
-          <h1>Turn your business idea into a viable project</h1>
-          <p>A practical approach to help you clarify your idea, define a solid offer, and prepare for your first revenue — with clear steps and measurable progress.</p>
+          <h1>You Already Have a Business. You Just Haven’t Built It Yet.</h1>
+          <p>I help you turn your ideas, skills, or passion into a real, working business.</p>
+
+          <div class="hero-actions">
+            <a href="https://en-boarding.com/en_booking.html" class="btn btn-primary">Build My Business →</a>
+          </div>
+
           <div class="slider-dots">
             <span class="dot active" data-slide="0"></span>
             <span class="dot" data-slide="1"></span>
@@ -607,6 +679,7 @@
         <div class="kicker">My approach</div>
         <h2>Complex expertise, simple execution</h2>
         <p class="approach-intro">Most people do not struggle because they lack ideas, but because they lack clarity on what to do next. My role is to bring structure and translate complex methods into simple, actionable steps.</p>
+
         <div class="flip-card" id="flipCard">
           <div class="flip-card-inner">
             <div class="flip-card-front">
@@ -616,6 +689,7 @@
                 <p>My work is grounded in proven methods such as design thinking, lean startup, and agile principles. These provide a structured way to move from idea to execution, with a strong focus on defining a minimum viable product (MVP) and validating it through real-world interaction and early sales.</p>
               </div>
             </div>
+
             <div class="flip-card-back">
               <div class="card-content">
                 <span class="card-label">What this means for you</span>
@@ -626,6 +700,7 @@
             </div>
           </div>
         </div>
+
         <div class="flip-hint">Hover or tap to see both sides</div>
       </div>
     </section>
@@ -659,7 +734,9 @@
         </div>
 
         <p class="note">Need clarity? Start with Silver. Want deeper support and faster progress? Gold or Diamond is the better fit.</p>
-        <div style="text-align: center;"><a href="en_services.html" class="services-cta-link">Discover more about services →</a></div>
+        <div style="text-align: center;">
+          <a href="en_services.html" class="services-cta-link">Discover more about services →</a>
+        </div>
       </div>
     </section>
 
@@ -672,23 +749,42 @@
         </div>
 
         <div class="grid-3">
-          <div class="card"><div class="card-icon">A</div><h3>A clear monetization path</h3><p>Understand how your idea, skills, or business can generate revenue.</p></div>
-          <div class="card"><div class="card-icon">B</div><h3>Focused priorities</h3><p>Stop wasting energy — focus on what actually leads to income.</p></div>
-          <div class="card"><div class="card-icon">C</div><h3>Next steps you can act on</h3><p>Leave with practical direction you can apply immediately.</p></div>
+          <div class="card">
+            <div class="card-icon">A</div>
+            <h3>A clear monetization path</h3>
+            <p>Understand how your idea, skills, or business can generate revenue.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">B</div>
+            <h3>Focused priorities</h3>
+            <p>Stop wasting energy — focus on what actually leads to income.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">C</div>
+            <h3>Next steps you can act on</h3>
+            <p>Leave with practical direction you can apply immediately.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="about" class="about-section">
       <div class="container two-col">
-        <div class="about-image"><img src="images/bouchra.jpg" alt="Bouchra Driouach, Business Consultant" loading="lazy" onerror="this.src='https://placehold.co/600x400?text=Bouchra+Driouach'"></div>
+        <div class="about-image">
+          <img src="images/bouchra.jpg" alt="Bouchra Driouach, Business Consultant" loading="lazy" onerror="this.src='https://placehold.co/600x600?text=Bouchra+Driouach'">
+        </div>
+
         <div class="about-copy">
           <div class="kicker">About me</div>
           <h2>Bouchra Driouach, Business Consultant</h2>
           <p>I work with people who have ideas, skills, or an existing business but are still not generating consistent income.</p>
           <p>My focus is simple: help you understand what to sell, who to sell it to, and what to do next to start generating revenue.</p>
           <p>Instead of overwhelming you with complexity, I bring structure, clarity, and practical action so you can move forward with confidence.</p>
+
           <a href="en_about.html" class="btn-solid" style="margin-top: 8px;">Learn more about me →</a>
+
           <div class="credibility-strip">
             <div class="credibility-item"><strong>Clarity</strong><span>Know exactly how your idea can become a paid offer.</span></div>
             <div class="credibility-item"><strong>Direction</strong><span>Focus on the actions that actually move you toward revenue.</span></div>
@@ -698,13 +794,13 @@
       </div>
     </section>
 
-    <!-- NEW CTA SECTION matching services page -->
     <section class="cta-section">
       <div class="cta-panel">
         <div class="kicker">Start here</div>
         <h2>You do not need to figure everything out before reaching out.</h2>
         <p>Start with the free first session. We will look at your idea, your current situation, and what is blocking progress — then decide whether Silver, Gold, or Diamond is the right next step for you.</p>
         <a href="en_booking.html" class="btn btn-primary">Book your free session →</a>
+
         <div class="cta-chips">
           <span>Free first session</span>
           <span>No commitment</span>
@@ -714,39 +810,43 @@
     </section>
   </main>
 
-  <footer><div class="footer-inner" id="global-footer"></div></footer>
+  <footer>
+    <div class="footer-inner" id="global-footer"></div>
+  </footer>
+
   <div id="cookie-consent"></div>
 
   <script src="js/components.js"></script>
   <script>
-    // Header scroll
     window.addEventListener('scroll', function() {
       document.querySelector('.header')?.classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    // Flip card touch
     const flipCard = document.getElementById('flipCard');
     if (flipCard && 'ontouchstart' in window) {
       flipCard.addEventListener('click', function(e) {
         e.stopPropagation();
         this.classList.toggle('flipped');
       });
+
       document.addEventListener('click', function(e) {
         if (!flipCard.contains(e.target)) flipCard.classList.remove('flipped');
       });
     }
 
-    // Hero slider
     (function() {
       const slides = document.querySelectorAll('.slider-slide');
       const dots = document.querySelectorAll('.dot');
       const progressBar = document.getElementById('progressBar');
       if (!slides.length) return;
-      let currentIndex = 0, intervalId;
+
+      let currentIndex = 0;
+      let intervalId;
 
       function goToSlide(index) {
         slides.forEach((s, i) => s.classList.toggle('active', i === index));
         dots.forEach((d, i) => d.classList.toggle('active', i === index));
+
         if (progressBar) {
           progressBar.style.transition = 'none';
           progressBar.style.width = '0%';
@@ -766,11 +866,13 @@
         intervalId = setInterval(nextSlide, 5000);
       }
 
-      dots.forEach((dot, idx) => dot.addEventListener('click', function() {
-        currentIndex = idx;
-        goToSlide(currentIndex);
-        startSlider();
-      }));
+      dots.forEach((dot, idx) => {
+        dot.addEventListener('click', function() {
+          currentIndex = idx;
+          goToSlide(currentIndex);
+          startSlider();
+        });
+      });
 
       goToSlide(0);
       startSlider();
