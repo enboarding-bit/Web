@@ -652,58 +652,636 @@
   <main>
     <section class="hero-full hero-slider" id="heroSlider">
       <div class="slider-slide slide-1 active"></div>
-      <div class="slider-slide slide-3"></div>
-      <div class="slider-progress">
-        <div class="progress-bar" id="progressBar"></div>
-      </div>
-
+    
       <div class="hero-full-inner">
         <div class="hero-full-content">
-          <h1>You Already Have a Business. You Just Haven’t Built It Yet.</h1>
-          <p>I help you turn your ideas, skills, or passion into a real, working business.</p>
-
+          <p class="kicker">From idea to informed action</p>
+    
+          <h1>Messy by nature. Efficient through structure.</h1>
+    
+          <p>
+            The process can feel messy. Structure helps you test your idea early,
+            decide whether to continue, adapt, or stop — before wasting time and money.
+          </p>
+    
+          <div class="hero-gantt">
+            <div class="gantt-row">
+              <span>Idea</span>
+              <div class="track"><div class="bar idea"></div></div>
+            </div>
+    
+            <div class="gantt-row">
+              <span>Research</span>
+              <div class="track"><div class="bar research"></div></div>
+            </div>
+    
+            <div class="gantt-row">
+              <span>Test</span>
+              <div class="track"><div class="bar test"></div></div>
+            </div>
+    
+            <div class="gantt-row decision-row">
+              <span>Decision</span>
+              <div class="decision-track">
+                <div class="decision-option stop">Stop</div>
+                <div class="decision-option adapt">Adapt</div>
+                <div class="decision-option continue">Continue</div>
+              </div>
+            </div>
+    
+            <div class="gantt-row">
+              <span>MVP</span>
+              <div class="track"><div class="bar mvp"></div></div>
+            </div>
+    
+            <div class="gantt-row">
+              <span>Revenue</span>
+              <div class="track"><div class="bar revenue"></div></div>
+            </div>
+          </div>
+    
           <div class="hero-actions">
-            <a href="https://en-boarding.com/en_booking.html" class="btn btn-primary">Build My Business →</a>
-          </div>
-
-          <div class="slider-dots">
-            <span class="dot active" data-slide="0"></span>
-            <span class="dot" data-slide="1"></span>
+            <a href="https://en-boarding.com/en_booking.html" class="btn btn-primary">
+              Build My Project →
+            </a>
           </div>
         </div>
       </div>
     </section>
+    
+    <style>
+      .hero-full {
+        padding: 0 !important;
+      }
+    
+      .hero-slider {
+        position: relative;
+        min-height: 560px;
+        overflow: hidden;
+        background: #f8fafc;
+      }
+    
+      .slider-slide {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background-image:
+          linear-gradient(
+            90deg,
+            rgba(31, 42, 48, 0.76) 0%,
+            rgba(31, 42, 48, 0.48) 48%,
+            rgba(31, 42, 48, 0.12) 100%
+          ),
+          url("images/becoming-entrepreneur.webp");
+        background-size: cover;
+        background-position: center 30%;
+        background-repeat: no-repeat;
+        z-index: 0;
+      }
+    
+      .hero-full-inner {
+        position: relative;
+        z-index: 2;
+        min-height: 560px;
+        width: min(1200px, calc(100% - 48px));
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        padding-top: 105px;
+        padding-bottom: 48px;
+      }
+    
+      .hero-full-content {
+        width: 50%;
+        max-width: 620px;
+        color: #ffffff;
+      }
+    
+      .hero-full-content .kicker {
+        color: rgba(255, 255, 255, 0.86);
+        margin-bottom: 14px;
+      }
+    
+      .hero-full-content h1 {
+        margin: 0 0 18px;
+        color: #ffffff;
+        font-size: clamp(2.35rem, 4.6vw, 4.2rem);
+        line-height: 0.98;
+        letter-spacing: -0.05em;
+      }
+    
+      .hero-full-content p {
+        max-width: 560px;
+        color: rgba(255, 255, 255, 0.88);
+        font-size: 1.05rem;
+        line-height: 1.65;
+      }
+    
+      .hero-gantt {
+        margin-top: 26px;
+        max-width: 540px;
+        padding: 22px;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.16);
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        backdrop-filter: blur(8px);
+      }
+    
+      .gantt-row {
+        display: grid;
+        grid-template-columns: 92px 1fr;
+        gap: 14px;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+    
+      .gantt-row:last-child {
+        margin-bottom: 0;
+      }
+    
+      .gantt-row span {
+        color: #ffffff;
+        font-size: 0.86rem;
+        font-weight: 700;
+      }
+    
+      .track {
+        height: 22px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.18);
+        overflow: hidden;
+      }
+    
+      .bar {
+        height: 100%;
+        border-radius: 999px;
+        background: #ffffff;
+      }
+    
+      .idea {
+        width: 18%;
+      }
+    
+      .research {
+        width: 34%;
+        margin-left: 10%;
+      }
+    
+      .test {
+        width: 44%;
+        margin-left: 24%;
+      }
+    
+      .decision-track {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+    
+      .decision-option {
+        height: 22px;
+        border-radius: 999px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.18);
+      }
+    
+      .stop {
+        opacity: 0.62;
+      }
+    
+      .adapt {
+        opacity: 0.82;
+      }
+    
+      .continue {
+        background: #ffffff;
+        color: #1f2a30;
+      }
+    
+      .mvp {
+        width: 50%;
+        margin-left: 38%;
+      }
+    
+      .revenue {
+        width: 24%;
+        margin-left: 76%;
+        background: #a9cfd6;
+      }
+    
+      .hero-actions {
+        margin-top: 24px;
+      }
+    
+      .hero-actions .btn-primary {
+        border-radius: 999px;
+        padding: 14px 28px;
+      }
+    
+      @media (max-width: 900px) {
+        .hero-slider,
+        .hero-full-inner {
+          min-height: 560px;
+        }
+    
+        .hero-full-content {
+          width: 100%;
+          max-width: 620px;
+        }
+      }
+    
+      @media (max-width: 640px) {
+        .hero-slider,
+        .hero-full-inner {
+          min-height: 520px;
+        }
+    
+        .hero-full-inner {
+          width: min(100% - 32px, 1200px);
+          padding-top: 100px;
+          padding-bottom: 40px;
+        }
+    
+        .hero-gantt {
+          padding: 18px;
+        }
+    
+        .gantt-row {
+          grid-template-columns: 86px 1fr;
+        }
+    
+        .decision-option {
+          font-size: 0.65rem;
+        }
+      }
+    </style>
 
-    <section id="approach" class="approach-section">
-      <div class="approach-container">
-        <div class="kicker">My approach</div>
-        <h2>Complex expertise, simple execution</h2>
-        <p class="approach-intro">Most people do not struggle because they lack ideas, but because they lack clarity on what to do next. My role is to bring structure and translate complex methods into simple, actionable steps.</p>
-
-        <div class="flip-card" id="flipCard">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <div class="card-content">
-                <span class="card-label">Approach</span>
-                <h3>Structured expertise behind every step</h3>
-                <p>My work is grounded in proven methods such as design thinking, lean startup, and agile principles. These provide a structured way to move from idea to execution, with a strong focus on defining a minimum viable product (MVP) and validating it through real-world interaction and early sales.</p>
-              </div>
+    <section class="approach-visual-section">
+      <div class="container">
+    
+        <div class="section-header">
+          <div class="kicker">My approach</div>
+          <h2>From complexity to clear action.</h2>
+          <p>
+            I start by listening, understand what is holding you back, and translate
+            complex tools into simple steps you can act on immediately.
+          </p>
+        </div>
+    
+        <div class="translator-visual">
+    
+          <div class="translator-panel input-panel">
+            <div class="panel-top">
+              <span>Before the session</span>
+              <span class="status-dot"></span>
             </div>
-
-            <div class="flip-card-back">
-              <div class="card-content">
-                <span class="card-label">What this means for you</span>
-                <h3>Clear action instead of unnecessary complexity</h3>
-                <p>I start by understanding you and your idea, then translate it into a simple version that can be tested quickly. The goal is to move into action, put your MVP in front of real people, and learn from real feedback and early sales. From there, we refine step by step until you gain clarity, traction, and measurable results.</p>
-                <p class="closing-line">I handle the complexity. You focus on action.</p>
-              </div>
+    
+            <div class="messy-lines">
+              <span>Too many ideas</span>
+              <span>No focus</span>
+              <span>Stuck</span>
+              <span>Overthinking</span>
+              <span>No direction</span>
             </div>
           </div>
+    
+          <div class="session-core">
+            <div class="session-label">Your session</div>
+            <div class="session-circle">
+              <div class="pulse-ring"></div>
+              <div class="translate-icon">↔</div>
+            </div>
+            <div class="session-caption">Listen · Identify · Simplify</div>
+          </div>
+    
+          <div class="translator-panel output-panel">
+            <div class="panel-top">
+              <span>After the session</span>
+              <span class="check">✓</span>
+            </div>
+    
+            <div class="clear-steps">
+              <div><strong>01</strong> Define the priority</div>
+              <div><strong>02</strong> Choose the next step</div>
+              <div><strong>03</strong> Move toward income</div>
+            </div>
+          </div>
+    
         </div>
-
-        <div class="flip-hint">Hover or tap to see both sides</div>
+    
+        <p class="approach-result">
+          This is not about theory — it is about turning what you already have into something that works.
+        </p>
+    
       </div>
     </section>
+    
+    <style>
+      .approach-visual-section {
+        padding: 100px 20px;
+        background: linear-gradient(135deg, #f6fbfc 0%, #eef7f9 100%);
+        overflow: hidden;
+      }
+    
+      .section-header {
+        text-align: center;
+        max-width: 760px;
+        margin: 0 auto 56px;
+      }
+    
+      .section-header h2 {
+        margin: 0 0 14px;
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        letter-spacing: -0.03em;
+      }
+    
+      .section-header p {
+        color: var(--muted);
+        line-height: 1.75;
+      }
+    
+      .translator-visual {
+        display: grid;
+        grid-template-columns: 1fr 150px 1fr;
+        gap: 26px;
+        align-items: center;
+        max-width: 1040px;
+        margin: 0 auto;
+      }
+    
+      .translator-panel {
+        min-height: 280px;
+        border-radius: 30px;
+        padding: 30px;
+        box-shadow: 0 24px 55px rgba(31, 42, 48, 0.08);
+      }
+    
+      .input-panel {
+        background: rgba(255, 255, 255, 0.52);
+        border: 1px dashed rgba(31, 42, 48, 0.18);
+      }
+    
+      .output-panel {
+        background: #ffffff;
+        border: 1px solid rgba(31, 42, 48, 0.08);
+      }
+    
+      .panel-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 32px;
+        font-size: 0.74rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.09em;
+        color: var(--muted);
+      }
+    
+      .status-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #d97706;
+        box-shadow: 0 0 0 8px rgba(217, 119, 6, 0.1);
+      }
+    
+      .check {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: var(--brand);
+        color: var(--ink);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+      }
+    
+      .messy-lines {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+    
+      .messy-lines span {
+        width: fit-content;
+        font-weight: 650;
+        color: rgba(31, 42, 48, 0.62);
+        animation: floatMessy 4s ease-in-out infinite;
+      }
+    
+      .messy-lines span:nth-child(2) {
+        margin-left: 26px;
+        animation-delay: 0.25s;
+      }
+    
+      .messy-lines span:nth-child(3) {
+        margin-left: 8px;
+        animation-delay: 0.5s;
+      }
+    
+      .messy-lines span:nth-child(4) {
+        margin-left: 38px;
+        animation-delay: 0.75s;
+      }
+    
+      .messy-lines span:nth-child(5) {
+        margin-left: 18px;
+        animation-delay: 1s;
+      }
+    
+      .session-core {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+    
+      .session-label {
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: #ffffff;
+        color: var(--ink);
+        font-size: 0.72rem;
+        font-weight: 850;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        box-shadow: 0 10px 25px rgba(31, 42, 48, 0.08);
+        white-space: nowrap;
+      }
+    
+      .session-circle {
+        position: relative;
+        width: 112px;
+        height: 112px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #7fb8c4 0%, #a9cfd6 100%);
+        color: #1f2a30;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow:
+          0 20px 45px rgba(127, 184, 196, 0.38),
+          0 0 0 10px rgba(255, 255, 255, 0.78),
+          0 0 0 13px rgba(127, 184, 196, 0.22);
+      }
+    
+      .session-circle::before,
+      .session-circle::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 42px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #7fb8c4);
+      }
+    
+      .session-circle::before {
+        right: 100%;
+      }
+    
+      .session-circle::after {
+        left: 100%;
+        transform: rotate(180deg);
+      }
+    
+      .translate-icon {
+        font-size: 34px;
+        color: #1f2a30;
+        animation: rotateIcon 3s ease-in-out infinite;
+      }
+    
+      .pulse-ring {
+        position: absolute;
+        inset: -18px;
+        border-radius: 999px;
+        border: 2px solid rgba(127, 184, 196, 0.55);
+        animation: pulseRing 2.4s ease-out infinite;
+      }
+    
+      .session-caption {
+        max-width: 130px;
+        text-align: center;
+        font-size: 0.78rem;
+        line-height: 1.4;
+        color: var(--muted);
+        font-weight: 650;
+      }
+    
+      .clear-steps {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+    
+      .clear-steps div {
+        background: linear-gradient(135deg, rgba(169, 207, 214, 0.16), rgba(169, 207, 214, 0.06));
+        border: 1px solid rgba(169, 207, 214, 0.28);
+        border-radius: 18px;
+        padding: 15px 16px;
+        color: var(--ink);
+        font-weight: 650;
+        opacity: 0;
+        transform: translateX(18px);
+        animation: revealStep 4.4s ease-in-out infinite;
+      }
+    
+      .clear-steps div:nth-child(2) {
+        animation-delay: 0.35s;
+      }
+    
+      .clear-steps div:nth-child(3) {
+        animation-delay: 0.7s;
+      }
+    
+      .clear-steps strong {
+        margin-right: 10px;
+        color: rgba(31, 42, 48, 0.52);
+      }
+    
+      .approach-result {
+        max-width: 720px;
+        margin: 36px auto 0;
+        text-align: center;
+        color: var(--ink);
+        font-weight: 650;
+        line-height: 1.7;
+      }
+    
+      @keyframes floatMessy {
+        0%, 100% {
+          transform: translateX(0);
+          opacity: 0.58;
+        }
+    
+        50% {
+          transform: translateX(12px);
+          opacity: 1;
+        }
+      }
+    
+      @keyframes rotateIcon {
+        0%, 100% {
+          transform: rotate(0deg);
+        }
+    
+        50% {
+          transform: rotate(180deg);
+        }
+      }
+    
+      @keyframes pulseRing {
+        0% {
+          transform: scale(0.9);
+          opacity: 0.75;
+        }
+    
+        100% {
+          transform: scale(1.42);
+          opacity: 0;
+        }
+      }
+    
+      @keyframes revealStep {
+        0% {
+          opacity: 0;
+          transform: translateX(18px);
+        }
+    
+        18%, 78% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+    
+        100% {
+          opacity: 0;
+          transform: translateX(18px);
+        }
+      }
+    
+      @media (max-width: 850px) {
+        .translator-visual {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+    
+        .session-circle::before,
+        .session-circle::after {
+          display: none;
+        }
+    
+        .translator-panel {
+          min-height: auto;
+        }
+      }
+    </style>
 
     <section class="services-wrapper" id="services">
       <div class="services-section">
@@ -770,26 +1348,264 @@
       </div>
     </section>
 
-    <section id="about" class="about-section">
-      <div class="container two-col">
-        <div class="about-image">
-          <img src="images/bouchra.jpg" alt="Bouchra Driouach, Business Consultant" loading="lazy" onerror="this.src='https://placehold.co/600x600?text=Bouchra+Driouach'">
+    <section class="about-network-section">
+      <style>
+        .about-network-section {
+          padding: 110px 24px;
+          background: linear-gradient(135deg, #f6fbfc 0%, #eef7f9 100%);
+          overflow: hidden;
+        }
+    
+        .about-network-wrap {
+          max-width: 1180px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: 0.9fr 1.1fr;
+          gap: 48px;
+          align-items: center;
+        }
+    
+        .about-network-copy h2 {
+          margin: 0 0 18px;
+          font-size: clamp(2rem, 4vw, 3.2rem);
+          line-height: 1.08;
+          letter-spacing: -0.03em;
+          color: var(--ink);
+        }
+    
+        .about-network-copy p {
+          margin: 0 0 28px;
+          max-width: 540px;
+          font-size: 1.05rem;
+          line-height: 1.75;
+          color: var(--muted);
+        }
+    
+        .about-network-btn {
+          display: inline-flex;
+          padding: 14px 28px;
+          border-radius: 999px;
+          background: var(--ink);
+          color: #ffffff;
+          text-decoration: none;
+          font-weight: 700;
+        }
+    
+        .network-visual {
+          position: relative;
+          min-height: 430px;
+        }
+    
+        .network-line {
+          position: absolute;
+          inset: 42px 24px;
+          border: 2px solid rgba(127, 184, 196, 0.38);
+          border-radius: 90px;
+        }
+    
+        .person-node {
+          position: absolute;
+          width: 118px;
+          height: 118px;
+          border-radius: 50%;
+          background: #ffffff;
+          box-shadow: 0 18px 34px rgba(31, 42, 48, 0.12);
+          animation: floatNode 4s ease-in-out infinite;
+          border: 6px solid #ffffff;
+          overflow: visible;
+          z-index: 3;
+        }
+    
+        .person-node img {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          object-fit: cover;
+          display: block;
+        }
+    
+        .person-node.main {
+          width: 154px;
+          height: 154px;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 6;
+          animation: none;
+          border: 8px solid rgba(255,255,255,0.95);
+          box-shadow: 0 24px 48px rgba(31, 42, 48, 0.18);
+        }
+    
+        .person-node.one { left: 4%; top: 16%; }
+        .person-node.two { right: 8%; top: 12%; animation-delay: .5s; }
+        .person-node.three { left: 14%; bottom: 8%; animation-delay: 1s; }
+        .person-node.four { right: 4%; bottom: 14%; animation-delay: 1.5s; }
+    
+        .person-label {
+          position: absolute;
+          left: 50%;
+          bottom: -12px;
+          transform: translateX(-50%);
+          background: #ffffff;
+          color: var(--ink);
+          padding: 7px 12px;
+          border-radius: 999px;
+          font-size: 0.72rem;
+          font-weight: 800;
+          box-shadow: 0 10px 22px rgba(31, 42, 48, 0.12);
+          white-space: nowrap;
+          border: 1px solid rgba(127, 184, 196, 0.18);
+        }
+    
+        .mini-card {
+          position: absolute;
+          background: #ffffff;
+          border-radius: 18px;
+          padding: 12px 14px;
+          box-shadow: 0 14px 28px rgba(31, 42, 48, 0.1);
+          color: var(--ink);
+          font-size: 0.78rem;
+          font-weight: 800;
+          z-index: 4;
+          animation: popIn .8s ease forwards;
+          border: 1px solid rgba(127, 184, 196, 0.18);
+        }
+    
+        .mini-card.a { left: 41%; top: 8%; }
+        .mini-card.b { right: 1%; top: 47%; }
+        .mini-card.c { left: 3%; bottom: 30%; }
+    
+        .about-network-section .status-dot {
+          position: absolute;
+          width: 22px;
+          height: 22px;
+          border-radius: 50%;
+          background: var(--brand);
+          border: 4px solid #ffffff;
+          box-shadow: 0 8px 18px rgba(31, 42, 48, 0.12);
+          z-index: 7;
+          animation: pulseDot 2s ease-in-out infinite;
+        }
+    
+        .about-network-section .status-dot.d1 { left: 22%; top: 44%; }
+        .about-network-section .status-dot.d2 { right: 27%; top: 36%; animation-delay: .4s; }
+        .about-network-section .status-dot.d3 { right: 18%; bottom: 28%; animation-delay: .8s; }
+    
+        .role-label {
+          position: absolute;
+          left: 50%;
+          bottom: 4%;
+          transform: translateX(-50%);
+          background: rgba(255, 255, 255, 0.92);
+          color: var(--ink);
+          padding: 9px 16px;
+          border-radius: 999px;
+          font-size: 0.78rem;
+          font-weight: 800;
+          box-shadow: 0 12px 24px rgba(31, 42, 48, 0.1);
+          border: 1px solid rgba(127, 184, 196, 0.18);
+          white-space: nowrap;
+          z-index: 5;
+        }
+    
+        @keyframes floatNode {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+    
+        @keyframes pulseDot {
+          0%, 100% { transform: scale(1); opacity: 1; }
+          50% { transform: scale(1.18); opacity: .75; }
+        }
+    
+        @keyframes popIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+    
+        @media (max-width: 900px) {
+          .about-network-wrap {
+            grid-template-columns: 1fr;
+          }
+    
+          .network-visual {
+            min-height: 450px;
+          }
+        }
+    
+        @media (max-width: 560px) {
+          .about-network-section {
+            padding: 80px 20px;
+          }
+    
+          .person-node {
+            width: 88px;
+            height: 88px;
+          }
+    
+          .person-node.main {
+            width: 124px;
+            height: 124px;
+          }
+    
+          .mini-card,
+          .person-label {
+            font-size: 0.66rem;
+          }
+        }
+      </style>
+    
+      <div class="about-network-wrap">
+        <div class="about-network-copy">
+          <div class="kicker">Who I work with</div>
+    
+          <h2>I work with people ready to turn what they have into income.</h2>
+    
+          <p>
+            Freelancers, entrepreneurs, startup founders, creatives, consultants,
+            and professionals with skills — all at different stages, but with the
+            same need: clarity, structure, and practical next steps.
+          </p>
+    
+          <a href="en_about.html" class="about-network-btn">More about me →</a>
         </div>
-
-        <div class="about-copy">
-          <div class="kicker">About me</div>
-          <h2>Bouchra Driouach, Business Consultant</h2>
-          <p>I work with people who have ideas, skills, or an existing business but are still not generating consistent income.</p>
-          <p>My focus is simple: help you understand what to sell, who to sell it to, and what to do next to start generating revenue.</p>
-          <p>Instead of overwhelming you with complexity, I bring structure, clarity, and practical action so you can move forward with confidence.</p>
-
-          <a href="en_about.html" class="btn-solid" style="margin-top: 8px;">Learn more about me →</a>
-
-          <div class="credibility-strip">
-            <div class="credibility-item"><strong>Clarity</strong><span>Know exactly how your idea can become a paid offer.</span></div>
-            <div class="credibility-item"><strong>Direction</strong><span>Focus on the actions that actually move you toward revenue.</span></div>
-            <div class="credibility-item"><strong>Action</strong><span>Leave each step with a concrete decision and next move.</span></div>
+    
+        <div class="network-visual">
+          <div class="network-line"></div>
+    
+          <div class="person-node one">
+            <img src="images/bouchra-freelancer.webp" alt="Freelancers">
+            <span class="person-label">Freelancers</span>
           </div>
+    
+          <div class="person-node two">
+            <img src="images/bouchra-entrepreneur.webp" alt="Entrepreneurs">
+            <span class="person-label">Entrepreneurs</span>
+          </div>
+    
+          <div class="person-node three">
+            <img src="images/bouchra-startup.webp" alt="Startup founders">
+            <span class="person-label">Startup founders</span>
+          </div>
+    
+          <div class="person-node four">
+            <img src="images/bouchra-creative.webp" alt="Creatives">
+            <span class="person-label">Creatives</span>
+          </div>
+    
+          <div class="person-node main">
+            <img src="images/bouchra.jpg" alt="Bouchra Driouach">
+          </div>
+    
+          <div class="mini-card a">Consultants</div>
+          <div class="mini-card b">Professionals with skills</div>
+          <div class="mini-card c">Business builders</div>
+    
+          <div class="status-dot d1"></div>
+          <div class="status-dot d2"></div>
+          <div class="status-dot d3"></div>
+    
+          <div class="role-label">Clarity · Structure · Action</div>
         </div>
       </div>
     </section>
