@@ -655,13 +655,12 @@
     
       <div class="hero-full-inner">
         <div class="hero-full-content">
-          <p class="kicker">From idea to informed action</p>
+          <p class="kicker">From idea to action</p>
     
-          <h1>Messy by nature. Efficient through structure.</h1>
+          <h1>Structure turns ideas into action.</h1>
     
           <p>
-            The process can feel messy. Structure helps you test your idea early,
-            decide whether to continue, adapt, or stop — before wasting time and money.
+            Test your idea early, make clear decisions, and move toward revenue with less wasted time.
           </p>
     
           <div class="hero-gantt">
@@ -702,7 +701,7 @@
     
           <div class="hero-actions">
             <a href="https://en-boarding.com/en_booking.html" class="btn btn-primary">
-              Build My Project →
+              Start Building →
             </a>
           </div>
         </div>
@@ -1348,7 +1347,7 @@
       </div>
     </section>
 
-    <section class="about-network-section">
+    <section id="about" class="about-network-section">
       <style>
         .about-network-section {
           padding: 110px 24px;
@@ -1634,6 +1633,20 @@
 
   <script src="js/components.js"></script>
   <script>
+    function updateAboutLinks() {
+      document.querySelectorAll('a').forEach(function(link) {
+        const text = (link.textContent || '').trim().toLowerCase();
+        const href = link.getAttribute('href') || '';
+
+        if (text === 'about' || text === 'about me' || href === '#about' || href.endsWith('/#about')) {
+          link.setAttribute('href', 'en_about.html');
+        }
+      });
+    }
+
+    updateAboutLinks();
+    window.addEventListener('load', updateAboutLinks);
+
     window.addEventListener('scroll', function() {
       document.querySelector('.header')?.classList.toggle('scrolled', window.scrollY > 50);
     });
