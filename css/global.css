@@ -5,6 +5,27 @@
    ============================================ */
 
 :root {
+  /* ===== COLOR CONTROL HUB =====
+     Change these values to test colors across the homepage and site.
+     Homepage inline styles now reference these variables instead of hardcoded colors.
+  */
+  --black: #000000;
+  --ink-rgb: 24, 36, 43;
+  --white-rgb: 255, 255, 255;
+  --black-rgb: 0, 0, 0;
+
+  --brand-light: #a9cfd6;
+  --brand-deep: #5d95a2;
+  --brand-rgb: 127, 184, 196;
+  --brand-light-rgb: 169, 207, 214;
+
+  --section-bg-light: #f6fbfc;
+  --section-bg-soft: #eef7f9;
+  --section-bg-bright: #f8fcfd;
+  --section-bg-accent: #eef8fa;
+  --hero-fallback-bg: #f8fafc;
+  --image-fallback-bg: #f3f6f9;
+
   --bg: #ffffff;
   --surface: #ffffff;
   --surface-soft: #f5f7f8;
