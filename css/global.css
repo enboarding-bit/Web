@@ -1143,12 +1143,12 @@ footer {
   }
 
   .hero-full {
-    min-height: 560px;
+    min-height: 720px;
     background-position: center 35%;
   }
 
   .hero-full-inner {
-    min-height: 560px;
+    min-height: 720px;
     padding-top: 120px;
     padding-bottom: 48px;
   }
@@ -1606,3 +1606,249 @@ footer {
     margin-right: 0;
   }
 }
+
+
+/* ===== FINAL HOMEPAGE HERO + PROJECT MANAGEMENT ROADMAP UPDATE =====
+   Header is no longer fixed/sticky. The project roadmap is independent from the hero.
+   Existing site animations are preserved.
+*/
+.header,
+body.homepage .header,
+body.homepage .header.scrolled {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+}
+
+body:not(.homepage) .header {
+  position: relative !important;
+}
+
+body:not(.homepage) main {
+  padding-top: 0 !important;
+}
+
+body.homepage .header.scrolled {
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+body.homepage .header.scrolled .header-inner {
+  border-bottom: none !important;
+}
+
+body.homepage .hero-full-content h1 {
+  max-width: 560px;
+}
+
+.project-gantt-section {
+  position: relative;
+  padding: 92px 20px;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(var(--brand-rgb), 0.14), transparent 30%),
+    radial-gradient(circle at 88% 82%, rgba(var(--brand-light-rgb), 0.20), transparent 32%),
+    linear-gradient(135deg, var(--section-bg-bright) 0%, var(--section-bg-soft) 100%);
+  overflow: hidden;
+}
+
+.project-gantt-section::before {
+  content: "";
+  position: absolute;
+  inset: 28px;
+  border: 1px solid rgba(var(--brand-rgb), 0.14);
+  border-radius: 36px;
+  pointer-events: none;
+}
+
+.project-gantt-container {
+  position: relative;
+  z-index: 2;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.project-gantt-header {
+  max-width: 730px;
+  margin: 0 auto 34px;
+  text-align: center;
+}
+
+.project-gantt-header .kicker {
+  margin-bottom: 12px;
+  color: var(--brand-deep);
+}
+
+.project-gantt-header h2 {
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-size: clamp(1.9rem, 3.8vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.project-gantt-header p {
+  max-width: 650px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.project-gantt {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 28px;
+  border-radius: 28px;
+  background: rgba(var(--white-rgb), 0.88);
+  border: 1px solid rgba(var(--brand-rgb), 0.22);
+  box-shadow: 0 24px 56px rgba(var(--ink-rgb), 0.09);
+  backdrop-filter: blur(10px);
+  animation: heroFadeUp 1s ease-out 0.18s both;
+}
+
+.project-gantt .gantt-row {
+  display: grid;
+  grid-template-columns: 124px 1fr;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.project-gantt .gantt-row:last-child {
+  margin-bottom: 0;
+}
+
+.project-gantt .gantt-row span {
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.project-gantt .track {
+  height: 22px;
+  border-radius: 999px;
+  background: rgba(var(--brand-rgb), 0.14);
+  overflow: hidden;
+}
+
+.project-gantt .bar {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--brand);
+  transform-origin: left center;
+  animation: ganttGrow 3.8s ease-in-out infinite;
+}
+
+.project-gantt .idea { width: 18%; }
+.project-gantt .research { width: 34%; margin-left: 10%; animation-delay: 0.15s; }
+.project-gantt .test { width: 44%; margin-left: 24%; animation-delay: 0.3s; }
+.project-gantt .mvp { width: 50%; margin-left: 38%; animation-delay: 0.45s; }
+.project-gantt .revenue { width: 24%; margin-left: 76%; background: var(--brand-deep); animation-delay: 0.6s; }
+
+.project-gantt .decision-track {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.project-gantt .decision-option {
+  height: 22px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--ink);
+  background: rgba(var(--brand-rgb), 0.14);
+  animation: decisionPulse 2.8s ease-in-out infinite;
+}
+
+.project-gantt .stop { opacity: 0.62; }
+.project-gantt .adapt { opacity: 0.82; animation-delay: 0.22s; }
+.project-gantt .continue { background: var(--brand); color: var(--ink); animation-delay: 0.44s; }
+
+html[dir="rtl"] .project-gantt-section,
+html[dir="rtl"] .project-gantt-header,
+html[dir="rtl"] .project-gantt .gantt-row span {
+  direction: rtl;
+}
+
+html[dir="rtl"] .project-gantt .bar {
+  transform-origin: right center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-gantt,
+  .project-gantt .bar,
+  .project-gantt .decision-option {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .project-gantt-section {
+    padding: 72px 20px;
+  }
+
+  .project-gantt-section::before {
+    inset: 14px;
+    border-radius: 26px;
+  }
+
+  .project-gantt {
+    padding: 20px;
+  }
+
+  .project-gantt .gantt-row {
+    grid-template-columns: 92px 1fr;
+  }
+
+  .project-gantt .decision-option {
+    font-size: 0.64rem;
+  }
+}
+
+
+/* ===== HERO IMAGE + ROADMAP FINAL SAFETY OVERRIDES ===== */
+body.homepage .hero-slider{position:relative!important;min-height:720px!important;overflow:hidden!important;background:var(--hero-fallback-bg)!important;}
+body.homepage .hero-slider .slider-slide,body.homepage .hero-slider .slider-slide.slide-1,body.homepage .hero-slider .slider-slide.active{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;opacity:1!important;z-index:0!important;background-image:linear-gradient(90deg,rgba(var(--ink-rgb),.76) 0%,rgba(var(--ink-rgb),.48) 48%,rgba(var(--ink-rgb),.12) 100%),url("https://en-boarding.com/images/becoming-entrepreneur.webp")!important;background-size:cover!important;background-position:center 30%!important;background-repeat:no-repeat!important;}
+html[lang="ar"] body.homepage .hero-slider .slider-slide,html[lang="ar"] body.homepage .hero-slider .slider-slide.slide-1,html[lang="ar"] body.homepage .hero-slider .slider-slide.active{background-image:linear-gradient(270deg,rgba(var(--ink-rgb),.76) 0%,rgba(var(--ink-rgb),.48) 48%,rgba(var(--ink-rgb),.12) 100%),url("https://en-boarding.com/images/ar-becoming-entrepreneur.webp")!important;}
+body.homepage .hero-slider::after{content:""!important;position:absolute!important;inset:0!important;background:linear-gradient(90deg,rgba(var(--brand-light-rgb),.18),rgba(var(--brand-light-rgb),.04))!important;pointer-events:none!important;z-index:1!important;}
+body.homepage .hero-full-inner{position:relative!important;z-index:3!important;min-height:720px!important;width:min(1200px,calc(100% - 48px))!important;margin:0 auto!important;display:flex!important;align-items:center!important;padding-top:105px!important;padding-bottom:48px!important;}
+body.homepage .hero-full-content{width:min(100%,540px)!important;max-width:540px!important;color:var(--white)!important;}
+body.homepage .hero-full-content h1{margin:0 0 18px!important;color:var(--white)!important;font-size:clamp(2.45rem,5.2vw,4.65rem)!important;line-height:.98!important;letter-spacing:-.05em!important;}
+body.homepage .project-gantt-section{clear:both!important;position:relative!important;z-index:2!important;}
+body.homepage .project-gantt .gantt-row{display:grid!important;grid-template-columns:124px 1fr!important;gap:14px!important;align-items:center!important;margin-bottom:12px!important;}
+body.homepage .project-gantt .gantt-row span{color:var(--ink)!important;font-size:.9rem!important;font-weight:800!important;}
+body.homepage .project-gantt .track{height:22px!important;border-radius:999px!important;background:rgba(var(--brand-rgb),.14)!important;overflow:hidden!important;}
+body.homepage .project-gantt .bar{height:100%!important;border-radius:999px!important;background:var(--brand)!important;}
+body.homepage .project-gantt .decision-track{display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:8px!important;}
+body.homepage .project-gantt .decision-option{height:22px!important;border-radius:999px!important;display:flex!important;align-items:center!important;justify-content:center!important;font-size:.72rem!important;font-weight:800!important;color:var(--ink)!important;background:rgba(var(--brand-rgb),.14)!important;}
+body.homepage .project-gantt .continue{background:var(--brand)!important;color:var(--ink)!important;}
+html[dir="rtl"] body.homepage .project-gantt .research,html[dir="rtl"] body.homepage .project-gantt .test,html[dir="rtl"] body.homepage .project-gantt .mvp,html[dir="rtl"] body.homepage .project-gantt .revenue{margin-left:0!important;}
+html[dir="rtl"] body.homepage .project-gantt .research{margin-right:10%!important;}html[dir="rtl"] body.homepage .project-gantt .test{margin-right:24%!important;}html[dir="rtl"] body.homepage .project-gantt .mvp{margin-right:38%!important;}html[dir="rtl"] body.homepage .project-gantt .revenue{margin-right:76%!important;}
+@media(max-width:640px){body.homepage .hero-full-inner{width:min(100% - 32px,1200px)!important;min-height:620px!important;padding-top:96px!important;padding-bottom:40px!important;}body.homepage .project-gantt .gantt-row{grid-template-columns:92px 1fr!important;}}
+
+/* ===== FINAL HERO HEIGHT FIX =====
+   Keeps the hero image taller without making it full-screen.
+   Important is required because index pages still contain inline hero rules.
+*/
+.hero-slider,
+.hero-full-inner {
+  min-height: 720px !important;
+}
+
+@media (max-width: 768px) {
+  .hero-slider,
+  .hero-full-inner {
+    min-height: 620px !important;
+  }
+}
+
+/* ===== FINAL HERO HEIGHT FIX — STRONG OVERRIDE ===== */
+body.homepage .hero-slider,
+body.homepage .hero-full-inner { min-height: 720px !important; }
+@media (max-width: 768px) { body.homepage .hero-slider, body.homepage .hero-full-inner { min-height: 620px !important; } }
