@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Verwandeln Sie Ihre Idee oder Fähigkeiten in Einnahmen | Unternehmensberatung | en-boarding</title>
-  <meta name="description" content="Sie haben eine Idee, Fähigkeiten oder ein Business, aber noch keine Einnahmen? Gewinnen Sie Klarheit darüber, wie Sie daraus Umsatz machen — beginnend mit einer kostenlosen Beratung.">
-  <link rel="icon" type="image/png" href="/favicon.png">
-  <link rel="stylesheet" href="css/global.css">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Verwandeln Sie Ihre Idee oder Fähigkeiten in Einnahmen | Unternehmensberatung | en-boarding</title>
+<meta content="Sie haben eine Idee, Fähigkeiten oder ein Business, aber noch keine Einnahmen? Gewinnen Sie Klarheit darüber, wie Sie daraus Umsatz machen — beginnend mit einer kostenlosen Beratung." name="description"/>
+<link href="/favicon.png" rel="icon" type="image/png"/>
+<link href="css/global.css" rel="stylesheet"/>
+<style>
     .header {
       position: fixed !important;
       top: 0;
@@ -24,15 +25,15 @@
     }
 
     .header.scrolled {
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(var(--white-rgb), 0.92);
       backdrop-filter: blur(8px);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 20px rgba(var(--black-rgb), 0.05);
     }
 
     body.homepage .header .logo,
     body.homepage .header .logo span {
-      color: #ffffff !important;
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+      color: var(--white) !important;
+      text-shadow: 0 1px 4px rgba(var(--black-rgb), 0.08);
     }
 
     body.homepage .header.scrolled .logo,
@@ -108,10 +109,7 @@
       transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    .flip-card:hover .flip-card-inner {
-      transform: rotateY(180deg);
-    }
-
+    .flip-card:hover .flip-card-inner,
     .flip-card.flipped .flip-card-inner {
       transform: rotateY(180deg);
     }
@@ -129,11 +127,11 @@
       align-items: center;
       text-align: left;
       overflow: hidden;
-      box-shadow: 0 20px 35px -10px rgba(0,0,0,0.1);
+      box-shadow: 0 20px 35px -10px rgba(var(--black-rgb), 0.1);
     }
 
     .flip-card-front {
-      background: rgba(255, 255, 255, 0.96);
+      background: rgba(var(--white-rgb), 0.96);
       border: 1px solid var(--line);
       backdrop-filter: blur(2px);
       transform: rotateY(0deg);
@@ -162,7 +160,7 @@
     }
 
     .flip-card-back .card-label {
-      color: rgba(31, 42, 48, 0.7);
+      color: rgba(var(--ink-rgb), 0.7);
     }
 
     .flip-card-front h3,
@@ -184,7 +182,7 @@
     }
 
     .flip-card-back p {
-      color: rgba(31, 42, 48, 0.85);
+      color: rgba(var(--ink-rgb), 0.85);
     }
 
     .closing-line {
@@ -241,9 +239,9 @@
       object-position: center;
       border-radius: 50%;
       display: block;
-      border: 6px solid rgba(255, 255, 255, 0.95);
-      box-shadow: 0 18px 40px rgba(31, 42, 48, 0.12);
-      background: #f3f6f9;
+      border: 6px solid rgba(var(--white-rgb), 0.95);
+      box-shadow: 0 18px 40px rgba(var(--ink-rgb), 0.12);
+      background: var(--image-fallback-bg);
     }
 
     .about-copy h2 {
@@ -260,7 +258,7 @@
 
     .credibility-item {
       flex: 1;
-      background: rgba(169, 207, 214, 0.08);
+      background: rgba(var(--brand-light-rgb), 0.08);
       border: 1px solid var(--line);
       border-radius: 20px;
       padding: 20px 16px;
@@ -320,7 +318,7 @@
     }
 
     .diamond-col {
-      background: rgba(169, 207, 214, 0.08);
+      background: rgba(var(--brand-light-rgb), 0.08);
     }
 
     .diamond-head {
@@ -337,7 +335,7 @@
       padding: 4px 10px;
       border-radius: 999px;
       margin-top: 8px;
-      background: rgba(0,0,0,0.08);
+      background: rgba(var(--black-rgb), 0.08);
     }
 
     .plan-title {
@@ -394,89 +392,152 @@
     }
 
     .cta-section {
+      padding: 70px 20px;
       background: transparent;
-      padding: 80px 20px;
+      overflow: hidden;
     }
 
     .cta-panel {
-      max-width: 860px;
+      position: relative;
+      max-width: 760px;
       margin: 0 auto;
-      background: linear-gradient(135deg, #7fb8c4 0%, #a8d1da 100%);
-      border: 1px solid rgba(127, 184, 196, 0.35);
-      border-radius: 28px;
-      box-shadow: var(--shadow-lg);
+      padding: 48px 28px;
       text-align: center;
-      padding: 54px 34px;
+      border-radius: 26px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 40px rgba(var(--ink-rgb), 0.08);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cta-panel::before {
+      content: "";
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      right: -70px;
+      top: -70px;
+      border-radius: 50%;
+      background: rgba(var(--brand-rgb), 0.16);
+      animation: ctaSoftFloat 5.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .cta-panel::after {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      left: -48px;
+      bottom: -48px;
+      border-radius: 50%;
+      background: rgba(var(--brand-rgb), 0.10);
+      animation: ctaSoftFloatTwo 6.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .cta-panel:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 26px 60px rgba(var(--ink-rgb), 0.12);
+    }
+
+    .cta-panel > * {
+      position: relative;
+      z-index: 2;
     }
 
     .cta-panel .kicker {
-      margin-bottom: 12px;
-      color: rgba(24, 36, 43, 0.78);
+      margin-bottom: 10px;
+      color: var(--muted);
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .cta-panel h2 {
-      margin-bottom: 14px;
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.05;
+      max-width: 620px;
+      margin: 0 auto 12px;
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      line-height: 1.15;
       color: var(--ink);
     }
 
     .cta-panel p {
-      max-width: 720px;
-      margin: 0 auto 26px;
-      color: rgba(24, 36, 43, 0.84);
-      line-height: 1.78;
+      max-width: 580px;
+      margin: 0 auto 22px;
+      color: var(--muted);
+      line-height: 1.7;
     }
 
     .cta-panel .btn-primary {
-      background: rgba(255, 255, 255, 0.96);
-      color: var(--ink);
-      box-shadow: 0 10px 24px rgba(24, 36, 43, 0.08);
-      display: inline-block;
-      padding: 14px 32px;
+      background: var(--ink);
+      color: var(--white);
+      box-shadow: 0 10px 24px rgba(var(--ink-rgb), 0.12);
+      display: inline-flex;
+      padding: 14px 30px;
       border-radius: 999px;
       text-decoration: none;
-      font-weight: 600;
-      transition: background 0.2s;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
     }
 
     .cta-panel .btn-primary:hover {
-      background: rgba(255, 255, 255, 1);
-      color: var(--ink);
+      background: var(--black);
+      color: var(--white);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(var(--ink-rgb), 0.18);
     }
 
     .cta-panel .cta-chips {
-      margin-top: 22px;
+      margin-top: 18px;
       display: flex;
-      gap: 12px;
+      gap: 10px;
       justify-content: center;
       flex-wrap: wrap;
     }
 
     .cta-panel .cta-chips span {
-      background: rgba(255, 255, 255, 0.34);
-      padding: 6px 14px;
+      background: var(--surface-soft);
+      border: 1px solid var(--line);
+      padding: 6px 12px;
       border-radius: 999px;
-      font-size: 0.84rem;
+      font-size: 0.8rem;
       color: var(--ink);
+      animation: ctaChipFloat 4s ease-in-out infinite;
+    }
+
+    .cta-panel .cta-chips span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .cta-panel .cta-chips span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes ctaSoftFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-10px, 12px) scale(1.06); }
+    }
+
+    @keyframes ctaSoftFloatTwo {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(12px, -10px) scale(1.08); }
+    }
+
+    @keyframes ctaChipFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
     }
 
     @media (max-width: 768px) {
-      .cta-panel {
-        padding: 42px 24px;
-      }
-
-      .cta-panel h2 {
-        font-size: 1.8rem;
-      }
+      .cta-section { padding: 62px 20px; }
+      .cta-panel { padding: 42px 24px; border-radius: 24px; }
+      .cta-panel h2 { font-size: 1.8rem; }
     }
 
-    .hero-full {
-      padding: 0 !important;
-    }
+    .hero-full { padding: 0 !important; }
 
     .hero-slider {
       position: relative;
@@ -504,18 +565,18 @@
     }
 
     .slide-1 {
-      background-image: linear-gradient(90deg, rgba(31, 42, 48, 0.22) 0%, rgba(31, 42, 48, 0.12) 38%, rgba(31, 42, 48, 0.08) 100%), url('images/becoming-entrepreneur.webp');
+      background-image: linear-gradient(90deg, rgba(var(--ink-rgb), 0.22) 0%, rgba(var(--ink-rgb), 0.12) 38%, rgba(var(--ink-rgb), 0.08) 100%), url('images/becoming-entrepreneur.webp');
     }
 
     .slide-3 {
-      background-image: linear-gradient(90deg, rgba(31, 42, 48, 0.22) 0%, rgba(31, 42, 48, 0.12) 38%, rgba(31, 42, 48, 0.08) 100%), url('images/building-my-business.webp');
+      background-image: linear-gradient(90deg, rgba(var(--ink-rgb), 0.22) 0%, rgba(var(--ink-rgb), 0.12) 38%, rgba(var(--ink-rgb), 0.08) 100%), url('images/building-my-business.webp');
     }
 
     .hero-slider::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, rgba(169, 207, 214, 0.34) 0%, rgba(169, 207, 214, 0.12) 42%, rgba(169, 207, 214, 0.03) 100%);
+      background: linear-gradient(90deg, rgba(var(--brand-light-rgb), 0.34) 0%, rgba(var(--brand-light-rgb), 0.12) 42%, rgba(var(--brand-light-rgb), 0.03) 100%);
       pointer-events: none;
       z-index: 1;
     }
@@ -526,7 +587,7 @@
       left: 0;
       width: 100%;
       height: 4px;
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(var(--white-rgb), 0.2);
       z-index: 5;
     }
 
@@ -575,7 +636,7 @@
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.5);
+      background: rgba(var(--white-rgb), 0.5);
       cursor: pointer;
       transition: background 0.3s;
     }
@@ -596,228 +657,653 @@
     }
 
     @media (max-width: 900px) {
-      .two-col {
-        grid-template-columns: 1fr;
-        gap: 32px;
-        text-align: center;
-      }
-
-      .about-copy {
-        max-width: 760px;
-        margin: 0 auto;
-      }
-
-      .credibility-strip {
-        flex-direction: column;
-      }
-
-      .grid-3 {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-slider {
-        min-height: 560px;
-      }
-
-      .hero-full-inner {
-        min-height: 560px;
-        padding-top: 110px;
-        padding-bottom: 48px;
-      }
+      .two-col { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+      .about-copy { max-width: 760px; margin: 0 auto; }
+      .credibility-strip { flex-direction: column; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .hero-slider { min-height: 560px; }
+      .hero-full-inner { min-height: 560px; padding-top: 110px; padding-bottom: 48px; }
     }
 
     @media (max-width: 640px) {
-      .hero-slider {
-        min-height: 520px;
-      }
+      .hero-slider { min-height: 520px; }
+      .hero-full-inner { min-height: 520px; }
+      .about-image img { width: 220px; height: 220px; }
+    }
 
-      .hero-full-inner {
-        min-height: 520px;
-      }
+    /* ===== SERVICES SECTION ANIMATION — SCOPED SAFE ===== */
+    .services-wrapper .services-section { animation: servicesSectionReveal 0.8s ease both; }
+    .services-wrapper table {
+      transform: translateY(26px);
+      opacity: 0;
+      animation: servicesTableReveal 0.8s ease 0.1s forwards;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .services-wrapper table:hover { transform: translateY(-4px); box-shadow: 0 18px 42px rgba(var(--ink-rgb), 0.10); }
+    .services-wrapper tbody tr { opacity: 0; transform: translateY(16px); animation: servicesRowReveal 0.55s ease forwards; transition: background 0.2s ease; }
+    .services-wrapper tbody tr:nth-child(1) { animation-delay: 0.18s; }
+    .services-wrapper tbody tr:nth-child(2) { animation-delay: 0.28s; }
+    .services-wrapper tbody tr:nth-child(3) { animation-delay: 0.38s; }
+    .services-wrapper tbody tr:nth-child(4) { animation-delay: 0.48s; }
+    .services-wrapper tbody tr:nth-child(5) { animation-delay: 0.58s; }
+    .services-wrapper tbody tr:hover { background: rgba(var(--brand-light-rgb), 0.12); }
+    .services-wrapper .diamond-head { position: relative; overflow: hidden; }
+    .services-wrapper .diamond-head::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 0%, rgba(var(--white-rgb), 0.30) 45%, transparent 70%);
+      transform: translateX(-120%);
+      animation: diamondShine 4.2s ease-in-out infinite;
+    }
+    .services-wrapper .badge { animation: badgePulse 2.4s ease-in-out infinite; }
+    .services-wrapper .services-cta-link { transition: transform 0.25s ease, border-color 0.25s ease; }
+    .services-wrapper .services-cta-link:hover { transform: translateY(-2px); border-color: var(--ink); }
 
-      .about-image img {
-        width: 220px;
-        height: 220px;
-      }
+    @keyframes servicesSectionReveal { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes servicesTableReveal { to { opacity: 1; transform: translateY(0); } }
+    @keyframes servicesRowReveal { to { opacity: 1; transform: translateY(0); } }
+    @keyframes diamondShine { 0%, 55% { transform: translateX(-120%); } 75%, 100% { transform: translateX(120%); } }
+    @keyframes badgePulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } }
+
+    /* ===== FINAL CTA BUTTON FIX — MORE SPECIFIC THAN global.css ===== */
+    body.homepage .cta-section .cta-panel .btn.btn-primary {
+      background: var(--ink) !important;
+      color: var(--white) !important;
+      box-shadow: 0 12px 28px rgba(var(--ink-rgb), 0.18) !important;
+      border: 1px solid transparent !important;
+    }
+
+    body.homepage .cta-section .cta-panel .btn.btn-primary:hover {
+      background: var(--black) !important;
+      color: var(--white) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(var(--ink-rgb), 0.24) !important;
+    }
+
+    /* ===== HOMEPAGE CTA CONSISTENCY FIX ===== */
+    body.homepage .hero-actions .btn-primary,
+    body.homepage .about-network-section .about-network-btn,
+    body.homepage .services-wrapper .services-cta-link,
+    body.homepage .cta-section .cta-panel .btn.btn-primary {
+      background: var(--ink) !important;
+      color: var(--white) !important;
+      border: 1px solid transparent !important;
+      box-shadow: 0 12px 28px rgba(var(--ink-rgb), 0.16) !important;
+    }
+
+    body.homepage .hero-actions .btn-primary:hover,
+    body.homepage .about-network-section .about-network-btn:hover,
+    body.homepage .services-wrapper .services-cta-link:hover,
+    body.homepage .cta-section .cta-panel .btn.btn-primary:hover {
+      background: var(--black) !important;
+      color: var(--white) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(var(--ink-rgb), 0.22) !important;
+    }
+  </style>
+<style id="homepage-animation-fixes">
+    /* Animation fixes for inserted homepage sections */
+    @keyframes heroFadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes ganttGrow { 0% { transform: scaleX(0); opacity: 0.45; } 45%, 80% { transform: scaleX(1); opacity: 1; } 100% { transform: scaleX(1); opacity: 0.95; } }
+    @keyframes decisionPulse { 0%, 100% { transform: translateY(0); opacity: 0.72; } 50% { transform: translateY(-2px); opacity: 1; } }
+    @keyframes softFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    @keyframes lineGlow { 0%, 100% { opacity: 0.42; transform: scale(1); } 50% { opacity: 0.78; transform: scale(1.015); } }
+    .hero-full-content { animation: heroFadeUp 0.85s ease-out both; }
+    .hero-gantt { animation: heroFadeUp 1s ease-out 0.18s both; }
+    .hero-gantt .bar { transform-origin: left center; animation: ganttGrow 3.8s ease-in-out infinite; }
+    .hero-gantt .research { animation-delay: 0.15s; }
+    .hero-gantt .test { animation-delay: 0.3s; }
+    .hero-gantt .mvp { animation-delay: 0.45s; }
+    .hero-gantt .revenue { animation-delay: 0.6s; }
+    .decision-option { animation: decisionPulse 2.8s ease-in-out infinite; }
+    .decision-option.adapt { animation-delay: 0.22s; }
+    .decision-option.continue { animation-delay: 0.44s; }
+    .translator-panel.input-panel { animation: softFloat 5s ease-in-out infinite; }
+    .translator-panel.output-panel { animation: softFloat 5s ease-in-out 0.55s infinite; }
+    .network-line { animation: lineGlow 4.5s ease-in-out infinite; transform-origin: center; }
+    .mini-card { animation: popIn .8s ease forwards, softFloat 4.6s ease-in-out 1s infinite; }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-full-content, .hero-gantt, .hero-gantt .bar, .decision-option, .translator-panel.input-panel, .translator-panel.output-panel, .network-line, .mini-card, .person-node.main { animation: none !important; }
     }
   </style>
 </head>
 <body class="homepage">
-  <div id="lang-bar" style="display:none;"></div>
+<div id="lang-bar" style="display:none;"></div>
+<header class="header">
+<div class="header-inner" id="global-header"></div>
+</header>
+<main>
+<section class="hero-full hero-slider" id="heroSlider">
+<div class="slider-slide slide-1 active"></div>
+<div class="hero-full-inner">
+<div class="hero-full-content">
+<p class="kicker">Von der Idee zur Umsetzung</p>
+<h1>Struktur verwandelt Ideen in Handlung.</h1>
+<p>Testen Sie Ihre Idee früh, treffen Sie klare Entscheidungen und bewegen Sie sich mit weniger Zeitverlust in Richtung Umsatz.</p>
+<div class="hero-gantt">
+<div class="gantt-row"><span>Idee</span><div class="track"><div class="bar idea"></div></div></div>
+<div class="gantt-row"><span>Recherche</span><div class="track"><div class="bar research"></div></div></div>
+<div class="gantt-row"><span>Test</span><div class="track"><div class="bar test"></div></div></div>
+<div class="gantt-row decision-row"><span>Entscheidung</span><div class="decision-track"><div class="decision-option stop">Stoppen</div><div class="decision-option adapt">Anpassen</div><div class="decision-option continue">Weiter</div></div></div>
+<div class="gantt-row"><span>MVP</span><div class="track"><div class="bar mvp"></div></div></div>
+<div class="gantt-row"><span>Umsatz</span><div class="track"><div class="bar revenue"></div></div></div>
+</div>
+<div class="hero-actions">
+<a class="btn btn-primary" href="https://en-boarding.com/de_booking.html">Mit dem Aufbau starten →</a>
+</div>
+</div>
+</div>
+</section>
+<style>
+      .hero-full { padding: 0 !important; }
+      .hero-slider { position: relative; min-height: 560px; overflow: hidden; background: var(--hero-fallback-bg); }
+      .slider-slide { position: absolute; inset: 0; width: 100%; height: 100%; background-image: linear-gradient(90deg, rgba(var(--ink-rgb), 0.76) 0%, rgba(var(--ink-rgb), 0.48) 48%, rgba(var(--ink-rgb), 0.12) 100%), url("images/becoming-entrepreneur.webp"); background-size: cover; background-position: center 30%; background-repeat: no-repeat; z-index: 0; }
+      .hero-full-inner { position: relative; z-index: 2; min-height: 560px; width: min(1200px, calc(100% - 48px)); margin: 0 auto; display: flex; align-items: center; padding-top: 105px; padding-bottom: 48px; }
+      .hero-full-content { width: 50%; max-width: 620px; color: var(--white); }
+      .hero-full-content .kicker { color: rgba(var(--white-rgb), 0.86); margin-bottom: 14px; }
+      .hero-full-content h1 { margin: 0 0 18px; color: var(--white); font-size: clamp(2.35rem, 4.6vw, 4.2rem); line-height: 0.98; letter-spacing: -0.05em; }
+      .hero-full-content p { max-width: 560px; color: rgba(var(--white-rgb), 0.88); font-size: 1.05rem; line-height: 1.65; }
+      .hero-gantt { margin-top: 26px; max-width: 540px; padding: 22px; border-radius: 24px; background: rgba(var(--white-rgb), 0.16); border: 1px solid rgba(var(--white-rgb), 0.24); backdrop-filter: blur(8px); }
+      .gantt-row { display: grid; grid-template-columns: 92px 1fr; gap: 14px; align-items: center; margin-bottom: 12px; }
+      .gantt-row:last-child { margin-bottom: 0; }
+      .gantt-row span { color: var(--white); font-size: 0.86rem; font-weight: 700; }
+      .track { height: 22px; border-radius: 999px; background: rgba(var(--white-rgb), 0.18); overflow: hidden; }
+      .bar { height: 100%; border-radius: 999px; background: var(--white); }
+      .idea { width: 18%; }
+      .research { width: 34%; margin-left: 10%; }
+      .test { width: 44%; margin-left: 24%; }
+      .decision-track { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+      .decision-option { height: 22px; border-radius: 999px; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 700; color: var(--white); background: rgba(var(--white-rgb), 0.18); }
+      .stop { opacity: 0.62; }
+      .adapt { opacity: 0.82; }
+      .continue { background: var(--white); color: var(--ink); }
+      .mvp { width: 50%; margin-left: 38%; }
+      .revenue { width: 24%; margin-left: 76%; background: var(--brand-light); }
+      .hero-actions { margin-top: 24px; }
+      .hero-actions .btn-primary { border-radius: 999px; padding: 14px 28px; }
+      @media (max-width: 900px) { .hero-slider, .hero-full-inner { min-height: 560px; } .hero-full-content { width: 100%; max-width: 620px; } }
+      @media (max-width: 640px) { .hero-slider, .hero-full-inner { min-height: 520px; } .hero-full-inner { width: min(100% - 32px, 1200px); padding-top: 100px; padding-bottom: 40px; } .hero-gantt { padding: 18px; } .gantt-row { grid-template-columns: 86px 1fr; } .decision-option { font-size: 0.65rem; } }
+    </style>
+<section class="approach-visual-section approach-redesign" id="approach">
+<div class="container">
+<div class="approach-redesign-header">
+<div class="kicker">Mein Ansatz</div>
+<h2>Ein ruhiger Prozess, der Unsicherheit in Fortschritt verwandelt.</h2>
+<p>Statt eines unübersichtlichen Vorher-nachher-Bildes zeigt dieser Bereich einen klaren Weg: Wir klären, was wichtig ist, bauen den einfachsten nächsten Schritt, testen ihn und verbessern ihn, bis er in Richtung Umsatz führen kann.</p>
+</div>
+<div class="approach-flow-card">
+<div aria-hidden="true" class="approach-flow-line"></div>
+<article class="approach-step">
+<div class="approach-step-number">01</div>
+<div class="approach-step-icon">?</div>
+<h3>Klären</h3>
+<p>Wir verstehen Ihre Idee, Fähigkeiten, Ihr Angebot, Ihre Zielgruppe und was die Umsetzung aktuell blockiert.</p>
+</article>
+<article class="approach-step">
+<div class="approach-step-number">02</div>
+<div class="approach-step-icon">↘</div>
+<h3>Vereinfachen</h3>
+<p>Wir reduzieren den Lärm auf eine klare Richtung, eine Priorität und einen praktischen nächsten Schritt.</p>
+</article>
+<article class="approach-step">
+<div class="approach-step-number">03</div>
+<div class="approach-step-icon">✓</div>
+<h3>Testen</h3>
+<p>Sie testen die Idee mit echten Menschen, bevor Sie zu viel Zeit, Geld oder Energie investieren.</p>
+</article>
+<article class="approach-step">
+<div class="approach-step-number">04</div>
+<div class="approach-step-icon">→</div>
+<h3>Bewegen</h3>
+<p>Sie gehen mit Struktur, Sicherheit und nächsten Schritten weiter, die Sie näher an Einnahmen bringen.</p>
+</article>
+</div>
+<div class="approach-summary-panel">
+<div>
+<span class="summary-label">Das Ziel</span>
+<strong>Weniger Verwirrung. Mehr Richtung. Klares Handeln.</strong>
+</div>
+<a class="approach-mini-btn" href="https://en-boarding.com/de_booking.html">Mit einer kostenlosen Session starten →</a>
+</div>
+</div>
+</section>
+<style>
+      .approach-redesign {
+        position: relative;
+        padding: 110px 20px;
+        background:
+          radial-gradient(circle at 12% 18%, rgba(var(--brand-rgb), 0.18), transparent 30%),
+          radial-gradient(circle at 88% 82%, rgba(var(--brand-light-rgb), 0.22), transparent 32%),
+          linear-gradient(135deg, var(--section-bg-bright) 0%, var(--section-bg-soft) 100%);
+        overflow: hidden;
+      }
 
-  <header class="header">
-    <div class="header-inner" id="global-header"></div>
-  </header>
+      .approach-redesign::before {
+        content: "";
+        position: absolute;
+        inset: 28px;
+        border: 1px solid rgba(var(--brand-rgb), 0.16);
+        border-radius: 36px;
+        pointer-events: none;
+      }
 
-  <main>
-    <section class="hero-full hero-slider" id="heroSlider">
-      <div class="slider-slide slide-1 active"></div>
-      <div class="slider-slide slide-3"></div>
-      <div class="slider-progress">
-        <div class="progress-bar" id="progressBar"></div>
-      </div>
+      .approach-redesign-header {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        max-width: 780px;
+        margin: 0 auto 54px;
+      }
 
-      <div class="hero-full-inner">
-        <div class="hero-full-content">
-          <h1>Sie haben bereits ein Business. Sie haben es nur noch nicht aufgebaut.</h1>
-          <p>Ich helfe Ihnen, Ihre Ideen, Fähigkeiten oder Leidenschaft in ein echtes, funktionierendes Business zu verwandeln.</p>
+      .approach-redesign-header .kicker {
+        margin-bottom: 14px;
+        color: var(--brand-deep);
+      }
 
-          <div class="hero-actions">
-            <a href="https://en-boarding.com/de_booking.html" class="btn btn-primary">Mein Business aufbauen →</a>
-          </div>
+      .approach-redesign-header h2 {
+        margin: 0 0 16px;
+        font-size: clamp(2rem, 4vw, 3.35rem);
+        line-height: 1.08;
+        letter-spacing: -0.04em;
+        color: var(--ink);
+      }
 
-          <div class="slider-dots">
-            <span class="dot active" data-slide="0"></span>
-            <span class="dot" data-slide="1"></span>
-          </div>
-        </div>
-      </div>
-    </section>
+      .approach-redesign-header p {
+        max-width: 720px;
+        margin: 0 auto;
+        color: var(--muted);
+        line-height: 1.75;
+      }
 
-    <section id="approach" class="approach-section">
-      <div class="approach-container">
-        <div class="kicker">Mein Ansatz</div>
-        <h2>Komplexe Expertise, einfache Umsetzung</h2>
-        <p class="approach-intro">Die meisten Menschen scheitern nicht an fehlenden Ideen, sondern an mangelnder Klarheit darüber, was als Nächstes zu tun ist. Meine Aufgabe ist es, Struktur zu schaffen und komplexe Methoden in einfache, umsetzbare Schritte zu übersetzen.</p>
+      .approach-flow-card {
+        position: relative;
+        z-index: 2;
+        max-width: 1120px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+        padding: 24px;
+        border-radius: 34px;
+        background: rgba(var(--white-rgb), 0.78);
+        border: 1px solid rgba(var(--brand-rgb), 0.22);
+        box-shadow: 0 28px 70px rgba(var(--ink-rgb), 0.08);
+        backdrop-filter: blur(10px);
+      }
 
-        <div class="flip-card" id="flipCard">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <div class="card-content">
-                <span class="card-label">Ansatz</span>
-                <h3>Strukturierte Expertise hinter jedem Schritt</h3>
-                <p>Meine Arbeit basiert auf bewährten Methoden wie Design Thinking, Lean Startup und agilen Prinzipien. Sie bieten einen strukturierten Weg von der Idee zur Umsetzung, mit starkem Fokus auf die Definition eines Minimum Viable Product (MVP) und dessen Validierung durch reale Interaktionen und erste Verkäufe.</p>
-              </div>
-            </div>
+      .approach-flow-line {
+        position: absolute;
+        left: 10%;
+        right: 10%;
+        top: 82px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(var(--brand-rgb), 0.65), transparent);
+        z-index: 1;
+      }
 
-            <div class="flip-card-back">
-              <div class="card-content">
-                <span class="card-label">Was das für Sie bedeutet</span>
-                <h3>Klare Handlung statt unnötiger Komplexität</h3>
-                <p>Ich beginne damit, Sie und Ihre Idee zu verstehen, und übersetze sie dann in eine einfache Version, die schnell getestet werden kann. Das Ziel ist, ins Handeln zu kommen, Ihr MVP vor echte Menschen zu bringen und aus echtem Feedback und ersten Verkäufen zu lernen. Von dort aus verfeinern wir Schritt für Schritt, bis Sie Klarheit, Traktion und messbare Ergebnisse gewinnen.</p>
-                <p class="closing-line">Ich übernehme die Komplexität. Sie konzentrieren sich auf die Umsetzung.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+      .approach-step {
+        position: relative;
+        z-index: 2;
+        min-height: 270px;
+        padding: 28px 22px;
+        border-radius: 26px;
+        background: var(--white);
+        border: 1px solid rgba(var(--brand-rgb), 0.16);
+        box-shadow: 0 16px 36px rgba(var(--ink-rgb), 0.055);
+        transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+      }
 
-        <div class="flip-hint">Hover or tap to see both sides</div>
-      </div>
-    </section>
+      .approach-step:hover {
+        transform: translateY(-7px);
+        border-color: rgba(var(--brand-rgb), 0.42);
+        box-shadow: 0 24px 54px rgba(var(--ink-rgb), 0.1);
+      }
 
-    <section class="services-wrapper" id="services">
-      <div class="services-section">
-        <div class="services-header">
-          <div class="kicker">So funktioniert es</div>
-          <h2>Services</h2>
-          <p>Wählen Sie den Grad der Unterstützung danach aus, wie viel Klarheit, Struktur und Umsetzung Sie brauchen.</p>
-        </div>
+      .approach-step-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 44px;
+        height: 30px;
+        padding: 0 12px;
+        border-radius: 999px;
+        background: rgba(var(--brand-rgb), 0.16);
+        color: var(--ink);
+        font-size: 0.74rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        margin-bottom: 22px;
+      }
 
-        <div class="table-wrapper">
-          <table>
-            <thead>
-              <tr>
-                <th></th>
-                <th><span class="plan-title">Silver</span><span class="plan-subtitle">Klarheit</span></th>
-                <th><span class="plan-title">Gold</span><span class="plan-subtitle">Umsetzung</span></th>
-                <th class="diamond-head"><span class="plan-title">Diamond</span><span class="plan-subtitle">Ergebnisse</span><span class="badge">Am intensivsten</span></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><th>Best for</th><td>Getting direction</td><td>Building momentum</td><td class="diamond-col">Fast execution & real results</td></tr>
-              <tr><th>Format</th><td>One-time session</td><td>Weekly support</td><td class="diamond-col">High-touch intensive</td></tr>
-              <tr><th>Sessions</th><td>1 intensive session</td><td>1 session per week</td><td class="diamond-col">1 deep-dive + 2 sessions/week</td></tr>
-              <tr><th>Focus</th><td>Klarheit & planning</td><td>Umsetzung & testing</td><td class="diamond-col">Umsetzung, feedback, optimization</td></tr>
-              <tr><th>Outcome</th><td>Clear direction + next steps</td><td>Validated progress + momentum</td><td class="diamond-col">Structured intensity + measurable results</td></tr>
-            </tbody>
-          </table>
-        </div>
+      .approach-step-icon {
+        width: 58px;
+        height: 58px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 22px;
+        background: linear-gradient(135deg, rgba(var(--brand-rgb), 0.22), rgba(var(--brand-rgb), 0.08));
+        color: var(--ink);
+        font-size: 1.45rem;
+        font-weight: 900;
+      }
 
-        <p class="note">Brauchen Sie Klarheit? Starten Sie mit Silver. Wollen Sie tiefere Unterstützung und schnellere Fortschritte? Dann passen Gold oder Diamond besser.</p>
-        <div style="text-align: center;">
-          <a href="de_services.html" class="services-cta-link">Mehr über die Leistungen erfahren →</a>
-        </div>
-      </div>
-    </section>
+      .approach-step h3 {
+        margin: 0 0 10px;
+        color: var(--ink);
+        font-size: 1.25rem;
+      }
 
-    <section class="results-section">
-      <div class="container">
-        <div class="section-title">
-          <div class="kicker">Ergebnisse</div>
-          <h2>Was Sie am Ende mitnehmen.</h2>
-          <p>Der Wert liegt darin zu verstehen, wie Sie das, was Sie haben, in Einkommen verwandeln.</p>
-        </div>
+      .approach-step p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+        font-size: 0.96rem;
+      }
 
-        <div class="grid-3">
-          <div class="card">
-            <div class="card-icon">A</div>
-            <h3>Ein klarer Monetarisierungspfad</h3>
-            <p>Verstehen Sie, wie Ihre Idee, Fähigkeiten oder Ihr Business Einnahmen generieren können.</p>
-          </div>
+      .approach-summary-panel {
+        position: relative;
+        z-index: 2;
+        max-width: 920px;
+        margin: 28px auto 0;
+        padding: 22px 24px;
+        border-radius: 24px;
+        background: var(--ink);
+        color: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 22px;
+        box-shadow: 0 20px 42px rgba(var(--ink-rgb), 0.14);
+      }
 
-          <div class="card">
-            <div class="card-icon">B</div>
-            <h3>Fokussierte Prioritäten</h3>
-            <p>Hören Sie auf, Energie zu verschwenden — konzentrieren Sie sich auf das, was tatsächlich zu Einnahmen führt.</p>
-          </div>
+      .summary-label {
+        display: block;
+        margin-bottom: 4px;
+        color: rgba(var(--white-rgb), 0.62);
+        font-size: 0.72rem;
+        font-weight: 850;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
 
-          <div class="card">
-            <div class="card-icon">C</div>
-            <h3>Nächste Schritte, die Sie umsetzen können</h3>
-            <p>Gehen Sie mit einer praktischen Richtung, die Sie sofort anwenden können.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+      .approach-summary-panel strong {
+        display: block;
+        color: var(--white);
+        font-size: clamp(1.05rem, 2vw, 1.28rem);
+        line-height: 1.35;
+      }
 
-    <section id="about" class="about-section">
-      <div class="container two-col">
-        <div class="about-image">
-          <img src="images/bouchra.jpg" alt="Bouchra Driouach, Business-Beraterin" loading="lazy" onerror="this.src='https://placehold.co/600x600?text=Bouchra+Driouach'">
-        </div>
+      .approach-mini-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        padding: 13px 22px;
+        border-radius: 999px;
+        background: var(--white);
+        color: var(--ink);
+        font-weight: 800;
+        text-decoration: none;
+        box-shadow: 0 12px 26px rgba(var(--black-rgb), 0.12);
+      }
 
-        <div class="about-copy">
-          <div class="kicker">Über mich</div>
-          <h2>Bouchra Driouach, Business-Beraterin</h2>
-          <p>Ich arbeite mit Menschen, die Ideen, Fähigkeiten oder ein bestehendes Business haben, aber noch keine beständigen Einnahmen erzielen.</p>
-          <p>Mein Fokus ist einfach: Ihnen zu helfen zu verstehen, was Sie verkaufen sollen, an wen Sie es verkaufen und was Sie als Nächstes tun müssen, um Einnahmen zu erzielen.</p>
-          <p>Statt Sie mit Komplexität zu überfordern, bringe ich Struktur, Klarheit und praktische Handlung, damit Sie mit Zuversicht vorankommen können.</p>
+      .approach-mini-btn:hover {
+        color: var(--ink);
+        transform: translateY(-2px);
+      }
 
-          <a href="de_about.html" class="btn-solid" style="margin-top: 8px;">Mehr über mich erfahren →</a>
+      @media (max-width: 1000px) {
+        .approach-flow-card {
+          grid-template-columns: repeat(2, 1fr);
+        }
 
-          <div class="credibility-strip">
-            <div class="credibility-item"><strong>Klarheit</strong><span>Wissen Sie genau, wie Ihre Idee zu einem bezahlten Angebot werden kann.</span></div>
-            <div class="credibility-item"><strong>Richtung</strong><span>Konzentrieren Sie sich auf die Maßnahmen, die Sie wirklich in Richtung Umsatz bringen.</span></div>
-            <div class="credibility-item"><strong>Handlung</strong><span>Verlassen Sie jeden Schritt mit einer konkreten Entscheidung und dem nächsten Zug.</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
+        .approach-flow-line {
+          display: none;
+        }
+      }
 
-    <section class="cta-section">
-      <div class="cta-panel">
-        <div class="kicker">Starten Sie hier</div>
-        <h2>Sie müssen nicht erst alles herausfinden, bevor Sie sich melden.</h2>
-        <p>Beginnen Sie mit der kostenlosen ersten Session. Wir schauen uns Ihre Idee, Ihre aktuelle Situation und das an, was den Fortschritt blockiert — und entscheiden dann, ob Silver, Gold oder Diamond der richtige nächste Schritt für Sie ist.</p>
-        <a href="de_booking.html" class="btn btn-primary">Kostenlose Session buchen →</a>
+      @media (max-width: 680px) {
+        .approach-redesign {
+          padding: 82px 20px;
+        }
 
-        <div class="cta-chips">
-          <span>Kostenlose erste Session</span>
-          <span>Keine Verpflichtung</span>
-          <span>Klarer nächster Schritt</span>
-        </div>
-      </div>
-    </section>
-  </main>
+        .approach-redesign::before {
+          inset: 14px;
+          border-radius: 26px;
+        }
 
-  <footer>
-    <div class="footer-inner" id="global-footer"></div>
-  </footer>
+        .approach-flow-card {
+          grid-template-columns: 1fr;
+          padding: 16px;
+          border-radius: 28px;
+        }
 
-  <div id="cookie-consent"></div>
+        .approach-step {
+          min-height: auto;
+          padding: 26px 22px;
+        }
 
-  <script src="js/components.js"></script>
-  <script>
+        .approach-summary-panel {
+          align-items: stretch;
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .approach-mini-btn {
+          width: 100%;
+        }
+      }
+    </style>
+<section class="services-wrapper" id="services">
+<style>
+        .services-wrapper { background: linear-gradient(135deg, var(--section-bg-light) 0%, var(--section-bg-soft) 100%); padding: 100px 20px; overflow: hidden; }
+        .services-section { max-width: 1180px; margin: 0 auto; }
+        .services-header { text-align: center; max-width: 760px; margin: 0 auto 52px; }
+        .services-header .kicker { margin-bottom: 12px; }
+        .services-header h2 { margin: 0 0 14px; font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -0.03em; }
+        .services-header p { color: var(--muted); line-height: 1.75; }
+        .services-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
+        .service-card { position: relative; background: rgba(var(--white-rgb), 0.86); border: 1px solid rgba(var(--brand-rgb), 0.22); border-radius: 30px; padding: 32px 28px; box-shadow: 0 22px 50px rgba(var(--ink-rgb), 0.07); overflow: hidden; transform: translateY(24px); opacity: 0; animation: serviceCardIn 0.75s ease forwards; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
+        .service-card:nth-child(2) { animation-delay: 0.12s; }
+        .service-card:nth-child(3) { animation-delay: 0.24s; }
+        .service-card:hover { transform: translateY(-8px); box-shadow: 0 30px 70px rgba(var(--ink-rgb), 0.12); border-color: rgba(var(--brand-rgb), 0.46); }
+        .service-card::before { content: ""; position: absolute; width: 180px; height: 180px; right: -80px; top: -80px; border-radius: 50%; background: rgba(var(--brand-rgb), 0.14); transition: transform 0.35s ease; }
+        .service-card:hover::before { transform: scale(1.18); }
+        .service-card.featured { background: linear-gradient(135deg, var(--white) 0%, var(--section-bg-accent) 100%); border-color: rgba(var(--brand-rgb), 0.42); }
+        .service-card.featured::after { content: ""; position: absolute; inset: 0; background: linear-gradient(120deg, transparent 0%, rgba(var(--white-rgb), 0.55) 45%, transparent 70%); transform: translateX(-120%); animation: serviceShine 4.6s ease-in-out infinite; pointer-events: none; }
+        .service-top { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 24px; }
+        .service-name { display: block; font-size: 1.35rem; font-weight: 850; color: var(--ink); margin-bottom: 4px; }
+        .service-subtitle { color: var(--muted); font-size: 0.92rem; font-weight: 650; }
+        .service-number {
+          width: 44px;
+          height: 44px;
+          border-radius: 16px;
+          background: var(--brand-soft);
+          color: var(--ink);
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 900;
+          line-height: 1;
+          flex: 0 0 44px;
+          text-align: center;
+        }
+        .service-badge { position: relative; z-index: 2; display: inline-flex; margin-bottom: 18px; padding: 6px 12px; border-radius: 999px; background: var(--brand); color: var(--ink); font-size: 0.72rem; font-weight: 850; letter-spacing: 0.08em; text-transform: uppercase; animation: serviceBadgePulse 2.6s ease-in-out infinite; }
+        .service-description { position: relative; z-index: 2; color: var(--muted); line-height: 1.7; margin-bottom: 24px; }
+        .service-list { position: relative; z-index: 2; display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+        .service-list li { display: flex; gap: 10px; align-items: flex-start; color: var(--ink); font-weight: 600; font-size: 0.94rem; }
+        .service-list li::before { content: "✓"; width: 22px; height: 22px; border-radius: 50%; background: rgba(var(--brand-rgb), 0.18); color: var(--ink); display: inline-flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 900; flex: 0 0 auto; margin-top: 1px; }
+        .services-note { max-width: 760px; margin: 34px auto 0; text-align: center; color: var(--muted); line-height: 1.7; }
+        .services-action { text-align: center; margin-top: 30px; }
+        .services-cta-link { display: inline-flex; align-items: center; justify-content: center; padding: 13px 26px; border-radius: 999px; background: var(--ink); color: var(--white); font-weight: 750; text-decoration: none; box-shadow: 0 14px 28px rgba(var(--ink-rgb), 0.13); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+        .services-cta-link:hover { color: var(--white); transform: translateY(-2px); box-shadow: 0 18px 36px rgba(var(--ink-rgb), 0.18); }
+
+
+        /* FIX: keep all service numbers locked to the same top-right position.
+           The Gold badge no longer controls or pushes number 02 down. */
+        .services-cards .service-card {
+          padding: 32px 28px;
+        }
+
+        .services-cards .service-card .service-top {
+          display: block;
+          padding-right: 64px;
+          margin-bottom: 24px;
+        }
+
+        .services-cards .service-card .service-number {
+          position: absolute;
+          top: 32px;
+          right: 28px;
+          width: 44px;
+          height: 44px;
+          min-width: 44px;
+          min-height: 44px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          line-height: 1;
+          text-align: center;
+          flex: none;
+          margin: 0;
+          z-index: 3;
+        }
+
+        .services-cards .service-card.featured .service-badge {
+          margin-bottom: 18px;
+        }
+
+        @keyframes serviceCardIn { to { opacity: 1; transform: translateY(0); } }
+        @keyframes serviceShine { 0%, 55% { transform: translateX(-120%); } 75%, 100% { transform: translateX(120%); } }
+        @keyframes serviceBadgePulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } }
+        @media (max-width: 950px) { .services-cards { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) {
+          .services-wrapper { padding: 80px 20px; }
+          .services-cards .service-card { padding: 28px 22px; }
+          .services-cards .service-card .service-top { padding-right: 58px; }
+          .services-cards .service-card .service-number { top: 28px; right: 22px; }
+        }
+      </style>
+<div class="services-section">
+<div class="services-header">
+<div class="kicker">So funktioniert es</div>
+<h2>Wählen Sie die Unterstützung, die zu Ihrer Phase passt.</h2>
+<p>Jede Leistung ist darauf ausgelegt, Sie von Verwirrung zu Klarheit und anschließend von Klarheit zu Umsetzung und messbarem Fortschritt zu bringen.</p>
+</div>
+<div class="services-cards">
+<article class="service-card">
+<div class="service-number">01</div>
+<div class="service-top"><div><span class="service-name">Silver</span><span class="service-subtitle">Klarheit</span></div></div>
+<p class="service-description">Ideal, wenn Sie Richtung, Fokus und einen klaren nächsten Schritt brauchen, bevor Sie mehr Zeit oder Geld investieren.</p>
+<ul class="service-list"><li>Eine intensive Klarheitssession</li><li>Festlegen, worauf Sie zuerst fokussieren</li><li>Mit praktischen nächsten Schritten herausgehen</li></ul>
+</article>
+<article class="service-card featured">
+<span class="service-badge">Am ausgewogensten</span>
+<div class="service-number">02</div>
+<div class="service-top"><div><span class="service-name">Gold</span><span class="service-subtitle">Umsetzung</span></div></div>
+<p class="service-description">Ideal, wenn Sie Struktur, wöchentliche Unterstützung und Schwung möchten, während Sie Ihre Idee mit echten Menschen testen.</p>
+<ul class="service-list"><li>Wöchentliche Umsetzungsbegleitung</li><li>Angebot aufbauen, testen und verbessern</li><li>Mit Verantwortung Momentum schaffen</li></ul>
+</article>
+<article class="service-card">
+<div class="service-number">03</div>
+<div class="service-top"><div><span class="service-name">Diamond</span><span class="service-subtitle">Ergebnisse</span></div></div>
+<p class="service-description">Ideal, wenn Sie intensive Unterstützung, schnellere Umsetzung und einen stärkeren Fokus auf messbare Ergebnisse möchten.</p>
+<ul class="service-list"><li>Deep-Dive plus zwei Sessions pro Woche</li><li>Schnelles Feedback und Optimierung</li><li>High-Touch-Unterstützung Richtung Ergebnisse</li></ul>
+</article>
+</div>
+<p class="services-note">Brauchen Sie Klarheit? Starten Sie mit Silver. Wollen Sie tiefere Unterstützung und schnellere Fortschritte? Dann passen Gold oder Diamond besser.</p>
+<div class="services-action"><a class="services-cta-link" href="{'kicker': 'So funktioniert es', 'h2': 'Wählen Sie die Unterstützung, die zu Ihrer Phase passt.', 'p': 'Jede Leistung ist darauf ausgelegt, Sie von Verwirrung zu Klarheit und anschließend von Klarheit zu Umsetzung und messbarem Fortschritt zu bringen.', 'cards': [('Silver', 'Klarheit', 'Ideal, wenn Sie Richtung, Fokus und einen klaren nächsten Schritt brauchen, bevor Sie mehr Zeit oder Geld investieren.', ['Eine intensive Klarheitssession', 'Festlegen, worauf Sie zuerst fokussieren', 'Mit praktischen nächsten Schritten herausgehen']), ('Gold', 'Umsetzung', 'Ideal, wenn Sie Struktur, wöchentliche Unterstützung und Schwung möchten, während Sie Ihre Idee mit echten Menschen testen.', ['Wöchentliche Umsetzungsbegleitung', 'Angebot aufbauen, testen und verbessern', 'Mit Verantwortung Momentum schaffen']), ('Diamond', 'Ergebnisse', 'Ideal, wenn Sie intensive Unterstützung, schnellere Umsetzung und einen stärkeren Fokus auf messbare Ergebnisse möchten.', ['Deep-Dive plus zwei Sessions pro Woche', 'Schnelles Feedback und Optimierung', 'High-Touch-Unterstützung Richtung Ergebnisse'])], 'badge': 'Am ausgewogensten', 'note': 'Brauchen Sie Klarheit? Starten Sie mit Silver. Wollen Sie tiefere Unterstützung und schnellere Fortschritte? Dann passen Gold oder Diamond besser.', 'button': 'Mehr über die Leistungen erfahren →'}">Mehr über die Leistungen erfahren →</a></div>
+</div>
+</section>
+<section class="results-section">
+<div class="container">
+<div class="section-title">
+<div class="kicker">Ergebnisse</div>
+<h2>Was Sie mitnehmen.</h2>
+<p>Der Wert liegt darin zu verstehen, wie Sie das, was Sie bereits haben, in Einnahmen verwandeln können.</p>
+</div>
+<div class="grid-3">
+<div class="card"><div class="card-icon">A</div><h3>Ein klarer Monetarisierungsweg</h3><p>Verstehen Sie, wie Ihre Idee, Fähigkeiten oder Ihr Business Einnahmen generieren können.</p></div>
+<div class="card"><div class="card-icon">B</div><h3>Fokussierte Prioritäten</h3><p>Hören Sie auf, Energie zu verschwenden — konzentrieren Sie sich auf das, was wirklich zu Einnahmen führt.</p></div>
+<div class="card"><div class="card-icon">C</div><h3>Nächste Schritte, die Sie umsetzen können</h3><p>Gehen Sie mit praktischer Richtung heraus, die Sie sofort anwenden können.</p></div>
+</div>
+</div>
+</section>
+<section class="about-network-section" id="about">
+<style>
+        .about-network-section { padding: 110px 24px; background: linear-gradient(135deg, var(--section-bg-light) 0%, var(--section-bg-soft) 100%); overflow: hidden; }
+        .about-network-wrap { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 48px; align-items: center; }
+        .about-network-copy h2 { margin: 0 0 18px; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.08; letter-spacing: -0.03em; color: var(--ink); }
+        .about-network-copy p { margin: 0 0 28px; max-width: 540px; font-size: 1.05rem; line-height: 1.75; color: var(--muted); }
+        .about-network-btn { display: inline-flex; padding: 14px 28px; border-radius: 999px; background: var(--ink); color: var(--white); text-decoration: none; font-weight: 700; }
+        .about-network-btn:hover { background: var(--black); color: var(--white); transform: translateY(-2px); box-shadow: 0 12px 26px rgba(var(--brand-rgb), 0.24); }
+        .network-visual { position: relative; min-height: 430px; }
+        .network-line { position: absolute; inset: 42px 24px; border: 2px solid rgba(var(--brand-rgb), 0.38); border-radius: 90px; }
+        .person-node { position: absolute; width: 118px; height: 118px; border-radius: 50%; background: var(--white); box-shadow: 0 18px 34px rgba(var(--ink-rgb), 0.12); animation: floatNode 4s ease-in-out infinite; border: 6px solid var(--white); overflow: visible; z-index: 3; }
+        .person-node img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
+        .person-node.main { width: 170px; height: 170px; left: 50%; top: 50%; transform: translate(-50%, -50%) !important; z-index: 20; animation: none !important; border: 8px solid rgba(var(--white-rgb), 0.95); box-shadow: 0 28px 70px rgba(var(--ink-rgb), 0.25); }
+        .person-node.main::after { content: ""; position: absolute; inset: -14px; border-radius: 50%; border: 2px solid rgba(var(--brand-rgb), 0.45); animation: mainPulse 3s ease-out infinite; pointer-events: none; }
+        .person-node.one { left: 0%; top: 10%; }
+        .person-node.two { right: 2%; top: 8%; animation-delay: .5s; }
+        .person-node.three { left: 8%; bottom: 2%; animation-delay: 1s; }
+        .person-node.four { right: 6%; bottom: 6%; animation-delay: 1.5s; }
+        .person-node.one, .person-node.two, .person-node.three, .person-node.four { width: 104px; height: 104px; opacity: 0.86; filter: grayscale(8%); z-index: 4; }
+        .person-label { position: absolute; left: 50%; bottom: -12px; transform: translateX(-50%); background: var(--white); color: var(--ink); padding: 7px 12px; border-radius: 999px; font-size: 0.72rem; font-weight: 800; box-shadow: 0 10px 22px rgba(var(--ink-rgb), 0.12); white-space: nowrap; border: 1px solid rgba(var(--brand-rgb), 0.18); }
+        .mini-card { position: absolute; background: var(--white); border-radius: 18px; padding: 12px 14px; box-shadow: 0 14px 28px rgba(var(--ink-rgb), 0.1); color: var(--ink); font-size: 0.78rem; font-weight: 800; z-index: 4; animation: popIn .8s ease forwards; border: 1px solid rgba(var(--brand-rgb), 0.18); }
+        .mini-card.a { left: 41%; top: 8%; }
+        .mini-card.b { right: 1%; top: 47%; }
+        .mini-card.c { left: 3%; bottom: 30%; }
+        .status-dot { position: absolute; width: 22px; height: 22px; border-radius: 50%; background: var(--brand); border: 4px solid var(--white); box-shadow: 0 8px 18px rgba(var(--ink-rgb), 0.12); z-index: 7; animation: pulseDot 2s ease-in-out infinite; }
+        .status-dot.d1 { left: 22%; top: 44%; }
+        .status-dot.d2 { right: 27%; top: 36%; animation-delay: .4s; }
+        .status-dot.d3 { right: 18%; bottom: 28%; animation-delay: .8s; }
+        .role-label { position: absolute; left: 50%; bottom: 4%; transform: translateX(-50%); background: rgba(var(--white-rgb), 0.92); color: var(--ink); padding: 9px 16px; border-radius: 999px; font-size: 0.78rem; font-weight: 800; box-shadow: 0 12px 24px rgba(var(--ink-rgb), 0.1); border: 1px solid rgba(var(--brand-rgb), 0.18); white-space: nowrap; z-index: 5; }
+        @keyframes floatNode { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        @keyframes pulseDot { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.18); opacity: .75; } }
+        @keyframes popIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes mainPulse { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(1.3); opacity: 0; } }
+        @media (max-width: 900px) { .about-network-wrap { grid-template-columns: 1fr; } .network-visual { min-height: 450px; } }
+        @media (max-width: 560px) { .about-network-section { padding: 80px 20px; } .person-node { width: 88px; height: 88px; } .person-node.main { width: 124px; height: 124px; transform: translate(-50%, -50%) !important; } .mini-card, .person-label { font-size: 0.66rem; } }
+      </style>
+<div class="about-network-wrap">
+<div class="about-network-copy">
+<div class="kicker">Mit wem ich arbeite</div>
+<h2>Ich arbeite mit Menschen, die bereit sind, das, was sie haben, in Einnahmen zu verwandeln.</h2>
+<p>Freelancer, Unternehmer, Startup-Gründer, Kreative, Berater und Fachkräfte mit Fähigkeiten — alle in unterschiedlichen Phasen, aber mit demselben Bedarf: Klarheit, Struktur und praktische nächste Schritte.</p>
+<a class="about-network-btn" href="{'kicker': 'Mit wem ich arbeite', 'h2': 'Ich arbeite mit Menschen, die bereit sind, das, was sie haben, in Einnahmen zu verwandeln.', 'p': 'Freelancer, Unternehmer, Startup-Gründer, Kreative, Berater und Fachkräfte mit Fähigkeiten — alle in unterschiedlichen Phasen, aber mit demselben Bedarf: Klarheit, Struktur und praktische nächste Schritte.', 'button': 'Mehr über mich →', 'labels': ['Freelancer', 'Unternehmer', 'Startup-Gründer', 'Kreative'], 'mini': ['Berater', 'Fachkräfte mit Fähigkeiten', 'Business Builder'], 'role': 'Klarheit · Struktur · Handlung'}">Mehr über mich →</a>
+</div>
+<div class="network-visual">
+<div class="network-line"></div>
+<div class="person-node one"><img alt="Freelancer" src="images/bouchra-freelancer.webp"/><span class="person-label">Freelancer</span></div>
+<div class="person-node two"><img alt="Unternehmer" src="images/bouchra-entrepreneur.webp"/><span class="person-label">Unternehmer</span></div>
+<div class="person-node three"><img alt="Startup-Gründer" src="images/bouchra-startup.webp"/><span class="person-label">Startup-Gründer</span></div>
+<div class="person-node four"><img alt="Kreative" src="images/bouchra-creative.webp"/><span class="person-label">Kreative</span></div>
+<div class="person-node main"><img alt="Bouchra Driouach" src="images/bouchra.jpg"/></div>
+<div class="mini-card a">Berater</div><div class="mini-card b">Fachkräfte mit Fähigkeiten</div><div class="mini-card c">Business Builder</div>
+<div class="status-dot d1"></div><div class="status-dot d2"></div><div class="status-dot d3"></div>
+<div class="role-label">Klarheit · Struktur · Handlung</div>
+</div>
+</div>
+</section>
+<section class="cta-section">
+<div class="cta-panel">
+<div class="kicker">Hier starten</div>
+<h2>Bereit, Ihre Idee in Handlung zu verwandeln?</h2>
+<p>Starten Sie mit einer kostenlosen ersten Session. Wir klären Ihren nächsten Schritt und wählen die passende Unterstützung.</p>
+<a class="btn btn-primary" href="de_booking.html">Kostenlose Session buchen →</a>
+<div class="cta-chips"><span>Kostenlose erste Session</span><span>Keine Verpflichtung</span><span>Klarer nächster Schritt</span></div>
+</div>
+</section>
+</main>
+<footer>
+<div class="footer-inner" id="global-footer"></div>
+</footer>
+<div id="cookie-consent"></div>
+<script src="js/components.js"></script>
+<script>
     window.addEventListener('scroll', function() {
       document.querySelector('.header')?.classList.toggle('scrolled', window.scrollY > 50);
     });
