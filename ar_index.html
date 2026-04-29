@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>حوّل فكرتك أو مهاراتك إلى دخل | استشارات أعمال | en-boarding</title>
-  <meta name="description" content="هل لديك فكرة أو مهارات أو مشروع لكن بلا دخل منتظم؟ احصل على وضوح حول كيفية تحويله إلى إيرادات — بدءًا بجلسة مجانية أولى.">
+  <title>Verwandeln Sie Ihre Idee oder Fähigkeiten in Einnahmen | Unternehmensberatung | en-boarding</title>
+  <meta name="description" content="Sie haben eine Idee, Fähigkeiten oder ein Business, aber noch keine Einnahmen? Gewinnen Sie Klarheit darüber, wie Sie daraus Umsatz machen — beginnend mit einer kostenlosen Beratung.">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="css/global.css">
   <style>
     .header {
-      position: fixed !important;
+      position: relative !important;
       top: 0;
       left: 0;
       width: 100%;
@@ -19,7 +19,7 @@
     }
 
     body.homepage .header {
-      position: fixed !important;
+      position: relative !important;
       background: transparent;
     }
 
@@ -471,6 +471,8 @@
 
 
 
+
+
     .cta-panel .cta-chips {
       margin-top: 18px;
       display: flex;
@@ -688,6 +690,32 @@
     @keyframes badgePulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } }
 
   </style>
+
+  <style id="homepage-animation-fixes">
+    /* Animation fixes for inserted homepage sections */
+    @keyframes heroFadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes ganttGrow { 0% { transform: scaleX(0); opacity: 0.45; } 45%, 80% { transform: scaleX(1); opacity: 1; } 100% { transform: scaleX(1); opacity: 0.95; } }
+    @keyframes decisionPulse { 0%, 100% { transform: translateY(0); opacity: 0.72; } 50% { transform: translateY(-2px); opacity: 1; } }
+    @keyframes softFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    @keyframes lineGlow { 0%, 100% { opacity: 0.42; transform: scale(1); } 50% { opacity: 0.78; transform: scale(1.015); } }
+    .hero-full-content { animation: heroFadeUp 0.85s ease-out both; }
+    .hero-gantt { animation: heroFadeUp 1s ease-out 0.18s both; }
+    .hero-gantt .bar { transform-origin: left center; animation: ganttGrow 3.8s ease-in-out infinite; }
+    .hero-gantt .research { animation-delay: 0.15s; }
+    .hero-gantt .test { animation-delay: 0.3s; }
+    .hero-gantt .mvp { animation-delay: 0.45s; }
+    .hero-gantt .revenue { animation-delay: 0.6s; }
+    .decision-option { animation: decisionPulse 2.8s ease-in-out infinite; }
+    .decision-option.adapt { animation-delay: 0.22s; }
+    .decision-option.continue { animation-delay: 0.44s; }
+    .translator-panel.input-panel { animation: softFloat 5s ease-in-out infinite; }
+    .translator-panel.output-panel { animation: softFloat 5s ease-in-out 0.55s infinite; }
+    .network-line { animation: lineGlow 4.5s ease-in-out infinite; transform-origin: center; }
+    .mini-card { animation: popIn .8s ease forwards, softFloat 4.6s ease-in-out 1s infinite; }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-full-content, .hero-gantt, .hero-gantt .bar, .decision-option, .translator-panel.input-panel, .translator-panel.output-panel, .network-line, .mini-card, .person-node.main { animation: none !important; }
+    }
+  </style>
 </head>
 <body class="homepage">
   <div id="lang-bar" style="display:none;"></div>
@@ -702,22 +730,40 @@
 
       <div class="hero-full-inner">
         <div class="hero-full-content">
-          <p class="kicker">من الفكرة إلى التنفيذ</p>
-          <h1>حوِّل أفكارك الطموحة إلى مشروعٍ واضح ومربح.</h1>
-          <p>اختبر فكرتك مبكرًا، اتخذ قرارات واضحة، وتقدّم نحو الدخل مع وقت أقل مهدور.</p>
-
-          <div class="hero-gantt">
-            <div class="gantt-row"><span>فكرة</span><div class="track"><div class="bar idea"></div></div></div>
-            <div class="gantt-row"><span>بحث</span><div class="track"><div class="bar research"></div></div></div>
-            <div class="gantt-row"><span>اختبار</span><div class="track"><div class="bar test"></div></div></div>
-            <div class="gantt-row decision-row"><span>قرار</span><div class="decision-track"><div class="decision-option stop">توقف</div><div class="decision-option adapt">عدّل</div><div class="decision-option continue">استمر</div></div></div>
-            <div class="gantt-row"><span>MVP</span><div class="track"><div class="bar mvp"></div></div></div>
-            <div class="gantt-row"><span>دخل</span><div class="track"><div class="bar revenue"></div></div></div>
-          </div>
+          <p class="kicker">Projektmanagement-Roadmap</p>
+          <h1>Verwandeln Sie Ihre Idee<br>in Einnahmen.</h1>
+          <p>Ein klarer Projektplan hilft Ihnen, von der Validierung zur Umsetzung zu kommen, ohne den Fokus zu verlieren.</p>
 
           <div class="hero-actions">
-            <a href="https://en-boarding.com/ar_booking.html" class="btn btn-primary">ابدأ البناء ←</a>
+            <a href="https://en-boarding.com/de_booking.html" class="btn btn-primary">Starten →</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="project-roadmap-section" id="project-roadmap">
+      <div class="container">
+        <div class="project-roadmap-header">
+          <div class="kicker">Projektmanagement-Ansicht</div>
+          <h2>Steuern Sie den Weg von der Idee zu Einnahmen wie ein echtes Projekt.</h2>
+          <p>Diese Roadmap trennt Denken, Testen, Entscheiden, Umsetzen und Einnahmen in klare Phasen, damit jede nächste Handlung einen Zweck hat.</p>
+        </div>
+
+        <div class="project-roadmap-card">
+          <div class="hero-gantt project-gantt" aria-label="Project management roadmap">
+            <div class="gantt-row"><span>Idee</span><div class="track"><div class="bar idea"></div></div></div>
+            <div class="gantt-row"><span>Recherche</span><div class="track"><div class="bar research"></div></div></div>
+            <div class="gantt-row"><span>Test</span><div class="track"><div class="bar test"></div></div></div>
+            <div class="gantt-row decision-row"><span>Entscheidung</span><div class="decision-track"><div class="decision-option stop">Stoppen</div><div class="decision-option adapt">Anpassen</div><div class="decision-option continue">Weitermachen</div></div></div>
+            <div class="gantt-row"><span>MVP</span><div class="track"><div class="bar mvp"></div></div></div>
+            <div class="gantt-row"><span>Umsatz</span><div class="track"><div class="bar revenue"></div></div></div>
+          </div>
+        </div>
+
+        <div class="project-roadmap-summary">
+          <span>Projektfokus</span>
+          <strong>Klare Meilensteine. Bessere Entscheidungen. Weniger Zeitverlust.</strong>
         </div>
       </div>
     </section>
@@ -725,11 +771,11 @@
     <style>
       .hero-full { padding: 0 !important; }
       .hero-slider { position: relative; min-height: 560px; overflow: hidden; background: var(--hero-fallback-bg); }
-      .slider-slide { position: absolute; inset: 0; width: 100%; height: 100%; background-image: linear-gradient(90deg, rgba(var(--ink-rgb), 0.76) 0%, rgba(var(--ink-rgb), 0.48) 48%, rgba(var(--ink-rgb), 0.12) 100%), url("images/ar-becoming-entrepreneur.webp"); background-size: cover; background-position: center 30%; background-repeat: no-repeat; z-index: 0; }
+      .slider-slide { position: absolute; inset: 0; width: 100%; height: 100%; background-image: linear-gradient(90deg, rgba(var(--ink-rgb), 0.76) 0%, rgba(var(--ink-rgb), 0.48) 48%, rgba(var(--ink-rgb), 0.12) 100%), url("images/becoming-entrepreneur.webp"); background-size: cover; background-position: center 30%; background-repeat: no-repeat; z-index: 0; }
       .hero-full-inner { position: relative; z-index: 2; min-height: 560px; width: min(1200px, calc(100% - 48px)); margin: 0 auto; display: flex; align-items: center; padding-top: 105px; padding-bottom: 48px; }
-      .hero-full-content { width: 50%; max-width: 620px; color: var(--white); }
+      .hero-full-content { width: 50%; max-width: 560px; color: var(--white); }
       .hero-full-content .kicker { color: rgba(var(--white-rgb), 0.86); margin-bottom: 14px; }
-      .hero-full-content h1 { margin: 0 0 18px; color: var(--white); font-size: clamp(2.35rem, 4.6vw, 4.2rem); line-height: 0.98; letter-spacing: -0.05em; }
+      .hero-full-content h1 { margin: 0 0 18px; color: var(--white); font-size: clamp(2.55rem, 5vw, 4.65rem); line-height: 0.95; letter-spacing: -0.05em; }
       .hero-full-content p { max-width: 560px; color: rgba(var(--white-rgb), 0.88); font-size: 1.05rem; line-height: 1.65; }
       .hero-gantt { margin-top: 26px; max-width: 540px; padding: 22px; border-radius: 24px; background: rgba(var(--white-rgb), 0.16); border: 1px solid rgba(var(--white-rgb), 0.24); backdrop-filter: blur(8px); }
       .gantt-row { display: grid; grid-template-columns: 92px 1fr; gap: 14px; align-items: center; margin-bottom: 12px; }
@@ -756,11 +802,11 @@
     <section class="approach-visual-section approach-redesign" id="approach">
       <div class="container">
         <div class="approach-redesign-header">
-          <div class="kicker">منهجي</div>
-          <h2>عملية واضحة تحوّل عدم اليقين إلى تقدم.</h2>
+          <div class="kicker">Mein Ansatz</div>
+          <h2>Ein klarer Prozess, der Unsicherheit in Fortschritt verwandelt.</h2>
           <p>
-            بدل عرض مربك قبل وبعد، يعرض هذا القسم مسارًا واضحًا:
-            نوضح ما يهم، نبني أبسط خطوة تالية، نختبرها، ثم نطوّرها حتى تتحرك نحو الدخل.
+            Statt eines unübersichtlichen Vorher-Nachher zeigt dieser Abschnitt einen klaren Weg:
+            Wir klären, was zählt, bauen den einfachsten nächsten Schritt, testen ihn und verbessern ihn, bis er Richtung Umsatz führen kann.
           </p>
         </div>
 
@@ -770,38 +816,38 @@
           <article class="approach-step">
             <div class="approach-step-number">01</div>
             <div class="approach-step-icon">?</div>
-            <h3>نوضّح</h3>
-            <p>نفهم فكرتك، مهاراتك، عرضك، جمهورك، وما يمنعك حاليًا من التحرك.</p>
+            <h3>Klären</h3>
+            <p>Wir verstehen Ihre Idee, Fähigkeiten, Ihr Angebot, Ihre Zielgruppe und was aktuell die Umsetzung blockiert.</p>
           </article>
 
           <article class="approach-step">
             <div class="approach-step-number">02</div>
             <div class="approach-step-icon">↘</div>
-            <h3>نبسّط</h3>
-            <p>نحوّل التشويش إلى اتجاه واضح، أولوية واحدة، وخطوة عملية تالية.</p>
+            <h3>Vereinfachen</h3>
+            <p>Wir reduzieren das Chaos auf eine klare Richtung, eine Priorität und einen praktischen nächsten Schritt.</p>
           </article>
 
           <article class="approach-step">
             <div class="approach-step-number">03</div>
             <div class="approach-step-icon">✓</div>
-            <h3>اختبار</h3>
-            <p>تختبر الفكرة مع أشخاص حقيقيين قبل إنفاق الكثير من الوقت أو المال أو الطاقة.</p>
+            <h3>Test</h3>
+            <p>Sie testen die Idee mit echten Menschen, bevor Sie zu viel Zeit, Geld oder Energie investieren.</p>
           </article>
 
           <article class="approach-step">
             <div class="approach-step-number">04</div>
             <div class="approach-step-icon">→</div>
-            <h3>نتحرك</h3>
-            <p>تخرج بهيكل واضح، وثقة أكبر، وخطوات تقرّبك من الدخل.</p>
+            <h3>Vorankommen</h3>
+            <p>Sie gehen mit Struktur, Vertrauen und nächsten Schritten, die Sie näher an Einnahmen bringen.</p>
           </article>
         </div>
 
         <div class="approach-summary-panel">
           <div>
-            <span class="summary-label">الهدف</span>
-            <strong>تشويش أقل. اتجاه أوضح. خطوات عملية.</strong>
+            <span class="summary-label">Das Ziel</span>
+            <strong>Weniger Verwirrung. Mehr Richtung. Klare Handlung.</strong>
           </div>
-          <a href="https://en-boarding.com/ar_booking.html" class="approach-mini-btn">ابدأ بجلسة مجانية ←</a>
+          <a href="https://en-boarding.com/de_booking.html" class="approach-mini-btn">Mit kostenloser Session starten →</a>
         </div>
       </div>
     </section>
@@ -1036,144 +1082,27 @@
       }
     </style>
 
-    <section class="services-wrapper" id="services" dir="rtl" lang="ar">
+    <section class="services-wrapper" id="services">
       <style>
-        #services.services-wrapper {
-          background: linear-gradient(135deg, var(--section-bg-light) 0%, var(--section-bg-soft) 100%);
-          padding: 100px 20px;
-          overflow: hidden;
-          direction: rtl;
-          text-align: right;
-        }
-
-        #services .services-section {
-          max-width: 1180px;
-          margin: 0 auto;
-        }
-
-        #services .services-header {
-          text-align: center;
-          max-width: 760px;
-          margin: 0 auto 52px;
-        }
-
-        #services .services-header .kicker {
-          margin-bottom: 12px;
-        }
-
-        #services .services-header h2 {
-          margin: 0 0 14px;
-          font-size: clamp(2rem, 4vw, 3.2rem);
-          letter-spacing: -0.03em;
-          line-height: 1.25;
-        }
-
-        #services .services-header p {
-          color: var(--muted);
-          line-height: 1.85;
-        }
-
-        #services .services-cards {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 24px;
-          align-items: stretch;
-          direction: rtl;
-        }
-
-        #services .service-card {
-          position: relative;
-          background: rgba(var(--white-rgb), 0.86);
-          border: 1px solid rgba(var(--brand-rgb), 0.22);
-          border-radius: 30px;
-          padding: 32px 28px;
-          box-shadow: 0 22px 50px rgba(var(--ink-rgb), 0.07);
-          overflow: hidden;
-          transform: translateY(24px);
-          opacity: 0;
-          animation: serviceCardIn 0.75s ease forwards;
-          transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-          text-align: right;
-          direction: rtl;
-        }
-
-        #services .service-card:nth-child(2) {
-          animation-delay: 0.12s;
-        }
-
-        #services .service-card:nth-child(3) {
-          animation-delay: 0.24s;
-        }
-
-        #services .service-card:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 30px 70px rgba(var(--ink-rgb), 0.12);
-          border-color: rgba(var(--brand-rgb), 0.46);
-        }
-
-        #services .service-card::before {
-          content: "";
-          position: absolute;
-          width: 180px;
-          height: 180px;
-          left: -80px;
-          right: auto;
-          top: -80px;
-          border-radius: 50%;
-          background: rgba(var(--brand-rgb), 0.14);
-          transition: transform 0.35s ease;
-        }
-
-        #services .service-card:hover::before {
-          transform: scale(1.18);
-        }
-
-        #services .service-card.featured {
-          background: linear-gradient(135deg, var(--white) 0%, var(--section-bg-accent) 100%);
-          border-color: rgba(var(--brand-rgb), 0.42);
-        }
-
-        #services .service-card.featured::after {
-          content: "";
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(120deg, transparent 0%, rgba(var(--white-rgb), 0.55) 45%, transparent 70%);
-          transform: translateX(120%);
-          animation: serviceShineRtl 4.6s ease-in-out infinite;
-          pointer-events: none;
-        }
-
-        #services .service-top {
-          position: relative;
-          z-index: 2;
-          display: block;
-          padding-left: 64px;
-          padding-right: 0;
-          margin-bottom: 24px;
-          text-align: right;
-        }
-
-        #services .service-name {
-          display: block;
-          font-size: 1.35rem;
-          font-weight: 850;
-          color: var(--ink);
-          margin-bottom: 4px;
-          line-height: 1.3;
-        }
-
-        #services .service-subtitle {
-          color: var(--muted);
-          font-size: 0.92rem;
-          font-weight: 650;
-          line-height: 1.5;
-        }
-
-        #services .service-number {
-          position: absolute;
-          top: 32px;
-          left: 28px;
-          right: auto;
+        .services-wrapper { background: linear-gradient(135deg, var(--section-bg-light) 0%, var(--section-bg-soft) 100%); padding: 100px 20px; overflow: hidden; }
+        .services-section { max-width: 1180px; margin: 0 auto; }
+        .services-header { text-align: center; max-width: 760px; margin: 0 auto 52px; }
+        .services-header .kicker { margin-bottom: 12px; }
+        .services-header h2 { margin: 0 0 14px; font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -0.03em; }
+        .services-header p { color: var(--muted); line-height: 1.75; }
+        .services-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
+        .service-card { position: relative; background: rgba(var(--white-rgb), 0.86); border: 1px solid rgba(var(--brand-rgb), 0.22); border-radius: 30px; padding: 32px 28px; box-shadow: 0 22px 50px rgba(var(--ink-rgb), 0.07); overflow: hidden; transform: translateY(24px); opacity: 0; animation: serviceCardIn 0.75s ease forwards; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
+        .service-card:nth-child(2) { animation-delay: 0.12s; }
+        .service-card:nth-child(3) { animation-delay: 0.24s; }
+        .service-card:hover { transform: translateY(-8px); box-shadow: 0 30px 70px rgba(var(--ink-rgb), 0.12); border-color: rgba(var(--brand-rgb), 0.46); }
+        .service-card::before { content: ""; position: absolute; width: 180px; height: 180px; right: -80px; top: -80px; border-radius: 50%; background: rgba(var(--brand-rgb), 0.14); transition: transform 0.35s ease; }
+        .service-card:hover::before { transform: scale(1.18); }
+        .service-card.featured { background: linear-gradient(135deg, var(--white) 0%, var(--section-bg-accent) 100%); border-color: rgba(var(--brand-rgb), 0.42); }
+        .service-card.featured::after { content: ""; position: absolute; inset: 0; background: linear-gradient(120deg, transparent 0%, rgba(var(--white-rgb), 0.55) 45%, transparent 70%); transform: translateX(-120%); animation: serviceShine 4.6s ease-in-out infinite; pointer-events: none; }
+        .service-top { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 24px; }
+        .service-name { display: block; font-size: 1.35rem; font-weight: 850; color: var(--ink); margin-bottom: 4px; }
+        .service-subtitle { color: var(--muted); font-size: 0.92rem; font-weight: 650; }
+        .service-number {
           width: 44px;
           height: 44px;
           border-radius: 16px;
@@ -1186,223 +1115,112 @@
           line-height: 1;
           flex: 0 0 44px;
           text-align: center;
-          z-index: 3;
-          direction: ltr;
-          unicode-bidi: isolate;
+        }
+        .service-badge { position: relative; z-index: 2; display: inline-flex; margin-bottom: 18px; padding: 6px 12px; border-radius: 999px; background: var(--brand); color: var(--ink); font-size: 0.72rem; font-weight: 850; letter-spacing: 0.08em; text-transform: uppercase; animation: serviceBadgePulse 2.6s ease-in-out infinite; }
+        .service-description { position: relative; z-index: 2; color: var(--muted); line-height: 1.7; margin-bottom: 24px; }
+        .service-list { position: relative; z-index: 2; display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+        .service-list li { display: flex; gap: 10px; align-items: flex-start; color: var(--ink); font-weight: 600; font-size: 0.94rem; }
+        .service-list li::before { content: "✓"; width: 22px; height: 22px; border-radius: 50%; background: rgba(var(--brand-rgb), 0.18); color: var(--ink); display: inline-flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 900; flex: 0 0 auto; margin-top: 1px; }
+        .services-note { max-width: 760px; margin: 34px auto 0; text-align: center; color: var(--muted); line-height: 1.7; }
+        .services-action { text-align: center; margin-top: 30px; }
+        .services-cta-link { display: inline-flex; align-items: center; justify-content: center; padding: 13px 26px; border-radius: 999px; background: var(--ink); color: var(--white); font-weight: 750; text-decoration: none; box-shadow: 0 14px 28px rgba(var(--ink-rgb), 0.13); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+        .services-cta-link:hover { color: var(--white); transform: translateY(-2px); box-shadow: 0 18px 36px rgba(var(--ink-rgb), 0.18); }
+
+
+        /* FIX: keep all service numbers locked to the same top-right position.
+           The Gold badge no longer controls or pushes number 02 down. */
+        .services-cards .service-card {
+          padding: 32px 28px;
         }
 
-        #services .service-badge {
-          position: relative;
-          z-index: 2;
-          display: inline-flex;
-          margin-bottom: 18px;
-          padding: 6px 12px;
-          border-radius: 999px;
-          background: var(--brand);
-          color: var(--ink);
-          font-size: 0.72rem;
-          font-weight: 850;
-          letter-spacing: 0.02em;
-          animation: serviceBadgePulse 2.6s ease-in-out infinite;
-        }
-
-        #services .service-description {
-          position: relative;
-          z-index: 2;
-          color: var(--muted);
-          line-height: 1.85;
+        .services-cards .service-card .service-top {
+          display: block;
+          padding-right: 64px;
           margin-bottom: 24px;
-          text-align: right;
         }
 
-        #services .service-list {
-          position: relative;
-          z-index: 2;
-          display: grid;
-          gap: 12px;
-          margin: 0;
-          padding: 0;
-          list-style: none;
-          direction: rtl;
-        }
-
-        #services .service-list li {
+        .services-cards .service-card .service-number {
+          position: absolute;
+          top: 32px;
+          right: 28px;
+          width: 44px;
+          height: 44px;
+          min-width: 44px;
+          min-height: 44px;
           display: flex;
-          flex-direction: row;
-          gap: 10px;
-          align-items: flex-start;
-          color: var(--ink);
-          font-weight: 600;
-          font-size: 0.94rem;
-          line-height: 1.75;
-          text-align: right;
-        }
-
-        #services .service-list li::before {
-          content: "✓";
-          width: 22px;
-          height: 22px;
-          border-radius: 50%;
-          background: rgba(var(--brand-rgb), 0.18);
-          color: var(--ink);
-          display: inline-flex;
           align-items: center;
           justify-content: center;
-          font-size: 0.78rem;
-          font-weight: 900;
-          flex: 0 0 auto;
-          margin-top: 2px;
-        }
-
-        #services .services-note {
-          max-width: 760px;
-          margin: 34px auto 0;
+          line-height: 1;
           text-align: center;
-          color: var(--muted);
-          line-height: 1.85;
+          flex: none;
+          margin: 0;
+          z-index: 3;
         }
 
-        #services .services-action {
-          text-align: center;
-          margin-top: 30px;
+        .services-cards .service-card.featured .service-badge {
+          margin-bottom: 18px;
         }
 
-        #services .services-action .btn-primary {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          padding: 13px 26px;
-          border-radius: 999px;
-          font-weight: 750;
-          text-decoration: none;
-          box-shadow: 0 14px 28px rgba(var(--ink-rgb), 0.13);
-          transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
-
-        #services .services-action .btn-primary:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 18px 36px rgba(var(--ink-rgb), 0.18);
-        }
-
-        @keyframes serviceCardIn {
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes serviceShineRtl {
-          0%, 55% { transform: translateX(120%); }
-          75%, 100% { transform: translateX(-120%); }
-        }
-
-        @keyframes serviceBadgePulse {
-          0%, 100% { transform: scale(1); }
-          50% { transform: scale(1.04); }
-        }
-
-        @media (max-width: 950px) {
-          #services .services-cards {
-            grid-template-columns: 1fr;
-          }
-        }
-
+        @keyframes serviceCardIn { to { opacity: 1; transform: translateY(0); } }
+        @keyframes serviceShine { 0%, 55% { transform: translateX(-120%); } 75%, 100% { transform: translateX(120%); } }
+        @keyframes serviceBadgePulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } }
+        @media (max-width: 950px) { .services-cards { grid-template-columns: 1fr; } }
         @media (max-width: 640px) {
-          #services.services-wrapper {
-            padding: 80px 20px;
-          }
-
-          #services .service-card {
-            padding: 28px 22px;
-          }
-
-          #services .service-top {
-            padding-left: 58px;
-            padding-right: 0;
-          }
-
-          #services .service-number {
-            top: 28px;
-            left: 22px;
-          }
+          .services-wrapper { padding: 80px 20px; }
+          .services-cards .service-card { padding: 28px 22px; }
+          .services-cards .service-card .service-top { padding-right: 58px; }
+          .services-cards .service-card .service-number { top: 28px; right: 22px; }
         }
       </style>
 
       <div class="services-section">
         <div class="services-header">
-          <div class="kicker">كيف يعمل الأمر</div>
-          <h2>اختر الدعم المناسب لمرحلتك.</h2>
-          <p>كل خدمة مصممة لتساعدك على الانتقال من التشتت إلى الوضوح، ومن الوضوح إلى تنفيذ عملي يقرّبك من الدخل.</p>
+          <div class="kicker">So funktioniert es</div>
+          <h2>Wählen Sie die Unterstützung, die zu Ihrer Phase passt.</h2>
+          <p>Jede Leistung hilft Ihnen, von Verwirrung zu Klarheit und dann von Klarheit zu Handlung und messbarem Fortschritt zu kommen.</p>
         </div>
 
         <div class="services-cards">
           <article class="service-card">
             <div class="service-number">01</div>
-            <div class="service-top">
-              <div>
-                <span class="service-name">الفضية</span>
-                <span class="service-subtitle">الوضوح</span>
-              </div>
-            </div>
-            <p class="service-description">مناسبة عندما تحتاج إلى اتجاه واضح، وتركيز، وخطوة عملية تالية قبل استثمار المزيد من الوقت أو المال.</p>
-            <ul class="service-list">
-              <li>جلسة مركّزة لتوضيح الفكرة</li>
-              <li>تحديد ما يجب التركيز عليه أولًا</li>
-              <li>خطة خطوات عملية تبدأ بها مباشرة</li>
-            </ul>
+            <div class="service-top"><div><span class="service-name">Silver</span><span class="service-subtitle">Klarheit</span></div></div>
+            <p class="service-description">Ideal, wenn Sie Richtung, Fokus und einen klaren nächsten Schritt brauchen, bevor Sie mehr Zeit oder Geld investieren.</p>
+            <ul class="service-list"><li>Eine intensive Klarheits-Session</li><li>Definieren, worauf Sie zuerst fokussieren</li><li>Mit praktischen nächsten Schritten gehen</li></ul>
           </article>
 
           <article class="service-card featured">
-            <span class="service-badge">الأكثر توازنًا</span>
+            <span class="service-badge">Am ausgewogensten</span>
             <div class="service-number">02</div>
-            <div class="service-top">
-              <div>
-                <span class="service-name">الذهبية</span>
-                <span class="service-subtitle">التنفيذ</span>
-              </div>
-            </div>
-            <p class="service-description">مناسبة عندما تريد تحويل فكرتك إلى عرض واضح، واختباره مع أشخاص حقيقيين، والتقدم بثبات مع متابعة أسبوعية.</p>
-            <ul class="service-list">
-              <li>دعم أسبوعي للتنفيذ</li>
-              <li>بناء العرض واختباره وتحسينه</li>
-              <li>متابعة تساعدك على الحفاظ على الزخم</li>
-            </ul>
+            <div class="service-top"><div><span class="service-name">Gold</span><span class="service-subtitle">Umsetzung</span></div></div>
+            <p class="service-description">Ideal, wenn Sie Struktur, wöchentliche Unterstützung und Momentum beim Testen Ihrer Idee mit echten Menschen möchten.</p>
+            <ul class="service-list"><li>Wöchentliche Umsetzungsunterstützung</li><li>Angebot aufbauen, testen und verbessern</li><li>Momentum mit Verbindlichkeit schaffen</li></ul>
           </article>
 
           <article class="service-card">
             <div class="service-number">03</div>
-            <div class="service-top">
-              <div>
-                <span class="service-name">الماسية</span>
-                <span class="service-subtitle">النتائج</span>
-              </div>
-            </div>
-            <p class="service-description">مناسبة عندما تريد دعمًا مكثفًا، وتنفيذًا أسرع، وتركيزًا مباشرًا على نتائج واضحة وقابلة للقياس.</p>
-            <ul class="service-list">
-              <li>جلسة تعمّق مع جلستين أسبوعيًا</li>
-              <li>توجيه سريع وتحسين مستمر</li>
-              <li>تركيز مباشر على النتائج</li>
-            </ul>
+            <div class="service-top"><div><span class="service-name">Diamond</span><span class="service-subtitle">Ergebnisse</span></div></div>
+            <p class="service-description">Ideal, wenn Sie intensive Unterstützung, schnellere Umsetzung und stärkeren Fokus auf messbare Ergebnisse möchten.</p>
+            <ul class="service-list"><li>Deep-Dive plus zwei Sessions pro Woche</li><li>Schnelles Feedback und Optimierung</li><li>Intensive Begleitung Richtung Ergebnisse</li></ul>
           </article>
         </div>
 
-        <p class="services-note">تحتاج إلى وضوح؟ ابدأ بالخدمة الفضية. تريد دعمًا أعمق وتقدمًا أسرع؟ الخدمة الذهبية أو الماسية ستكونان الأنسب.</p>
-        <div class="services-action"><a href="ar_services.html" class="btn btn-primary">اكتشف المزيد عن الخدمات ←</a></div>
+        <p class="services-note">Brauchen Sie Klarheit? Starten Sie mit Silver. Wollen Sie tiefere Unterstützung und schnelleren Fortschritt? Gold oder Diamond passt besser.</p>
+        <div class="services-action"><a href="https://en-boarding.com/de_services.html" class="btn btn-primary">Mehr über die Leistungen erfahren →</a></div>
       </div>
     </section>
 
     <section class="results-section">
       <div class="container">
         <div class="section-title">
-          <div class="kicker">نتائج</div>
-          <h2>ما الذي ستحصل عليه.</h2>
-          <p>القيمة هي أن تفهم كيف تحول ما لديك إلى دخل.</p>
+          <div class="kicker">Ergebnisse</div>
+          <h2>Was Sie mitnehmen.</h2>
+          <p>Der Wert liegt darin zu verstehen, wie Sie das, was Sie haben, in Einnahmen verwandeln.</p>
         </div>
 
         <div class="grid-3">
-          <div class="card"><div class="card-icon">A</div><h3>مسار واضح لتحقيق الدخل</h3><p>افهم كيف يمكن لفكرتك أو مهاراتك أو مشروعك أن يولّد الدخل.</p></div>
-          <div class="card"><div class="card-icon">B</div><h3>أولويات مركزة</h3><p>توقف عن تشتيت طاقتك، وركز على ما يقرّبك فعلًا من الدخل.</p></div>
-          <div class="card"><div class="card-icon">C</div><h3>خطوات تالية قابلة للتنفيذ</h3><p>اخرج باتجاه عملي يمكنك تطبيقه فورًا.</p></div>
+          <div class="card"><div class="card-icon">A</div><h3>Ein klarer Monetarisierungsweg</h3><p>Verstehen, wie Ihre Idee, Fähigkeiten oder Ihr Business Umsatz generieren können.</p></div>
+          <div class="card"><div class="card-icon">B</div><h3>Fokussierte Prioritäten</h3><p>Stoppen wasting energy — focus on what actually leads to income.</p></div>
+          <div class="card"><div class="card-icon">C</div><h3>Nächste Schritte, die Sie umsetzen können</h3><p>Gehen Sie mit praktischer Richtung, die Sie sofort anwenden können.</p></div>
         </div>
       </div>
     </section>
@@ -1446,33 +1264,33 @@
 
       <div class="about-network-wrap">
         <div class="about-network-copy">
-          <div class="kicker">مع من أعمل</div>
-          <h2>أعمل مع أشخاص مستعدين لتحويل ما لديهم إلى دخل.</h2>
-          <p>مستقلون، رواد أعمال، مؤسسو شركات ناشئة، مبدعون، مستشارون، ومحترفون لديهم مهارات — كلهم في مراحل مختلفة، لكنهم يحتاجون إلى الشيء نفسه: وضوح، هيكل، وخطوات عملية تالية.</p>
-          <a href="https://en-boarding.com/ar_about.html" class="btn btn-primary">اعرف المزيد عني ←</a>
+          <div class="kicker">Mit wem ich arbeite</div>
+          <h2>Ich arbeite mit Menschen, die bereit sind, das, was sie haben, in Einnahmen zu verwandeln.</h2>
+          <p>Freelancer, Unternehmer, Startup-Gründer, Kreative, Berater und Fachkräfte mit Fähigkeiten — alle in unterschiedlichen Phasen, aber mit demselben Bedarf: Klarheit, Struktur und praktische nächste Schritte.</p>
+          <a href="https://en-boarding.com/de_about.html" class="btn btn-primary">Mehr über mich erfahren →</a>
         </div>
 
         <div class="network-visual">
           <div class="network-line"></div>
-          <div class="person-node one"><img src="images/bouchra-freelancer.webp" alt="مستقلون"><span class="person-label">مستقلون</span></div>
-          <div class="person-node two"><img src="images/bouchra-entrepreneur.webp" alt="رواد أعمال"><span class="person-label">رواد أعمال</span></div>
-          <div class="person-node three"><img src="images/bouchra-startup.webp" alt="مؤسسو شركات ناشئة"><span class="person-label">مؤسسو شركات ناشئة</span></div>
-          <div class="person-node four"><img src="images/bouchra-creative.webp" alt="مبدعون"><span class="person-label">مبدعون</span></div>
+          <div class="person-node one"><img src="images/bouchra-freelancer.webp" alt="Freelancer"><span class="person-label">Freelancer</span></div>
+          <div class="person-node two"><img src="images/bouchra-entrepreneur.webp" alt="Unternehmer"><span class="person-label">Unternehmer</span></div>
+          <div class="person-node three"><img src="images/bouchra-startup.webp" alt="Startup-Gründer"><span class="person-label">Startup-Gründer</span></div>
+          <div class="person-node four"><img src="images/bouchra-creative.webp" alt="Kreative"><span class="person-label">Kreative</span></div>
           <div class="person-node main"><img src="images/bouchra.jpg" alt="Bouchra Driouach"></div>
-          <div class="mini-card a">مستشارون</div><div class="mini-card b">محترفون لديهم مهارات</div><div class="mini-card c">بناة مشاريع</div>
+          <div class="mini-card a">Berater</div><div class="mini-card b">Fachkräfte mit Fähigkeiten</div><div class="mini-card c">Business-Aufbauer</div>
           <div class="status-dot d1"></div><div class="status-dot d2"></div><div class="status-dot d3"></div>
-          <div class="role-label">وضوح · هيكل · عمل</div>
+          <div class="role-label">Klarheit · Structure · Action</div>
         </div>
       </div>
     </section>
 
     <section class="cta-section">
       <div class="cta-panel">
-        <div class="kicker">ابدأ هنا</div>
-        <h2>هل أنت مستعد لتحويل فكرتك إلى عمل؟</h2>
-        <p>ابدأ بجلسة أولى مجانية. سنوضح خطوتك التالية ونختار الدعم المناسب.</p>
-        <a href="https://en-boarding.com/ar_booking.html" class="btn btn-primary">احجز جلستك المجانية ←</a>
-        <div class="cta-chips"><span>جلسة أولى مجانية</span><span>بدون التزام</span><span>خطوة تالية واضحة</span></div>
+        <div class="kicker">Hier starten</div>
+        <h2>Bereit, Ihre Idee in Handlung zu verwandeln?</h2>
+        <p>Starten Sie mit einer kostenlosen ersten Session. Wir klären Ihren nächsten Schritt und wählen die passende Unterstützung.</p>
+        <a href="https://en-boarding.com/de_booking.html" class="btn btn-primary">Kostenlose Session buchen →</a>
+        <div class="cta-chips"><span>Kostenlose erste Session</span><span>Ohne Verpflichtung</span><span>Klarer nächster Schritt</span></div>
       </div>
     </section>
   </main>
