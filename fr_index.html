@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="css/global.css">
   <style>
     .header {
-      position: fixed !important;
+      position: relative !important;
       top: 0;
       left: 0;
       width: 100%;
@@ -19,7 +19,7 @@
     }
 
     body.homepage .header {
-      position: fixed !important;
+      position: relative !important;
       background: transparent;
     }
 
@@ -728,11 +728,28 @@
 
       <div class="hero-full-inner">
         <div class="hero-full-content">
-          <p class="kicker">De l’idée à l’action</p>
-          <h1>Transformez vos idées ambitieuses en un projet clair et rentable.</h1>
-          <p>Testez votre idée tôt, prenez des décisions claires et avancez vers des revenus avec moins de temps perdu.</p>
+          <p class="kicker">Feuille de route projet</p>
+          <h1>Transformez votre idée<br>en revenus.</h1>
+          <p>Un plan projet clair vous aide à passer de la validation à l’exécution sans perdre votre élan.</p>
 
-          <div class="hero-gantt">
+          <div class="hero-actions">
+            <a href="https://en-boarding.com/fr_booking.html" class="btn btn-primary">Commencer →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="project-roadmap-section" id="project-roadmap">
+      <div class="container">
+        <div class="project-roadmap-header">
+          <div class="kicker">Vue gestion de projet</div>
+          <h2>Pilotez le parcours de l’idée aux revenus comme un vrai projet.</h2>
+          <p>Cette feuille de route sépare la réflexion, le test, la décision, l’exécution et les revenus en étapes claires afin que chaque action ait un objectif.</p>
+        </div>
+
+        <div class="project-roadmap-card">
+          <div class="hero-gantt project-gantt" aria-label="Project management roadmap">
             <div class="gantt-row"><span>Idée</span><div class="track"><div class="bar idea"></div></div></div>
             <div class="gantt-row"><span>Recherche</span><div class="track"><div class="bar research"></div></div></div>
             <div class="gantt-row"><span>Test</span><div class="track"><div class="bar test"></div></div></div>
@@ -740,10 +757,11 @@
             <div class="gantt-row"><span>MVP</span><div class="track"><div class="bar mvp"></div></div></div>
             <div class="gantt-row"><span>Revenus</span><div class="track"><div class="bar revenue"></div></div></div>
           </div>
+        </div>
 
-          <div class="hero-actions">
-            <a href="https://en-boarding.com/fr_booking.html" class="btn btn-primary">Commencer →</a>
-          </div>
+        <div class="project-roadmap-summary">
+          <span>Priorité projet</span>
+          <strong>Des jalons clairs. De meilleures décisions. Moins de temps perdu.</strong>
         </div>
       </div>
     </section>
@@ -753,9 +771,9 @@
       .hero-slider { position: relative; min-height: 560px; overflow: hidden; background: var(--hero-fallback-bg); }
       .slider-slide { position: absolute; inset: 0; width: 100%; height: 100%; background-image: linear-gradient(90deg, rgba(var(--ink-rgb), 0.76) 0%, rgba(var(--ink-rgb), 0.48) 48%, rgba(var(--ink-rgb), 0.12) 100%), url("images/becoming-entrepreneur.webp"); background-size: cover; background-position: center 30%; background-repeat: no-repeat; z-index: 0; }
       .hero-full-inner { position: relative; z-index: 2; min-height: 560px; width: min(1200px, calc(100% - 48px)); margin: 0 auto; display: flex; align-items: center; padding-top: 105px; padding-bottom: 48px; }
-      .hero-full-content { width: 50%; max-width: 620px; color: var(--white); }
+      .hero-full-content { width: 50%; max-width: 560px; color: var(--white); }
       .hero-full-content .kicker { color: rgba(var(--white-rgb), 0.86); margin-bottom: 14px; }
-      .hero-full-content h1 { margin: 0 0 18px; color: var(--white); font-size: clamp(2.35rem, 4.6vw, 4.2rem); line-height: 0.98; letter-spacing: -0.05em; }
+      .hero-full-content h1 { margin: 0 0 18px; color: var(--white); font-size: clamp(2.55rem, 5vw, 4.65rem); line-height: 0.95; letter-spacing: -0.05em; }
       .hero-full-content p { max-width: 560px; color: rgba(var(--white-rgb), 0.88); font-size: 1.05rem; line-height: 1.65; }
       .hero-gantt { margin-top: 26px; max-width: 540px; padding: 22px; border-radius: 24px; background: rgba(var(--white-rgb), 0.16); border: 1px solid rgba(var(--white-rgb), 0.24); backdrop-filter: blur(8px); }
       .gantt-row { display: grid; grid-template-columns: 92px 1fr; gap: 14px; align-items: center; margin-bottom: 12px; }
