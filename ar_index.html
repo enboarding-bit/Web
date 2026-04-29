@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-
-<html dir="rtl" lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>حوّل فكرتك أو مهاراتك إلى دخل | استشارات أعمال | en-boarding</title>
-<meta content="هل لديك فكرة أو مهارات أو مشروع لكن بلا دخل منتظم؟ احصل على وضوح حول كيفية تحويله إلى إيرادات — بدءًا بجلسة مجانية أولى." name="description"/>
-<link href="/favicon.png" rel="icon" type="image/png"/>
-<link href="css/global.css" rel="stylesheet"/>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>حوّل فكرتك أو مهاراتك إلى دخل | استشارات أعمال | en-boarding</title>
+  <meta name="description" content="هل لديك فكرة أو مهارات أو مشروع لكن بلا دخل منتظم؟ احصل على وضوح حول كيفية تحويله إلى إيرادات — بدءًا بجلسة مجانية أولى.">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="css/global.css">
+  <style>
     .header {
       position: fixed !important;
       top: 0;
@@ -742,7 +741,8 @@
       box-shadow: 0 16px 34px rgba(var(--ink-rgb), 0.22) !important;
     }
   </style>
-<style id="homepage-animation-fixes">
+
+  <style id="homepage-animation-fixes">
     /* Animation fixes for inserted homepage sections */
     @keyframes heroFadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes ganttGrow { 0% { transform: scaleX(0); opacity: 0.45; } 45%, 80% { transform: scaleX(1); opacity: 1; } 100% { transform: scaleX(1); opacity: 0.95; } }
@@ -766,92 +766,54 @@
     @media (prefers-reduced-motion: reduce) {
       .hero-full-content, .hero-gantt, .hero-gantt .bar, .decision-option, .translator-panel.input-panel, .translator-panel.output-panel, .network-line, .mini-card, .person-node.main { animation: none !important; }
     }
+  
+    [dir="rtl"] .hero-full-content { text-align: right; margin-left: auto; }
+    [dir="rtl"] .hero-actions { justify-content: flex-start; }
+    [dir="rtl"] .gantt-row { grid-template-columns: 92px 1fr; }
+    [dir="rtl"] .services-cards .service-card .service-top { padding-right: 0; padding-left: 64px; }
+    [dir="rtl"] .services-cards .service-card .service-number { right: auto; left: 28px; }
+    [dir="rtl"] .service-list li { flex-direction: row-reverse; text-align: right; }
+    [dir="rtl"] .about-network-copy { text-align: right; }
+    [dir="rtl"] .mini-card.a { left: auto; right: 41%; }
+    [dir="rtl"] .mini-card.b { right: auto; left: 1%; }
+    [dir="rtl"] .mini-card.c { left: auto; right: 3%; }
+    @media (max-width: 640px) { [dir="rtl"] .services-cards .service-card .service-top { padding-left: 58px; } [dir="rtl"] .services-cards .service-card .service-number { left: 22px; } }
   </style>
-<style>
-    /* Arabic homepage alignment using the same English design system */
-    [dir="rtl"] .hero-full-content,
-    [dir="rtl"] .about-network-copy,
-    [dir="rtl"] .service-card,
-    [dir="rtl"] .approach-step {
-      text-align: right;
-    }
-
-    [dir="rtl"] .hero-full-inner {
-      justify-content: flex-start;
-    }
-
-    [dir="rtl"] .hero-full-content {
-      margin-left: auto;
-      margin-right: 0;
-    }
-
-    [dir="rtl"] .gantt-row {
-      grid-template-columns: 1fr 92px;
-    }
-
-    [dir="rtl"] .gantt-row > span {
-      grid-column: 2;
-      grid-row: 1;
-    }
-
-    [dir="rtl"] .gantt-row > .track,
-    [dir="rtl"] .gantt-row > .decision-track {
-      grid-column: 1;
-      grid-row: 1;
-    }
-
-    [dir="rtl"] .research { margin-left: 0; margin-right: 10%; }
-    [dir="rtl"] .test { margin-left: 0; margin-right: 24%; }
-    [dir="rtl"] .mvp { margin-left: 0; margin-right: 38%; }
-    [dir="rtl"] .revenue { margin-left: 0; margin-right: 76%; }
-
-    [dir="rtl"] .service-list li,
-    [dir="rtl"] .service-top,
-    [dir="rtl"] .about-network-wrap {
-      direction: rtl;
-    }
-
-    [dir="rtl"] .service-list li::before {
-      margin-left: 0;
-      margin-right: 0;
-    }
-
-    [dir="rtl"] .approach-summary-panel {
-      direction: rtl;
-    }
-
-    @media (max-width: 640px) {
-      [dir="rtl"] .gantt-row { grid-template-columns: 1fr 86px; }
-    }
-</style></head>
+</head>
 <body class="homepage">
-<div id="lang-bar" style="display:none;"></div>
-<header class="header">
-<div class="header-inner" id="global-header"></div>
-</header>
-<main>
-<section class="hero-full hero-slider" id="heroSlider">
-<div class="slider-slide slide-1 active"></div>
-<div class="hero-full-inner">
-<div class="hero-full-content">
-<p class="kicker">من الفكرة إلى التنفيذ</p>
-<h1>الهيكلة تحوّل الأفكار إلى خطوات عملية.</h1>
-<p>اختبر فكرتك مبكرًا، اتخذ قرارات واضحة، وتقدّم نحو الدخل مع وقت أقل مهدور.</p>
-<div class="hero-gantt">
-<div class="gantt-row"><span>الفكرة</span><div class="track"><div class="bar idea"></div></div></div>
-<div class="gantt-row"><span>البحث</span><div class="track"><div class="bar research"></div></div></div>
-<div class="gantt-row"><span>الاختبار</span><div class="track"><div class="bar test"></div></div></div>
-<div class="gantt-row decision-row"><span>القرار</span><div class="decision-track"><div class="decision-option stop">توقّف</div><div class="decision-option adapt">عدّل</div><div class="decision-option continue">استمر</div></div></div>
-<div class="gantt-row"><span>MVP</span><div class="track"><div class="bar mvp"></div></div></div>
-<div class="gantt-row"><span>الدخل</span><div class="track"><div class="bar revenue"></div></div></div>
-</div>
-<div class="hero-actions">
-<a class="btn btn-primary" href="https://en-boarding.com/ar_booking.html">ابدأ البناء ←</a>
-</div>
-</div>
-</div>
-</section>
-<style>
+  <div id="lang-bar" style="display:none;"></div>
+
+  <header class="header">
+    <div class="header-inner" id="global-header"></div>
+  </header>
+
+  <main>
+    <section class="hero-full hero-slider" id="heroSlider">
+      <div class="slider-slide slide-1 active"></div>
+
+      <div class="hero-full-inner">
+        <div class="hero-full-content">
+          <p class="kicker">من الفكرة إلى التنفيذ</p>
+          <h1>الهيكل يحوّل الأفكار إلى خطوات عملية.</h1>
+          <p>اختبر فكرتك مبكرًا، اتخذ قرارات واضحة، وتقدّم نحو الدخل مع وقت أقل مهدور.</p>
+
+          <div class="hero-gantt">
+            <div class="gantt-row"><span>فكرة</span><div class="track"><div class="bar idea"></div></div></div>
+            <div class="gantt-row"><span>بحث</span><div class="track"><div class="bar research"></div></div></div>
+            <div class="gantt-row"><span>اختبار</span><div class="track"><div class="bar test"></div></div></div>
+            <div class="gantt-row decision-row"><span>قرار</span><div class="decision-track"><div class="decision-option stop">توقف</div><div class="decision-option adapt">عدّل</div><div class="decision-option continue">استمر</div></div></div>
+            <div class="gantt-row"><span>MVP</span><div class="track"><div class="bar mvp"></div></div></div>
+            <div class="gantt-row"><span>دخل</span><div class="track"><div class="bar revenue"></div></div></div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="https://en-boarding.com/ar_booking.html" class="btn btn-primary">ابدأ البناء ←</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
       .hero-full { padding: 0 !important; }
       .hero-slider { position: relative; min-height: 560px; overflow: hidden; background: var(--hero-fallback-bg); }
       .slider-slide { position: absolute; inset: 0; width: 100%; height: 100%; background-image: linear-gradient(90deg, rgba(var(--ink-rgb), 0.76) 0%, rgba(var(--ink-rgb), 0.48) 48%, rgba(var(--ink-rgb), 0.12) 100%), url("images/ar-becoming-entrepreneur.webp"); background-size: cover; background-position: center 30%; background-repeat: no-repeat; z-index: 0; }
@@ -881,50 +843,61 @@
       @media (max-width: 900px) { .hero-slider, .hero-full-inner { min-height: 560px; } .hero-full-content { width: 100%; max-width: 620px; } }
       @media (max-width: 640px) { .hero-slider, .hero-full-inner { min-height: 520px; } .hero-full-inner { width: min(100% - 32px, 1200px); padding-top: 100px; padding-bottom: 40px; } .hero-gantt { padding: 18px; } .gantt-row { grid-template-columns: 86px 1fr; } .decision-option { font-size: 0.65rem; } }
     </style>
-<section class="approach-visual-section approach-redesign" id="approach">
-<div class="container">
-<div class="approach-redesign-header">
-<div class="kicker">منهجي</div>
-<h2>عملية هادئة تحوّل عدم الوضوح إلى تقدّم.</h2>
-<p>بدل عرض فوضوي قبل وبعد، يوضح هذا القسم مسارًا نظيفًا: نحدد ما يهم، نبني أبسط خطوة تالية، نختبرها، ثم نحسّنها حتى تتحرك نحو الدخل.</p>
-</div>
-<div class="approach-flow-card">
-<div aria-hidden="true" class="approach-flow-line"></div>
-<article class="approach-step">
-<div class="approach-step-number">01</div>
-<div class="approach-step-icon">?</div>
-<h3>نوضّح</h3>
-<p>نفهم فكرتك، مهاراتك، عرضك، جمهورك، وما يمنعك من التحرك الآن.</p>
-</article>
-<article class="approach-step">
-<div class="approach-step-number">02</div>
-<div class="approach-step-icon">↘</div>
-<h3>نبسّط</h3>
-<p>نحوّل التشويش إلى اتجاه واضح، أولوية واحدة، وخطوة عملية تالية.</p>
-</article>
-<article class="approach-step">
-<div class="approach-step-number">03</div>
-<div class="approach-step-icon">✓</div>
-<h3>نختبر</h3>
-<p>تختبر الفكرة مع أشخاص حقيقيين قبل أن تنفق الكثير من الوقت أو المال أو الطاقة.</p>
-</article>
-<article class="approach-step">
-<div class="approach-step-number">04</div>
-<div class="approach-step-icon">←</div>
-<h3>نتقدّم</h3>
-<p>تخرج بهيكلة وثقة وخطوات تالية تقرّبك من الدخل.</p>
-</article>
-</div>
-<div class="approach-summary-panel">
-<div>
-<span class="summary-label">الهدف</span>
-<strong>تشويش أقل. اتجاه أوضح. خطوة عملية واضحة.</strong>
-</div>
-<a class="approach-mini-btn" href="https://en-boarding.com/ar_booking.html">ابدأ بجلسة مجانية ←</a>
-</div>
-</div>
-</section>
-<style>
+
+    <section class="approach-visual-section approach-redesign" id="approach">
+      <div class="container">
+        <div class="approach-redesign-header">
+          <div class="kicker">منهجي</div>
+          <h2>عملية واضحة تحوّل عدم اليقين إلى تقدم.</h2>
+          <p>
+            بدل عرض مربك قبل وبعد، يعرض هذا القسم مسارًا واضحًا:
+            نوضح ما يهم، نبني أبسط خطوة تالية، نختبرها، ثم نطوّرها حتى تتحرك نحو الدخل.
+          </p>
+        </div>
+
+        <div class="approach-flow-card">
+          <div class="approach-flow-line" aria-hidden="true"></div>
+
+          <article class="approach-step">
+            <div class="approach-step-number">01</div>
+            <div class="approach-step-icon">?</div>
+            <h3>نوضّح</h3>
+            <p>نفهم فكرتك، مهاراتك، عرضك، جمهورك، وما يمنعك حاليًا من التحرك.</p>
+          </article>
+
+          <article class="approach-step">
+            <div class="approach-step-number">02</div>
+            <div class="approach-step-icon">↘</div>
+            <h3>نبسّط</h3>
+            <p>نحوّل التشويش إلى اتجاه واضح، أولوية واحدة، وخطوة عملية تالية.</p>
+          </article>
+
+          <article class="approach-step">
+            <div class="approach-step-number">03</div>
+            <div class="approach-step-icon">✓</div>
+            <h3>اختبار</h3>
+            <p>تختبر الفكرة مع أشخاص حقيقيين قبل إنفاق الكثير من الوقت أو المال أو الطاقة.</p>
+          </article>
+
+          <article class="approach-step">
+            <div class="approach-step-number">04</div>
+            <div class="approach-step-icon">→</div>
+            <h3>نتحرك</h3>
+            <p>تخرج بهيكل واضح، وثقة أكبر، وخطوات تقرّبك من الدخل.</p>
+          </article>
+        </div>
+
+        <div class="approach-summary-panel">
+          <div>
+            <span class="summary-label">الهدف</span>
+            <strong>تشويش أقل. اتجاه أوضح. خطوات عملية.</strong>
+          </div>
+          <a href="https://en-boarding.com/ar_booking.html" class="approach-mini-btn">ابدأ بجلسة مجانية ←</a>
+        </div>
+      </div>
+    </section>
+
+    <style>
       .approach-redesign {
         position: relative;
         padding: 110px 20px;
@@ -1153,8 +1126,9 @@
         }
       }
     </style>
-<section class="services-wrapper" id="services">
-<style>
+
+    <section class="services-wrapper" id="services">
+      <style>
         .services-wrapper { background: linear-gradient(135deg, var(--section-bg-light) 0%, var(--section-bg-soft) 100%); padding: 100px 20px; overflow: hidden; }
         .services-section { max-width: 1180px; margin: 0 auto; }
         .services-header { text-align: center; max-width: 760px; margin: 0 auto 52px; }
@@ -1243,53 +1217,61 @@
           .services-cards .service-card .service-number { top: 28px; right: 22px; }
         }
       </style>
-<div class="services-section">
-<div class="services-header">
-<div class="kicker">كيف يعمل الأمر</div>
-<h2>اختر الدعم المناسب لمرحلتك.</h2>
-<p>كل خدمة مصممة لتنقلك من التشويش إلى الوضوح، ثم من الوضوح إلى التنفيذ والتقدّم القابل للقياس.</p>
-</div>
-<div class="services-cards">
-<article class="service-card">
-<div class="service-number">01</div>
-<div class="service-top"><div><span class="service-name">Silver</span><span class="service-subtitle">وضوح</span></div></div>
-<p class="service-description">مناسبة عندما تحتاج إلى اتجاه، وتركيز، وخطوة تالية واضحة قبل أن تستثمر وقتًا أو مالًا أكثر.</p>
-<ul class="service-list"><li>جلسة وضوح مكثفة واحدة</li><li>تحديد ما يجب التركيز عليه أولًا</li><li>الخروج بخطوات عملية تالية</li></ul>
-</article>
-<article class="service-card featured">
-<span class="service-badge">الأكثر توازنًا</span>
-<div class="service-number">02</div>
-<div class="service-top"><div><span class="service-name">Gold</span><span class="service-subtitle">تنفيذ</span></div></div>
-<p class="service-description">مناسبة عندما تريد هيكلة، ودعمًا أسبوعيًا، وزخمًا أثناء اختبار فكرتك مع أشخاص حقيقيين.</p>
-<ul class="service-list"><li>دعم تنفيذ أسبوعي</li><li>بناء العرض واختباره وتحسينه</li><li>خلق الزخم مع المتابعة والمساءلة</li></ul>
-</article>
-<article class="service-card">
-<div class="service-number">03</div>
-<div class="service-top"><div><span class="service-name">Diamond</span><span class="service-subtitle">نتائج</span></div></div>
-<p class="service-description">مناسبة عندما تريد دعمًا مكثفًا، وتنفيذًا أسرع، وتركيزًا أقوى على نتائج قابلة للقياس.</p>
-<ul class="service-list"><li>جلسة تعمق مع جلستين أسبوعيًا</li><li>تغذية راجعة سريعة وتحسين مستمر</li><li>دعم مكثف عالي المتابعة نحو النتائج</li></ul>
-</article>
-</div>
-<p class="services-note">تحتاج إلى وضوح؟ ابدأ بـ Silver. تريد دعمًا أعمق وتقدمًا أسرع؟ Gold أو Diamond هو الأنسب.</p>
-<div class="services-action"><a class="services-cta-link" href="{'kicker': 'كيف يعمل الأمر', 'h2': 'اختر الدعم المناسب لمرحلتك.', 'p': 'كل خدمة مصممة لتنقلك من التشويش إلى الوضوح، ثم من الوضوح إلى التنفيذ والتقدّم القابل للقياس.', 'cards': [('Silver', 'وضوح', 'مناسبة عندما تحتاج إلى اتجاه، وتركيز، وخطوة تالية واضحة قبل أن تستثمر وقتًا أو مالًا أكثر.', ['جلسة وضوح مكثفة واحدة', 'تحديد ما يجب التركيز عليه أولًا', 'الخروج بخطوات عملية تالية']), ('Gold', 'تنفيذ', 'مناسبة عندما تريد هيكلة، ودعمًا أسبوعيًا، وزخمًا أثناء اختبار فكرتك مع أشخاص حقيقيين.', ['دعم تنفيذ أسبوعي', 'بناء العرض واختباره وتحسينه', 'خلق الزخم مع المتابعة والمساءلة']), ('Diamond', 'نتائج', 'مناسبة عندما تريد دعمًا مكثفًا، وتنفيذًا أسرع، وتركيزًا أقوى على نتائج قابلة للقياس.', ['جلسة تعمق مع جلستين أسبوعيًا', 'تغذية راجعة سريعة وتحسين مستمر', 'دعم مكثف عالي المتابعة نحو النتائج'])], 'badge': 'الأكثر توازنًا', 'note': 'تحتاج إلى وضوح؟ ابدأ بـ Silver. تريد دعمًا أعمق وتقدمًا أسرع؟ Gold أو Diamond هو الأنسب.', 'button': 'اكتشف المزيد عن الخدمات ←'}">اكتشف المزيد عن الخدمات ←</a></div>
-</div>
-</section>
-<section class="results-section">
-<div class="container">
-<div class="section-title">
-<div class="kicker">النتائج</div>
-<h2>ما الذي ستخرج به.</h2>
-<p>القيمة هي فهم كيفية تحويل ما لديك إلى دخل.</p>
-</div>
-<div class="grid-3">
-<div class="card"><div class="card-icon">A</div><h3>مسار واضح لتحقيق الدخل</h3><p>افهم كيف يمكن لفكرتك أو مهاراتك أو مشروعك أن يولّد إيرادات.</p></div>
-<div class="card"><div class="card-icon">B</div><h3>أولويات مركّزة</h3><p>توقف عن إهدار الطاقة — ركّز على ما يؤدي فعلاً إلى الدخل.</p></div>
-<div class="card"><div class="card-icon">C</div><h3>خطوات تالية قابلة للتنفيذ</h3><p>اخرج بتوجيه عملي يمكنك تطبيقه مباشرة.</p></div>
-</div>
-</div>
-</section>
-<section class="about-network-section" id="about">
-<style>
+
+      <div class="services-section">
+        <div class="services-header">
+          <div class="kicker">كيف يعمل الأمر</div>
+          <h2>اختر الدعم المناسب لمرحلتك.</h2>
+          <p>كل خدمة مصممة لتنقلك من التشويش إلى الوضوح، ثم من الوضوح إلى العمل والتقدم القابل للقياس.</p>
+        </div>
+
+        <div class="services-cards">
+          <article class="service-card">
+            <div class="service-number">01</div>
+            <div class="service-top"><div><span class="service-name">Silver</span><span class="service-subtitle">وضوح</span></div></div>
+            <p class="service-description">مناسب عندما تحتاج إلى اتجاه، وتركيز، وخطوة تالية واضحة قبل استثمار المزيد من الوقت أو المال.</p>
+            <ul class="service-list"><li>جلسة وضوح مكثفة واحدة</li><li>تحديد ما يجب التركيز عليه أولًا</li><li>الخروج بخطوات عملية تالية</li></ul>
+          </article>
+
+          <article class="service-card featured">
+            <span class="service-badge">الأكثر توازنًا</span>
+            <div class="service-number">02</div>
+            <div class="service-top"><div><span class="service-name">Gold</span><span class="service-subtitle">تنفيذ</span></div></div>
+            <p class="service-description">مناسب عندما تريد هيكلًا، ودعمًا أسبوعيًا، وزخمًا أثناء اختبار فكرتك مع أشخاص حقيقيين.</p>
+            <ul class="service-list"><li>دعم تنفيذ أسبوعي</li><li>بناء العرض واختباره وتحسينه</li><li>خلق زخم مع متابعة ومساءلة</li></ul>
+          </article>
+
+          <article class="service-card">
+            <div class="service-number">03</div>
+            <div class="service-top"><div><span class="service-name">Diamond</span><span class="service-subtitle">نتائج</span></div></div>
+            <p class="service-description">مناسب عندما تريد دعمًا مكثفًا، وتنفيذًا أسرع، وتركيزًا أقوى على نتائج قابلة للقياس.</p>
+            <ul class="service-list"><li>جلسة تعمق إضافة إلى جلستين أسبوعيًا</li><li>تغذية راجعة سريعة وتحسين</li><li>دعم مكثف نحو النتائج</li></ul>
+          </article>
+        </div>
+
+        <p class="services-note">تحتاج إلى وضوح؟ ابدأ بـ Silver. تريد دعمًا أعمق وتقدمًا أسرع؟ Gold أو Diamond أنسب.</p>
+        <div class="services-action"><a href="https://en-boarding.com/ar_services.html" class="services-cta-link">اكتشف المزيد عن الخدمات ←</a></div>
+      </div>
+    </section>
+
+    <section class="results-section">
+      <div class="container">
+        <div class="section-title">
+          <div class="kicker">نتائج</div>
+          <h2>ما الذي ستحصل عليه.</h2>
+          <p>القيمة هي أن تفهم كيف تحول ما لديك إلى دخل.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card"><div class="card-icon">A</div><h3>مسار واضح لتحقيق الدخل</h3><p>افهم كيف يمكن لفكرتك أو مهاراتك أو مشروعك أن يولّد الدخل.</p></div>
+          <div class="card"><div class="card-icon">B</div><h3>أولويات مركزة</h3><p>توقف wasting energy — focus on what actually leads to income.</p></div>
+          <div class="card"><div class="card-icon">C</div><h3>خطوات تالية قابلة للتنفيذ</h3><p>اخرج باتجاه عملي يمكنك تطبيقه فورًا.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about-network-section">
+      <style>
         .about-network-section { padding: 110px 24px; background: linear-gradient(135deg, var(--section-bg-light) 0%, var(--section-bg-soft) 100%); overflow: hidden; }
         .about-network-wrap { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 48px; align-items: center; }
         .about-network-copy h2 { margin: 0 0 18px; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.08; letter-spacing: -0.03em; color: var(--ink); }
@@ -1324,42 +1306,48 @@
         @media (max-width: 900px) { .about-network-wrap { grid-template-columns: 1fr; } .network-visual { min-height: 450px; } }
         @media (max-width: 560px) { .about-network-section { padding: 80px 20px; } .person-node { width: 88px; height: 88px; } .person-node.main { width: 124px; height: 124px; transform: translate(-50%, -50%) !important; } .mini-card, .person-label { font-size: 0.66rem; } }
       </style>
-<div class="about-network-wrap">
-<div class="about-network-copy">
-<div class="kicker">مع من أعمل</div>
-<h2>أعمل مع أشخاص مستعدين لتحويل ما لديهم إلى دخل.</h2>
-<p>المستقلون، رواد الأعمال، مؤسسو الشركات الناشئة، المبدعون، المستشارون، والمهنيون أصحاب المهارات — كلهم في مراحل مختلفة، لكن لديهم الحاجة نفسها: وضوح، هيكلة، وخطوات عملية تالية.</p>
-<a class="about-network-btn" href="{'kicker': 'مع من أعمل', 'h2': 'أعمل مع أشخاص مستعدين لتحويل ما لديهم إلى دخل.', 'p': 'المستقلون، رواد الأعمال، مؤسسو الشركات الناشئة، المبدعون، المستشارون، والمهنيون أصحاب المهارات — كلهم في مراحل مختلفة، لكن لديهم الحاجة نفسها: وضوح، هيكلة، وخطوات عملية تالية.', 'button': 'المزيد عني ←', 'labels': ['المستقلون', 'رواد الأعمال', 'مؤسسو الشركات الناشئة', 'المبدعون'], 'mini': ['المستشارون', 'مهنيون أصحاب مهارات', 'بناة المشاريع'], 'role': 'وضوح · هيكلة · تنفيذ'}">المزيد عني ←</a>
-</div>
-<div class="network-visual">
-<div class="network-line"></div>
-<div class="person-node one"><img alt="المستقلون" src="images/bouchra-freelancer.webp"/><span class="person-label">المستقلون</span></div>
-<div class="person-node two"><img alt="رواد الأعمال" src="images/bouchra-entrepreneur.webp"/><span class="person-label">رواد الأعمال</span></div>
-<div class="person-node three"><img alt="مؤسسو الشركات الناشئة" src="images/bouchra-startup.webp"/><span class="person-label">مؤسسو الشركات الناشئة</span></div>
-<div class="person-node four"><img alt="المبدعون" src="images/bouchra-creative.webp"/><span class="person-label">المبدعون</span></div>
-<div class="person-node main"><img alt="Bouchra Driouach" src="images/bouchra.jpg"/></div>
-<div class="mini-card a">المستشارون</div><div class="mini-card b">مهنيون أصحاب مهارات</div><div class="mini-card c">بناة المشاريع</div>
-<div class="status-dot d1"></div><div class="status-dot d2"></div><div class="status-dot d3"></div>
-<div class="role-label">وضوح · هيكلة · تنفيذ</div>
-</div>
-</div>
-</section>
-<section class="cta-section">
-<div class="cta-panel">
-<div class="kicker">ابدأ هنا</div>
-<h2>هل أنت مستعد لتحويل فكرتك إلى خطوات عملية؟</h2>
-<p>ابدأ بجلسة أولى مجانية. سنوضح خطوتك التالية ونختار الدعم المناسب.</p>
-<a class="btn btn-primary" href="ar_booking.html">احجز جلستك المجانية ←</a>
-<div class="cta-chips"><span>جلسة أولى مجانية</span><span>بدون التزام</span><span>خطوة تالية واضحة</span></div>
-</div>
-</section>
-</main>
-<footer>
-<div class="footer-inner" id="global-footer"></div>
-</footer>
-<div id="cookie-consent"></div>
-<script src="js/components.js"></script>
-<script>
+
+      <div class="about-network-wrap">
+        <div class="about-network-copy">
+          <div class="kicker">مع من أعمل</div>
+          <h2>أعمل مع أشخاص مستعدين لتحويل ما لديهم إلى دخل.</h2>
+          <p>مستقلون، رواد أعمال، مؤسسو شركات ناشئة، مبدعون، مستشارون، ومحترفون لديهم مهارات — كلهم في مراحل مختلفة، لكنهم يحتاجون إلى الشيء نفسه: وضوح، هيكل، وخطوات عملية تالية.</p>
+          <a href="https://en-boarding.com/ar_about.html" class="about-network-btn">اعرف المزيد عني ←</a>
+        </div>
+
+        <div class="network-visual">
+          <div class="network-line"></div>
+          <div class="person-node one"><img src="images/bouchra-freelancer.webp" alt="مستقلون"><span class="person-label">مستقلون</span></div>
+          <div class="person-node two"><img src="images/bouchra-entrepreneur.webp" alt="رواد أعمال"><span class="person-label">رواد أعمال</span></div>
+          <div class="person-node three"><img src="images/bouchra-startup.webp" alt="مؤسسو شركات ناشئة"><span class="person-label">مؤسسو شركات ناشئة</span></div>
+          <div class="person-node four"><img src="images/bouchra-creative.webp" alt="مبدعون"><span class="person-label">مبدعون</span></div>
+          <div class="person-node main"><img src="images/bouchra.jpg" alt="Bouchra Driouach"></div>
+          <div class="mini-card a">مستشارون</div><div class="mini-card b">محترفون لديهم مهارات</div><div class="mini-card c">بناة مشاريع</div>
+          <div class="status-dot d1"></div><div class="status-dot d2"></div><div class="status-dot d3"></div>
+          <div class="role-label">وضوح · Structure · Action</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="cta-panel">
+        <div class="kicker">ابدأ هنا</div>
+        <h2>هل أنت مستعد لتحويل فكرتك إلى عمل؟</h2>
+        <p>ابدأ بجلسة أولى مجانية. سنوضح خطوتك التالية ونختار الدعم المناسب.</p>
+        <a href="https://en-boarding.com/ar_booking.html" class="btn btn-primary">احجز جلستك المجانية ←</a>
+        <div class="cta-chips"><span>جلسة أولى مجانية</span><span>بدون التزام</span><span>خطوة تالية واضحة</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner" id="global-footer"></div>
+  </footer>
+
+  <div id="cookie-consent"></div>
+
+  <script src="js/components.js"></script>
+  <script>
     window.addEventListener('scroll', function() {
       document.querySelector('.header')?.classList.toggle('scrolled', window.scrollY > 50);
     });
