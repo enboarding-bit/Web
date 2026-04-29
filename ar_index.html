@@ -469,25 +469,7 @@
       line-height: 1.7;
     }
 
-    .cta-panel .btn-primary {
-      background: var(--ink);
-      color: var(--white);
-      box-shadow: 0 10px 24px rgba(var(--ink-rgb), 0.12);
-      display: inline-flex;
-      padding: 14px 30px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 700;
-      border: 1px solid transparent;
-      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-    }
 
-    .cta-panel .btn-primary:hover {
-      background: var(--black);
-      color: var(--white);
-      transform: translateY(-1px);
-      box-shadow: 0 14px 30px rgba(var(--ink-rgb), 0.18);
-    }
 
     .cta-panel .cta-chips {
       margin-top: 18px;
@@ -705,108 +687,6 @@
     @keyframes diamondShine { 0%, 55% { transform: translateX(-120%); } 75%, 100% { transform: translateX(120%); } }
     @keyframes badgePulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } }
 
-    /* ===== FINAL CTA BUTTON FIX — MORE SPECIFIC THAN global.css ===== */
-    body.homepage .cta-section .cta-panel .btn.btn-primary {
-      background: var(--ink) !important;
-      color: var(--white) !important;
-      box-shadow: 0 12px 28px rgba(var(--ink-rgb), 0.18) !important;
-      border: 1px solid transparent !important;
-    }
-
-    body.homepage .cta-section .cta-panel .btn.btn-primary:hover {
-      background: var(--black) !important;
-      color: var(--white) !important;
-      transform: translateY(-2px);
-      box-shadow: 0 16px 34px rgba(var(--ink-rgb), 0.24) !important;
-    }
-
-    /* ===== HOMEPAGE CTA CONSISTENCY FIX ===== */
-    body.homepage .hero-actions .btn-primary,
-    body.homepage .about-network-section .about-network-btn,
-    body.homepage .services-wrapper .services-cta-link,
-    body.homepage .cta-section .cta-panel .btn.btn-primary {
-      background: var(--ink) !important;
-      color: var(--white) !important;
-      border: 1px solid transparent !important;
-      box-shadow: 0 12px 28px rgba(var(--ink-rgb), 0.16) !important;
-    }
-
-    body.homepage .hero-actions .btn-primary:hover,
-    body.homepage .about-network-section .about-network-btn:hover,
-    body.homepage .services-wrapper .services-cta-link:hover,
-    body.homepage .cta-section .cta-panel .btn.btn-primary:hover {
-      background: var(--black) !important;
-      color: var(--white) !important;
-      transform: translateY(-2px);
-      box-shadow: 0 16px 34px rgba(var(--ink-rgb), 0.22) !important;
-    }
-  
-
-    /* Arabic typography polish */
-    html[lang="ar"],
-    html[lang="ar"] body {
-      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
-      letter-spacing: 0;
-    }
-
-    html[lang="ar"] h1,
-    html[lang="ar"] h2,
-    html[lang="ar"] h3,
-    html[lang="ar"] p,
-    html[lang="ar"] li,
-    html[lang="ar"] a,
-    html[lang="ar"] span {
-      letter-spacing: 0;
-    }
-
-    html[lang="ar"] h1,
-    html[lang="ar"] h2,
-    html[lang="ar"] h3 {
-      line-height: 1.18;
-    }
-
-    html[lang="ar"] p,
-    html[lang="ar"] li {
-      line-height: 1.9;
-    }
-</style>
-
-  <style id="homepage-animation-fixes">
-    /* Animation fixes for inserted homepage sections */
-    @keyframes heroFadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes ganttGrow { 0% { transform: scaleX(0); opacity: 0.45; } 45%, 80% { transform: scaleX(1); opacity: 1; } 100% { transform: scaleX(1); opacity: 0.95; } }
-    @keyframes decisionPulse { 0%, 100% { transform: translateY(0); opacity: 0.72; } 50% { transform: translateY(-2px); opacity: 1; } }
-    @keyframes softFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-    @keyframes lineGlow { 0%, 100% { opacity: 0.42; transform: scale(1); } 50% { opacity: 0.78; transform: scale(1.015); } }
-    .hero-full-content { animation: heroFadeUp 0.85s ease-out both; }
-    .hero-gantt { animation: heroFadeUp 1s ease-out 0.18s both; }
-    .hero-gantt .bar { transform-origin: left center; animation: ganttGrow 3.8s ease-in-out infinite; }
-    .hero-gantt .research { animation-delay: 0.15s; }
-    .hero-gantt .test { animation-delay: 0.3s; }
-    .hero-gantt .mvp { animation-delay: 0.45s; }
-    .hero-gantt .revenue { animation-delay: 0.6s; }
-    .decision-option { animation: decisionPulse 2.8s ease-in-out infinite; }
-    .decision-option.adapt { animation-delay: 0.22s; }
-    .decision-option.continue { animation-delay: 0.44s; }
-    .translator-panel.input-panel { animation: softFloat 5s ease-in-out infinite; }
-    .translator-panel.output-panel { animation: softFloat 5s ease-in-out 0.55s infinite; }
-    .network-line { animation: lineGlow 4.5s ease-in-out infinite; transform-origin: center; }
-    .mini-card { animation: popIn .8s ease forwards, softFloat 4.6s ease-in-out 1s infinite; }
-    @media (prefers-reduced-motion: reduce) {
-      .hero-full-content, .hero-gantt, .hero-gantt .bar, .decision-option, .translator-panel.input-panel, .translator-panel.output-panel, .network-line, .mini-card, .person-node.main { animation: none !important; }
-    }
-  
-    [dir="rtl"] .hero-full-content { text-align: right; margin-left: auto; }
-    [dir="rtl"] .hero-actions { justify-content: flex-start; }
-    [dir="rtl"] .gantt-row { grid-template-columns: 92px 1fr; }
-    [dir="rtl"] .services-cards .service-card .service-top { padding-right: 70px; padding-left: 0; text-align: right; }
-    [dir="rtl"] .services-cards .service-card .service-number { right: 28px; left: auto; }
-    [dir="rtl"] .service-list li { direction: rtl; flex-direction: row; text-align: right; }
-    [dir="rtl"] .about-network-copy { text-align: right; }
-    [dir="rtl"] .mini-card.a { left: auto; right: 41%; }
-    [dir="rtl"] .mini-card.b { right: auto; left: 1%; }
-    [dir="rtl"] .mini-card.c { left: auto; right: 3%; }
-@media (max-width: 640px) { [dir="rtl"] .services-cards .service-card .service-top { padding-right: 64px; padding-left: 0; } [dir="rtl"] .services-cards .service-card .service-number { right: 22px; left: auto; } }
   </style>
 
 
@@ -1626,7 +1506,7 @@
         </div>
 
         <p class="services-note">تحتاج إلى وضوح؟ ابدأ بـ Silver. تريد دعمًا أعمق وتقدمًا أسرع؟ Gold أو Diamond سيكونان الأنسب.</p>
-        <div class="services-action"><a href="ar_services.html" class="services-cta-link">اكتشف المزيد عن الخدمات ←</a></div>
+        <div class="services-action"><a href="ar_services.html" class="btn btn-primary">اكتشف المزيد عن الخدمات ←</a></div>
       </div>
     </section>
 
@@ -1688,7 +1568,7 @@
           <div class="kicker">مع من أعمل</div>
           <h2>أعمل مع أشخاص مستعدين لتحويل ما لديهم إلى دخل.</h2>
           <p>مستقلون، رواد أعمال، مؤسسو شركات ناشئة، مبدعون، مستشارون، ومحترفون لديهم مهارات — كلهم في مراحل مختلفة، لكنهم يحتاجون إلى الشيء نفسه: وضوح، هيكل، وخطوات عملية تالية.</p>
-          <a href="https://en-boarding.com/ar_about.html" class="about-network-btn">اعرف المزيد عني ←</a>
+          <a href="https://en-boarding.com/ar_about.html" class="btn btn-primary">اعرف المزيد عني ←</a>
         </div>
 
         <div class="network-visual">
