@@ -1445,6 +1445,66 @@
         }
       </style>
 
+
+      <style id="arabic-service-circle-right-number-fix">
+        #services .service-card::before {
+          right: -80px !important;
+          left: auto !important;
+          top: -80px !important;
+        }
+
+        #services .service-title-row {
+          position: static !important;
+          padding-right: 86px !important;
+          padding-left: 0 !important;
+          min-height: 92px !important;
+        }
+
+        #services .service-number {
+          position: absolute !important;
+          top: 72px !important;
+          right: 34px !important;
+          left: auto !important;
+          width: 52px !important;
+          height: 52px !important;
+          min-width: 52px !important;
+          min-height: 52px !important;
+          border-radius: 18px !important;
+          display: inline-flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          background: rgba(var(--white-rgb), 0.72) !important;
+          border: 1px solid rgba(var(--brand-rgb), 0.18) !important;
+          box-shadow: 0 10px 24px rgba(var(--ink-rgb), 0.08) !important;
+          color: var(--ink) !important;
+          direction: ltr !important;
+          unicode-bidi: isolate !important;
+          white-space: nowrap !important;
+          line-height: 1 !important;
+          z-index: 4 !important;
+        }
+
+        #services .service-heading {
+          text-align: right !important;
+          padding-top: 0 !important;
+        }
+
+        @media (max-width: 640px) {
+          #services .service-title-row {
+            padding-right: 78px !important;
+            min-height: 88px !important;
+          }
+
+          #services .service-number {
+            top: 68px !important;
+            right: 26px !important;
+            width: 48px !important;
+            height: 48px !important;
+            min-width: 48px !important;
+            min-height: 48px !important;
+          }
+        }
+      </style>
       <div class="services-section">
         <div class="services-header">
           <div class="kicker">كيف يعمل الأمر</div>
