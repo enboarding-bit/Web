@@ -740,7 +740,36 @@
       transform: translateY(-2px);
       box-shadow: 0 16px 34px rgba(var(--ink-rgb), 0.22) !important;
     }
-  </style>
+  
+
+    /* Arabic typography polish */
+    html[lang="ar"],
+    html[lang="ar"] body {
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+      letter-spacing: 0;
+    }
+
+    html[lang="ar"] h1,
+    html[lang="ar"] h2,
+    html[lang="ar"] h3,
+    html[lang="ar"] p,
+    html[lang="ar"] li,
+    html[lang="ar"] a,
+    html[lang="ar"] span {
+      letter-spacing: 0;
+    }
+
+    html[lang="ar"] h1,
+    html[lang="ar"] h2,
+    html[lang="ar"] h3 {
+      line-height: 1.18;
+    }
+
+    html[lang="ar"] p,
+    html[lang="ar"] li {
+      line-height: 1.9;
+    }
+</style>
 
   <style id="homepage-animation-fixes">
     /* Animation fixes for inserted homepage sections */
@@ -770,14 +799,148 @@
     [dir="rtl"] .hero-full-content { text-align: right; margin-left: auto; }
     [dir="rtl"] .hero-actions { justify-content: flex-start; }
     [dir="rtl"] .gantt-row { grid-template-columns: 92px 1fr; }
-    [dir="rtl"] .services-cards .service-card .service-top { padding-right: 0; padding-left: 64px; }
-    [dir="rtl"] .services-cards .service-card .service-number { right: auto; left: 28px; }
-    [dir="rtl"] .service-list li { flex-direction: row-reverse; text-align: right; }
+    [dir="rtl"] .services-cards .service-card .service-top { padding-right: 70px; padding-left: 0; text-align: right; }
+    [dir="rtl"] .services-cards .service-card .service-number { right: 28px; left: auto; }
+    [dir="rtl"] .service-list li { direction: rtl; flex-direction: row; text-align: right; }
     [dir="rtl"] .about-network-copy { text-align: right; }
     [dir="rtl"] .mini-card.a { left: auto; right: 41%; }
     [dir="rtl"] .mini-card.b { right: auto; left: 1%; }
     [dir="rtl"] .mini-card.c { left: auto; right: 3%; }
-    @media (max-width: 640px) { [dir="rtl"] .services-cards .service-card .service-top { padding-left: 58px; } [dir="rtl"] .services-cards .service-card .service-number { left: 22px; } }
+@media (max-width: 640px) { [dir="rtl"] .services-cards .service-card .service-top { padding-right: 64px; padding-left: 0; } [dir="rtl"] .services-cards .service-card .service-number { right: 22px; left: auto; } }
+  </style>
+
+
+  <style id="final-arabic-rtl-service-fix">
+    /* Final Arabic RTL service card correction */
+    html[dir="rtl"] .services-cards .service-card {
+      direction: rtl !important;
+      text-align: right !important;
+    }
+
+    html[dir="rtl"] .services-cards .service-card .service-number {
+      position: absolute !important;
+      top: 32px !important;
+      right: 28px !important;
+      left: auto !important;
+      width: 54px !important;
+      min-width: 54px !important;
+      height: 48px !important;
+      min-height: 48px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      white-space: nowrap !important;
+      word-break: keep-all !important;
+      overflow-wrap: normal !important;
+      direction: ltr !important;
+      unicode-bidi: isolate !important;
+      line-height: 1 !important;
+      letter-spacing: 0 !important;
+      text-align: center !important;
+      flex: none !important;
+      margin: 0 !important;
+      z-index: 5 !important;
+    }
+
+    html[dir="rtl"] .services-cards .service-card .service-top {
+      display: block !important;
+      padding-right: 78px !important;
+      padding-left: 0 !important;
+      text-align: right !important;
+    }
+
+    html[dir="rtl"] .services-cards .service-card .service-name {
+      display: inline-block !important;
+      direction: ltr !important;
+      unicode-bidi: isolate !important;
+      text-align: right !important;
+      white-space: nowrap !important;
+    }
+
+    html[dir="rtl"] .services-cards .service-card .service-subtitle {
+      display: block !important;
+      direction: rtl !important;
+      unicode-bidi: isolate !important;
+      text-align: right !important;
+    }
+
+    html[dir="rtl"] .services-cards .service-card .service-description {
+      direction: rtl !important;
+      text-align: right !important;
+    }
+
+    html[dir="rtl"] .services-cards .service-card .service-list {
+      direction: rtl !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      list-style: none !important;
+    }
+
+    html[dir="rtl"] .services-cards .service-card .service-list li {
+      direction: rtl !important;
+      text-align: right !important;
+      display: flex !important;
+      flex-direction: row !important;
+      justify-content: flex-start !important;
+      align-items: flex-start !important;
+      gap: 10px !important;
+    }
+
+    html[dir="rtl"] .services-cards .service-card .service-list li::before {
+      flex: 0 0 22px !important;
+      margin-top: 1px !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    @media (max-width: 640px) {
+      html[dir="rtl"] .services-cards .service-card .service-number {
+        top: 28px !important;
+        right: 22px !important;
+      }
+
+      html[dir="rtl"] .services-cards .service-card .service-top {
+        padding-right: 72px !important;
+      }
+    }
+  </style>
+
+  <style id="arabic-services-final-fix">
+    html[dir="rtl"] .services-cards .service-card { direction: rtl; text-align: right; }
+    html[dir="rtl"] .services-cards .service-card .service-number {
+      position: absolute !important; top: 32px !important; right: 28px !important; left: auto !important;
+      width: 48px !important; height: 48px !important; min-width: 48px !important; min-height: 48px !important;
+      display: inline-flex !important; align-items: center !important; justify-content: center !important;
+      direction: ltr !important; unicode-bidi: isolate !important; white-space: nowrap !important;
+      line-height: 1 !important; text-align: center !important; z-index: 6 !important; margin: 0 !important;
+    }
+    html[dir="rtl"] .services-cards .service-card .service-top {
+      display: block !important; padding-right: 70px !important; padding-left: 0 !important; text-align: right !important;
+    }
+    html[dir="rtl"] .services-cards .service-card .service-name {
+      display: inline-block !important; direction: ltr !important; unicode-bidi: isolate !important; text-align: right !important;
+    }
+    html[dir="rtl"] .services-cards .service-card .service-subtitle,
+    html[dir="rtl"] .services-cards .service-card .service-description,
+    html[dir="rtl"] .services-cards .service-card .service-list {
+      direction: rtl !important; unicode-bidi: isolate !important; text-align: right !important;
+    }
+    html[dir="rtl"] .services-cards .service-card.featured .service-badge {
+      direction: rtl !important; unicode-bidi: isolate !important; text-transform: none !important; letter-spacing: 0 !important;
+      margin-right: 70px !important; margin-left: 0 !important; margin-bottom: 18px !important;
+      max-width: calc(100% - 86px) !important; position: relative !important; z-index: 5 !important;
+    }
+    html[dir="rtl"] .services-cards .service-card .service-list li {
+      direction: rtl !important; flex-direction: row !important; justify-content: flex-start !important; text-align: right !important;
+    }
+    html[dir="rtl"] .services-cards .service-card .service-list li::before {
+      margin-right: 0 !important; margin-left: 10px !important; flex: 0 0 22px !important;
+    }
+    @media (max-width: 640px) {
+      html[dir="rtl"] .services-cards .service-card .service-number { top: 28px !important; right: 22px !important; }
+      html[dir="rtl"] .services-cards .service-card .service-top { padding-right: 64px !important; }
+      html[dir="rtl"] .services-cards .service-card.featured .service-badge { margin-right: 64px !important; max-width: calc(100% - 78px) !important; }
+    }
   </style>
 </head>
 <body class="homepage">
@@ -794,7 +957,7 @@
       <div class="hero-full-inner">
         <div class="hero-full-content">
           <p class="kicker">من الفكرة إلى التنفيذ</p>
-          <h1>الهيكل يحوّل الأفكار إلى خطوات عملية.</h1>
+          <h1>حوِّل أفكارك الطموحة إلى مشروعٍ واضح ومربح.</h1>
           <p>اختبر فكرتك مبكرًا، اتخذ قرارات واضحة، وتقدّم نحو الدخل مع وقت أقل مهدور.</p>
 
           <div class="hero-gantt">
@@ -1129,92 +1292,276 @@
 
     <section class="services-wrapper" id="services">
       <style>
-        .services-wrapper { background: linear-gradient(135deg, var(--section-bg-light) 0%, var(--section-bg-soft) 100%); padding: 100px 20px; overflow: hidden; }
-        .services-section { max-width: 1180px; margin: 0 auto; }
-        .services-header { text-align: center; max-width: 760px; margin: 0 auto 52px; }
-        .services-header .kicker { margin-bottom: 12px; }
-        .services-header h2 { margin: 0 0 14px; font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -0.03em; }
-        .services-header p { color: var(--muted); line-height: 1.75; }
-        .services-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
-        .service-card { position: relative; background: rgba(var(--white-rgb), 0.86); border: 1px solid rgba(var(--brand-rgb), 0.22); border-radius: 30px; padding: 32px 28px; box-shadow: 0 22px 50px rgba(var(--ink-rgb), 0.07); overflow: hidden; transform: translateY(24px); opacity: 0; animation: serviceCardIn 0.75s ease forwards; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
-        .service-card:nth-child(2) { animation-delay: 0.12s; }
-        .service-card:nth-child(3) { animation-delay: 0.24s; }
-        .service-card:hover { transform: translateY(-8px); box-shadow: 0 30px 70px rgba(var(--ink-rgb), 0.12); border-color: rgba(var(--brand-rgb), 0.46); }
-        .service-card::before { content: ""; position: absolute; width: 180px; height: 180px; right: -80px; top: -80px; border-radius: 50%; background: rgba(var(--brand-rgb), 0.14); transition: transform 0.35s ease; }
-        .service-card:hover::before { transform: scale(1.18); }
-        .service-card.featured { background: linear-gradient(135deg, var(--white) 0%, var(--section-bg-accent) 100%); border-color: rgba(var(--brand-rgb), 0.42); }
-        .service-card.featured::after { content: ""; position: absolute; inset: 0; background: linear-gradient(120deg, transparent 0%, rgba(var(--white-rgb), 0.55) 45%, transparent 70%); transform: translateX(-120%); animation: serviceShine 4.6s ease-in-out infinite; pointer-events: none; }
-        .service-top { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 24px; }
-        .service-name { display: block; font-size: 1.35rem; font-weight: 850; color: var(--ink); margin-bottom: 4px; }
-        .service-subtitle { color: var(--muted); font-size: 0.92rem; font-weight: 650; }
-        .service-number {
-          width: 44px;
-          height: 44px;
-          border-radius: 16px;
-          background: var(--brand-soft);
-          color: var(--ink);
+        #services.services-wrapper {
+          background: linear-gradient(135deg, var(--section-bg-light) 0%, var(--section-bg-soft) 100%);
+          padding: 100px 20px;
+          overflow: hidden;
+        }
+
+        #services .services-section {
+          max-width: 1180px;
+          margin: 0 auto;
+        }
+
+        #services .services-header {
+          text-align: center;
+          max-width: 760px;
+          margin: 0 auto 52px;
+        }
+
+        #services .services-header .kicker {
+          margin-bottom: 12px;
+        }
+
+        #services .services-header h2 {
+          margin: 0 0 14px;
+          font-size: clamp(2rem, 4vw, 3.2rem);
+          letter-spacing: -0.03em;
+        }
+
+        #services .services-header p {
+          color: var(--muted);
+          line-height: 1.85;
+        }
+
+        #services .services-cards {
+          display: grid !important;
+          grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+          gap: 24px !important;
+          align-items: stretch !important;
+          direction: rtl !important;
+        }
+
+        #services .service-card {
+          position: relative !important;
+          display: flex !important;
+          flex-direction: column !important;
+          min-height: 430px !important;
+          padding: 30px 28px 32px !important;
+          border-radius: 30px !important;
+          background: rgba(var(--white-rgb), 0.90) !important;
+          border: 1px solid rgba(var(--brand-rgb), 0.22) !important;
+          box-shadow: 0 22px 50px rgba(var(--ink-rgb), 0.07) !important;
+          overflow: hidden !important;
+          text-align: right !important;
+          direction: rtl !important;
+          opacity: 1 !important;
+          transform: none !important;
+          animation: none !important;
+          transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+        }
+
+        #services .service-card:hover {
+          transform: translateY(-8px) !important;
+          box-shadow: 0 30px 70px rgba(var(--ink-rgb), 0.12) !important;
+          border-color: rgba(var(--brand-rgb), 0.46) !important;
+        }
+
+        #services .service-card::before {
+          content: "";
+          position: absolute;
+          width: 180px;
+          height: 180px;
+          left: -80px;
+          top: -80px;
+          border-radius: 50%;
+          background: rgba(var(--brand-rgb), 0.14);
+          pointer-events: none;
+          z-index: 0;
+        }
+
+        #services .service-card.featured {
+          background: linear-gradient(135deg, var(--white) 0%, var(--section-bg-accent) 100%) !important;
+          border-color: rgba(var(--brand-rgb), 0.42) !important;
+        }
+
+        #services .service-card > * {
+          position: relative;
+          z-index: 2;
+        }
+
+        #services .service-badge-row {
+          height: 38px !important;
+          display: flex !important;
+          align-items: flex-start !important;
+          justify-content: center !important;
+          margin-bottom: 20px !important;
+        }
+
+        #services .service-badge {
+          display: inline-flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          min-height: 30px !important;
+          padding: 7px 16px !important;
+          border-radius: 999px !important;
+          background: var(--brand) !important;
+          color: var(--ink) !important;
+          font-size: 0.74rem !important;
+          line-height: 1 !important;
+          font-weight: 850 !important;
+          white-space: nowrap !important;
+          direction: rtl !important;
+          unicode-bidi: isolate !important;
+          box-shadow: 0 10px 22px rgba(var(--ink-rgb), 0.10) !important;
+        }
+
+        #services .service-title-row {
+          position: relative !important;
+          min-height: 88px !important;
+          margin-bottom: 20px !important;
+          padding-right: 72px !important;
+          padding-left: 0 !important;
+          text-align: right !important;
+          direction: rtl !important;
+        }
+
+        #services .service-number {
+          position: absolute !important;
+          top: 4px !important;
+          right: 0 !important;
+          left: auto !important;
+          width: 48px !important;
+          height: 48px !important;
+          min-width: 48px !important;
+          border-radius: 16px !important;
+          background: var(--brand-soft) !important;
+          color: var(--ink) !important;
+          display: inline-flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          font-size: 1rem !important;
+          font-weight: 900 !important;
+          line-height: 1 !important;
+          white-space: nowrap !important;
+          direction: ltr !important;
+          unicode-bidi: isolate !important;
+          text-align: center !important;
+        }
+
+        #services .service-heading {
+          text-align: right !important;
+          min-width: 0 !important;
+        }
+
+        #services .service-name {
+          display: block !important;
+          margin: 0 0 8px !important;
+          color: var(--ink) !important;
+          font-size: 1.45rem !important;
+          font-weight: 900 !important;
+          line-height: 1.12 !important;
+          direction: ltr !important;
+          unicode-bidi: isolate !important;
+          text-align: right !important;
+          font-family: var(--font-sans) !important;
+        }
+
+        #services .service-subtitle {
+          display: block !important;
+          color: var(--muted) !important;
+          font-size: 1rem !important;
+          font-weight: 800 !important;
+          line-height: 1.5 !important;
+          direction: rtl !important;
+          text-align: right !important;
+          max-width: 170px !important;
+        }
+
+        #services .service-description {
+          min-height: 116px !important;
+          margin: 0 0 26px !important;
+          color: var(--muted) !important;
+          line-height: 1.95 !important;
+          font-size: 1rem !important;
+          text-align: right !important;
+          direction: rtl !important;
+        }
+
+        #services .service-list {
+          display: grid !important;
+          gap: 13px !important;
+          margin: auto 0 0 !important;
+          padding: 0 !important;
+          list-style: none !important;
+          direction: rtl !important;
+        }
+
+        #services .service-list li {
+          display: flex !important;
+          flex-direction: row !important;
+          align-items: flex-start !important;
+          justify-content: flex-start !important;
+          gap: 10px !important;
+          color: var(--ink) !important;
+          font-size: 0.96rem !important;
+          font-weight: 700 !important;
+          line-height: 1.7 !important;
+          text-align: right !important;
+          direction: rtl !important;
+        }
+
+        #services .service-list li::before {
+          content: "✓" !important;
+          width: 22px !important;
+          height: 22px !important;
+          border-radius: 50% !important;
+          background: rgba(var(--brand-rgb), 0.18) !important;
+          color: var(--ink) !important;
+          display: inline-flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          font-size: 0.78rem !important;
+          font-weight: 900 !important;
+          line-height: 1 !important;
+          flex: 0 0 22px !important;
+          margin-top: 3px !important;
+        }
+
+        #services .services-note {
+          max-width: 760px;
+          margin: 34px auto 0;
+          text-align: center;
+          color: var(--muted);
+          line-height: 1.8;
+        }
+
+        #services .services-action {
+          text-align: center;
+          margin-top: 30px;
+        }
+
+        #services .services-cta-link {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          font-weight: 900;
-          line-height: 1;
-          flex: 0 0 44px;
-          text-align: center;
-        }
-        .service-badge { position: relative; z-index: 2; display: inline-flex; margin-bottom: 18px; padding: 6px 12px; border-radius: 999px; background: var(--brand); color: var(--ink); font-size: 0.72rem; font-weight: 850; letter-spacing: 0.08em; text-transform: uppercase; animation: serviceBadgePulse 2.6s ease-in-out infinite; }
-        .service-description { position: relative; z-index: 2; color: var(--muted); line-height: 1.7; margin-bottom: 24px; }
-        .service-list { position: relative; z-index: 2; display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
-        .service-list li { display: flex; gap: 10px; align-items: flex-start; color: var(--ink); font-weight: 600; font-size: 0.94rem; }
-        .service-list li::before { content: "✓"; width: 22px; height: 22px; border-radius: 50%; background: rgba(var(--brand-rgb), 0.18); color: var(--ink); display: inline-flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 900; flex: 0 0 auto; margin-top: 1px; }
-        .services-note { max-width: 760px; margin: 34px auto 0; text-align: center; color: var(--muted); line-height: 1.7; }
-        .services-action { text-align: center; margin-top: 30px; }
-        .services-cta-link { display: inline-flex; align-items: center; justify-content: center; padding: 13px 26px; border-radius: 999px; background: var(--ink); color: var(--white); font-weight: 750; text-decoration: none; box-shadow: 0 14px 28px rgba(var(--ink-rgb), 0.13); transition: transform 0.25s ease, box-shadow 0.25s ease; }
-        .services-cta-link:hover { color: var(--white); transform: translateY(-2px); box-shadow: 0 18px 36px rgba(var(--ink-rgb), 0.18); }
-
-
-        /* FIX: keep all service numbers locked to the same top-right position.
-           The Gold badge no longer controls or pushes number 02 down. */
-        .services-cards .service-card {
-          padding: 32px 28px;
+          padding: 13px 26px;
+          border-radius: 999px;
+          background: var(--ink);
+          color: var(--white);
+          font-weight: 750;
+          text-decoration: none;
+          box-shadow: 0 14px 28px rgba(var(--ink-rgb), 0.13);
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
-        .services-cards .service-card .service-top {
-          display: block;
-          padding-right: 64px;
-          margin-bottom: 24px;
+        #services .services-cta-link:hover {
+          color: var(--white);
+          transform: translateY(-2px);
+          box-shadow: 0 18px 36px rgba(var(--ink-rgb), 0.18);
         }
 
-        .services-cards .service-card .service-number {
-          position: absolute;
-          top: 32px;
-          right: 28px;
-          width: 44px;
-          height: 44px;
-          min-width: 44px;
-          min-height: 44px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          line-height: 1;
-          text-align: center;
-          flex: none;
-          margin: 0;
-          z-index: 3;
+        @media (max-width: 950px) {
+          #services .services-cards { grid-template-columns: 1fr !important; }
+          #services .service-card { min-height: auto !important; }
+          #services .service-description { min-height: auto !important; }
         }
 
-        .services-cards .service-card.featured .service-badge {
-          margin-bottom: 18px;
-        }
-
-        @keyframes serviceCardIn { to { opacity: 1; transform: translateY(0); } }
-        @keyframes serviceShine { 0%, 55% { transform: translateX(-120%); } 75%, 100% { transform: translateX(120%); } }
-        @keyframes serviceBadgePulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } }
-        @media (max-width: 950px) { .services-cards { grid-template-columns: 1fr; } }
         @media (max-width: 640px) {
-          .services-wrapper { padding: 80px 20px; }
-          .services-cards .service-card { padding: 28px 22px; }
-          .services-cards .service-card .service-top { padding-right: 58px; }
-          .services-cards .service-card .service-number { top: 28px; right: 22px; }
+          #services.services-wrapper { padding: 80px 20px; }
+          #services .service-card { padding: 28px 22px !important; }
+          #services .service-title-row { padding-right: 66px !important; min-height: 84px !important; }
+          #services .service-number { width: 46px !important; height: 46px !important; min-width: 46px !important; }
         }
       </style>
 
@@ -1222,35 +1569,64 @@
         <div class="services-header">
           <div class="kicker">كيف يعمل الأمر</div>
           <h2>اختر الدعم المناسب لمرحلتك.</h2>
-          <p>كل خدمة مصممة لتنقلك من التشويش إلى الوضوح، ثم من الوضوح إلى العمل والتقدم القابل للقياس.</p>
+          <p>كل خدمة مصممة لتساعدك على الانتقال من التشتت إلى الوضوح، ومن الوضوح إلى تنفيذ عملي يقرّبك من الدخل.</p>
         </div>
 
         <div class="services-cards">
           <article class="service-card">
-            <div class="service-number">01</div>
-            <div class="service-top"><div><span class="service-name">Silver</span><span class="service-subtitle">وضوح</span></div></div>
-            <p class="service-description">مناسب عندما تحتاج إلى اتجاه، وتركيز، وخطوة تالية واضحة قبل استثمار المزيد من الوقت أو المال.</p>
-            <ul class="service-list"><li>جلسة وضوح مكثفة واحدة</li><li>تحديد ما يجب التركيز عليه أولًا</li><li>الخروج بخطوات عملية تالية</li></ul>
+            <div class="service-badge-row" aria-hidden="true"></div>
+            <div class="service-title-row">
+              <bdi class="service-number" dir="ltr">01</bdi>
+              <div class="service-heading">
+                <bdi class="service-name" dir="ltr">Silver</bdi>
+                <span class="service-subtitle">وضوح</span>
+              </div>
+            </div>
+            <p class="service-description">مناسب عندما تحتاج إلى اتجاه واضح، وتركيز، وخطوة عملية تالية قبل استثمار المزيد من الوقت أو المال.</p>
+            <ul class="service-list">
+              <li>جلسة مركّزة لتوضيح الفكرة</li>
+              <li>تحديد ما يجب التركيز عليه أولًا</li>
+              <li>خطة خطوات عملية تبدأ بها مباشرة</li>
+            </ul>
           </article>
 
           <article class="service-card featured">
-            <span class="service-badge">الأكثر توازنًا</span>
-            <div class="service-number">02</div>
-            <div class="service-top"><div><span class="service-name">Gold</span><span class="service-subtitle">تنفيذ</span></div></div>
-            <p class="service-description">مناسب عندما تريد هيكلًا، ودعمًا أسبوعيًا، وزخمًا أثناء اختبار فكرتك مع أشخاص حقيقيين.</p>
-            <ul class="service-list"><li>دعم تنفيذ أسبوعي</li><li>بناء العرض واختباره وتحسينه</li><li>خلق زخم مع متابعة ومساءلة</li></ul>
+            <div class="service-badge-row"><span class="service-badge">الأكثر توازنًا</span></div>
+            <div class="service-title-row">
+              <bdi class="service-number" dir="ltr">02</bdi>
+              <div class="service-heading">
+                <bdi class="service-name" dir="ltr">Gold</bdi>
+                <span class="service-subtitle">تنفيذ عملي</span>
+              </div>
+            </div>
+            <p class="service-description">مناسب عندما تريد تحويل فكرتك إلى عرض واضح، واختباره مع أشخاص حقيقيين، والتقدم بثبات مع متابعة أسبوعية.</p>
+            <ul class="service-list">
+              <li>دعم أسبوعي للتنفيذ</li>
+              <li>بناء العرض واختباره وتحسينه</li>
+              <li>متابعة تساعدك على الحفاظ على الزخم</li>
+            </ul>
           </article>
 
           <article class="service-card">
-            <div class="service-number">03</div>
-            <div class="service-top"><div><span class="service-name">Diamond</span><span class="service-subtitle">نتائج</span></div></div>
-            <p class="service-description">مناسب عندما تريد دعمًا مكثفًا، وتنفيذًا أسرع، وتركيزًا أقوى على نتائج قابلة للقياس.</p>
-            <ul class="service-list"><li>جلسة تعمق إضافة إلى جلستين أسبوعيًا</li><li>تغذية راجعة سريعة وتحسين</li><li>دعم مكثف نحو النتائج</li></ul>
+            <div class="service-badge-row" aria-hidden="true"></div>
+            <div class="service-title-row">
+              <bdi class="service-number" dir="ltr">03</bdi>
+              <div class="service-heading">
+                <bdi class="service-name" dir="ltr">Diamond</bdi>
+                <span class="service-subtitle">نتائج ملموسة</span>
+              </div>
+            </div>
+            <p class="service-description">مناسب عندما تريد دعمًا مكثفًا، وتنفيذًا أسرع، وتركيزًا مباشرًا على نتائج واضحة وقابلة للقياس.</p>
+            <ul class="service-list">
+              <li>جلسة تعمّق مع جلستين أسبوعيًا</li>
+              <li>توجيه سريع وتحسين مستمر</li>
+              <li>تركيز مباشر على النتائج</li>
+            </ul>
           </article>
         </div>
 
-        <p class="services-note">تحتاج إلى وضوح؟ ابدأ بـ Silver. تريد دعمًا أعمق وتقدمًا أسرع؟ Gold أو Diamond أنسب.</p>
-        <div class="services-action"><a href="https://en-boarding.com/ar_services.html" class="services-cta-link">اكتشف المزيد عن الخدمات ←</a></div>
+        <p class="services-note">تحتاج إلى وضوح؟ ابدأ بـ Silver. تريد دعمًا أعمق وتقدمًا أسرع؟ Gold أو Diamond سيكونان الأنسب.</p>
+        <div class="services-action"><a href="ar_services.html" class="services-cta-link">اكتشف المزيد عن الخدمات ←</a></div>
       </div>
     </section>
 
@@ -1264,7 +1640,7 @@
 
         <div class="grid-3">
           <div class="card"><div class="card-icon">A</div><h3>مسار واضح لتحقيق الدخل</h3><p>افهم كيف يمكن لفكرتك أو مهاراتك أو مشروعك أن يولّد الدخل.</p></div>
-          <div class="card"><div class="card-icon">B</div><h3>أولويات مركزة</h3><p>توقف wasting energy — focus on what actually leads to income.</p></div>
+          <div class="card"><div class="card-icon">B</div><h3>أولويات مركزة</h3><p>توقف عن تشتيت طاقتك، وركز على ما يقرّبك فعلًا من الدخل.</p></div>
           <div class="card"><div class="card-icon">C</div><h3>خطوات تالية قابلة للتنفيذ</h3><p>اخرج باتجاه عملي يمكنك تطبيقه فورًا.</p></div>
         </div>
       </div>
@@ -1324,7 +1700,7 @@
           <div class="person-node main"><img src="images/bouchra.jpg" alt="Bouchra Driouach"></div>
           <div class="mini-card a">مستشارون</div><div class="mini-card b">محترفون لديهم مهارات</div><div class="mini-card c">بناة مشاريع</div>
           <div class="status-dot d1"></div><div class="status-dot d2"></div><div class="status-dot d3"></div>
-          <div class="role-label">وضوح · Structure · Action</div>
+          <div class="role-label">وضوح · هيكل · عمل</div>
         </div>
       </div>
     </section>
