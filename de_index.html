@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="css/global.css">
   <style>
     .header {
-      position: fixed !important;
+      position: absolute !important;
       top: 0;
       left: 0;
       width: 100%;
@@ -19,7 +19,7 @@
     }
 
     body.homepage .header {
-      position: fixed !important;
+      position: absolute !important;
       background: transparent;
     }
 
@@ -548,11 +548,11 @@
     }
 
     .slide-1 {
-      background-image: linear-gradient(90deg, rgba(var(--ink-rgb), 0.22) 0%, rgba(var(--ink-rgb), 0.12) 38%, rgba(var(--ink-rgb), 0.08) 100%), url('images/becoming-entrepreneur.webp');
+      background-image: linear-gradient(90deg, rgba(var(--ink-rgb), 0.22) 0%, rgba(var(--ink-rgb), 0.12) 38%, rgba(var(--ink-rgb), 0.08) 100%), url('https://en-boarding.com/images/becoming-entrepreneur.webp');
     }
 
     .slide-3 {
-      background-image: linear-gradient(90deg, rgba(var(--ink-rgb), 0.22) 0%, rgba(var(--ink-rgb), 0.12) 38%, rgba(var(--ink-rgb), 0.08) 100%), url('images/building-my-business.webp');
+      background-image: linear-gradient(90deg, rgba(var(--ink-rgb), 0.22) 0%, rgba(var(--ink-rgb), 0.12) 38%, rgba(var(--ink-rgb), 0.08) 100%), url('https://en-boarding.com/images/building-my-business.webp');
     }
 
     .hero-slider::after {
@@ -716,6 +716,14 @@
       .hero-full-content, .hero-gantt, .hero-gantt .bar, .decision-option, .translator-panel.input-panel, .translator-panel.output-panel, .network-line, .mini-card, .person-node.main { animation: none !important; }
     }
   </style>
+  <style id="final-hero-height-real-fix">
+    body.homepage .hero-slider,
+    body.homepage .hero-full-inner { min-height: 720px !important; }
+     (max-width: 768px) {
+      body.homepage .hero-slider,
+      body.homepage .hero-full-inner { min-height: 620px !important; }
+    }
+  </style>
 </head>
 <body class="homepage">
   <div id="lang-bar" style="display:none;"></div>
@@ -731,17 +739,8 @@
       <div class="hero-full-inner">
         <div class="hero-full-content">
           <p class="kicker">Von der Idee zur Umsetzung</p>
-          <h1>Verwandeln Sie Ihre ambitionierten Ideen in ein klares und profitables Geschäft.</h1>
+          <h1>Verwandle deine Idee<br>in Einnahmen.</h1>
           <p>Testen Sie Ihre Idee früh, treffen Sie klare Entscheidungen und bewegen Sie sich mit weniger Zeitverlust in Richtung Umsatz.</p>
-
-          <div class="hero-gantt">
-            <div class="gantt-row"><span>Idee</span><div class="track"><div class="bar idea"></div></div></div>
-            <div class="gantt-row"><span>Recherche</span><div class="track"><div class="bar research"></div></div></div>
-            <div class="gantt-row"><span>Test</span><div class="track"><div class="bar test"></div></div></div>
-            <div class="gantt-row decision-row"><span>Entscheidung</span><div class="decision-track"><div class="decision-option stop">Stoppen</div><div class="decision-option adapt">Anpassen</div><div class="decision-option continue">Weitermachen</div></div></div>
-            <div class="gantt-row"><span>MVP</span><div class="track"><div class="bar mvp"></div></div></div>
-            <div class="gantt-row"><span>Umsatz</span><div class="track"><div class="bar revenue"></div></div></div>
-          </div>
 
           <div class="hero-actions">
             <a href="https://en-boarding.com/de_booking.html" class="btn btn-primary">Starten →</a>
@@ -750,10 +749,29 @@
       </div>
     </section>
 
+    <section class="project-gantt-section" id="project-roadmap">
+      <div class="project-gantt-container">
+        <div class="project-gantt-header">
+          <div class="kicker">Projektmanagement-Roadmap</div>
+          <h2>Ein klarer Plan von der Idee zu Einnahmen.</h2>
+          <p>Ihre Idee wird leichter steuerbar, wenn jeder Schritt ein Ziel hat: validieren, entscheiden, aufbauen und Richtung Einnahmen gehen.</p>
+        </div>
+
+        <div class="project-gantt" aria-label="Projektmanagement-Roadmap">
+          <div class="gantt-row"><span>Idee</span><div class="track"><div class="bar idea"></div></div></div>
+          <div class="gantt-row"><span>Recherche</span><div class="track"><div class="bar research"></div></div></div>
+          <div class="gantt-row"><span>Test</span><div class="track"><div class="bar test"></div></div></div>
+          <div class="gantt-row decision-row"><span>Entscheidung</span><div class="decision-track"><div class="decision-option stop">Stoppen</div><div class="decision-option adapt">Anpassen</div><div class="decision-option continue">Weitermachen</div></div></div>
+          <div class="gantt-row"><span>MVP</span><div class="track"><div class="bar mvp"></div></div></div>
+          <div class="gantt-row"><span>Umsatz</span><div class="track"><div class="bar revenue"></div></div></div>
+        </div>
+      </div>
+    </section>
+
     <style>
       .hero-full { padding: 0 !important; }
       .hero-slider { position: relative; min-height: 560px; overflow: hidden; background: var(--hero-fallback-bg); }
-      .slider-slide { position: absolute; inset: 0; width: 100%; height: 100%; background-image: linear-gradient(90deg, rgba(var(--ink-rgb), 0.76) 0%, rgba(var(--ink-rgb), 0.48) 48%, rgba(var(--ink-rgb), 0.12) 100%), url("images/becoming-entrepreneur.webp"); background-size: cover; background-position: center 30%; background-repeat: no-repeat; z-index: 0; }
+      .slider-slide { position: absolute; inset: 0; width: 100%; height: 100%; background-image: linear-gradient(90deg, rgba(var(--ink-rgb), 0.76) 0%, rgba(var(--ink-rgb), 0.48) 48%, rgba(var(--ink-rgb), 0.12) 100%), url("https://en-boarding.com/images/becoming-entrepreneur.webp"); background-size: cover; background-position: center 30%; background-repeat: no-repeat; z-index: 0; }
       .hero-full-inner { position: relative; z-index: 2; min-height: 560px; width: min(1200px, calc(100% - 48px)); margin: 0 auto; display: flex; align-items: center; padding-top: 105px; padding-bottom: 48px; }
       .hero-full-content { width: 50%; max-width: 620px; color: var(--white); }
       .hero-full-content .kicker { color: rgba(var(--white-rgb), 0.86); margin-bottom: 14px; }
