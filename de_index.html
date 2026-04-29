@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-
 <html lang="de">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Verwandeln Sie Ihre Idee oder Fähigkeiten in Einnahmen | Unternehmensberatung | en-boarding</title>
-<meta content="Sie haben eine Idee, Fähigkeiten oder ein Business, aber noch keine Einnahmen? Gewinnen Sie Klarheit darüber, wie Sie daraus Umsatz machen — beginnend mit einer kostenlosen Beratung." name="description"/>
-<link href="/favicon.png" rel="icon" type="image/png"/>
-<link href="css/global.css" rel="stylesheet"/>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verwandeln Sie Ihre Idee oder Fähigkeiten in Einnahmen | Unternehmensberatung | en-boarding</title>
+  <meta name="description" content="Sie haben eine Idee, Fähigkeiten oder ein Business, aber noch keine Einnahmen? Gewinnen Sie Klarheit darüber, wie Sie daraus Umsatz machen — beginnend mit einer kostenlosen Beratung.">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="css/global.css">
+  <style>
     .header {
       position: fixed !important;
       top: 0;
@@ -742,7 +741,8 @@
       box-shadow: 0 16px 34px rgba(var(--ink-rgb), 0.22) !important;
     }
   </style>
-<style id="homepage-animation-fixes">
+
+  <style id="homepage-animation-fixes">
     /* Animation fixes for inserted homepage sections */
     @keyframes heroFadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes ganttGrow { 0% { transform: scaleX(0); opacity: 0.45; } 45%, 80% { transform: scaleX(1); opacity: 1; } 100% { transform: scaleX(1); opacity: 0.95; } }
@@ -769,33 +769,39 @@
   </style>
 </head>
 <body class="homepage">
-<div id="lang-bar" style="display:none;"></div>
-<header class="header">
-<div class="header-inner" id="global-header"></div>
-</header>
-<main>
-<section class="hero-full hero-slider" id="heroSlider">
-<div class="slider-slide slide-1 active"></div>
-<div class="hero-full-inner">
-<div class="hero-full-content">
-<p class="kicker">Von der Idee zur Umsetzung</p>
-<h1>Struktur verwandelt Ideen in Handlung.</h1>
-<p>Testen Sie Ihre Idee früh, treffen Sie klare Entscheidungen und bewegen Sie sich mit weniger Zeitverlust in Richtung Umsatz.</p>
-<div class="hero-gantt">
-<div class="gantt-row"><span>Idee</span><div class="track"><div class="bar idea"></div></div></div>
-<div class="gantt-row"><span>Recherche</span><div class="track"><div class="bar research"></div></div></div>
-<div class="gantt-row"><span>Test</span><div class="track"><div class="bar test"></div></div></div>
-<div class="gantt-row decision-row"><span>Entscheidung</span><div class="decision-track"><div class="decision-option stop">Stoppen</div><div class="decision-option adapt">Anpassen</div><div class="decision-option continue">Weiter</div></div></div>
-<div class="gantt-row"><span>MVP</span><div class="track"><div class="bar mvp"></div></div></div>
-<div class="gantt-row"><span>Umsatz</span><div class="track"><div class="bar revenue"></div></div></div>
-</div>
-<div class="hero-actions">
-<a class="btn btn-primary" href="https://en-boarding.com/de_booking.html">Mit dem Aufbau starten →</a>
-</div>
-</div>
-</div>
-</section>
-<style>
+  <div id="lang-bar" style="display:none;"></div>
+
+  <header class="header">
+    <div class="header-inner" id="global-header"></div>
+  </header>
+
+  <main>
+    <section class="hero-full hero-slider" id="heroSlider">
+      <div class="slider-slide slide-1 active"></div>
+
+      <div class="hero-full-inner">
+        <div class="hero-full-content">
+          <p class="kicker">Von der Idee zur Umsetzung</p>
+          <h1>Verwandeln Sie Ihre ambitionierten Ideen in ein klares und profitables Geschäft.</h1>
+          <p>Testen Sie Ihre Idee früh, treffen Sie klare Entscheidungen und bewegen Sie sich mit weniger Zeitverlust in Richtung Umsatz.</p>
+
+          <div class="hero-gantt">
+            <div class="gantt-row"><span>Idee</span><div class="track"><div class="bar idea"></div></div></div>
+            <div class="gantt-row"><span>Recherche</span><div class="track"><div class="bar research"></div></div></div>
+            <div class="gantt-row"><span>Test</span><div class="track"><div class="bar test"></div></div></div>
+            <div class="gantt-row decision-row"><span>Entscheidung</span><div class="decision-track"><div class="decision-option stop">Stoppen</div><div class="decision-option adapt">Anpassen</div><div class="decision-option continue">Weitermachen</div></div></div>
+            <div class="gantt-row"><span>MVP</span><div class="track"><div class="bar mvp"></div></div></div>
+            <div class="gantt-row"><span>Umsatz</span><div class="track"><div class="bar revenue"></div></div></div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="https://en-boarding.com/de_booking.html" class="btn btn-primary">Starten →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
       .hero-full { padding: 0 !important; }
       .hero-slider { position: relative; min-height: 560px; overflow: hidden; background: var(--hero-fallback-bg); }
       .slider-slide { position: absolute; inset: 0; width: 100%; height: 100%; background-image: linear-gradient(90deg, rgba(var(--ink-rgb), 0.76) 0%, rgba(var(--ink-rgb), 0.48) 48%, rgba(var(--ink-rgb), 0.12) 100%), url("images/becoming-entrepreneur.webp"); background-size: cover; background-position: center 30%; background-repeat: no-repeat; z-index: 0; }
@@ -825,50 +831,61 @@
       @media (max-width: 900px) { .hero-slider, .hero-full-inner { min-height: 560px; } .hero-full-content { width: 100%; max-width: 620px; } }
       @media (max-width: 640px) { .hero-slider, .hero-full-inner { min-height: 520px; } .hero-full-inner { width: min(100% - 32px, 1200px); padding-top: 100px; padding-bottom: 40px; } .hero-gantt { padding: 18px; } .gantt-row { grid-template-columns: 86px 1fr; } .decision-option { font-size: 0.65rem; } }
     </style>
-<section class="approach-visual-section approach-redesign" id="approach">
-<div class="container">
-<div class="approach-redesign-header">
-<div class="kicker">Mein Ansatz</div>
-<h2>Ein ruhiger Prozess, der Unsicherheit in Fortschritt verwandelt.</h2>
-<p>Statt eines unübersichtlichen Vorher-nachher-Bildes zeigt dieser Bereich einen klaren Weg: Wir klären, was wichtig ist, bauen den einfachsten nächsten Schritt, testen ihn und verbessern ihn, bis er in Richtung Umsatz führen kann.</p>
-</div>
-<div class="approach-flow-card">
-<div aria-hidden="true" class="approach-flow-line"></div>
-<article class="approach-step">
-<div class="approach-step-number">01</div>
-<div class="approach-step-icon">?</div>
-<h3>Klären</h3>
-<p>Wir verstehen Ihre Idee, Fähigkeiten, Ihr Angebot, Ihre Zielgruppe und was die Umsetzung aktuell blockiert.</p>
-</article>
-<article class="approach-step">
-<div class="approach-step-number">02</div>
-<div class="approach-step-icon">↘</div>
-<h3>Vereinfachen</h3>
-<p>Wir reduzieren den Lärm auf eine klare Richtung, eine Priorität und einen praktischen nächsten Schritt.</p>
-</article>
-<article class="approach-step">
-<div class="approach-step-number">03</div>
-<div class="approach-step-icon">✓</div>
-<h3>Testen</h3>
-<p>Sie testen die Idee mit echten Menschen, bevor Sie zu viel Zeit, Geld oder Energie investieren.</p>
-</article>
-<article class="approach-step">
-<div class="approach-step-number">04</div>
-<div class="approach-step-icon">→</div>
-<h3>Bewegen</h3>
-<p>Sie gehen mit Struktur, Sicherheit und nächsten Schritten weiter, die Sie näher an Einnahmen bringen.</p>
-</article>
-</div>
-<div class="approach-summary-panel">
-<div>
-<span class="summary-label">Das Ziel</span>
-<strong>Weniger Verwirrung. Mehr Richtung. Klares Handeln.</strong>
-</div>
-<a class="approach-mini-btn" href="https://en-boarding.com/de_booking.html">Mit einer kostenlosen Session starten →</a>
-</div>
-</div>
-</section>
-<style>
+
+    <section class="approach-visual-section approach-redesign" id="approach">
+      <div class="container">
+        <div class="approach-redesign-header">
+          <div class="kicker">Mein Ansatz</div>
+          <h2>Ein klarer Prozess, der Unsicherheit in Fortschritt verwandelt.</h2>
+          <p>
+            Statt eines unübersichtlichen Vorher-Nachher zeigt dieser Abschnitt einen klaren Weg:
+            Wir klären, was zählt, bauen den einfachsten nächsten Schritt, testen ihn und verbessern ihn, bis er Richtung Umsatz führen kann.
+          </p>
+        </div>
+
+        <div class="approach-flow-card">
+          <div class="approach-flow-line" aria-hidden="true"></div>
+
+          <article class="approach-step">
+            <div class="approach-step-number">01</div>
+            <div class="approach-step-icon">?</div>
+            <h3>Klären</h3>
+            <p>Wir verstehen Ihre Idee, Fähigkeiten, Ihr Angebot, Ihre Zielgruppe und was aktuell die Umsetzung blockiert.</p>
+          </article>
+
+          <article class="approach-step">
+            <div class="approach-step-number">02</div>
+            <div class="approach-step-icon">↘</div>
+            <h3>Vereinfachen</h3>
+            <p>Wir reduzieren das Chaos auf eine klare Richtung, eine Priorität und einen praktischen nächsten Schritt.</p>
+          </article>
+
+          <article class="approach-step">
+            <div class="approach-step-number">03</div>
+            <div class="approach-step-icon">✓</div>
+            <h3>Test</h3>
+            <p>Sie testen die Idee mit echten Menschen, bevor Sie zu viel Zeit, Geld oder Energie investieren.</p>
+          </article>
+
+          <article class="approach-step">
+            <div class="approach-step-number">04</div>
+            <div class="approach-step-icon">→</div>
+            <h3>Vorankommen</h3>
+            <p>Sie gehen mit Struktur, Vertrauen und nächsten Schritten, die Sie näher an Einnahmen bringen.</p>
+          </article>
+        </div>
+
+        <div class="approach-summary-panel">
+          <div>
+            <span class="summary-label">Das Ziel</span>
+            <strong>Weniger Verwirrung. Mehr Richtung. Klare Handlung.</strong>
+          </div>
+          <a href="https://en-boarding.com/de_booking.html" class="approach-mini-btn">Mit kostenloser Session starten →</a>
+        </div>
+      </div>
+    </section>
+
+    <style>
       .approach-redesign {
         position: relative;
         padding: 110px 20px;
@@ -1097,8 +1114,9 @@
         }
       }
     </style>
-<section class="services-wrapper" id="services">
-<style>
+
+    <section class="services-wrapper" id="services">
+      <style>
         .services-wrapper { background: linear-gradient(135deg, var(--section-bg-light) 0%, var(--section-bg-soft) 100%); padding: 100px 20px; overflow: hidden; }
         .services-section { max-width: 1180px; margin: 0 auto; }
         .services-header { text-align: center; max-width: 760px; margin: 0 auto 52px; }
@@ -1187,53 +1205,61 @@
           .services-cards .service-card .service-number { top: 28px; right: 22px; }
         }
       </style>
-<div class="services-section">
-<div class="services-header">
-<div class="kicker">So funktioniert es</div>
-<h2>Wählen Sie die Unterstützung, die zu Ihrer Phase passt.</h2>
-<p>Jede Leistung ist darauf ausgelegt, Sie von Verwirrung zu Klarheit und anschließend von Klarheit zu Umsetzung und messbarem Fortschritt zu bringen.</p>
-</div>
-<div class="services-cards">
-<article class="service-card">
-<div class="service-number">01</div>
-<div class="service-top"><div><span class="service-name">Silver</span><span class="service-subtitle">Klarheit</span></div></div>
-<p class="service-description">Ideal, wenn Sie Richtung, Fokus und einen klaren nächsten Schritt brauchen, bevor Sie mehr Zeit oder Geld investieren.</p>
-<ul class="service-list"><li>Eine intensive Klarheitssession</li><li>Festlegen, worauf Sie zuerst fokussieren</li><li>Mit praktischen nächsten Schritten herausgehen</li></ul>
-</article>
-<article class="service-card featured">
-<span class="service-badge">Am ausgewogensten</span>
-<div class="service-number">02</div>
-<div class="service-top"><div><span class="service-name">Gold</span><span class="service-subtitle">Umsetzung</span></div></div>
-<p class="service-description">Ideal, wenn Sie Struktur, wöchentliche Unterstützung und Schwung möchten, während Sie Ihre Idee mit echten Menschen testen.</p>
-<ul class="service-list"><li>Wöchentliche Umsetzungsbegleitung</li><li>Angebot aufbauen, testen und verbessern</li><li>Mit Verantwortung Momentum schaffen</li></ul>
-</article>
-<article class="service-card">
-<div class="service-number">03</div>
-<div class="service-top"><div><span class="service-name">Diamond</span><span class="service-subtitle">Ergebnisse</span></div></div>
-<p class="service-description">Ideal, wenn Sie intensive Unterstützung, schnellere Umsetzung und einen stärkeren Fokus auf messbare Ergebnisse möchten.</p>
-<ul class="service-list"><li>Deep-Dive plus zwei Sessions pro Woche</li><li>Schnelles Feedback und Optimierung</li><li>High-Touch-Unterstützung Richtung Ergebnisse</li></ul>
-</article>
-</div>
-<p class="services-note">Brauchen Sie Klarheit? Starten Sie mit Silver. Wollen Sie tiefere Unterstützung und schnellere Fortschritte? Dann passen Gold oder Diamond besser.</p>
-<div class="services-action"><a class="services-cta-link" href="{'kicker': 'So funktioniert es', 'h2': 'Wählen Sie die Unterstützung, die zu Ihrer Phase passt.', 'p': 'Jede Leistung ist darauf ausgelegt, Sie von Verwirrung zu Klarheit und anschließend von Klarheit zu Umsetzung und messbarem Fortschritt zu bringen.', 'cards': [('Silver', 'Klarheit', 'Ideal, wenn Sie Richtung, Fokus und einen klaren nächsten Schritt brauchen, bevor Sie mehr Zeit oder Geld investieren.', ['Eine intensive Klarheitssession', 'Festlegen, worauf Sie zuerst fokussieren', 'Mit praktischen nächsten Schritten herausgehen']), ('Gold', 'Umsetzung', 'Ideal, wenn Sie Struktur, wöchentliche Unterstützung und Schwung möchten, während Sie Ihre Idee mit echten Menschen testen.', ['Wöchentliche Umsetzungsbegleitung', 'Angebot aufbauen, testen und verbessern', 'Mit Verantwortung Momentum schaffen']), ('Diamond', 'Ergebnisse', 'Ideal, wenn Sie intensive Unterstützung, schnellere Umsetzung und einen stärkeren Fokus auf messbare Ergebnisse möchten.', ['Deep-Dive plus zwei Sessions pro Woche', 'Schnelles Feedback und Optimierung', 'High-Touch-Unterstützung Richtung Ergebnisse'])], 'badge': 'Am ausgewogensten', 'note': 'Brauchen Sie Klarheit? Starten Sie mit Silver. Wollen Sie tiefere Unterstützung und schnellere Fortschritte? Dann passen Gold oder Diamond besser.', 'button': 'Mehr über die Leistungen erfahren →'}">Mehr über die Leistungen erfahren →</a></div>
-</div>
-</section>
-<section class="results-section">
-<div class="container">
-<div class="section-title">
-<div class="kicker">Ergebnisse</div>
-<h2>Was Sie mitnehmen.</h2>
-<p>Der Wert liegt darin zu verstehen, wie Sie das, was Sie bereits haben, in Einnahmen verwandeln können.</p>
-</div>
-<div class="grid-3">
-<div class="card"><div class="card-icon">A</div><h3>Ein klarer Monetarisierungsweg</h3><p>Verstehen Sie, wie Ihre Idee, Fähigkeiten oder Ihr Business Einnahmen generieren können.</p></div>
-<div class="card"><div class="card-icon">B</div><h3>Fokussierte Prioritäten</h3><p>Hören Sie auf, Energie zu verschwenden — konzentrieren Sie sich auf das, was wirklich zu Einnahmen führt.</p></div>
-<div class="card"><div class="card-icon">C</div><h3>Nächste Schritte, die Sie umsetzen können</h3><p>Gehen Sie mit praktischer Richtung heraus, die Sie sofort anwenden können.</p></div>
-</div>
-</div>
-</section>
-<section class="about-network-section" id="about">
-<style>
+
+      <div class="services-section">
+        <div class="services-header">
+          <div class="kicker">So funktioniert es</div>
+          <h2>Wählen Sie die Unterstützung, die zu Ihrer Phase passt.</h2>
+          <p>Jede Leistung hilft Ihnen, von Verwirrung zu Klarheit und dann von Klarheit zu Handlung und messbarem Fortschritt zu kommen.</p>
+        </div>
+
+        <div class="services-cards">
+          <article class="service-card">
+            <div class="service-number">01</div>
+            <div class="service-top"><div><span class="service-name">Silver</span><span class="service-subtitle">Klarheit</span></div></div>
+            <p class="service-description">Ideal, wenn Sie Richtung, Fokus und einen klaren nächsten Schritt brauchen, bevor Sie mehr Zeit oder Geld investieren.</p>
+            <ul class="service-list"><li>Eine intensive Klarheits-Session</li><li>Definieren, worauf Sie zuerst fokussieren</li><li>Mit praktischen nächsten Schritten gehen</li></ul>
+          </article>
+
+          <article class="service-card featured">
+            <span class="service-badge">Am ausgewogensten</span>
+            <div class="service-number">02</div>
+            <div class="service-top"><div><span class="service-name">Gold</span><span class="service-subtitle">Umsetzung</span></div></div>
+            <p class="service-description">Ideal, wenn Sie Struktur, wöchentliche Unterstützung und Momentum beim Testen Ihrer Idee mit echten Menschen möchten.</p>
+            <ul class="service-list"><li>Wöchentliche Umsetzungsunterstützung</li><li>Angebot aufbauen, testen und verbessern</li><li>Momentum mit Verbindlichkeit schaffen</li></ul>
+          </article>
+
+          <article class="service-card">
+            <div class="service-number">03</div>
+            <div class="service-top"><div><span class="service-name">Diamond</span><span class="service-subtitle">Ergebnisse</span></div></div>
+            <p class="service-description">Ideal, wenn Sie intensive Unterstützung, schnellere Umsetzung und stärkeren Fokus auf messbare Ergebnisse möchten.</p>
+            <ul class="service-list"><li>Deep-Dive plus zwei Sessions pro Woche</li><li>Schnelles Feedback und Optimierung</li><li>Intensive Begleitung Richtung Ergebnisse</li></ul>
+          </article>
+        </div>
+
+        <p class="services-note">Brauchen Sie Klarheit? Starten Sie mit Silver. Wollen Sie tiefere Unterstützung und schnelleren Fortschritt? Gold oder Diamond passt besser.</p>
+        <div class="services-action"><a href="https://en-boarding.com/de_services.html" class="services-cta-link">Mehr über die Leistungen erfahren →</a></div>
+      </div>
+    </section>
+
+    <section class="results-section">
+      <div class="container">
+        <div class="section-title">
+          <div class="kicker">Ergebnisse</div>
+          <h2>Was Sie mitnehmen.</h2>
+          <p>Der Wert liegt darin zu verstehen, wie Sie das, was Sie haben, in Einnahmen verwandeln.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card"><div class="card-icon">A</div><h3>Ein klarer Monetarisierungsweg</h3><p>Verstehen, wie Ihre Idee, Fähigkeiten oder Ihr Business Umsatz generieren können.</p></div>
+          <div class="card"><div class="card-icon">B</div><h3>Fokussierte Prioritäten</h3><p>Stoppen wasting energy — focus on what actually leads to income.</p></div>
+          <div class="card"><div class="card-icon">C</div><h3>Nächste Schritte, die Sie umsetzen können</h3><p>Gehen Sie mit praktischer Richtung, die Sie sofort anwenden können.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about-network-section">
+      <style>
         .about-network-section { padding: 110px 24px; background: linear-gradient(135deg, var(--section-bg-light) 0%, var(--section-bg-soft) 100%); overflow: hidden; }
         .about-network-wrap { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 48px; align-items: center; }
         .about-network-copy h2 { margin: 0 0 18px; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.08; letter-spacing: -0.03em; color: var(--ink); }
@@ -1268,42 +1294,48 @@
         @media (max-width: 900px) { .about-network-wrap { grid-template-columns: 1fr; } .network-visual { min-height: 450px; } }
         @media (max-width: 560px) { .about-network-section { padding: 80px 20px; } .person-node { width: 88px; height: 88px; } .person-node.main { width: 124px; height: 124px; transform: translate(-50%, -50%) !important; } .mini-card, .person-label { font-size: 0.66rem; } }
       </style>
-<div class="about-network-wrap">
-<div class="about-network-copy">
-<div class="kicker">Mit wem ich arbeite</div>
-<h2>Ich arbeite mit Menschen, die bereit sind, das, was sie haben, in Einnahmen zu verwandeln.</h2>
-<p>Freelancer, Unternehmer, Startup-Gründer, Kreative, Berater und Fachkräfte mit Fähigkeiten — alle in unterschiedlichen Phasen, aber mit demselben Bedarf: Klarheit, Struktur und praktische nächste Schritte.</p>
-<a class="about-network-btn" href="{'kicker': 'Mit wem ich arbeite', 'h2': 'Ich arbeite mit Menschen, die bereit sind, das, was sie haben, in Einnahmen zu verwandeln.', 'p': 'Freelancer, Unternehmer, Startup-Gründer, Kreative, Berater und Fachkräfte mit Fähigkeiten — alle in unterschiedlichen Phasen, aber mit demselben Bedarf: Klarheit, Struktur und praktische nächste Schritte.', 'button': 'Mehr über mich →', 'labels': ['Freelancer', 'Unternehmer', 'Startup-Gründer', 'Kreative'], 'mini': ['Berater', 'Fachkräfte mit Fähigkeiten', 'Business Builder'], 'role': 'Klarheit · Struktur · Handlung'}">Mehr über mich →</a>
-</div>
-<div class="network-visual">
-<div class="network-line"></div>
-<div class="person-node one"><img alt="Freelancer" src="images/bouchra-freelancer.webp"/><span class="person-label">Freelancer</span></div>
-<div class="person-node two"><img alt="Unternehmer" src="images/bouchra-entrepreneur.webp"/><span class="person-label">Unternehmer</span></div>
-<div class="person-node three"><img alt="Startup-Gründer" src="images/bouchra-startup.webp"/><span class="person-label">Startup-Gründer</span></div>
-<div class="person-node four"><img alt="Kreative" src="images/bouchra-creative.webp"/><span class="person-label">Kreative</span></div>
-<div class="person-node main"><img alt="Bouchra Driouach" src="images/bouchra.jpg"/></div>
-<div class="mini-card a">Berater</div><div class="mini-card b">Fachkräfte mit Fähigkeiten</div><div class="mini-card c">Business Builder</div>
-<div class="status-dot d1"></div><div class="status-dot d2"></div><div class="status-dot d3"></div>
-<div class="role-label">Klarheit · Struktur · Handlung</div>
-</div>
-</div>
-</section>
-<section class="cta-section">
-<div class="cta-panel">
-<div class="kicker">Hier starten</div>
-<h2>Bereit, Ihre Idee in Handlung zu verwandeln?</h2>
-<p>Starten Sie mit einer kostenlosen ersten Session. Wir klären Ihren nächsten Schritt und wählen die passende Unterstützung.</p>
-<a class="btn btn-primary" href="de_booking.html">Kostenlose Session buchen →</a>
-<div class="cta-chips"><span>Kostenlose erste Session</span><span>Keine Verpflichtung</span><span>Klarer nächster Schritt</span></div>
-</div>
-</section>
-</main>
-<footer>
-<div class="footer-inner" id="global-footer"></div>
-</footer>
-<div id="cookie-consent"></div>
-<script src="js/components.js"></script>
-<script>
+
+      <div class="about-network-wrap">
+        <div class="about-network-copy">
+          <div class="kicker">Mit wem ich arbeite</div>
+          <h2>Ich arbeite mit Menschen, die bereit sind, das, was sie haben, in Einnahmen zu verwandeln.</h2>
+          <p>Freelancer, Unternehmer, Startup-Gründer, Kreative, Berater und Fachkräfte mit Fähigkeiten — alle in unterschiedlichen Phasen, aber mit demselben Bedarf: Klarheit, Struktur und praktische nächste Schritte.</p>
+          <a href="https://en-boarding.com/de_about.html" class="about-network-btn">Mehr über mich erfahren →</a>
+        </div>
+
+        <div class="network-visual">
+          <div class="network-line"></div>
+          <div class="person-node one"><img src="images/bouchra-freelancer.webp" alt="Freelancer"><span class="person-label">Freelancer</span></div>
+          <div class="person-node two"><img src="images/bouchra-entrepreneur.webp" alt="Unternehmer"><span class="person-label">Unternehmer</span></div>
+          <div class="person-node three"><img src="images/bouchra-startup.webp" alt="Startup-Gründer"><span class="person-label">Startup-Gründer</span></div>
+          <div class="person-node four"><img src="images/bouchra-creative.webp" alt="Kreative"><span class="person-label">Kreative</span></div>
+          <div class="person-node main"><img src="images/bouchra.jpg" alt="Bouchra Driouach"></div>
+          <div class="mini-card a">Berater</div><div class="mini-card b">Fachkräfte mit Fähigkeiten</div><div class="mini-card c">Business-Aufbauer</div>
+          <div class="status-dot d1"></div><div class="status-dot d2"></div><div class="status-dot d3"></div>
+          <div class="role-label">Klarheit · Structure · Action</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="cta-panel">
+        <div class="kicker">Hier starten</div>
+        <h2>Bereit, Ihre Idee in Handlung zu verwandeln?</h2>
+        <p>Starten Sie mit einer kostenlosen ersten Session. Wir klären Ihren nächsten Schritt und wählen die passende Unterstützung.</p>
+        <a href="https://en-boarding.com/de_booking.html" class="btn btn-primary">Kostenlose Session buchen →</a>
+        <div class="cta-chips"><span>Kostenlose erste Session</span><span>Ohne Verpflichtung</span><span>Klarer nächster Schritt</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner" id="global-footer"></div>
+  </footer>
+
+  <div id="cookie-consent"></div>
+
+  <script src="js/components.js"></script>
+  <script>
     window.addEventListener('scroll', function() {
       document.querySelector('.header')?.classList.toggle('scrolled', window.scrollY > 50);
     });
