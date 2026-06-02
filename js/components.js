@@ -19,7 +19,7 @@
     },
     analyticsId: 'G-G6E7B0ECTW',
     gtmId: 'GTM-5FDK4KN2',
-    cleanUrls: false
+    cleanUrls: true   // <-- CHANGED from false to true
   };
 
   const translations = {
@@ -206,7 +206,7 @@
     if (page === 'index') {
       links.push({
         hreflang: 'x-default',
-        href: `${CONFIG.siteUrl}/en_index.html`
+        href: `${CONFIG.siteUrl}/en_index`
       });
     }
 
@@ -214,8 +214,8 @@
   }
 
   const path = window.location.pathname;
-  let currentFile = path.substring(path.lastIndexOf('/') + 1) || 'en_index.html';
-  if (currentFile === '') currentFile = 'en_index.html';
+  let currentFile = path.substring(path.lastIndexOf('/') + 1) || 'en_index';
+  if (currentFile === '') currentFile = 'en_index';
 
   let currentLang = 'en';
   for (const lang of CONFIG.languages) {
@@ -307,7 +307,7 @@
       canonical.setAttribute('rel', 'canonical');
       document.head.appendChild(canonical);
     }
-    canonical.setAttribute('href', `${CONFIG.siteUrl}/${currentLang}_${baseFile}.html`);
+    canonical.setAttribute('href', `${CONFIG.siteUrl}/${currentLang}_${baseFile}${fileExt}`);
 
     document.querySelectorAll('link[rel="alternate"][hreflang]').forEach(el => el.remove());
 
@@ -350,7 +350,7 @@
       ogUrl.setAttribute('property', 'og:url');
       document.head.appendChild(ogUrl);
     }
-    ogUrl.setAttribute('content', `${CONFIG.siteUrl}/${currentLang}_${baseFile}.html`);
+    ogUrl.setAttribute('content', `${CONFIG.siteUrl}/${currentLang}_${baseFile}${fileExt}`);
   }
 
   function injectStructuredData() {
