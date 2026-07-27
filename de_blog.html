@@ -9,7 +9,6 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="css/global.css">
   <style>
-    /* Your original German blog CSS – same as en_blog but keep as is */
     .section {
       padding: 84px 0;
     }
@@ -242,6 +241,13 @@
           <h1>Blog</h1>
           <p>Ehrliche Analysen zum Unternehmertum in der Frühphase – mit Fokus auf Klarheit, Struktur und den nächsten Schritt, der wirklich zählt.</p>
         </div>
+
+        <!-- SUCHLEISTE -->
+        <div class="blog-search">
+          <input type="text" id="blogSearchInput" placeholder="Artikel suchen..." aria-label="Blog-Artikel durchsuchen">
+          <button id="blogSearchButton">Suchen</button>
+        </div>
+        <div id="searchResults"></div>
 
         <div class="post-list">
           <article class="post-card">
