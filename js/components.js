@@ -19,7 +19,7 @@
     },
     analyticsId: 'G-G6E7B0ECTW',
     gtmId: 'GTM-5FDK4KN2',
-    cleanUrls: true   // <-- CHANGED from false to true
+    cleanUrls: true
   };
 
   const translations = {
@@ -190,8 +190,8 @@
   };
 
   function buildPath(lang, page) {
-    const fileExt = CONFIG.cleanUrls ? '' : '.html';
-    return `${lang}_${page}${fileExt}`;
+    // Always use clean URLs (without .html)
+    return `${lang}_${page}`;
   }
 
   function createAlternateLinks(page) {
@@ -217,6 +217,9 @@
   let currentFile = path.substring(path.lastIndexOf('/') + 1) || 'en_index';
   if (currentFile === '') currentFile = 'en_index';
 
+  // Remove .html extension if present
+  currentFile = currentFile.replace('.html', '');
+
   let currentLang = 'en';
   for (const lang of CONFIG.languages) {
     if (currentFile.startsWith(lang.code + '_')) {
@@ -226,7 +229,6 @@
   }
 
   const baseFile = currentFile.replace(/^(en|fr|de|ar)_/, '').replace('.html', '');
-  const fileExt = CONFIG.cleanUrls ? '' : '.html';
 
   const langConfig = CONFIG.languages.find(l => l.code === currentLang);
   if (langConfig && langConfig.rtl) {
@@ -236,7 +238,7 @@
     document.documentElement.setAttribute('lang', currentLang);
   }
 
-  window.SITE = { currentLang, baseFile, fileExt, config: CONFIG, t: translations };
+  window.SITE = { currentLang, baseFile, config: CONFIG, t: translations };
 
   function injectGTM() {
     if (!CONFIG.gtmId) return;
@@ -301,14 +303,19 @@
     }
     robots.setAttribute('content', 'index, follow, max-image-preview:large');
 
+    // ===== CANONICAL TAG =====
+    // This tells Google that THIS URL is the master version
     let canonical = document.querySelector('link[rel="canonical"]');
     if (!canonical) {
       canonical = document.createElement('link');
       canonical.setAttribute('rel', 'canonical');
       document.head.appendChild(canonical);
     }
-    canonical.setAttribute('href', `${CONFIG.siteUrl}/${currentLang}_${baseFile}${fileExt}`);
+    // Always use clean URL (without .html)
+    canonical.setAttribute('href', `${CONFIG.siteUrl}/${currentLang}_${baseFile}`);
 
+    // ===== HREFLANG TAGS =====
+    // Remove old hreflang tags to avoid duplicates
     document.querySelectorAll('link[rel="alternate"][hreflang]').forEach(el => el.remove());
 
     const alternates = createAlternateLinks(baseFile);
@@ -320,6 +327,7 @@
       document.head.appendChild(link);
     });
 
+    // ===== OPEN GRAPH =====
     let ogTitle = document.querySelector('meta[property="og:title"]');
     if (!ogTitle) {
       ogTitle = document.createElement('meta');
@@ -350,7 +358,7 @@
       ogUrl.setAttribute('property', 'og:url');
       document.head.appendChild(ogUrl);
     }
-    ogUrl.setAttribute('content', `${CONFIG.siteUrl}/${currentLang}_${baseFile}${fileExt}`);
+    ogUrl.setAttribute('content', `${CONFIG.siteUrl}/${currentLang}_${baseFile}`);
   }
 
   function injectStructuredData() {
@@ -428,11 +436,11 @@
     const currentLangLabel = CONFIG.languages.find(l => l.code === currentLang)?.label || 'EN';
 
     let navItems = [
-      { key: 'home', href: `${lang}_index${fileExt}`, text: t.home },
-      { key: 'about', href: isHomepage ? '#about' : `${lang}_about${fileExt}`, text: t.about },
-      { key: 'freeTools', href: `${lang}_free-tools${fileExt}`, text: t.freeTools },
-      { key: 'services', href: isHomepage ? '#services' : `${lang}_services${fileExt}`, text: t.services },
-      { key: 'blog', href: `${lang}_blog${fileExt}`, text: t.blog }
+      { key: 'home', href: `${lang}_index`, text: t.home },
+      { key: 'about', href: isHomepage ? '#about' : `${lang}_about`, text: t.about },
+      { key: 'freeTools', href: `${lang}_free-tools`, text: t.freeTools },
+      { key: 'services', href: isHomepage ? '#services' : `${lang}_services`, text: t.services },
+      { key: 'blog', href: `${lang}_blog`, text: t.blog }
     ];
 
     const orderedNavItems = (currentLang === 'ar') ? [...navItems].reverse() : navItems;
@@ -443,7 +451,7 @@
 
     const navHtml = `
       <div class="logo-wrap">
-        <a href="${lang}_index${fileExt}" class="logo">EN-<span>BOARDING</span></a>
+        <a href="${lang}_index" class="logo">EN-<span>BOARDING</span></a>
       </div>
       <div class="nav-links">
         ${navLinksHtml}
@@ -455,7 +463,7 @@
             ${dropdownOptions}
           </div>
         </div>
-        <a href="${lang}_booking${fileExt}" class="btn btn-primary">${t.cta}</a>
+        <a href="${lang}_booking" class="btn btn-primary">${t.cta}</a>
       </div>
     `;
 
@@ -546,118 +554,4 @@
         <div class="footer-col">
           <h4>${t.company}</h4>
           <ul>
-            <li><a href="${lang}_about${fileExt}">${t.company_links.about}</a></li>
-            <li><a href="${lang}_services${fileExt}">${t.company_links.services}</a></li>
-            <li><a href="${lang}_blog${fileExt}">${t.company_links.blog}</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>${t.free_tools}</h4>
-          <ul>
-            <li><a href="${lang}_structural-gap${fileExt}">${t.free_tools_links.structural_gap}</a></li>
-            <li><a href="${lang}_archetype${fileExt}">${t.free_tools_links.archetypes}</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>${t.legal_title}</h4>
-          <ul>
-            <li><a href="${lang}_privacy${fileExt}">${t.legal_links.privacy}</a></li>
-            <li><a href="${lang}_terms${fileExt}">${t.legal_links.terms}</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-legal-line">
-        <a href="${lang}_privacy${fileExt}">${t.legal}</a>
-        <span class="separator">|</span>
-        <a href="${lang}_privacy${fileExt}">${t.cookies}</a>
-      </div>
-    `;
-
-    container.innerHTML = footerHtml;
-    container.classList.add('footer-new');
-  }
-
-  function createCookieConsent() {
-    if (localStorage.getItem('cookieConsent')) return;
-
-    const container = document.getElementById('cookie-consent');
-    if (!container) return;
-
-    const t = translations.cookie[currentLang] || translations.cookie.en;
-    const lang = currentLang;
-
-    container.style.cssText = 'position:fixed; bottom:0; left:0; right:0; background:#f7f7f8; padding:12px; text-align:center; font-size:0.85rem; border-top:1px solid #e9eaec; z-index:999;';
-
-    container.innerHTML = `
-      <span>${t.text}</span>
-      <a href="${lang}_privacy${fileExt}" style="margin:0 12px; color:var(--action);">${t.privacy}</a>
-      <button id="accept-cookies" style="background:#ff824d; color:white; border:none; padding:6px 16px; border-radius:999px; cursor:pointer;">${t.accept}</button>
-    `;
-
-    container.style.display = 'block';
-
-    document.getElementById('accept-cookies').addEventListener('click', function() {
-      localStorage.setItem('cookieConsent', 'true');
-      container.style.display = 'none';
-    });
-  }
-
-  function trackBookingClicks() {
-    const bookingButtons = document.querySelectorAll('a[href*="booking"]');
-    bookingButtons.forEach(button => {
-      button.addEventListener('click', function() {
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'book_free_session', {
-            event_category: 'engagement',
-            event_label: button.innerText.trim() || 'booking_cta',
-            page_location: window.location.href,
-            language: currentLang
-          });
-        }
-      });
-    });
-  }
-
-  function initHeaderScroll() {
-    if (window.SITE.baseFile !== 'index') return;
-
-    const header = document.querySelector('.header');
-    const heroSection = document.querySelector('.hero-full');
-
-    if (!header || !heroSection) return;
-
-    header.style.transition = 'background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease';
-
-    function checkScroll() {
-      const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
-      const scrollPosition = window.scrollY;
-
-      if (scrollPosition > heroBottom - 80) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    }
-
-    window.addEventListener('scroll', checkScroll);
-    window.addEventListener('resize', checkScroll);
-    checkScroll();
-  }
-
-  function init() {
-    injectGTM();
-    setMetaTags();
-    injectStructuredData();
-    createNavigation();
-    createFooter();
-    createCookieConsent();
-    trackBookingClicks();
-    initHeaderScroll();
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-})();
+            <li><a href="${lang}_about">${t.company_links
