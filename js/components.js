@@ -190,7 +190,6 @@
   };
 
   function buildPath(lang, page) {
-    // Always use clean URLs (without .html)
     return `${lang}_${page}`;
   }
 
@@ -217,7 +216,6 @@
   let currentFile = path.substring(path.lastIndexOf('/') + 1) || 'en_index';
   if (currentFile === '') currentFile = 'en_index';
 
-  // Remove .html extension if present
   currentFile = currentFile.replace('.html', '');
 
   let currentLang = 'en';
@@ -303,19 +301,14 @@
     }
     robots.setAttribute('content', 'index, follow, max-image-preview:large');
 
-    // ===== CANONICAL TAG =====
-    // This tells Google that THIS URL is the master version
     let canonical = document.querySelector('link[rel="canonical"]');
     if (!canonical) {
       canonical = document.createElement('link');
       canonical.setAttribute('rel', 'canonical');
       document.head.appendChild(canonical);
     }
-    // Always use clean URL (without .html)
     canonical.setAttribute('href', `${CONFIG.siteUrl}/${currentLang}_${baseFile}`);
 
-    // ===== HREFLANG TAGS =====
-    // Remove old hreflang tags to avoid duplicates
     document.querySelectorAll('link[rel="alternate"][hreflang]').forEach(el => el.remove());
 
     const alternates = createAlternateLinks(baseFile);
@@ -327,7 +320,6 @@
       document.head.appendChild(link);
     });
 
-    // ===== OPEN GRAPH =====
     let ogTitle = document.querySelector('meta[property="og:title"]');
     if (!ogTitle) {
       ogTitle = document.createElement('meta');
@@ -652,6 +644,91 @@
     checkScroll();
   }
 
+  // ===== BLOG SEARCH FUNCTION =====
+  function initBlogSearch() {
+    const searchInput = document.getElementById('blogSearchInput');
+    const searchButton = document.getElementById('blogSearchButton');
+    const resultsContainer = document.getElementById('searchResults');
+    
+    if (!searchInput) return;
+    
+    const blogPosts = {
+      en: [
+        { title: 'The Analysis Paralysis Tax', url: 'en_analysis-paralysis' },
+        { title: 'Why Solo Founders Burn Out', url: 'en_solo-founder-burnout' },
+        { title: 'The Monday Morning Test', url: 'en_monday-morning-test' },
+        { title: 'Idea vs. Business: The 5 Missing Links', url: 'en_idea-vs-business' }
+      ],
+      fr: [
+        { title: 'La taxe de la paralysie d\'analyse', url: 'fr_analysis-paralysis' },
+        { title: 'Pourquoi les fondateurs solo s\'épuisent', url: 'fr_solo-founder-burnout' },
+        { title: 'Le test du lundi matin', url: 'fr_monday-morning-test' },
+        { title: 'Idée vs. business : les 5 chaînons manquants', url: 'fr_idea-vs-business' }
+      ],
+      de: [
+        { title: 'Die Analyse-Paralyse-Steuer', url: 'de_analysis-paralysis' },
+        { title: 'Warum Solo-Gründer ausbrennen', url: 'de_solo-founder-burnout' },
+        { title: 'Der Montagmorgen-Test', url: 'de_monday-morning-test' },
+        { title: 'Idee vs. Business: Die 5 fehlenden Glieder', url: 'de_idea-vs-business' }
+      ],
+      ar: [
+        { title: 'ضريبة شلل التحليل', url: 'ar_analysis-paralysis' },
+        { title: 'لماذا يحترق المؤسسون المنفردون', url: 'ar_solo-founder-burnout' },
+        { title: 'اختبار صباح الاثنين', url: 'ar_monday-morning-test' },
+        { title: 'فكرة مقابل مشروع: الحلقات الخمس المفقودة', url: 'ar_idea-vs-business' }
+      ]
+    };
+    
+    const posts = blogPosts[currentLang] || blogPosts.en;
+    
+    function performSearch(query) {
+      if (!query || query.length < 2) {
+        resultsContainer.innerHTML = '';
+        return;
+      }
+      
+      const lowerQuery = query.toLowerCase();
+      const matches = posts.filter(post => 
+        post.title.toLowerCase().includes(lowerQuery)
+      );
+      
+      if (matches.length === 0) {
+        const noResultsText = currentLang === 'en' ? `No articles found for "${query}".` :
+                             currentLang === 'fr' ? `Aucun article trouvé pour "${query}".` :
+                             currentLang === 'de' ? `Keine Artikel gefunden für "${query}".` :
+                             `لم يتم العثور على مقالات لـ "${query}".`;
+        resultsContainer.innerHTML = `<p style="text-align:center;color:var(--muted);padding:16px;">${noResultsText}</p>`;
+        return;
+      }
+      
+      resultsContainer.innerHTML = matches.map(post => 
+        `<a href="${post.url}" class="search-result-item">${post.title}</a>`
+      ).join('');
+    }
+    
+    if (searchButton) {
+      searchButton.addEventListener('click', function() {
+        performSearch(searchInput.value);
+      });
+    }
+    
+    if (searchInput) {
+      searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          performSearch(this.value);
+        }
+      });
+      
+      let debounceTimer;
+      searchInput.addEventListener('input', function() {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {
+          performSearch(this.value);
+        }, 300);
+      });
+    }
+  }
+
   function init() {
     injectGTM();
     setMetaTags();
@@ -661,6 +738,7 @@
     createCookieConsent();
     trackBookingClicks();
     initHeaderScroll();
+    initBlogSearch();
   }
 
   if (document.readyState === 'loading') {
