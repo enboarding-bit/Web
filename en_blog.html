@@ -9,7 +9,6 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="css/global.css">
   <style>
-    /* Your original blog CSS – unchanged */
     .section {
       padding: 84px 0;
     }
@@ -242,6 +241,13 @@
           <h1>Blog</h1>
           <p>Honest takes on early-stage entrepreneurship, focused on clarity, structure, and the next move that actually matters.</p>
         </div>
+
+        <!-- SEARCH BAR -->
+        <div class="blog-search">
+          <input type="text" id="blogSearchInput" placeholder="Search articles..." aria-label="Search blog posts">
+          <button id="blogSearchButton">Search</button>
+        </div>
+        <div id="searchResults"></div>
 
         <div class="post-list">
           <article class="post-card">
