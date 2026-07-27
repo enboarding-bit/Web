@@ -554,4 +554,118 @@
         <div class="footer-col">
           <h4>${t.company}</h4>
           <ul>
-            <li><a href="${lang}_about">${t.company_links
+            <li><a href="${lang}_about">${t.company_links.about}</a></li>
+            <li><a href="${lang}_services">${t.company_links.services}</a></li>
+            <li><a href="${lang}_blog">${t.company_links.blog}</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>${t.free_tools}</h4>
+          <ul>
+            <li><a href="${lang}_structural-gap">${t.free_tools_links.structural_gap}</a></li>
+            <li><a href="${lang}_archetype">${t.free_tools_links.archetypes}</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>${t.legal_title}</h4>
+          <ul>
+            <li><a href="${lang}_privacy">${t.legal_links.privacy}</a></li>
+            <li><a href="${lang}_terms">${t.legal_links.terms}</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-legal-line">
+        <a href="${lang}_privacy">${t.legal}</a>
+        <span class="separator">|</span>
+        <a href="${lang}_privacy">${t.cookies}</a>
+      </div>
+    `;
+
+    container.innerHTML = footerHtml;
+    container.classList.add('footer-new');
+  }
+
+  function createCookieConsent() {
+    if (localStorage.getItem('cookieConsent')) return;
+
+    const container = document.getElementById('cookie-consent');
+    if (!container) return;
+
+    const t = translations.cookie[currentLang] || translations.cookie.en;
+    const lang = currentLang;
+
+    container.style.cssText = 'position:fixed; bottom:0; left:0; right:0; background:#f7f7f8; padding:12px; text-align:center; font-size:0.85rem; border-top:1px solid #e9eaec; z-index:999;';
+
+    container.innerHTML = `
+      <span>${t.text}</span>
+      <a href="${lang}_privacy" style="margin:0 12px; color:var(--action);">${t.privacy}</a>
+      <button id="accept-cookies" style="background:#ff824d; color:white; border:none; padding:6px 16px; border-radius:999px; cursor:pointer;">${t.accept}</button>
+    `;
+
+    container.style.display = 'block';
+
+    document.getElementById('accept-cookies').addEventListener('click', function() {
+      localStorage.setItem('cookieConsent', 'true');
+      container.style.display = 'none';
+    });
+  }
+
+  function trackBookingClicks() {
+    const bookingButtons = document.querySelectorAll('a[href*="booking"]');
+    bookingButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'book_free_session', {
+            event_category: 'engagement',
+            event_label: button.innerText.trim() || 'booking_cta',
+            page_location: window.location.href,
+            language: currentLang
+          });
+        }
+      });
+    });
+  }
+
+  function initHeaderScroll() {
+    if (window.SITE.baseFile !== 'index') return;
+
+    const header = document.querySelector('.header');
+    const heroSection = document.querySelector('.hero-full');
+
+    if (!header || !heroSection) return;
+
+    header.style.transition = 'background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease';
+
+    function checkScroll() {
+      const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+      const scrollPosition = window.scrollY;
+
+      if (scrollPosition > heroBottom - 80) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+
+    window.addEventListener('scroll', checkScroll);
+    window.addEventListener('resize', checkScroll);
+    checkScroll();
+  }
+
+  function init() {
+    injectGTM();
+    setMetaTags();
+    injectStructuredData();
+    createNavigation();
+    createFooter();
+    createCookieConsent();
+    trackBookingClicks();
+    initHeaderScroll();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
