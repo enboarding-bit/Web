@@ -19,7 +19,7 @@
     },
     analyticsId: 'G-G6E7B0ECTW',
     gtmId: 'GTM-5FDK4KN2',
-    cleanUrls: true
+    cleanUrls: true   // <-- CHANGED from false to true
   };
 
   const translations = {
@@ -190,7 +190,8 @@
   };
 
   function buildPath(lang, page) {
-    return `${lang}_${page}`;
+    const fileExt = CONFIG.cleanUrls ? '' : '.html';
+    return `${lang}_${page}${fileExt}`;
   }
 
   function createAlternateLinks(page) {
@@ -216,8 +217,6 @@
   let currentFile = path.substring(path.lastIndexOf('/') + 1) || 'en_index';
   if (currentFile === '') currentFile = 'en_index';
 
-  currentFile = currentFile.replace('.html', '');
-
   let currentLang = 'en';
   for (const lang of CONFIG.languages) {
     if (currentFile.startsWith(lang.code + '_')) {
@@ -227,6 +226,7 @@
   }
 
   const baseFile = currentFile.replace(/^(en|fr|de|ar)_/, '').replace('.html', '');
+  const fileExt = CONFIG.cleanUrls ? '' : '.html';
 
   const langConfig = CONFIG.languages.find(l => l.code === currentLang);
   if (langConfig && langConfig.rtl) {
@@ -236,7 +236,7 @@
     document.documentElement.setAttribute('lang', currentLang);
   }
 
-  window.SITE = { currentLang, baseFile, config: CONFIG, t: translations };
+  window.SITE = { currentLang, baseFile, fileExt, config: CONFIG, t: translations };
 
   function injectGTM() {
     if (!CONFIG.gtmId) return;
@@ -307,7 +307,7 @@
       canonical.setAttribute('rel', 'canonical');
       document.head.appendChild(canonical);
     }
-    canonical.setAttribute('href', `${CONFIG.siteUrl}/${currentLang}_${baseFile}`);
+    canonical.setAttribute('href', `${CONFIG.siteUrl}/${currentLang}_${baseFile}${fileExt}`);
 
     document.querySelectorAll('link[rel="alternate"][hreflang]').forEach(el => el.remove());
 
@@ -350,7 +350,7 @@
       ogUrl.setAttribute('property', 'og:url');
       document.head.appendChild(ogUrl);
     }
-    ogUrl.setAttribute('content', `${CONFIG.siteUrl}/${currentLang}_${baseFile}`);
+    ogUrl.setAttribute('content', `${CONFIG.siteUrl}/${currentLang}_${baseFile}${fileExt}`);
   }
 
   function injectStructuredData() {
@@ -428,11 +428,11 @@
     const currentLangLabel = CONFIG.languages.find(l => l.code === currentLang)?.label || 'EN';
 
     let navItems = [
-      { key: 'home', href: `${lang}_index`, text: t.home },
-      { key: 'about', href: isHomepage ? '#about' : `${lang}_about`, text: t.about },
-      { key: 'freeTools', href: `${lang}_free-tools`, text: t.freeTools },
-      { key: 'services', href: isHomepage ? '#services' : `${lang}_services`, text: t.services },
-      { key: 'blog', href: `${lang}_blog`, text: t.blog }
+      { key: 'home', href: `${lang}_index${fileExt}`, text: t.home },
+      { key: 'about', href: isHomepage ? '#about' : `${lang}_about${fileExt}`, text: t.about },
+      { key: 'freeTools', href: `${lang}_free-tools${fileExt}`, text: t.freeTools },
+      { key: 'services', href: isHomepage ? '#services' : `${lang}_services${fileExt}`, text: t.services },
+      { key: 'blog', href: `${lang}_blog${fileExt}`, text: t.blog }
     ];
 
     const orderedNavItems = (currentLang === 'ar') ? [...navItems].reverse() : navItems;
@@ -443,7 +443,7 @@
 
     const navHtml = `
       <div class="logo-wrap">
-        <a href="${lang}_index" class="logo">EN-<span>BOARDING</span></a>
+        <a href="${lang}_index${fileExt}" class="logo">EN-<span>BOARDING</span></a>
       </div>
       <div class="nav-links">
         ${navLinksHtml}
@@ -455,7 +455,7 @@
             ${dropdownOptions}
           </div>
         </div>
-        <a href="${lang}_booking" class="btn btn-primary">${t.cta}</a>
+        <a href="${lang}_booking${fileExt}" class="btn btn-primary">${t.cta}</a>
       </div>
     `;
 
@@ -546,30 +546,30 @@
         <div class="footer-col">
           <h4>${t.company}</h4>
           <ul>
-            <li><a href="${lang}_about">${t.company_links.about}</a></li>
-            <li><a href="${lang}_services">${t.company_links.services}</a></li>
-            <li><a href="${lang}_blog">${t.company_links.blog}</a></li>
+            <li><a href="${lang}_about${fileExt}">${t.company_links.about}</a></li>
+            <li><a href="${lang}_services${fileExt}">${t.company_links.services}</a></li>
+            <li><a href="${lang}_blog${fileExt}">${t.company_links.blog}</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>${t.free_tools}</h4>
           <ul>
-            <li><a href="${lang}_structural-gap">${t.free_tools_links.structural_gap}</a></li>
-            <li><a href="${lang}_archetype">${t.free_tools_links.archetypes}</a></li>
+            <li><a href="${lang}_structural-gap${fileExt}">${t.free_tools_links.structural_gap}</a></li>
+            <li><a href="${lang}_archetype${fileExt}">${t.free_tools_links.archetypes}</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>${t.legal_title}</h4>
           <ul>
-            <li><a href="${lang}_privacy">${t.legal_links.privacy}</a></li>
-            <li><a href="${lang}_terms">${t.legal_links.terms}</a></li>
+            <li><a href="${lang}_privacy${fileExt}">${t.legal_links.privacy}</a></li>
+            <li><a href="${lang}_terms${fileExt}">${t.legal_links.terms}</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-legal-line">
-        <a href="${lang}_privacy">${t.legal}</a>
+        <a href="${lang}_privacy${fileExt}">${t.legal}</a>
         <span class="separator">|</span>
-        <a href="${lang}_privacy">${t.cookies}</a>
+        <a href="${lang}_privacy${fileExt}">${t.cookies}</a>
       </div>
     `;
 
@@ -590,7 +590,7 @@
 
     container.innerHTML = `
       <span>${t.text}</span>
-      <a href="${lang}_privacy" style="margin:0 12px; color:var(--action);">${t.privacy}</a>
+      <a href="${lang}_privacy${fileExt}" style="margin:0 12px; color:var(--action);">${t.privacy}</a>
       <button id="accept-cookies" style="background:#ff824d; color:white; border:none; padding:6px 16px; border-radius:999px; cursor:pointer;">${t.accept}</button>
     `;
 
@@ -644,91 +644,6 @@
     checkScroll();
   }
 
-  // ===== BLOG SEARCH FUNCTION =====
-  function initBlogSearch() {
-    const searchInput = document.getElementById('blogSearchInput');
-    const searchButton = document.getElementById('blogSearchButton');
-    const resultsContainer = document.getElementById('searchResults');
-    
-    if (!searchInput) return;
-    
-    const blogPosts = {
-      en: [
-        { title: 'The Analysis Paralysis Tax', url: 'en_analysis-paralysis' },
-        { title: 'Why Solo Founders Burn Out', url: 'en_solo-founder-burnout' },
-        { title: 'The Monday Morning Test', url: 'en_monday-morning-test' },
-        { title: 'Idea vs. Business: The 5 Missing Links', url: 'en_idea-vs-business' }
-      ],
-      fr: [
-        { title: 'La taxe de la paralysie d\'analyse', url: 'fr_analysis-paralysis' },
-        { title: 'Pourquoi les fondateurs solo s\'épuisent', url: 'fr_solo-founder-burnout' },
-        { title: 'Le test du lundi matin', url: 'fr_monday-morning-test' },
-        { title: 'Idée vs. business : les 5 chaînons manquants', url: 'fr_idea-vs-business' }
-      ],
-      de: [
-        { title: 'Die Analyse-Paralyse-Steuer', url: 'de_analysis-paralysis' },
-        { title: 'Warum Solo-Gründer ausbrennen', url: 'de_solo-founder-burnout' },
-        { title: 'Der Montagmorgen-Test', url: 'de_monday-morning-test' },
-        { title: 'Idee vs. Business: Die 5 fehlenden Glieder', url: 'de_idea-vs-business' }
-      ],
-      ar: [
-        { title: 'ضريبة شلل التحليل', url: 'ar_analysis-paralysis' },
-        { title: 'لماذا يحترق المؤسسون المنفردون', url: 'ar_solo-founder-burnout' },
-        { title: 'اختبار صباح الاثنين', url: 'ar_monday-morning-test' },
-        { title: 'فكرة مقابل مشروع: الحلقات الخمس المفقودة', url: 'ar_idea-vs-business' }
-      ]
-    };
-    
-    const posts = blogPosts[currentLang] || blogPosts.en;
-    
-    function performSearch(query) {
-      if (!query || query.length < 2) {
-        resultsContainer.innerHTML = '';
-        return;
-      }
-      
-      const lowerQuery = query.toLowerCase();
-      const matches = posts.filter(post => 
-        post.title.toLowerCase().includes(lowerQuery)
-      );
-      
-      if (matches.length === 0) {
-        const noResultsText = currentLang === 'en' ? `No articles found for "${query}".` :
-                             currentLang === 'fr' ? `Aucun article trouvé pour "${query}".` :
-                             currentLang === 'de' ? `Keine Artikel gefunden für "${query}".` :
-                             `لم يتم العثور على مقالات لـ "${query}".`;
-        resultsContainer.innerHTML = `<p style="text-align:center;color:var(--muted);padding:16px;">${noResultsText}</p>`;
-        return;
-      }
-      
-      resultsContainer.innerHTML = matches.map(post => 
-        `<a href="${post.url}" class="search-result-item">${post.title}</a>`
-      ).join('');
-    }
-    
-    if (searchButton) {
-      searchButton.addEventListener('click', function() {
-        performSearch(searchInput.value);
-      });
-    }
-    
-    if (searchInput) {
-      searchInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-          performSearch(this.value);
-        }
-      });
-      
-      let debounceTimer;
-      searchInput.addEventListener('input', function() {
-        clearTimeout(debounceTimer);
-        debounceTimer = setTimeout(() => {
-          performSearch(this.value);
-        }, 300);
-      });
-    }
-  }
-
   function init() {
     injectGTM();
     setMetaTags();
@@ -738,7 +653,6 @@
     createCookieConsent();
     trackBookingClicks();
     initHeaderScroll();
-    initBlogSearch();
   }
 
   if (document.readyState === 'loading') {
